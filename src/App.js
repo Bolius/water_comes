@@ -1,11 +1,14 @@
 import React from 'react';
 import Header from './components/header.js'
+import AboutSite from './components/about.js'
+import AdressSelect from './components/address_select.js'
 
 function App() {
   return (
     <div>
       <Header/>
-      Hello world
+      <AboutSite/>
+      {/* <AdressSelect/> Benjamin does this */}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import "../styles/header.css"
 
-export default class Header extends React.Component {
+export default class AdressSelect extends React.Component {
   render() {
     return (
       <div className="header">
