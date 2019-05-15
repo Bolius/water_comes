@@ -1,21 +1,19 @@
 import React from 'react';
-import {Container, Row, Col} from 'reactstrap'
+import { Row, Col } from 'reactstrap'
 import '../styles/about.css'
 
 
 export default class About extends React.Component {
   render() {
     return (
-      <Container className="about">
+      <div className="about">
         <Row>
           <Col>
-          {/* <Col sm={{size: '10', offset: 1 }}> */}
             <h5>Det handler siden om</h5>
           </Col>
         </Row>
         <Row>
             <Col>
-{/* <Col sm={{size: '5', offset: 1 }}> */}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
             blandit augue et lacus tincidunt, et efficitur purus dictum. Vivamus
             pellentesque ex nec ligula rutrum eleifend. Proin sagittis nulla ut
@@ -24,7 +22,6 @@ export default class About extends React.Component {
             varius natoque penatibus et magnis dis parturient montes, nascetur
             ridiculus mus.
           </Col>
-          {/* <Col sm={{size: '5'}}> */}
           <Col>
             Integer id mollis ante. Curabitur ultricies nulla
             aliquet mauris bibendum, at aliquet metus tempor. Suspendisse
@@ -34,7 +31,7 @@ export default class About extends React.Component {
             viverra tempus.
           </Col>
         </Row>
-      </Container>
+      </div>
     );
   }
 }
