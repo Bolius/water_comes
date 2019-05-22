@@ -1,5 +1,8 @@
 import React from 'react';
+import {Row, Col} from 'reactstrap'
 import TabHeader from '../components/tab-header.js'
+import RiskDescriber from '../components/risk-describer.js'
+import ActionsTaken from '../components/actions-taken.js'
 
 export default class ActionHandler extends React.Component {
   constructor(props) {
@@ -18,7 +21,18 @@ export default class ActionHandler extends React.Component {
 
   render() {
     return (
+    <div>
       <TabHeader tab={this.state.tab} setTab={this.setTab}/>
+      <Row>
+        <Col>
+          <RiskDescriber/>
+        </Col>
+        <Col>
+          <ActionsTaken/>
+        </Col>
+      </Row>
+    </div>
+
     );
   }
 }

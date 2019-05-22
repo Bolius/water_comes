@@ -1,11 +1,11 @@
 import React from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap'
+import { Nav, NavItem, NavLink, TabContent, TabPane, Row, Col } from 'reactstrap'
 import '../styles/tab-header.css'
 
 export default class TabHeader extends React.Component {
   render() {
-    return (
-      <Nav tabs className="tab">
+    return (<div>
+      <Nav tabs className="tab" >
         <NavItem className="tab-header">
           <NavLink
             id={this.props.tab === 'skybrud' ? 'active-tab' : 'inactive-tab'}
@@ -23,6 +23,11 @@ export default class TabHeader extends React.Component {
           </NavLink>
         </NavItem>
       </Nav>
-    );
+      <div className="action-describer">
+        Nedenfor kan du få et indtrak af hvor sårbar din bolig er over for
+        skybrud eller stormflod. Du kan klikke på de enkelte forhold for at
+        blive klogere på hvordan de påvirker din risiko for oversvømmelse.
+      </div>
+    </div>);
   }
 }

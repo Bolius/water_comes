@@ -12,4 +12,10 @@
 
 #inactive-tab {
     background-color: #F5F6F6;
+    padding-bottom: 1px;
+}
+
+.action-describer{
+    padding-bottom: 20px;
+    background-image: linear-gradient(#DCF0F9, #FFFFFF);
 }
