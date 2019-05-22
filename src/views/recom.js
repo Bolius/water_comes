@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap'
+import { Container, Row } from 'reactstrap'
 import '../styles/recom.css'
 import Recommendation from '../components/recommendation.js'
 
