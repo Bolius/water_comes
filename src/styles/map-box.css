@@ -1,0 +1,19 @@
+.address-box{
+    background-color: #59B2DD;
+    color: white;
+    font-weight: 800;
+    padding: 0.5em 1em;
+}
+
+.map-row {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.btn-col {
+    text-align: right;
+}
+.btn-col button {
+    background-color: #0E6BA3;
+    text-transform: uppercase;
+}
