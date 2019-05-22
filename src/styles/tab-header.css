@@ -1,0 +1,15 @@
+.tab-header {
+    text-transform: uppercase;
+    font-weight: 600;
+    width: 50%;
+    text-align: center;
+}
+
+#active-tab{
+    background-color: #DAEFF9;
+    color: #4B8BB9;
+}
+
+#inactive-tab {
+    background-color: #F5F6F6;
+}
