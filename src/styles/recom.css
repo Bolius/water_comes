@@ -1,0 +1,35 @@
+.recom_header {
+    font-family: "roboto", sans-serif;
+    padding: 30px;
+}
+
+.recom {
+    background-color: #D8EFFA;
+    margin-bottom: 100px;
+    padding: 5px;
+}
+
+
+.header_title {
+    font-family: "Monospace";
+    font-size: 40px;
+}
+
+.crop {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin:auto;
+}
+
+.recom_box {
+  background-color: #FFFFFF;
+  width: 49%;
+  height: 200px;
+  padding: 10px;
+  margin:auto;
+}
+
+a {
+  float: right
+}
