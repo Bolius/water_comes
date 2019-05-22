@@ -1,0 +1,23 @@
+.tab-header {
+    text-transform: uppercase;
+    font-weight: 600;
+    width: 50%;
+    text-align: center;
+}
+
+#active-tab{
+    background-color: #DAEFF9;
+    color: #4B8BB9;
+}
+
+#inactive-tab {
+    background-color: #F5F6F6;
+    padding-bottom: 1px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.action-describer{
+    padding-bottom: 20px;
+    background-image: linear-gradient(#DCF0F9, #FFFFFF);
+}
