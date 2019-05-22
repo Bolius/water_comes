@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavItem, NavLink, TabContent, TabPane, Row, Col } from 'reactstrap'
+import { Nav, NavItem, NavLink } from 'reactstrap'
 import '../styles/tab-header.css'
 
 export default class TabHeader extends React.Component {
