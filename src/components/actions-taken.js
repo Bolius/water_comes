@@ -14,8 +14,8 @@ export default class ActionsTaken extends React.Component {
         oversvømmelse af din bolig. Samt få forslag til forebyggelse.
       </Row>
       <div>
-        {this.props.actions.map((action, _) => (
-          <Action task={action}/>
+        {this.props.actions.map((action, key) => (
+          <Action task={action} key={key}/>
         ))}
       </div>
       <Row>
