@@ -33,7 +33,7 @@ export default class AdressSelect extends React.Component {
         <form onSubmit={(e) => {e.preventDefault(); console.log(this.state)}}>
           <Row noGutters form>
             <Col sm={{size: '10'}}>
-              <div class="autocomplete-container">
+              <div className="autocomplete-container">
                 <Input
                   type="search"
                   value={this.state.address}
