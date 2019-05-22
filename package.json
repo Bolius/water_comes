@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-google-maps/api": "^1.2.3-alpha.11",
     "bootstrap": "^4.3.1",
+    "google-maps-react": "^2.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-geocode": "^0.1.2",
     "react-scripts": "3.0.1",
     "react-select": "^2.4.3",
     "reactstrap": "^8.0.0"
