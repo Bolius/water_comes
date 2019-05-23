@@ -1,14 +1,22 @@
 import React from 'react';
-import {Container, Row, Col, Button} from 'reactstrap'
+import styled from 'styled-components';
+import {Container, Row, Col} from 'reactstrap'
 import Action from './action.js'
-import '../styles/action-handler.css'
+import { Button } from '../styles/button-style.js'
+
+
+const ActionHeader = styled(Row)`
+  font-size: 1.4em;
+  font-weight: 500;
+  margin-bottom: 0.4em;
+`;
 
 export default class ActionsTaken extends React.Component {
   render() {
     return (<Container>
-      <Row className="action-header">
+      <ActionHeader>
         Hvad har du gjort for at forbygge oversvømmelse?
-      </Row>
+      </ActionHeader>
       <Row>
         Fortæl os nedenfor, hvilke tiltag du selv har gjort for at forebygge
         oversvømmelse af din bolig. Samt få forslag til forebyggelse.
@@ -20,7 +28,7 @@ export default class ActionsTaken extends React.Component {
       </div>
       <Row>
         <Col sm={{size:"6", offset:6}}>
-          <Button color="info" className="act-btn" block>
+          <Button block>
             Beregn Anbefalinger
           </Button>
         </Col>
