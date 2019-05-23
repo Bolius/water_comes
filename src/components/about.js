@@ -1,12 +1,11 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap'
-import '../styles/about.css'
 
 
 export default class About extends React.Component {
   render() {
     return (
-      <div className="about">
+      <div>
         <Row>
           <Col>
             <h5>Det handler siden om</h5>
