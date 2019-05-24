@@ -1,4 +1,26 @@
 {
+  "actions": [
+    {
+      "id": "A",
+      "action": "Højvandslukke"
+    },
+    {
+      "id": "B",
+      "action": "Faskine"
+    },
+    {
+      "id": "C",
+      "action": "Regnbed"
+    },
+    {
+      "id": "D",
+      "action": "Omfangsdræn"
+    },
+    {
+      "id": "E",
+      "action": "Fald på terræn"
+    }
+  ],
   "links": [
     {
       "id": 1,

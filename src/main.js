@@ -2,9 +2,6 @@ import React from 'react';
 import { Container } from 'reactstrap'
 import AboutSite from './components/about.js'
 import AdressSelect from './components/address-select.js'
-import MapBox from './components/map-box.js'
-import Recommendations from './views/recom.js'
-import ActionHandler from './views/action-handler.js'
 import ResultPage from './views/result-page.js'
 
 
@@ -28,7 +25,7 @@ export default class Main extends React.Component {
       {!this.state.address_selected ?
         <AdressSelect setAddress={this.setAddress}/>
       :
-        <ResultPage address={this.address}/>
+        <ResultPage address={this.address} />
       }
     </Container>
   );}

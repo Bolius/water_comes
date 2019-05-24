@@ -11,6 +11,8 @@ export default class Action extends Component {
 
   toggle() {
     this.setState(state => ({ collapse: !state.collapse }));
+    this.props.setKey(this.props.keyId)
+    console.log(this.props.keyId)
   }
 
   render() {
@@ -18,7 +20,7 @@ export default class Action extends Component {
       <Row className="task">
         <Col sm={{size: '1', offset: 1}}>
         <label>
-          <input type="checkbox"/>
+          <input type="checkbox" onClick={this.toggle}/>
           <span className="checkmark"></span>
         </label>
         </Col>
