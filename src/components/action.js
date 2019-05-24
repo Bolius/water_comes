@@ -12,7 +12,6 @@ export default class Action extends Component {
   toggle() {
     this.setState(state => ({ collapse: !state.collapse }));
     this.props.setKey(this.props.keyId)
-    console.log(this.props.keyId)
   }
 
   render() {
