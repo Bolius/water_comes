@@ -3,6 +3,7 @@ import {Row, Col} from 'reactstrap'
 import TabHeader from '../components/tab-header.js'
 import RiskDescriber from '../components/risk-describer.js'
 import ActionsTaken from '../components/actions-taken.js'
+import Articles from '../articles.json'
 
 export default class ActionHandler extends React.Component {
   constructor(props) {
@@ -34,12 +35,7 @@ export default class ActionHandler extends React.Component {
           " at have et hul i bunden af sit hus. "
       }
     ];
-    const actions = [
-      'Faskine',
-      'Højvandslukke',
-      'Lavninger i græsplænen',
-      'Flyt til nyt hus'
-    ];
+    const actions = Articles.actions
     return (
     <div>
       <TabHeader tab={this.state.tab} setTab={this.setTab}/>
@@ -53,7 +49,7 @@ export default class ActionHandler extends React.Component {
           />
         </Col>
         <Col>
-          <ActionsTaken actions={actions}/>
+          <ActionsTaken actions={actions} setActions={this.props.setActions}/>
         </Col>
       </Row>
     </div>

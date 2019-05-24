@@ -13,7 +13,7 @@ export default class Recommendation extends React.Component {
             </Col>
             <Col sm="8">
             <h4>{ this.props.title }</h4>
-            <p> { this.props.caption.slice(0,60) } ...</p>
+            <p> { this.props.caption.slice(0,60) }...</p>
             <a href={ this.props.link }>Læs mere her</a>
             </Col>
           </Row>
