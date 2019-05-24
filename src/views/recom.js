@@ -1,8 +1,15 @@
 import React from 'react';
-import { Container, Row, Button } from 'reactstrap'
+import { Container, Row, Button, Col } from 'reactstrap'
+import styled from 'styled-components';
+
 import '../styles/recom.css'
 import Recommendation from '../components/recommendation.js'
 import Articles from '../articles.json'
+
+const ArticleColumn = styled(Col)`
+  margin: 5px 0px;
+`;
+
 
 export default class Recommendations extends React.Component {
   constructor(props) {
@@ -37,46 +44,15 @@ export default class Recommendations extends React.Component {
             </div>
           </Row>
           <Row style={{ marginBottom: "10px" }}>
-            <Recommendation
-              img={articles[0].img}
-              title={articles[0].title}
-              caption={articles[0].caption}
-              link={articles[0].link}/>
-            <Recommendation
-              img={articles[1].img}
-              title={articles[1].title}
-              caption={articles[1].caption}
-              link={articles[1].link}
-            />
-          </Row>
-
-          <Row style={{ marginBottom: "10px" }}>
-            <Recommendation
-              img={articles[2].img}
-              title={articles[2].title}
-              caption={articles[2].caption}
-              link={articles[2].link}
-            />
-            <Recommendation
-              img={articles[3].img}
-              title={articles[3].title}
-              caption={articles[3].caption}
-              link={articles[3].link}
-            />
-          </Row>
-          <Row style={{ marginBottom: "10px" }}>
-            <Recommendation
-              img={articles[4].img}
-              title={articles[4].title}
-              caption={articles[4].caption}
-              link={articles[4].link}
-            />
-            <Recommendation
-              img={articles[5].img}
-              title={articles[5].title}
-              caption={articles[5].caption}
-              link={articles[5].link}
-            />
+            {articles.map((a, i) => (
+            <ArticleColumn key={i} sm={'12'} md={'6'}>
+              <Recommendation
+                img={a.img}
+                title={a.title}
+                caption={a.caption}
+                link={a.link}/>
+            </ArticleColumn>
+              ))}
           </Row>
           { !this.state.readMore
             ?
