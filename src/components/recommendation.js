@@ -1,12 +1,20 @@
 import React from 'react';
-import { Row, Col  } from 'reactstrap';
+import { Row, Col, Container as BContainer } from 'reactstrap';
+import styled from 'styled-components';
+
 import '../styles/recom.css'
+
+const Container = styled(BContainer)`
+  background-color: #FFFFFF;
+  margin:auto;
+  height: 100%;
+`;
 
 export default class Recommendation extends React.Component {
   render() {
     return (
-      <div className="recom_box">
-          <Row>
+      <Container>
+        <Row>
             <Col className="my-auto" sm="4">
               <img className="img-fluid rounded" src={ this.props.img } alt={ this.props.link }/>
             </Col>
@@ -15,8 +23,8 @@ export default class Recommendation extends React.Component {
             <Row>{ this.props.caption.slice(0,60) }...</Row>
             <Row><a href={ this.props.link }>Læs mere her</a></Row>
             </Col>
-          </Row>
-      </div>
+        </Row>
+      </Container>
     );
   }
 }
