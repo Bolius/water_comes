@@ -1,6 +1,14 @@
 import React from 'react';
-import { Button, Row, Col,  Container, Input } from 'reactstrap';
-import '../styles/adress_select.css'
+import styled from 'styled-components';
+import { Row, Col,  Container, Input } from 'reactstrap';
+import { Button } from './button'
+import '../styles/water_widget_dawa.css'
+
+const InputBox = styled(Container)`
+    background-color: #5AB3DD;
+    padding: 10px;
+    font-size: 20px
+`;
 
 export default class AdressSelect extends React.Component {
   constructor(props) {
@@ -29,7 +37,7 @@ export default class AdressSelect extends React.Component {
 
   render() {
     return (
-      <Container className="input-box">
+      <InputBox>
         <form onSubmit={(e) => {e.preventDefault(); console.log(this.state)}}>
           <Row noGutters form>
             <Col sm={{size: '10'}}>
@@ -44,11 +52,11 @@ export default class AdressSelect extends React.Component {
               </div>
             </Col>
             <Col sm={{size: '2'}}>
-              <Button color="info" block>Analyser</Button>
+              <Button>Analyser</Button>
             </Col>
           </Row>
         </form>
-      </Container>
+      </InputBox>
     );
   }
 }

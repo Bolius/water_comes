@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {Container, Row, Col} from 'reactstrap'
 import Action from './action.js'
-import { Button } from '../styles/button-style.js'
+import { Button } from './button.js'
 
 
 const ActionHeader = styled(Row)`
