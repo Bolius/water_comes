@@ -40,7 +40,7 @@ export default class MapBox extends React.Component {
             <h5>{ this.props.address } </h5>
           </Col>
           <Col sm={{ size: 3}} className="text-right">
-            <Button>Skift addresse</Button>
+            <Button onClick={this.props.reset}>Skift addresse</Button>
           </Col>
         </AddressBox>
         <MapRow>
