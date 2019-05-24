@@ -24,9 +24,7 @@ export default class TabHeader extends React.Component {
         </NavItem>
       </Nav>
       <div className="action-describer">
-        Nedenfor kan du få et indtrak af hvor sårbar din bolig er over for
-        skybrud eller stormflod. Du kan klikke på de enkelte forhold for at
-        blive klogere på hvordan de påvirker din risiko for oversvømmelse.
+        <p>Du kan klikke på de enkelte punkter for at blive klogere på, hvordan de påvirker risikoen for oversvømmelse.</p>
       </div>
     </div>);
   }

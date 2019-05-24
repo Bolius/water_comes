@@ -35,7 +35,10 @@ export default class MapBox extends React.Component {
             <img className="rounded img-fluid" src={mapUrl} alt="Kort over din bolig"/>
           </Col>
           <Col sm={{ size: '6' }}>
-          Tekst
+          <h5>Her er din risikovurdering</h5>
+          <p> Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved oversvømmelse efter
+          skybrud eller stormflod. Når du har oplyst, hvad du selv har gjort for at undgå oversvømmelse,
+          får du en række konkrete anbefalinger til, hvor du kan sætte mest effektivt ind.</p>
           </Col>
         </Row>
      </Container>

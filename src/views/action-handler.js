@@ -47,7 +47,7 @@ export default class ActionHandler extends React.Component {
         <Col>
           <RiskDescriber
             risk={4}
-            riskText={"Medium til høj estimeret risiko, siger dataen"}
+            riskText={"Skønnet risiko middel til høj"}
             type={this.state.tab}
             risks={risks}
           />
