@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Din bolig ligger i en lavning",
+    "level": "Høj",
+    "description": "Vandet vil oftest samle sig i lavninger. Derfor stiger risikoen for oversvømmelse, hvis dit hus ligger i en lavning."
+  },
+  {
+    "title": "Du har en kælder",
+    "level": "Middel",
+    "description": "Vand løber mod det laveste punkt, og derfor stiger risikoen for oversvømmelse markant, hvis du har en kælder. Hvis kælderen tilmed ligger lavt i forhold til afløbssystemet, stiger risikoen for problemer med opstigende kloakvand."
+  }
+]
