@@ -9,7 +9,7 @@ export default class Recommendations extends React.Component {
 
     var articles = this.props.basement ? Articles.links : Articles.links.filter((x) => { return x.has_basement !== false})
     articles = articles.filter((x) => { return !this.props.filter.includes(x.remove);});
-    articles = articles.slice(0, 4)
+    articles = articles.slice(0, 6)
 
     return (
       <div className="recom">
@@ -47,6 +47,20 @@ export default class Recommendations extends React.Component {
               title={articles[3].title}
               caption={articles[3].caption}
               link={articles[3].link}
+            />
+          </Row>
+          <Row style={{ marginBottom: "10px" }}>
+            <Recommendation
+              img={articles[4].img}
+              title={articles[4].title}
+              caption={articles[4].caption}
+              link={articles[4].link}
+            />
+            <Recommendation
+              img={articles[5].img}
+              title={articles[5].title}
+              caption={articles[5].caption}
+              link={articles[5].link}
             />
           </Row>
         </Container>
