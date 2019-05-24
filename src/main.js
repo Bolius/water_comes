@@ -9,7 +9,8 @@ export default class Main extends React.Component {
   constructor(props) {
     super(props);
     this.setAddress = this.setAddress.bind(this);
-    this.state = {address: "", address_selected: false};
+    this.resetAddress = this.resetAddress.bind(this);
+    this.state = {address: {}, address_selected: false};
   }
 
   setAddress(address) {
@@ -19,13 +20,17 @@ export default class Main extends React.Component {
     this.setState(state);
   }
 
+  resetAddress(){
+    this.setState({address: {}, address_selected: false})
+  }
+
   render() {return (
     <Container>
       <AboutSite/>
       {!this.state.address_selected ?
         <AdressSelect setAddress={this.setAddress}/>
       :
-        <ResultPage address={this.address} />
+        <ResultPage address={this.state.address} reset={this.resetAddress}/>
       }
     </Container>
   );}
