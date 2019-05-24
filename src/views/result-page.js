@@ -17,7 +17,7 @@ export default class ResultPage extends React.Component {
   render() {
     return (
       <div>
-      <MapBox address={ this.props.address } reset={this.props.reset} />
+      <MapBox address={ this.props.address.text } reset={this.props.reset} />
       <ActionHandler setActions={ this.setActions }/>
       {!this.state.showRes? <div/>: <Recommendations basement={false} filter={this.state.actions} />}
 

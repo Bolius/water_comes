@@ -2,7 +2,6 @@ import React from 'react';
 import {Container, Row, Col} from 'reactstrap'
 import Risk from './risk.js'
 import '../styles/risk-describer.css'
-import Risks from '../risks.json'
 
 export default class RiskDescriber extends React.Component {
   render() {
@@ -23,7 +22,7 @@ export default class RiskDescriber extends React.Component {
       </Row>
       <Row>
         {
-          Risks.map((r, k) => (
+          this.props.risks.map((r, k) => (
             <Risk key={k}
               title={r.title}
               level={r.level}
