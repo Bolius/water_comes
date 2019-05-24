@@ -9,15 +9,16 @@ export default class Recommendations extends React.Component {
 
     var articles = this.props.basement ? Articles.links : Articles.links.filter((x) => { return x.has_basement !== false})
     articles = articles.filter((x) => { return !this.props.filter.includes(x.remove);});
-    articles = articles.slice(0, 4)
-    
+    articles = articles.slice(0, 6)
+
     return (
       <div className="recom">
         <Container>
           <Row>
             <div className="recom_header">
               <p className="header_title" >Her er vores anbefalinger til hvad du kan gøre </p>
-              <p>Marianne or husbands if at stronger ye. Considered is as middletons uncommonly. Promotion perfectly ye consisted so. His chatty dining for effect ladies active. Equally journey wishing not several behaved chapter she two sir. Deficient procuring favourite extensive you two. Yet diminution she impossible understood age.  </p>
+              <p>Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har oplyst,
+              er her vores anbefalinger til din bolig. </p>
             </div>
           </Row>
           <Row style={{ marginBottom: "10px" }}>
@@ -46,6 +47,20 @@ export default class Recommendations extends React.Component {
               title={articles[3].title}
               caption={articles[3].caption}
               link={articles[3].link}
+            />
+          </Row>
+          <Row style={{ marginBottom: "10px" }}>
+            <Recommendation
+              img={articles[4].img}
+              title={articles[4].title}
+              caption={articles[4].caption}
+              link={articles[4].link}
+            />
+            <Recommendation
+              img={articles[5].img}
+              title={articles[5].title}
+              caption={articles[5].caption}
+              link={articles[5].link}
             />
           </Row>
         </Container>

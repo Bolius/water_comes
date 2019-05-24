@@ -2,9 +2,6 @@ import React from 'react';
 import { Container } from 'reactstrap'
 import AboutSite from './components/about.js'
 import AdressSelect from './components/address-select.js'
-import MapBox from './components/map-box.js'
-import Recommendations from './views/recom.js'
-import ActionHandler from './views/action-handler.js'
 import ResultPage from './views/result-page.js'
 
 

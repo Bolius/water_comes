@@ -9,7 +9,7 @@ export default class RiskDescriber extends React.Component {
     return (<Container>
       <Row>
         <Col className="risk-header">
-          Risikofaktorer ved {this.props.type}
+          Faktorer, der påvirker boligens risiko ved {this.props.type}
         </Col>
       </Row>
       <Row className="risk-summary">
@@ -21,13 +21,15 @@ export default class RiskDescriber extends React.Component {
         </Col>
       </Row>
       <Row>
-        {this.props.risks.map((r, k) => (
-          <Risk key={k}
-            title={r.title}
-            level={r.level}
-            description={r.description}
-          />
-        ))}
+        {
+          this.props.risks.map((r, k) => (
+            <Risk key={k}
+              title={r.title}
+              level={r.level}
+              description={r.description}
+            />
+        ))
+      }
       </Row>
     </Container>);
   }
