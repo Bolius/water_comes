@@ -17,22 +17,22 @@ export default class AdressSelect extends React.Component {
     this.state = {
       address: "",
       finalAddress: "",
+      dawa: require("dawa-autocomplete2")
     };
   }
 
   handleChange(event) {
     var target = event.target.value;
-    var dawaAutocomplete2 = require("dawa-autocomplete2");
     var inputElm = document.getElementById("dawa-autocomplete-input");
-    dawaAutocomplete2.dawaAutocomplete(inputElm, {
-      select: function(selected) {
-        console.log(selected)
-      }
-    });
-
     this.setState((prevState, props) => ({
       address: target
     }));
+    var updateRes = this.props.setAddress
+    this.state.dawa.dawaAutocomplete(inputElm, {
+      select: function(dawa_res) {
+        updateRes(dawa_res.tekst)
+      }
+    });
   }
 
   render() {
