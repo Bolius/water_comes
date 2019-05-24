@@ -23,7 +23,7 @@ function App() {
           <AdressSelect/>
           <MapBox address={"Jarmers Plads 1, 1551 København"} />
           <ActionHandler/>
-          <Recommendations/>
+          <Recommendations basement={false} filter={["A", "B"]} />
         </Container>
       </BaseStyle>
   );

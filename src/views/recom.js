@@ -2,10 +2,15 @@ import React from 'react';
 import { Container, Row } from 'reactstrap'
 import '../styles/recom.css'
 import Recommendation from '../components/recommendation.js'
-
+import Articles from '../articles.json'
 
 export default class Recommendations extends React.Component {
   render() {
+
+    var articles = this.props.basement ? Articles.links : Articles.links.filter((x) => { return x.has_basement !== false})
+    articles = articles.filter((x) => { return !this.props.filter.includes(x.remove);});
+    articles = articles.slice(0, 4)
+    
     return (
       <div className="recom">
         <Container>
@@ -17,30 +22,30 @@ export default class Recommendations extends React.Component {
           </Row>
           <Row style={{ marginBottom: "10px" }}>
             <Recommendation
-              img={"https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/b/d/csm_jesper_carl_planteglaede_13ea7e7eed.jpg"}
-              title={"Få en gratis frøpose og hjælp bierne"}
-              caption={"Antallet af insekter i den danske natur er drastisk faldende. "}
-              link={"https://www.bolius.dk/faa-en-gratis-froepose-og-hjaelp-bierne-88592/"}/>
+              img={articles[0].img}
+              title={articles[0].title}
+              caption={articles[0].caption}
+              link={articles[0].link}/>
             <Recommendation
-              img={"https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/8/8/csm_naturhave123_ver2_af8775992b.jpg"}
-              title={"20 tips til mere natur i haven"}
-              caption={"En mere naturlig og dyrevenlig have behøver ikke at være et rodet eller uoverskueligt projekt."}
-              link={"https://www.bolius.dk/20-tips-til-mere-natur-i-haven-43937/"}
+              img={articles[1].img}
+              title={articles[1].title}
+              caption={articles[1].caption}
+              link={articles[1].link}
             />
           </Row>
 
           <Row style={{ marginBottom: "10px" }}>
             <Recommendation
-              img={"https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/b/d/csm_jesper_carl_planteglaede_13ea7e7eed.jpg"}
-              title={"Få en gratis frøpose og hjælp bierne"}
-              caption={"Antallet af insekter i den danske natur er drastisk faldende. "}
-              link={"https://www.bolius.dk/faa-en-gratis-froepose-og-hjaelp-bierne-88592/"}
+              img={articles[2].img}
+              title={articles[2].title}
+              caption={articles[2].caption}
+              link={articles[2].link}
             />
             <Recommendation
-              img={"https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/8/8/csm_naturhave123_ver2_af8775992b.jpg"}
-              title={"20 tips til mere natur i haven"}
-              caption={"En mere naturlig og dyrevenlig have behøver ikke at være et rodet eller uoverskueligt projekt."}
-              link={"https://www.bolius.dk/20-tips-til-mere-natur-i-haven-43937/"}
+              img={articles[3].img}
+              title={articles[3].title}
+              caption={articles[3].caption}
+              link={articles[3].link}
             />
           </Row>
         </Container>
