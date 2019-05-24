@@ -1,102 +1,112 @@
-[
-  {
-    "id": 1,
-    "title": "Sådan beskytter du dit hus mod regn",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/6/e/csm_handtering-og-bortledning-af-regnvand_01_ce7223a2af.jpg",
-    "caption": "Taget er ikke boligens eneste beskyttelse mod regnvejr. Det er også vigtigt at se på tagrender og nedløb samt sikre, at vandet ikke kan komme ind gennem revner i mur og vinduesrammer. Endelig skal du også af med vandet - eller måske genanvende det.",
-    "link": "https://www.bolius.dk/saadan-beskytter-du-dit-hus-mod-regn-14988/",
-    "basement": false,
-  },
-  {
-    "id": 2,
-    "title": "Sådan undgår du en oversvømmet græsplæne",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/c/f/csm_oversvoemmet_graesplane_23d384bfc0.jpg",
-    "caption": "Med klimasikring gennem planter, bede og belægninger kan du nedsætte risikoen for en oversvømmet græsplæne. Læs mere om, hvad du kan gøre.",
-    "link": "https://www.bolius.dk/saadan-undgaar-du-en-oversvoemmet-graesplaene-46740/",
-    "basement": false
-  },
-  {
-    "id": 3,
-    "title": "Sådan forebygger du vandskade i kælderen",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/9/7/csm_20150512-151316-4-1000x634web-omfangsdrn_31852e2dd1.jpg",
-    "caption": "Der er meget, du kan gøre, for at forebygge en vandskade i din bolig. Det handler især om at vedligeholde kloakken, så den kan klare regn og sne, og du kan holde vandet ude af din kælder.",
-    "link": "https://www.bolius.dk/saadan-forebygger-du-vandskade-i-kaelderen-17887/",
-    "basement": true
-  },
-  {
-    "id": 4,
-    "title": "Højvandslukke",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/e/7/csm_hojvandslukke_a1de62e308.jpg",
-    "caption": "Et højvandslukke kan forhindre kloakvand i at løbe baglæns i kloakken og op igennem dit kælderafløb, når det regner kraftigt. Det skal efterses og rengøres én gang om året.",
-    "link": "https://www.bolius.dk/hoejvandslukke-18878/",
-    "basement": true
-  },
-  {
-    "id": 5,
-    "title": "Tjek husets tagrender",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/9/e/csm_tjek-husets-tagrender_02_4cfca9561d.jpg",
-    "caption": "En utæt eller tilstoppet tagrende giver stor risiko for fugtskader på facade og udhæng. Læs her, hvordan du tjekker dine tagrender og sikrer dig mod problemer.",
-    "link": "https://www.bolius.dk/tjek-husets-tagrender-18018/",
-    "basement": true
-  },
-  {
-    "id": 6,
-    "title": "Bliv klogere på hvad en faskine er",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/9/f/csm_20120906-231133-6-1000x635web-20120906-231133-6_62cfd0f4a0.jpg",
-    "caption": "En faskine opsamler regnvand og leder det direkte ned i jorden. Dermed aflastes kloaksystemet ved kraftig regn, og du sparer evt. udgiften til at koble afløbet til kloakken.",
-    "link": "https://www.bolius.dk/bliv-klogere-paa-hvad-en-faskine-er-19268/",
-    "basement": false,
-    "remove": "B"
-  },
-  {
-    "id": 7,
-    "title": "Sådan anlægger du et regnbed i haven",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/1/3/csm_Regnbed_Teaser_43106a665d.jpg",
-    "caption": "Med et regnbed i haven kan du lade regnvand sive ned i jorden, så du mindsker risikoen for oversvømmelse. Læs, hvordan du trin for trin anlægger et regnbed i haven.",
-    "link": "https://www.bolius.dk/saadan-anlaegger-du-et-regnbed-i-haven-20933/",
-    "basement": false,
-    "remove": "C"
-  },
-  {
-    "id": 8,
-    "title": "Hold huset tørt med et omfangsdræn",
-    "img":,"https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/8/7/csm_Omfangsdran_01_a7c5d0b3d2.jpg"
-    "caption": "Et omfangsdræn er være en god løsning på fugt i fx soklen, fundamentet og kældervægge. Det er dog en bekostelig affære og kræver de rette jordforhold.",
-    "link": "https://www.bolius.dk/hold-huset-toert-med-et-omfangsdraen-18880/",
-    "basement": false,
-    "remove": "D"
-  },
-  {
-    "id": 9,
-    "title": "Fald på terræn tæt på huset",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/2/1/csm_20150915-095233-4-2000x1268web-20150915-095233-4_14b5493128.jpg",
-    "caption": "Undgå alvorlige fugtskader på huset ved at sørge for, at terrænet tæt ved huset har et fald, så regnvandet kan løbe væk fra husets sokkel. Få tips til et fugtfrit hjem her.",
-    "link": "https://www.bolius.dk/fald-paa-terraen-taet-paa-huset-19266/",
-    "basement": false,
-    "remove": "E"
-  },
-  {
-    "id": 10,
-    "title": "Undgå vand i sokkelriste",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/9/b/csm_sokkelrist_01_c1d9876114.jpg",
-    "caption": "Regnvand kan løbe ind i din krybekælder, hvis sokkelristene i dit hus er placeret for lavt. Det kan give fugtskader og skimmelsvamp i krybekælderen, i gulvkonstruktionen og i fundamentet.",
-    "link": "https://www.bolius.dk/undgaa-vand-i-sokkelriste-16753/",
-    "basement": false
-  },
-  {
-    "id": 11,
-    "title": "Fliser og belægninger som nedsætter risikoen for oversvømmelse",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/e/6/csm_003-belaegning_2658b21c24.jpg",
-    "caption": "Du kan nedsætte risikoen for oversvømmelse af din kælder ved at vælge flisebelægninger, som lader vandet sive igennem, eller leder vandet fra fliser til græsplæne, en faskine el. lign. På den måde undgår du overbelastning af kloakken.",
-    "link": "https://www.bolius.dk/fliser-og-belaegninger-som-nedsaetter-risikoen-for-oversvoemmelse-19743/",
-    "basement": false
-  },
-  {
-    "id": 12,
-    "title": "8 gode råd før skybrud",
-    "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/f/4/csm_8-gode-raad-foer-skybrud_effb098b48.jpg",
-    "caption": "Skybrud kan ødelægge både bygningsdele og indbo. Men der er flere ting, du kan gøre for at forhindre eller begrænse skader. Læs 8 råd til, hvordan du kan forhindre vandet i at lave skader i din bolig under et skybrud.",
-    "link": "https://www.bolius.dk/8-gode-raad-foer-skybrud-7948/",
-    "basement": false
-  }
-]
+{
+  "links": [
+    {
+      "id": 1,
+      "title": "Sådan beskytter du dit hus mod regn",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/6/e/csm_handtering-og-bortledning-af-regnvand_01_ce7223a2af.jpg",
+      "caption": "Taget er ikke boligens eneste beskyttelse mod regnvejr. Det er også vigtigt at se på tagrender og nedløb samt sikre, at vandet ikke kan komme ind gennem revner i mur og vinduesrammer. Endelig skal du også af med vandet - eller måske genanvende det.",
+      "link": "https://www.bolius.dk/saadan-beskytter-du-dit-hus-mod-regn-14988/",
+      "has_basement": true,
+      "remove": ""
+    },
+    {
+      "id": 2,
+      "title": "Sådan undgår du en oversvømmet græsplæne",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/c/f/csm_oversvoemmet_graesplane_23d384bfc0.jpg",
+      "caption": "Med klimasikring gennem planter, bede og belægninger kan du nedsætte risikoen for en oversvømmet græsplæne. Læs mere om, hvad du kan gøre.",
+      "link": "https://www.bolius.dk/saadan-undgaar-du-en-oversvoemmet-graesplaene-46740/",
+      "has_basement": true,
+      "remove": ""
+    },
+    {
+      "id": 3,
+      "title": "Sådan forebygger du vandskade i kælderen",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/9/7/csm_20150512-151316-4-1000x634web-omfangsdrn_31852e2dd1.jpg",
+      "caption": "Der er meget, du kan gøre, for at forebygge en vandskade i din bolig. Det handler især om at vedligeholde kloakken, så den kan klare regn og sne, og du kan holde vandet ude af din kælder.",
+      "link": "https://www.bolius.dk/saadan-forebygger-du-vandskade-i-kaelderen-17887/",
+      "has_basement": false,
+      "remove": ""
+    },
+    {
+      "id": 4,
+      "title": "Højvandslukke",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/e/7/csm_hojvandslukke_a1de62e308.jpg",
+      "caption": "Et højvandslukke kan forhindre kloakvand i at løbe baglæns i kloakken og op igennem dit kælderafløb, når det regner kraftigt. Det skal efterses og rengøres én gang om året.",
+      "link": "https://www.bolius.dk/hoejvandslukke-18878/",
+      "has_basement": false,
+      "remove": "A"
+    },
+    {
+      "id": 5,
+      "title": "Tjek husets tagrender",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/9/e/csm_tjek-husets-tagrender_02_4cfca9561d.jpg",
+      "caption": "En utæt eller tilstoppet tagrende giver stor risiko for fugtskader på facade og udhæng. Læs her, hvordan du tjekker dine tagrender og sikrer dig mod problemer.",
+      "link": "https://www.bolius.dk/tjek-husets-tagrender-18018/",
+      "has_basement": true,
+      "remove": ""
+    },
+    {
+      "id": 6,
+      "title": "Bliv klogere på hvad en faskine er",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/9/f/csm_20120906-231133-6-1000x635web-20120906-231133-6_62cfd0f4a0.jpg",
+      "caption": "En faskine opsamler regnvand og leder det direkte ned i jorden. Dermed aflastes kloaksystemet ved kraftig regn, og du sparer evt. udgiften til at koble afløbet til kloakken.",
+      "link": "https://www.bolius.dk/bliv-klogere-paa-hvad-en-faskine-er-19268/",
+      "has_basement": true,
+      "remove": "B"
+    },
+    {
+      "id": 7,
+      "title": "Sådan anlægger du et regnbed i haven",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/1/3/csm_Regnbed_Teaser_43106a665d.jpg",
+      "caption": "Med et regnbed i haven kan du lade regnvand sive ned i jorden, så du mindsker risikoen for oversvømmelse. Læs, hvordan du trin for trin anlægger et regnbed i haven.",
+      "link": "https://www.bolius.dk/saadan-anlaegger-du-et-regnbed-i-haven-20933/",
+      "has_basement": true,
+      "remove": "C"
+    },
+    {
+      "id": 8,
+      "title": "Hold huset tørt med et omfangsdræn",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/8/7/csm_Omfangsdran_01_a7c5d0b3d2.jpg",
+      "caption": "Et omfangsdræn er være en god løsning på fugt i fx soklen, fundamentet og kældervægge. Det er dog en bekostelig affære og kræver de rette jordforhold.",
+      "link": "https://www.bolius.dk/hold-huset-toert-med-et-omfangsdraen-18880/",
+      "has_basement": true,
+      "remove": "D"
+    },
+    {
+      "id": 9,
+      "title": "Fald på terræn tæt på huset",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/2/1/csm_20150915-095233-4-2000x1268web-20150915-095233-4_14b5493128.jpg",
+      "caption": "Undgå alvorlige fugtskader på huset ved at sørge for, at terrænet tæt ved huset har et fald, så regnvandet kan løbe væk fra husets sokkel. Få tips til et fugtfrit hjem her.",
+      "link": "https://www.bolius.dk/fald-paa-terraen-taet-paa-huset-19266/",
+      "has_basement": true,
+      "remove": "E"
+    },
+    {
+      "id": 10,
+      "title": "Undgå vand i sokkelriste",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/9/b/csm_sokkelrist_01_c1d9876114.jpg",
+      "caption": "Regnvand kan løbe ind i din krybekælder, hvis sokkelristene i dit hus er placeret for lavt. Det kan give fugtskader og skimmelsvamp i krybekælderen, i gulvkonstruktionen og i fundamentet.",
+      "link": "https://www.bolius.dk/undgaa-vand-i-sokkelriste-16753/",
+      "has_basement": true,
+      "remove": ""
+    },
+    {
+      "id": 11,
+      "title": "Fliser og belægninger som nedsætter risikoen for oversvømmelse",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/e/6/csm_003-belaegning_2658b21c24.jpg",
+      "caption": "Du kan nedsætte risikoen for oversvømmelse af din kælder ved at vælge flisebelægninger, som lader vandet sive igennem, eller leder vandet fra fliser til græsplæne, en faskine el. lign. På den måde undgår du overbelastning af kloakken.",
+      "link": "https://www.bolius.dk/fliser-og-belaegninger-som-nedsaetter-risikoen-for-oversvoemmelse-19743/",
+      "has_basement": true,
+      "remove": ""
+    },
+    {
+      "id": 12,
+      "title": "8 gode råd før skybrud",
+      "img": "https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/f/4/csm_8-gode-raad-foer-skybrud_effb098b48.jpg",
+      "caption": "Skybrud kan ødelægge både bygningsdele og indbo. Men der er flere ting, du kan gøre for at forhindre eller begrænse skader. Læs 8 råd til, hvordan du kan forhindre vandet i at lave skader i din bolig under et skybrud.",
+      "link": "https://www.bolius.dk/8-gode-raad-foer-skybrud-7948/",
+      "has_basement": true,
+      "remove": ""
+    }
+  ]
+}
