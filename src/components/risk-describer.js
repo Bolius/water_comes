@@ -14,7 +14,7 @@ export default class RiskDescriber extends React.Component {
       </Row>
       <Row className="risk-summary">
         <Col sm={{size: '3'}}>
-          <img className="rounded-circle" src={riskImage} alt="Risiko måler"/>
+          <img src={riskImage} alt="Risiko måler"/>
         </Col>
         <Col sm={{size: '9'}}>
           {this.props.riskText}

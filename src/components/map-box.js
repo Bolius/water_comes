@@ -1,6 +1,19 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'reactstrap'
-import "../styles/map-box.css"
+import { Container, Row, Col} from 'reactstrap'
+import { Button } from './button.js'
+import styled from 'styled-components';
+
+const AddressBox = styled(Row)`
+  background-color: #59B2DD;
+  color: white;
+  font-weight: 800;
+  padding: 0.5em 1em;
+`
+
+const MapRow = styled(Row)`
+  margin-top: 2em;
+  margin-bottom: 2em;
+`
 
 export default class MapBox extends React.Component {
   render(){
@@ -22,22 +35,22 @@ export default class MapBox extends React.Component {
     mapUrl = mapUrl.substring(0, mapUrl.length - 1)
     return(
       <Container>
-        <Row className="address-box">
+        <AddressBox>
           <Col sm={{ size: 9}} >
             <h5>{ this.props.address } </h5>
           </Col>
-          <Col sm={{ size: 3}} className="btn-col">
-            <Button color="info" size="sm">Skift addresse</Button>
+          <Col sm={{ size: 3}} className="text-right">
+            <Button>Skift addresse</Button>
           </Col>
-        </Row>
-        <Row className="map-row">
-          <Col sm={{ size: '6' }} className="map-col">
-            <img className="rounded img-fluid" src={mapUrl} alt="Kort over din bolig"/>
+        </AddressBox>
+        <MapRow>
+          <Col sm={{ size: '6' }} className="text-right">
+            <img className="rounded img-fluid" src={mapUrl} alt="Bolig Kort"/>
           </Col>
           <Col sm={{ size: '6' }}>
           Tekst
           </Col>
-        </Row>
+        </MapRow>
      </Container>
     )
   }
