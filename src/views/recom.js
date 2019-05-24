@@ -10,14 +10,15 @@ export default class Recommendations extends React.Component {
     var articles = this.props.basement ? Articles.links : Articles.links.filter((x) => { return x.has_basement !== false})
     articles = articles.filter((x) => { return !this.props.filter.includes(x.remove);});
     articles = articles.slice(0, 4)
-    
+
     return (
       <div className="recom">
         <Container>
           <Row>
             <div className="recom_header">
               <p className="header_title" >Her er vores anbefalinger til hvad du kan gøre </p>
-              <p>Marianne or husbands if at stronger ye. Considered is as middletons uncommonly. Promotion perfectly ye consisted so. His chatty dining for effect ladies active. Equally journey wishing not several behaved chapter she two sir. Deficient procuring favourite extensive you two. Yet diminution she impossible understood age.  </p>
+              <p>Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har oplyst,
+              er her vores anbefalinger til din bolig. </p>
             </div>
           </Row>
           <Row style={{ marginBottom: "10px" }}>

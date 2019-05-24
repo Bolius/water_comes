@@ -9,7 +9,7 @@ export default class RiskDescriber extends React.Component {
     return (<Container>
       <Row>
         <Col className="risk-header">
-          Risikofaktorer ved {this.props.type}
+          Faktorer, der påvirker boligens risiko ved {this.props.type}
         </Col>
       </Row>
       <Row className="risk-summary">

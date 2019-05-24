@@ -18,8 +18,9 @@ export default class ActionsTaken extends React.Component {
         Hvad har du gjort for at forbygge oversvømmelse?
       </ActionHeader>
       <Row>
-        Fortæl os nedenfor, hvilke tiltag du selv har gjort for at forebygge
-        oversvømmelse af din bolig. Samt få forslag til forebyggelse.
+        Fortæl os, hvad du selv har gjort for at forebygge oversvømmelse.
+        Sæt hak ud for de ting, du har fået lavet. Har du intet gjort,
+        kan du blot trykke ’Vis anbefalinger’
       </Row>
       <div>
         {this.props.actions.map((action, key) => (
