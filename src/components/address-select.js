@@ -28,9 +28,30 @@ export default class AdressSelect extends React.Component {
       address: target
     }));
     var updateRes = this.props.setAddress
-    this.state.dawa.dawaAutocomplete(inputElm, {
-      select: function(dawa_res) {
-        updateRes(dawa_res.tekst)
+    this.state.dawa.dawaAutocomplete(inputElm, { select: function(dawa_res) {
+      async function url_to_json(url) {
+        const response = await fetch(url);
+        let json = await response.json();
+
+        const bbr_info = await fetch(
+          "https://ml.bolius.dk/bbr/"+ encodeURI(json.adressebetegnelse)
+        )
+        let bbr_json = await bbr_info.json()
+        json['has_basement'] = bbr_json.basement_area > 0
+        json['bbr'] = bbr_json
+        return json
+      }
+
+      url_to_json(dawa_res.data.href).then(data => {
+        console.log(data);
+        let res = {
+          'text' : data.adressebetegnelse,
+          'has_basement' : data.has_basement,
+          'bolig': data.adgangsadresse.bebyggelser[0],
+          'bbr': data['bbr']
+        }
+        updateRes(res)
+      })
       }
     });
   }
@@ -38,7 +59,7 @@ export default class AdressSelect extends React.Component {
   render() {
     return (
       <InputBox>
-        <form onSubmit={(e) => {e.preventDefault(); console.log(this.state)}}>
+        <form onSubmit={(e) => {e.preventDefault();}}>
           <Row noGutters form>
             <Col sm={{size: '10'}}>
               <div className="autocomplete-container">

@@ -4,6 +4,7 @@ import TabHeader from '../components/tab-header.js'
 import RiskDescriber from '../components/risk-describer.js'
 import ActionsTaken from '../components/actions-taken.js'
 import Articles from '../articles.json'
+import Risks from '../risks.json'
 
 export default class ActionHandler extends React.Component {
   constructor(props) {
@@ -21,20 +22,6 @@ export default class ActionHandler extends React.Component {
   }
 
   render() {
-    const risks = [
-      {
-        'title': "Din bolig ligger i en lavning",
-        'level': "Høj",
-        'description': "En lavning er et hul, så egentligt lægger dit hus i et"+
-          " hul og det er ret skidt hvis det regner og du ikke vil have vand"
-      },
-      {
-        'title': "Kælderen trækker risikoen op",
-        'level': "Middel",
-        'description': "Kældren er noget der er farligt fordi det lidt er som "+
-          " at have et hul i bunden af sit hus. "
-      }
-    ];
     const actions = Articles.actions
     return (
     <div>
@@ -45,7 +32,7 @@ export default class ActionHandler extends React.Component {
             risk={4}
             riskText={"Skønnet risiko middel til høj"}
             type={this.state.tab}
-            risks={risks}
+            risks={Risks}
           />
         </Col>
         <Col>
