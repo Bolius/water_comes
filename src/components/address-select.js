@@ -61,7 +61,7 @@ export default class AdressSelect extends React.Component {
       <InputBox>
         <form onSubmit={(e) => {e.preventDefault();}}>
           <Row noGutters form>
-            <Col sm={{size: '10'}}>
+            <Col md={{size: '10'}} sm={'12'}>
               <div className="autocomplete-container">
                 <Input
                   type="search"
@@ -72,7 +72,7 @@ export default class AdressSelect extends React.Component {
                 />
               </div>
             </Col>
-            <Col sm={{size: '2'}}>
+            <Col md={{size: '2'}} sm={'12'}>
               <Button>Analyser</Button>
             </Col>
           </Row>

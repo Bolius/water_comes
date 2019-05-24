@@ -24,7 +24,7 @@ export default class MapBox extends React.Component {
       'maptype': "hybrid",
       'markers': `color:0x58B1DD|location:${this.props.address}`,
       'key': process.env.REACT_APP_GOOGLE_MAPS_KEY,
-      'scale': 2,
+      'scale': 1,
       'language': 'danish',
       'region': 'dk'
     }
