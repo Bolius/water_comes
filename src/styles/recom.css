@@ -15,17 +15,10 @@
     font-size: 40px;
 }
 
-.crop {
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    margin:auto;
-}
-
 .recom_box {
   background-color: #FFFFFF;
   width: 49%;
-  height: 200px;
+  height: 220px;
   padding: 10px;
   margin:auto;
 }

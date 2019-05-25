@@ -2,6 +2,7 @@ import React from 'react';
 import {Container, Row, Col} from 'reactstrap'
 import Risk from './risk.js'
 import '../styles/risk-describer.css'
+import Risks from '../risks.json'
 
 export default class RiskDescriber extends React.Component {
   render() {
@@ -14,7 +15,7 @@ export default class RiskDescriber extends React.Component {
       </Row>
       <Row className="risk-summary">
         <Col sm={{size: '3'}}>
-          <img src={riskImage} alt="Risiko måler"/>
+          <img src={riskImage} className="img-fluid" alt="Risiko måler"/>
         </Col>
         <Col sm={{size: '9'}}>
           {this.props.riskText}
@@ -22,7 +23,7 @@ export default class RiskDescriber extends React.Component {
       </Row>
       <Row>
         {
-          this.props.risks.map((r, k) => (
+          Risks.map((r, k) => (
             <Risk key={k}
               title={r.title}
               level={r.level}

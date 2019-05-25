@@ -24,7 +24,7 @@ export default class MapBox extends React.Component {
       'maptype': "hybrid",
       'markers': `color:0x58B1DD|location:${this.props.address}`,
       'key': process.env.REACT_APP_GOOGLE_MAPS_KEY,
-      'scale': 2,
+      'scale': 1,
       'language': 'danish',
       'region': 'dk'
     }
@@ -40,7 +40,7 @@ export default class MapBox extends React.Component {
             <h5>{ this.props.address } </h5>
           </Col>
           <Col sm={{ size: 3}} className="text-right">
-            <Button>Skift addresse</Button>
+            <Button onClick={this.props.reset}>Skift addresse</Button>
           </Col>
         </AddressBox>
         <MapRow>
