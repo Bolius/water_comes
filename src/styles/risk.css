@@ -5,20 +5,6 @@
     text-align: right;
 }
 
-.risk-level {
-    color: #3C8EBC;
-    font-weight: 500;
-    font-size: 0.9em;
-}
-
-.risk-desc {
-    background-color: #EDF9FD;
-}
-
-.risk-title {
-    font-size: 1.1em;
-    font-weight: 500;
-}
 
 .risk {
     margin-top: 0.2em;

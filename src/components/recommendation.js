@@ -2,8 +2,6 @@ import React from 'react';
 import { Row, Col, Container as BContainer } from 'reactstrap';
 import styled from 'styled-components';
 
-import '../styles/recom.css'
-
 const Container = styled(BContainer)`
   background-color: #FFFFFF;
   margin:auto;
