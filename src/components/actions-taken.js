@@ -9,6 +9,7 @@ const ActionHeader = styled(Row)`
   font-size: 1.4em;
   font-weight: 500;
   margin-bottom: 0.4em;
+  margin-top: 20px
 `;
 
 export default class ActionsTaken extends React.Component {

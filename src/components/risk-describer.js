@@ -21,22 +21,25 @@ const RiskSummary = styled(Row)`
 export default class RiskDescriber extends React.Component {
   render() {
     const riskImage = require(`../assets/gauges/risk-${this.props.risk}.png`)
-    return (<Container>
-
-      <RiskSummary>
-        <Col sm={{size: '3'}}>
-          <img src={riskImage} style={{height: '64px'}} className="img-fluid" alt="Risiko måler"/>
-        </Col>
-        <Col sm={{size: '9'}}>
-          {this.props.riskText}
-        </Col>
-      </RiskSummary>
-      <Row>
-        <RiskHeader>
-          Faktorer, der påvirker boligens risiko ved {this.props.type}
-        </RiskHeader>
-      </Row>
-
+    return (
+      <Container>
+        <Col sm='12'>
+          <RiskSummary>
+            <Col sm='3'>
+              <img src={riskImage} style={{height: '64px'}} className="img-fluid" alt="Risiko måler"/>
+            </Col>
+            <Col sm='9'>
+              {this.props.riskText}
+            </Col>
+          </RiskSummary>
+          </Col>
+          <Col sm='12'>
+          <Row>
+            <RiskHeader>
+              Faktorer, der påvirker boligens risiko ved {this.props.type}
+            </RiskHeader>
+          </Row>
+          </Col>
     </Container>);
   }
 }

@@ -7,7 +7,6 @@ export default class Action extends Component {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = { collapse: false, recomShown: false};
-
   }
 
   toggle() {
