@@ -1,7 +1,5 @@
 import React from 'react';
 import {Container, Row, Col} from 'reactstrap'
-import Risk from './risk.js'
-import Risks from '../risks.json'
 import styled from 'styled-components';
 
 const RiskHeader = styled(Col)`
