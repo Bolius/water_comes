@@ -17,7 +17,8 @@ export default class ActionsTaken extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.setKey = this.setKey.bind(this);
     this.state = {
-      actionsTaken: []
+      actionsTaken: [],
+      hideButton: false
     };
   };
 
@@ -28,8 +29,9 @@ export default class ActionsTaken extends React.Component {
     this.setState({ actionsTaken: newKeyList });
   }
 
-  handleChange(event) {
+  handleChange() {
     this.props.setActions( this.state.actionsTaken )
+    this.setState({ hideButton: true });
   }
 
   render() {
@@ -45,14 +47,14 @@ export default class ActionsTaken extends React.Component {
         </Row>
         <div className="actionContainer">
           {this.props.actions.map( (item) => (
-            <Action task={item.action} key={item.id} keyId={item.id} setKey={this.setKey}/>
+            <Action task={item.action} key={item.id} keyId={item.id} setKey={this.setKey} handleChange={this.handleChange}/>
           ))}
         </div>
         <Row>
           <Col sm={{size:"6", offset:6}}>
-            <Button block onClick={this.handleChange}>
-              Beregn Anbefalinger
-            </Button>
+            {this.state.hideButton ? " " : <Button block onClick={ this.handleChange }>
+              Vis Anbefalinger
+            </Button>}
           </Col>
         </Row>
     </Container>);

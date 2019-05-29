@@ -26,7 +26,7 @@ export default class ActionHandler extends React.Component {
     return (
     <div>
       <TabHeader tab={this.state.tab} setTab={this.setTab}/>
-      <Row>
+      <Row style={{ marginBottom: '50px' }}>
         <Col>
           <RiskDescriber
             risk={4}

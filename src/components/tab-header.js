@@ -44,9 +44,6 @@ export default class TabHeader extends React.Component {
           </NavLink>
         </NavItem>
       </Nav>
-      <ActionDescriber>
-        Du kan klikke på de enkelte punkter for at blive klogere på, hvordan de påvirker risikoen for oversvømmelse.
-      </ActionDescriber>
     </div>);
   }
 }

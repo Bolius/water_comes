@@ -10,7 +10,7 @@ const ArticleColumn = styled(Col)`
 
 const StyledHeader = styled.div`
   font-family: "roboto", sans-serif;
-  padding: 30px;
+  padding: 7px 20px 5px;
 `;
 
 const Container = styled(BContainer)`
@@ -44,9 +44,9 @@ export default class Recommendations extends React.Component {
         <Container>
           <Row>
             <StyledHeader>
-              <p style={{fontSize: '35px'}}> Her er vores anbefalinger til hvad du kan gøre </p>
+              <p style={{fontSize: '25px'}}> Her er vores anbefalinger til hvad du kan gøre </p>
               <p>Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har oplyst,
-              er her vores anbefalinger til din bolig. </p>
+              er her vores anbefalinger. </p>
             </StyledHeader>
           </Row>
           <Row style={{ marginBottom: "10px" }}>
