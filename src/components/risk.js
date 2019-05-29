@@ -36,9 +36,9 @@ export default class Risk extends Component {
 
   render() {
     return (
-      <Container>
+      <Container >
         <Row>
-          <Col  sm={{size: '10'}}>
+          <Col sx='6' sm={{size: '9'}}>
             <RiskLevel>
              {this.props.level} indflydelse
             </RiskLevel>
@@ -46,7 +46,7 @@ export default class Risk extends Component {
               {this.props.title}
             </RiskTitle>
           </Col>
-          <Col  sm={{size: '2'}} className="plus-btn" onClick={this.toggle}>
+          <Col sx='3' sm={{size: '3'}} className="plus-btn" onClick={this.toggle}>
             {this.state.collapse ? 'x' : '+'}
           </Col>
         </Row>

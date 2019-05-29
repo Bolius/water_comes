@@ -3,7 +3,7 @@ import { Row, Col, Container as BContainer } from 'reactstrap';
 import styled from 'styled-components';
 
 const Container = styled(BContainer)`
-  background-color: #FFFFFF;
+  background-color: #D8EFFA;
   margin:auto;
   height: 100%;
 `;
@@ -13,11 +13,11 @@ export default class Recommendation extends React.Component {
     return (
       <Container>
         <Row>
-            <Col className="my-auto" sm="4">
+            <Col xs="12" sm="4" style={{marginTop: 10}}>
               <img className="img-fluid rounded" src={ this.props.img } alt={ this.props.link }/>
             </Col>
-            <Col sm="8" className="my-auto">
-            <Row><h4>{ this.props.title }</h4></Row>
+            <Col xs='12' sm="8" style={{ paddingRight : 30, paddingLeft : 30, marginTop: 10 }} >
+            <Row><p style={{ fontSize : '15px' , fontWeight : 'bold'}}>{ this.props.title }</p></Row>
             <Row>{ this.props.caption.slice(0,60) }...</Row>
             <Row><a href={ this.props.link }>Læs mere her</a></Row>
             </Col>

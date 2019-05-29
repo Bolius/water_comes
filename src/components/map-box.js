@@ -11,7 +11,6 @@ const AddressBox = styled(Row)`
 `
 
 const MapRow = styled(Row)`
-  margin-top: 2em;
   margin-bottom: 2em;
 `
 
@@ -20,7 +19,7 @@ export default class MapBox extends React.Component {
     const mapParams = {
       'center' : this.props.address,
       'zoom': 18,
-      'size': "600x450",
+      'size': "600x225",
       'maptype': "hybrid",
       'markers': `color:0x58B1DD|location:${this.props.address}`,
       'key': process.env.REACT_APP_GOOGLE_MAPS_KEY,
@@ -36,22 +35,24 @@ export default class MapBox extends React.Component {
     return(
       <Container>
         <AddressBox>
-          <Col sm={{ size: 9}} >
-            <h5>{ this.props.address } </h5>
+          <Col sm={{ size: '9'}} style={{marginTop:'auto', marginButtom:'auto'}}>
+            <h5>{ this.props.address }</h5>
           </Col>
-          <Col sm={{ size: 3}} className="text-right">
+          <Col sm={{ size: '3'}} className="text-right">
             <Button onClick={this.props.reset}>Skift addresse</Button>
           </Col>
         </AddressBox>
         <MapRow>
-          <Col sm={{ size: '6' }} className="text-right">
+          <Col sm={{ size: '6' }} className="text-right" style={{ marginTop: '1em' }} >
             <img className="rounded img-fluid" src={mapUrl} alt="Bolig Kort"/>
           </Col>
-          <Col sm={{ size: '6' }}>
+          <Col sm={{ size: '6' }} style={{ marginTop: '1em' }}>
           <h5>Her er din risikovurdering</h5>
           <p> Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved oversvømmelse efter
           skybrud eller stormflod. Når du har oplyst, hvad du selv har gjort for at undgå oversvømmelse,
           får du en række konkrete anbefalinger til, hvor du kan sætte mest effektivt ind.</p>
+
+          Du kan klikke på de enkelte punkter for at blive klogere på, hvordan de påvirker risikoen for oversvømmelse.
           </Col>
         </MapRow>
      </Container>
