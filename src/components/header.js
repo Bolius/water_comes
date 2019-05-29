@@ -11,7 +11,7 @@ const StyledHeader = styled.div`
   height: 300px;
   text-align: center;
   padding-top: 100px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 `;
 
 const HeaderTitle = styled.h1`

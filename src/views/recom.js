@@ -13,11 +13,6 @@ const StyledHeader = styled.div`
   padding: 7px 20px 5px;
 `;
 
-const Container = styled(BContainer)`
-  background-color: #D8EFFA;
-  margin-bottom: 100px;
-  padding: 5px;
-`;
 export default class Recommendations extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +36,7 @@ export default class Recommendations extends React.Component {
     articles = articles.slice(0, 6)
     var other = Articles.links.filter((x) => { return !articles.includes(x);});
     return (
-        <Container>
+        <div>
           <Row>
             <StyledHeader>
               <p style={{fontSize: '25px'}}> Her er vores anbefalinger til hvad du kan gøre </p>
@@ -78,7 +73,7 @@ export default class Recommendations extends React.Component {
             </Row>
             <Button variant="primary" size="lg" block onClick={this.hide}>Vis færre</Button>
             </div>}
-        </Container>
+        </div>
     );
   }
 }

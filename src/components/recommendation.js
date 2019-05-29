@@ -3,9 +3,8 @@ import { Row, Col, Container as BContainer } from 'reactstrap';
 import styled from 'styled-components';
 
 const Container = styled(BContainer)`
-  background-color: #FFFFFF;
+  background-color: #D8EFFA;
   margin:auto;
-  padding: 10px;
   height: 100%;
 `;
 
@@ -14,7 +13,7 @@ export default class Recommendation extends React.Component {
     return (
       <Container>
         <Row>
-            <Col xs="12" sm="4">
+            <Col xs="12" sm="4" style={{marginTop: 10}}>
               <img className="img-fluid rounded" src={ this.props.img } alt={ this.props.link }/>
             </Col>
             <Col xs='12' sm="8" style={{ paddingRight : 30, paddingLeft : 30, marginTop: 10 }} >

@@ -6,11 +6,11 @@ export default class Action extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false, recomShown: false};
+    this.state = { collapse: false };
   }
 
   toggle() {
-    if(this.state.recomShown){
+    if(this.props.recomShown){
       this.setState(state => ({ collapse: !state.collapse}));
       this.props.setKey(this.props.keyId)
       this.props.handleChange()
