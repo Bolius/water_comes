@@ -1,8 +1,6 @@
 import React from 'react';
-import { Container, Row, Button, Col } from 'reactstrap'
+import { Container as BContainer, Row, Button, Col } from 'reactstrap'
 import styled from 'styled-components';
-
-import '../styles/recom.css'
 import Recommendation from '../components/recommendation.js'
 import Articles from '../articles.json'
 
@@ -10,7 +8,16 @@ const ArticleColumn = styled(Col)`
   margin: 5px 0px;
 `;
 
+const StyledHeader = styled.div`
+  font-family: "roboto", sans-serif;
+  padding: 30px;
+`;
 
+const Container = styled(BContainer)`
+  background-color: #D8EFFA;
+  margin-bottom: 100px;
+  padding: 5px;
+`;
 export default class Recommendations extends React.Component {
   constructor(props) {
     super(props);
@@ -34,14 +41,13 @@ export default class Recommendations extends React.Component {
     articles = articles.slice(0, 6)
     var other = Articles.links.filter((x) => { return !articles.includes(x);});
     return (
-      <div className="recom">
         <Container>
           <Row>
-            <div className="recom_header">
-              <p className="header_title" >Her er vores anbefalinger til hvad du kan gøre </p>
+            <StyledHeader>
+              <p style={{fontSize: '35px'}}> Her er vores anbefalinger til hvad du kan gøre </p>
               <p>Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har oplyst,
               er her vores anbefalinger til din bolig. </p>
-            </div>
+            </StyledHeader>
           </Row>
           <Row style={{ marginBottom: "10px" }}>
             {articles.map((a, i) => (
@@ -71,11 +77,8 @@ export default class Recommendations extends React.Component {
               ))}
             </Row>
             <Button variant="primary" size="lg" block onClick={this.hide}>Vis færre</Button>
-            </div>
-        //
-          }
+            </div>}
         </Container>
-      </div>
     );
   }
 }

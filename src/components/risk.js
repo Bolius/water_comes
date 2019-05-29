@@ -1,6 +1,28 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Collapse } from 'reactstrap';
+import { Container as BContainer, Row, Col, Collapse } from 'reactstrap';
 import '../styles/risk.css'
+import styled from 'styled-components';
+
+const Container = styled(BContainer)`
+  margin: 5px;
+`;
+
+const RiskTitle = styled(Row)`
+  font-size: 1.1em;
+  font-weight: 500;
+`;
+
+const RiskLevel = styled(Row)`
+  color: #3C8EBC;
+  font-weight: 500;
+  font-size: 0.9em;
+`;
+
+const RiskDesc = styled(Col) `
+  background-color: #EDF9FD;
+`;
+
+
 export default class Risk extends Component {
   constructor(props) {
     super(props);
@@ -14,15 +36,15 @@ export default class Risk extends Component {
 
   render() {
     return (
-      <Container className="risk">
+      <Container>
         <Row>
           <Col  sm={{size: '10'}}>
-            <Row className="risk-level">
+            <RiskLevel>
              {this.props.level} indflydelse
-            </Row>
-            <Row className="risk-title">
+            </RiskLevel>
+            <RiskTitle>
               {this.props.title}
-            </Row>
+            </RiskTitle>
           </Col>
           <Col  sm={{size: '2'}} className="plus-btn" onClick={this.toggle}>
             {this.state.collapse ? 'x' : '+'}
@@ -30,9 +52,9 @@ export default class Risk extends Component {
         </Row>
         <Collapse isOpen={this.state.collapse}>
           <Row>
-            <Col className="risk-desc">
+            <RiskDesc>
               {this.props.description}
-            </Col>
+            </RiskDesc>
           </Row>
         </Collapse>
       </Container>
