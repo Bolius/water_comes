@@ -1,8 +1,9 @@
 import React from 'react';
-import { Row, Button, Col } from 'reactstrap'
+import { Row, Col } from 'reactstrap'
 import styled from 'styled-components';
 import Recommendation from '../components/recommendation.js'
 import Articles from '../articles.json'
+import { Button } from '../components/button'
 
 const ArticleColumn = styled(Col)`
   margin: 5px 0px;
