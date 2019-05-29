@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container as BContainer, Row, Button, Col } from 'reactstrap'
+import { Row, Button, Col } from 'reactstrap'
 import styled from 'styled-components';
 import Recommendation from '../components/recommendation.js'
 import Articles from '../articles.json'

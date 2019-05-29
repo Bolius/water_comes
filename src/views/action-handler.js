@@ -1,6 +1,5 @@
 import React from 'react';
 import {Row, Col, Container} from 'reactstrap'
-import TabHeader from '../components/tab-header.js'
 import RiskDescriber from '../components/risk-describer.js'
 import ActionsTaken from '../components/actions-taken.js'
 import Articles from '../articles.json'
