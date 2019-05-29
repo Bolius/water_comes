@@ -1,6 +1,5 @@
 import React from 'react';
-import {Row, Col} from 'reactstrap'
-import TabHeader from '../components/tab-header.js'
+import {Row, Col, Container} from 'reactstrap'
 import RiskDescriber from '../components/risk-describer.js'
 import ActionsTaken from '../components/actions-taken.js'
 import Articles from '../articles.json'
@@ -25,9 +24,11 @@ export default class ActionHandler extends React.Component {
     const actions = Articles.actions
     return (
     <div>
-      <TabHeader tab={this.state.tab} setTab={this.setTab}/>
-      <Row>
-        <Col>
+      <Container>
+
+      <Row style={{ marginBottom: '12px' , backgroundColor: "#DAEFF9"}}>
+        <Col sm={6} style={{ marginTop: '10px'}}>
+          <Container><p style={{ fontSize : '35px' }}>Stormflod</p></Container>
           <RiskDescriber
             risk={4}
             riskText={"Skønnet risiko middel til høj"}
@@ -35,12 +36,14 @@ export default class ActionHandler extends React.Component {
             risks={Risks}
           />
         </Col>
-        <Col>
+        <Col sm={6} style={{ marginTop: '20px'}}>
           <ActionsTaken actions={actions} setActions={this.props.setActions}/>
         </Col>
       </Row>
+      </Container>
     </div>
 
     );
   }
 }
+//  <TabHeader tab={this.state.tab} setTab={this.setTab}/>
