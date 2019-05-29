@@ -36,8 +36,8 @@ export default class MapBox extends React.Component {
     return(
       <Container>
         <AddressBox>
-          <Col sm={{ size: 9}} >
-            <h5>{ this.props.address } </h5>
+          <Col sm={{ size: 9}} style={{marginTop:'auto', marginButtom:'auto'}}>
+            <h5>{ this.props.address }</h5>
           </Col>
           <Col sm={{ size: 3}} className="text-right">
             <Button onClick={this.props.reset}>Skift addresse</Button>
