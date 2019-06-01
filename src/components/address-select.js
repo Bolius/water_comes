@@ -30,15 +30,19 @@ export default class AdressSelect extends React.Component {
     var updateRes = this.props.setAddress
     this.state.dawa.dawaAutocomplete(inputElm, { select: function(dawa_res) {
       async function url_to_json(url) {
-        const response = await fetch(url);
+        const response = await fetch(url, {mode: 'cors'});
         let json = await response.json();
-
         const bbr_info = await fetch(
           "https://ml.bolius.dk/bbr/"+ encodeURI(json.adressebetegnelse)
         )
         let bbr_json = await bbr_info.json()
         json['has_basement'] = bbr_json.basement_area > 0
         json['bbr'] = bbr_json
+        json['x'] =json.adgangsadresse.adgangspunkt.koordinater[0]
+        json['y'] =json.adgangsadresse.adgangspunkt.koordinater[1]
+        let resp = await fetch(`http://46.101.251.244/skybrud/${json.x}/${json.y}`)
+        let dangers = await resp.json()
+        json['dangers'] = dangers
         return json
       }
 
@@ -48,9 +52,12 @@ export default class AdressSelect extends React.Component {
           'text' : data.adressebetegnelse,
           'has_basement' : data.has_basement,
           'bolig': data.adgangsadresse.bebyggelser[0],
-          'bbr': data['bbr']
+          'bbr': data['bbr'],
+          'x' : data.adgangsadresse.adgangspunkt.koordinater[0],
+          'y' : data.adgangsadresse.adgangspunkt.koordinater[1],
+          'dangers' : data['dangers']
         }
-        updateRes(res)
+      updateRes(res)
       })
       }
     });

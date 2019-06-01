@@ -41,7 +41,7 @@ export default class RiskDescriber extends React.Component {
         <Col sm='12'>
           <RiskSummary>
             <Col className="my-auto text-center" xs={12} >
-              <h2 style={{marginTop: "-40px", color:"black"}}>Stormflod</h2>
+              <h2 style={{marginTop: "-40px", color:"black"}}>Skybrud</h2>
             </Col>
             <Col className="my-auto text-center" xs={12} >
                 <img src={riskImage} style={{height: '64px'}} className="img-fluid" alt="Risiko måler"/>
