@@ -4,15 +4,11 @@ import React from 'react';
 export default class LinkList extends React.Component {
   componentDidMount() {
     window.scrollBy({
-      top: 500,
+      top: 200,
       behavior: 'smooth'
     });
    }
   render() {
-    window.scrollBy({
-      top: 500,
-      behavior: 'smooth'
-    });
     return (
       <ul>
         <li> <a rel="noopener noreferrer" target="_blank" href="https://download.kortforsyningen.dk/content/dhmbluespot-ekstremregn">

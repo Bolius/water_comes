@@ -18,7 +18,7 @@ const MapRow = styled(Row)`
 export default class MapBox extends React.Component {
   componentDidMount() {
     window.scrollBy({
-      top: 500,
+      top: 200,
       behavior: 'smooth'
     });
    }
