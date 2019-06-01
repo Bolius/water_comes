@@ -30,7 +30,7 @@ export default class Main extends React.Component {
       {!this.state.address_selected ?
         <AdressSelect setAddress={this.setAddress}/>
       :
-        <ResultPage address={this.state.address} reset={this.resetAddress}/>
+        <ResultPage address={this.state.address} reset={this.resetAddress} dangers={this.state.address.dangers}/>
       }
       {!this.state.address_selected ?
         ""

@@ -16,11 +16,7 @@ export default class ResultPage extends React.Component {
   }
 
   render() {
-    let dangers = {
-      'high' : ['lavning'],
-      'medium' : ['ledeevne'],
-      'low' : ['bebyggelse']
-    }
+    let dangers = this.props.dangers
     if(this.props.address.has_basement){
       dangers.high.push('basement')
     }
