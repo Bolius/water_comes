@@ -19,7 +19,7 @@ export default class Recommendation extends React.Component {
             <Col xs='12' sm="8" style={{ paddingRight : 30, paddingLeft : 30, marginTop: 10 }} >
             <Row><p style={{ fontSize : '15px' , fontWeight : 'bold'}}>{ this.props.title }</p></Row>
             <Row>{ this.props.caption.slice(0,60) }...</Row>
-            <Row><a target="_blank" href={ this.props.link }>Læs mere her</a></Row>
+            <Row><a rel="noopener noreferrer" target="_blank" href={ this.props.link }>Læs mere her</a></Row>
             </Col>
         </Row>
       </Container>
