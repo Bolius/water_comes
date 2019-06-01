@@ -9,6 +9,7 @@ const ActionHeader = styled(Row)`
   font-size: 1.4em;
   font-weight: 500;
   margin-bottom: 0.4em;
+  margin-top: 20px
 `;
 
 export default class ActionsTaken extends React.Component {
@@ -17,7 +18,8 @@ export default class ActionsTaken extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.setKey = this.setKey.bind(this);
     this.state = {
-      actionsTaken: []
+      actionsTaken: [],
+      recomShown: false
     };
   };
 
@@ -25,12 +27,20 @@ export default class ActionsTaken extends React.Component {
     let newKeyList =
     (this.state.actionsTaken.includes(key)) ? this.state.actionsTaken.filter((i) => {return i !== key})
     : this.state.actionsTaken.concat(key)
-    this.setState({ actionsTaken: newKeyList });
+    this.setState({ actionsTaken: newKeyList, recomShown: false});
   }
 
-  handleChange(event) {
-    this.props.setActions( this.state.actionsTaken )
+  handleChange() {
+    if (this.state.recomShown){
+      this.props.setActions( this.state.actionsTaken );
+    }
+    else {
+      this.props.setActions( this.state.actionsTaken );
+      this.setState(state => ({  recomShown: true}));
+    }
+
   }
+
 
   render() {
     return (
@@ -45,13 +55,13 @@ export default class ActionsTaken extends React.Component {
         </Row>
         <div className="actionContainer">
           {this.props.actions.map( (item) => (
-            <Action task={item.action} key={item.id} keyId={item.id} setKey={this.setKey}/>
+            <Action task={item.action} key={item.id} keyId={item.id} setKey={this.setKey} handleChange={this.handleChange} recomShown={this.state.recomShown} />
           ))}
         </div>
         <Row>
-          <Col sm={{size:"6", offset:6}}>
-            <Button block onClick={this.handleChange}>
-              Beregn Anbefalinger
+          <Col sm={{size:"6", offset:6}} style={{marginBottom: 20}}>
+            <Button block onClick={ this.handleChange }>
+              Vis Anbefalinger
             </Button>
           </Col>
         </Row>

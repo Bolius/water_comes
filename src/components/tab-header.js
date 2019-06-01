@@ -18,10 +18,7 @@ const NavLink = styled(BootNavLink)`
       "#F5F6F6 !important; padding-bottom: 5px; margin-left: 2px; margin-right: 2px;"
   };
 `
-const ActionDescriber = styled.div`
-  padding-bottom: 20px;
-  background-image: linear-gradient(#DCF0F9, #FFFFFF);
-`;
+
 
 export default class TabHeader extends React.Component {
   render() {
@@ -44,9 +41,6 @@ export default class TabHeader extends React.Component {
           </NavLink>
         </NavItem>
       </Nav>
-      <ActionDescriber>
-        Du kan klikke på de enkelte punkter for at blive klogere på, hvordan de påvirker risikoen for oversvømmelse.
-      </ActionDescriber>
     </div>);
   }
 }

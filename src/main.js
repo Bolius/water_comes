@@ -3,7 +3,7 @@ import { Container } from 'reactstrap'
 import AboutSite from './components/about.js'
 import AdressSelect from './components/address-select.js'
 import ResultPage from './views/result-page.js'
-
+import DataBasis from './components/data-basis.js'
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -32,6 +32,12 @@ export default class Main extends React.Component {
       :
         <ResultPage address={this.state.address} reset={this.resetAddress}/>
       }
+      {!this.state.address_selected ?
+        ""
+      :
+      <DataBasis/>
+      }
+
     </Container>
   );}
 }
