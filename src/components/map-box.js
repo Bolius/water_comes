@@ -43,7 +43,7 @@ export default class MapBox extends React.Component {
           </Col>
         </AddressBox>
         <MapRow>
-          <Col sm={{ size: '6' }} className="text-right">
+          <Col sm={{ size: '6' }} className="my-auto text-right">
             <img className="img-fluid" src={mapUrl} alt="Bolig Kort"/>
           </Col>
           <Col sm={{ size: '6' }} style={{ marginTop: '1em' }}>

@@ -22,18 +22,30 @@ export default class ActionHandler extends React.Component {
 
   render() {
     const actions = Articles.actions
+    let riskAssement = 'Mellem Risiko'
+    let riskNr = 3
+    const nrHighs = this.props.dangers.high.length
+    const nrLows = this.props.dangers.low.length
+    const nrMids = this.props.dangers.medium.length
+    if(nrHighs > nrLows && nrHighs > nrMids){
+      riskAssement = 'Høj Risiko'
+      riskNr = 4
+    }
+    else if (nrLows > nrHighs && nrLows > nrMids) {
+      riskAssement = 'Lav Risiko'
+      riskNr = 2
+    }
     return (
     <div>
       <Container>
-
       <Row style={{ marginBottom: '12px' , backgroundColor: "#DAEFF9"}}>
         <Col sm={6} style={{ marginTop: '10px'}}>
-          <Container><p style={{ fontSize : '35px' }}>Stormflod</p></Container>
+          <Container><h3 className="text-center">Stormflod</h3></Container>
           <RiskDescriber
-            risk={4}
-            riskText={"Skønnet risiko middel til høj"}
+            risk={riskNr}
+            riskText={riskAssement}
             type={this.state.tab}
-            risks={Risks}
+            dangers={this.props.dangers}
           />
         </Col>
         <Col sm={6} style={{ marginTop: '20px'}}>
