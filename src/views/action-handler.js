@@ -21,17 +21,17 @@ export default class ActionHandler extends React.Component {
 
   render() {
     const actions = Articles.actions
-    let riskAssement = 'Mellem Risiko'
+    let riskAssement = 'Mellem risiko'
     let riskNr = 3
     const nrHighs = this.props.dangers.high.length
     const nrLows = this.props.dangers.low.length
     const nrMids = this.props.dangers.medium.length
     if(nrHighs > nrLows && nrHighs > nrMids){
-      riskAssement = 'Høj Risiko'
+      riskAssement = 'Høj risiko'
       riskNr = 4
     }
     else if (nrLows > nrHighs && nrLows > nrMids) {
-      riskAssement = 'Lav Risiko'
+      riskAssement = 'Lav risiko'
       riskNr = 2
     }
     return (
@@ -39,7 +39,7 @@ export default class ActionHandler extends React.Component {
       <Container>
       <Row style={{ marginBottom: '12px' , backgroundColor: "#DAEFF9"}}>
         <Col sm={6} style={{ marginTop: '10px'}}>
-          <Container><h3 className="text-center">Stormflod</h3></Container>
+          <Container><h3 className="text-center">Skybrud</h3></Container>
           <RiskDescriber
             risk={riskNr}
             riskText={riskAssement}
@@ -53,7 +53,6 @@ export default class ActionHandler extends React.Component {
       </Row>
       </Container>
     </div>
-
     );
   }
 }

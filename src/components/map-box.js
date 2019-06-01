@@ -8,6 +8,7 @@ const AddressBox = styled(Row)`
   color: white;
   font-weight: 800;
   padding: 0.5em 1em;
+  margin-bottom: 10px;
 `
 
 const MapRow = styled(Row)`
@@ -15,6 +16,12 @@ const MapRow = styled(Row)`
 `
 
 export default class MapBox extends React.Component {
+  componentDidMount() {
+    window.scrollBy({
+      top: 500,
+      behavior: 'smooth'
+    });
+   }
   render(){
     const mapParams = {
       'center' : this.props.address,
@@ -49,7 +56,7 @@ export default class MapBox extends React.Component {
           <Col sm={{ size: '6' }} style={{ marginTop: '1em' }}>
           <h5>Her er din risikovurdering</h5>
           <p> Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved oversvømmelse efter
-          skybrud eller stormflod. Når du har oplyst, hvad du selv har gjort for at undgå oversvømmelse,
+          skybrud. Når du har oplyst, hvad du selv har gjort for at undgå oversvømmelse,
           får du en række konkrete anbefalinger til, hvor du kan sætte mest effektivt ind.</p>
 
           Du kan klikke på de enkelte punkter for at blive klogere på, hvordan de påvirker risikoen for oversvømmelse.

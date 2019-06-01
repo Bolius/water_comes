@@ -9,5 +9,6 @@ export const Button = styled(BootStrapButton).attrs(() => ({
     border-radius: 0 !important;
     :hover {
       background-color: #24A2B7 !important;
+      border: 1px, solid white !important;
     }
   `;
