@@ -3,7 +3,6 @@ import {Row, Col, Container} from 'reactstrap'
 import RiskDescriber from '../components/risk-describer.js'
 import ActionsTaken from '../components/actions-taken.js'
 import Articles from '../articles.json'
-import Risks from '../risks.json'
 
 export default class ActionHandler extends React.Component {
   constructor(props) {
