@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container as BContainer, Row as BRow, Col, Collapse} from 'reactstrap'
+import LinkList from './link-list.js'
 import '../styles/risk.css'
 
 const Container = styled(BContainer)`
@@ -35,7 +36,7 @@ export default class DataBasis extends React.Component {
              SE DATAGRUNDLAGET HER
           </Col>
           <Col sx='3' sm={{size: '3'}} className="plus-btn" onClick={this.toggle}>
-            {this.state.collapse ? '-' : '+'}
+            <div style={{cursor: "pointer"}}>{this.state.collapse ? '-': '+'}</div>
           </Col>
         </Row>
         <Collapse isOpen={this.state.collapse}>
@@ -43,9 +44,8 @@ export default class DataBasis extends React.Component {
             <Col>
               <p>
               Vi ved, at der i fremtiden kommer flere og voldsommere vejrhændelser som
-              fx skybrud og stormflod. Vi ved også, at det kan være svært at forholde
-              sig til et varsel om skybrud eller stormflod, hvis man ikke ved,
-              hvor udsat ens bolig er.
+              fx skybrud. Vi ved også, at det kan være svært at forholde sig til
+              et varsel om skybrud, hvis man ikke ved, hvor udsat ens bolig er.
               </p>
 
               <p>Bolius er uvildige, og vores anbefalinger hviler på offentligt tilgængelige
@@ -58,20 +58,7 @@ export default class DataBasis extends React.Component {
               der tager udgangspunkt i din boligskonkrete forhold og beliggenhed.</p>
 
               Vores data er baseret på data fra følgende kilder:
-              <ul>
-                <li> <a href="https://download.kortforsyningen.dk/content/dhmbluespot-ekstremregn">
-                  Lavinger i Danmark
-                </a></li>
-                <li> <a href="https://download.kortforsyningen.dk/content/dhmnedb%C3%B8r">
-                  Model over nedbør
-                </a></li>
-                <li> <a href="https://bbr.dk/">
-                  BBR registret
-                </a></li>
-                <li> <a href="https://sdfe.dk/hent-data/danmarks-hoejdemodel/">
-                  Danmark Højde model
-                </a></li>
-              </ul>
+              {this.state.collapse ? <LinkList/> : ''}
             </Col>
           </Row>
         </Collapse>

@@ -10,6 +10,7 @@ const RiskHeader = styled(Col)`
   font-weight: 600;
   background-color: #EFF9FD;
   padding: 0.8em;
+  marginBottom: 5px;
 `;
 
 const RiskSummary = styled(Row)`
@@ -18,7 +19,8 @@ const RiskSummary = styled(Row)`
   font-weight: 600;
   font-size: 1.2em;
   background-color: #D5EFF9;
-  margin-top: 20px
+  margin-top: 20px;
+  /* text-align: center; */
 `;
 
 export default class RiskDescriber extends React.Component {
@@ -38,23 +40,25 @@ export default class RiskDescriber extends React.Component {
       <Container>
         <Col sm='12'>
           <RiskSummary>
-            <Col sm='3'>
+            <Col xs={{size: 6, offset:4}} sm={{size: 3}}>
               <img src={riskImage} style={{height: '64px'}} className="img-fluid" alt="Risiko måler"/>
             </Col>
-            <Col className="my-auto" sm='9'>
+            <Col className="my-auto" xs={{size: 6, offset:4}}  sm={{size: 9}}>
               {this.props.riskText}
             </Col>
           </RiskSummary>
           </Col>
           <Col sm='12'>
-          <Row>
+          <Row style={{marginBottom: "5px"}}>
             <RiskHeader>
               Faktorer, der påvirker boligens risiko ved {this.props.type}
             </RiskHeader>
+          </Row>
+            <Row>
             {this.getRisks('high')}
             {this.getRisks('medium')}
             {this.getRisks('low')}
-          </Row>
+            </Row>
           </Col>
     </Container>);
   }
