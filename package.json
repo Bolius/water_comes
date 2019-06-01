@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://water-comes-prod.herokuapp.com/",
   "dependencies": {
+    "@sentry/browser": "^5.4.0",
     "bootstrap": "^4.3.1",
     "dawa-autocomplete2": "^1.0.0",
     "react": "^16.8.6",

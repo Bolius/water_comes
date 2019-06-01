@@ -28,7 +28,7 @@ export default class Main extends React.Component {
     <Container>
       <AboutSite/>
       {!this.state.address_selected ?
-        <AdressSelect setAddress={this.setAddress}/>
+        <AdressSelect setAddress={this.setAddress1}/>
       :
         <ResultPage address={this.state.address} reset={this.resetAddress}/>
       }

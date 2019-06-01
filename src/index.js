@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import * as Sentry from '@sentry/browser';
+
+
+Sentry.init({dsn: process.env.REACT_APP_SENTRY_KEY});
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
