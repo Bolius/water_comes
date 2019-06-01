@@ -30,8 +30,14 @@ export default class Recommendations extends React.Component {
     this.setState({readMore: true})
   }
 
-  render() {
+  componentDidMount() {
+    window.scrollBy({
+      top: 500,
+      behavior: 'smooth'
+    });
+   }
 
+  render() {
     var articles = this.props.basement ? Articles.links : Articles.links.filter((x) => { return x.has_basement !== false})
     articles = articles.filter((x) => { return !this.props.filter.includes(x.remove);});
     articles = articles.slice(0, 6)

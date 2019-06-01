@@ -8,6 +8,7 @@ const AddressBox = styled(Row)`
   color: white;
   font-weight: 800;
   padding: 0.5em 1em;
+  margin-bottom: 10px;
 `
 
 const MapRow = styled(Row)`
@@ -15,6 +16,12 @@ const MapRow = styled(Row)`
 `
 
 export default class MapBox extends React.Component {
+  componentDidMount() {
+    window.scrollBy({
+      top: 500,
+      behavior: 'smooth'
+    });
+   }
   render(){
     const mapParams = {
       'center' : this.props.address,
