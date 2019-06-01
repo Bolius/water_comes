@@ -1,12 +1,25 @@
-[
-  {
-    "title": "Din bolig ligger i en lavning",
-    "level": "Høj",
-    "description": "Vandet vil oftest samle sig i lavninger. Derfor stiger risikoen for oversvømmelse, hvis dit hus ligger i en lavning."
+{
+  "lavning" : {
+    "description": "Regnvandet søger altid mod det laveste punkt i terrænet. Og derfor kan det være et problem, hvis din bolig ligger i en lavning i forhold til det øvrige terræn. Bor du omvendt på en bakketop, vil vandet typisk søge ned i terrænet.",
+    "low" : "Din bolig ligger ikke i en lavning",
+    "medium":"Din bolig ligger ikke i en lavning",
+    "high" : "Din bolig ligger i en lavning"
   },
-  {
-    "title": "Du har en kælder",
-    "level": "Middel",
-    "description": "Vand løber mod det laveste punkt, og derfor stiger risikoen for oversvømmelse markant, hvis du har en kælder. Hvis kælderen tilmed ligger lavt i forhold til afløbssystemet, stiger risikoen for problemer med opstigende kloakvand."
+  "ledeevne" : {
+    "description": "Hydraulisk ledeevne handler om, hvor hurtigt vandet kan løbe ned igennem jorden. Der kan være stor forskel på jordtyper. Regnvand løber fx hurtigt gennem sand og grus, men langsomt gennem silt og ler, der udgør det øverste jordlag.",
+    "low" : "Den hydrauliske ledeevne i området er dårlig",
+    "medium":"Den hydrauliske ledeevne i området er mellemgod",
+    "heigh" : "Den hydrauliske ledeevne i området er god"
+  },
+  "bebyggelse": {
+    "description": "Hvis en stor del af overfladen er bebygget eller belagt med asfalt, fliser, brosten mv., kan regnen have svært ved at sive ned i jorden – specielt når det regner kraftigt. Hvis vandet ikke kan løbe væk hurtigt nok, stiger risikoen for oversvømmelse.",
+    "low" : "Befæstelsesgraden i området er lav",
+    "medium":"Befæstelsesgraden i området middel",
+    "high" : "Befæstelsesgraden i området højt"
+  },
+  "basement": {
+    "description": "En kælder gør boligen meget sårbar for oversvømmelse, når der er skybrud. Har du omvendt ikke en kælder, falder risikoen for oversvømmelse markant.",
+    "low" : "Din bolig har ikke en kælder",
+    "high" : "Din bolig har en kælder"
   }
-]
+}

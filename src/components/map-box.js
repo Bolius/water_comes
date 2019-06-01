@@ -11,7 +11,6 @@ const AddressBox = styled(Row)`
 `
 
 const MapRow = styled(Row)`
-  margin-top: 2em;
   margin-bottom: 2em;
 `
 
@@ -36,22 +35,24 @@ export default class MapBox extends React.Component {
     return(
       <Container>
         <AddressBox>
-          <Col sm={{ size: 9}} >
-            <h5>{ this.props.address } </h5>
+          <Col className="my-auto" sm={{ size: 8}} >
+            <h5 className="my-auto">{ this.props.address } </h5>
           </Col>
-          <Col sm={{ size: 3}} className="text-right">
+          <Col sm={{ size: 4}} className="text-right">
             <Button onClick={this.props.reset}>Skift addresse</Button>
           </Col>
         </AddressBox>
         <MapRow>
-          <Col sm={{ size: '6' }} className="text-right">
-            <img className="rounded img-fluid" src={mapUrl} alt="Bolig Kort"/>
+          <Col sm={{ size: '6' }} className="my-auto text-right">
+            <img className="img-fluid" src={mapUrl} alt="Bolig Kort"/>
           </Col>
-          <Col sm={{ size: '6' }}>
+          <Col sm={{ size: '6' }} style={{ marginTop: '1em' }}>
           <h5>Her er din risikovurdering</h5>
           <p> Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved oversvømmelse efter
           skybrud eller stormflod. Når du har oplyst, hvad du selv har gjort for at undgå oversvømmelse,
           får du en række konkrete anbefalinger til, hvor du kan sætte mest effektivt ind.</p>
+
+          Du kan klikke på de enkelte punkter for at blive klogere på, hvordan de påvirker risikoen for oversvømmelse.
           </Col>
         </MapRow>
      </Container>

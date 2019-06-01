@@ -1,10 +1,8 @@
 import React from 'react';
-import {Row, Col} from 'reactstrap'
-import TabHeader from '../components/tab-header.js'
+import {Row, Col, Container} from 'reactstrap'
 import RiskDescriber from '../components/risk-describer.js'
 import ActionsTaken from '../components/actions-taken.js'
 import Articles from '../articles.json'
-import Risks from '../risks.json'
 
 export default class ActionHandler extends React.Component {
   constructor(props) {
@@ -23,24 +21,40 @@ export default class ActionHandler extends React.Component {
 
   render() {
     const actions = Articles.actions
+    let riskAssement = 'Mellem Risiko'
+    let riskNr = 3
+    const nrHighs = this.props.dangers.high.length
+    const nrLows = this.props.dangers.low.length
+    const nrMids = this.props.dangers.medium.length
+    if(nrHighs > nrLows && nrHighs > nrMids){
+      riskAssement = 'Høj Risiko'
+      riskNr = 4
+    }
+    else if (nrLows > nrHighs && nrLows > nrMids) {
+      riskAssement = 'Lav Risiko'
+      riskNr = 2
+    }
     return (
     <div>
-      <TabHeader tab={this.state.tab} setTab={this.setTab}/>
-      <Row>
-        <Col>
+      <Container>
+      <Row style={{ marginBottom: '12px' , backgroundColor: "#DAEFF9"}}>
+        <Col sm={6} style={{ marginTop: '10px'}}>
+          <Container><h3 className="text-center">Stormflod</h3></Container>
           <RiskDescriber
-            risk={4}
-            riskText={"Skønnet risiko middel til høj"}
+            risk={riskNr}
+            riskText={riskAssement}
             type={this.state.tab}
-            risks={Risks}
+            dangers={this.props.dangers}
           />
         </Col>
-        <Col>
+        <Col sm={6} style={{ marginTop: '20px'}}>
           <ActionsTaken actions={actions} setActions={this.props.setActions}/>
         </Col>
       </Row>
+      </Container>
     </div>
 
     );
   }
 }
+//  <TabHeader tab={this.state.tab} setTab={this.setTab}/>
