@@ -1,6 +1,9 @@
 import React from 'react';
 import {Container, Row, Col} from 'reactstrap'
 import styled from 'styled-components';
+import Risk from './risk.js'
+import Risks from '../risks.json'
+
 
 const RiskHeader = styled(Col)`
   font-size: 1.2em;
@@ -19,6 +22,16 @@ const RiskSummary = styled(Row)`
 `;
 
 export default class RiskDescriber extends React.Component {
+  // {this.props.dangers..map((risk, i) => (
+  //   <Risk key={i} title={risk.lowRisk} description={risk.description}/>
+  // ))}
+  getRisks(type){
+    console.log(Risks['lavning'])
+    return this.props.dangers[type].map((id, i) =>(
+      <Risk key={i} title={Risks[id][type]} description={Risks[id].description}/>
+    ))
+  }
+
   render() {
     const riskImage = require(`../assets/gauges/risk-${this.props.risk}.png`)
     return (
@@ -28,7 +41,7 @@ export default class RiskDescriber extends React.Component {
             <Col sm='3'>
               <img src={riskImage} style={{height: '64px'}} className="img-fluid" alt="Risiko måler"/>
             </Col>
-            <Col sm='9'>
+            <Col className="my-auto" sm='9'>
               {this.props.riskText}
             </Col>
           </RiskSummary>
@@ -38,6 +51,9 @@ export default class RiskDescriber extends React.Component {
             <RiskHeader>
               Faktorer, der påvirker boligens risiko ved {this.props.type}
             </RiskHeader>
+            {this.getRisks('high')}
+            {this.getRisks('medium')}
+            {this.getRisks('low')}
           </Row>
           </Col>
     </Container>);

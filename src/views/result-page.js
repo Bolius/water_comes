@@ -14,12 +14,27 @@ export default class ResultPage extends React.Component {
   setActions(actions) {
     this.setState({ actions: actions, showRes: true } );
   }
+
   render() {
+    let dangers = {
+      'high' : ['lavning'],
+      'medium' : ['ledeevne'],
+      'low' : ['bebyggelse']
+    }
+    if(this.props.address.has_basement){
+      dangers.high.push('basement')
+    }
+    else {
+      dangers.low.push('basement')
+    }
     return (
       <div>
       <MapBox address={ this.props.address.text } reset={this.props.reset} />
-      <ActionHandler setActions={ this.setActions }/>
-      {!this.state.showRes? <div/>: <Recommendations basement={false} filter={this.state.actions} />}
+      <ActionHandler dangers={dangers} setActions={ this.setActions }/>
+      {!this.state.showRes?
+        <div/>:
+        <Recommendations basement={this.props.address.has_basement} filter={this.state.actions} />
+      }
 
     </div>
   );}

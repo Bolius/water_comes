@@ -20,19 +20,13 @@ const HeaderTitle = styled.h1`
   font-weight: 300;
 `;
 
-const HeaderSubTitle = styled.h5`
-  text-transform: capitalize;
-  font-size: 20px;
-  font-weight: 100;
-`;
 
 
 export default class Header extends React.Component {
   render() {
     return (
       <StyledHeader>
-          <HeaderTitle>Stormflod</HeaderTitle>
-          <HeaderSubTitle>Lorem ipsum yada dada do this</HeaderSubTitle>
+          <HeaderTitle>TJEK DIN RISIKO</HeaderTitle>
       </StyledHeader>
     );
   }

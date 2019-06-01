@@ -35,16 +35,16 @@ export default class MapBox extends React.Component {
     return(
       <Container>
         <AddressBox>
-          <Col sm={{ size: '9'}} style={{marginTop:'auto', marginButtom:'auto'}}>
-            <h5>{ this.props.address }</h5>
+          <Col className="my-auto" sm={{ size: 8}} >
+            <h5 className="my-auto">{ this.props.address } </h5>
           </Col>
-          <Col sm={{ size: '3'}} className="text-right">
+          <Col sm={{ size: 4}} className="text-right">
             <Button onClick={this.props.reset}>Skift addresse</Button>
           </Col>
         </AddressBox>
         <MapRow>
-          <Col sm={{ size: '6' }} className="text-right" style={{ marginTop: '1em' }} >
-            <img className="rounded img-fluid" src={mapUrl} alt="Bolig Kort"/>
+          <Col sm={{ size: '6' }} className="my-auto text-right">
+            <img className="img-fluid" src={mapUrl} alt="Bolig Kort"/>
           </Col>
           <Col sm={{ size: '6' }} style={{ marginTop: '1em' }}>
           <h5>Her er din risikovurdering</h5>
