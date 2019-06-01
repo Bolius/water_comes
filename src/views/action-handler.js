@@ -39,7 +39,7 @@ export default class ActionHandler extends React.Component {
       <Container>
       <Row style={{ marginBottom: '12px' , backgroundColor: "#DAEFF9"}}>
         <Col sm={6} style={{ marginTop: '10px'}}>
-          <Container><h3 className="text-center">Stormflod</h3></Container>
+          <Container><h3 className="text-center">Skybrud</h3></Container>
           <RiskDescriber
             risk={riskNr}
             riskText={riskAssement}

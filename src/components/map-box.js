@@ -49,7 +49,7 @@ export default class MapBox extends React.Component {
           <Col sm={{ size: '6' }} style={{ marginTop: '1em' }}>
           <h5>Her er din risikovurdering</h5>
           <p> Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved oversvømmelse efter
-          skybrud eller stormflod. Når du har oplyst, hvad du selv har gjort for at undgå oversvømmelse,
+          skybrud. Når du har oplyst, hvad du selv har gjort for at undgå oversvømmelse,
           får du en række konkrete anbefalinger til, hvor du kan sætte mest effektivt ind.</p>
 
           Du kan klikke på de enkelte punkter for at blive klogere på, hvordan de påvirker risikoen for oversvømmelse.
