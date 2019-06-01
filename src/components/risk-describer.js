@@ -40,10 +40,13 @@ export default class RiskDescriber extends React.Component {
       <Container>
         <Col sm='12'>
           <RiskSummary>
-            <Col xs={{size: 6, offset:4}} sm={{size: 3}}>
-              <img src={riskImage} style={{height: '64px'}} className="img-fluid" alt="Risiko måler"/>
+            <Col className="my-auto text-center" xs={12} >
+              <h2 style={{marginTop: "-40px", color:"black"}}>Stormflod</h2>
             </Col>
-            <Col className="my-auto" xs={{size: 6, offset:4}}  sm={{size: 9}}>
+            <Col className="my-auto text-center" xs={12} >
+                <img src={riskImage} style={{height: '64px'}} className="img-fluid" alt="Risiko måler"/>
+            </Col>
+            <Col className="my-auto text-center" xs={12} >
               {this.props.riskText}
             </Col>
           </RiskSummary>
