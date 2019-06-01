@@ -43,9 +43,8 @@ export default class DataBasis extends React.Component {
             <Col>
               <p>
               Vi ved, at der i fremtiden kommer flere og voldsommere vejrhændelser som
-              fx skybrud og stormflod. Vi ved også, at det kan være svært at forholde
-              sig til et varsel om skybrud eller stormflod, hvis man ikke ved,
-              hvor udsat ens bolig er.
+              fx skybrud. Vi ved også, at det kan være svært at forholde sig til
+              et varsel om skybrud, hvis man ikke ved, hvor udsat ens bolig er.
               </p>
 
               <p>Bolius er uvildige, og vores anbefalinger hviler på offentligt tilgængelige
