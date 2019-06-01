@@ -20,7 +20,7 @@ export default class MapBox extends React.Component {
     const mapParams = {
       'center' : this.props.address,
       'zoom': 18,
-      'size': "600x450",
+      'size': "600x225",
       'maptype': "hybrid",
       'markers': `color:0x58B1DD|location:${this.props.address}`,
       'key': process.env.REACT_APP_GOOGLE_MAPS_KEY,
