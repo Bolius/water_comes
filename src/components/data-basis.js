@@ -41,21 +41,37 @@ export default class DataBasis extends React.Component {
         <Collapse isOpen={this.state.collapse}>
           <Row>
             <Col>
-              <p>Vi ved, at der i fremtiden kommer flere og voldsommere vejrhændelser som
+              <p>
+              Vi ved, at der i fremtiden kommer flere og voldsommere vejrhændelser som
               fx skybrud og stormflod. Vi ved også, at det kan være svært at forholde
               sig til et varsel om skybrud eller stormflod, hvis man ikke ved,
-              hvor udsat ens bolig er.</p>
+              hvor udsat ens bolig er.
+              </p>
 
               <p>Bolius er uvildige, og vores anbefalinger hviler på offentligt tilgængelige
               data, som vi blandt andet indhenter gennem Bygnings-og Boligregistret (BBR).
               Du skal være opmærksom på, at de offentligedata kan være behæftet med usikkerheder.</p>
 
               <p>Data kan alene anvendes til at give en overordnet vurdering. Vi anbefaler, at du
-              indhenter yderligere informationer, før du fx iværksættertiltag på baggrund af
+              indhenter yderligere informationer, før du fx iværksætter tiltag på baggrund af
               forventninger om oversvømmelser.En god ide kan være at bestille et klimatjek,
               der tager udgangspunkt i din boligskonkrete forhold og beliggenhed.</p>
 
-              Relevante links: DHM/Bluespot Ekstremregnhttps://download.kortforsyningen.dk/content/dhmbluespot-ekstremregn
+              Vores data er baseret på data fra følgende kilder:
+              <ul>
+                <li> <a href="https://download.kortforsyningen.dk/content/dhmbluespot-ekstremregn">
+                  Lavinger i Danmark
+                </a></li>
+                <li> <a href="https://download.kortforsyningen.dk/content/dhmnedb%C3%B8r">
+                  Model over nedbør
+                </a></li>
+                <li> <a href="https://bbr.dk/">
+                  BBR registret
+                </a></li>
+                <li> <a href="https://sdfe.dk/hent-data/danmarks-hoejdemodel/">
+                  Danmark Højde model
+                </a></li>
+              </ul>
             </Col>
           </Row>
         </Collapse>
