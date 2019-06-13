@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component it matches the snapshot 1`] = `
+<div
+  className="sc-bdVaJa jzuKoM"
+>
+  <h1
+    className="sc-bwzfXH fZuVsZ"
+  >
+    TJEK DIN RISIKO
+  </h1>
+</div>
+`;
