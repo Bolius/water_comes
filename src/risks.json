@@ -20,6 +20,7 @@
   "basement": {
     "description": "En kælder gør boligen meget sårbar for oversvømmelse, når der er skybrud. Har du omvendt ikke en kælder, falder risikoen for oversvømmelse markant.",
     "low" : "Din bolig har ikke en kælder",
+    "medium" : "Din bolig har en kælder",
     "high" : "Din bolig har en kælder"
   }
 }
