@@ -17,16 +17,19 @@ export default class ResultPage extends React.Component {
 
   render() {
     let dangers = this.props.dangers
-    if(this.props.address.has_basement){
-      dangers.high.push('basement')
-    }
-    else {
-      dangers.low.push('basement')
+
+    if(!dangers.high.includes('basement') && !dangers.low.includes('basement')){
+      if(this.props.address.has_basement){
+        dangers.high.push('basement')
+      }
+      else {
+        dangers.low.push('basement')
+      }
     }
     return (
       <div>
       <MapBox address={ this.props.address.text } reset={this.props.reset} />
-      <ActionHandler dangers={dangers} setActions={ this.setActions }/>
+      <ActionHandler dangers={dangers} shown={false} setActions={ this.setActions }/>
       {!this.state.showRes?
         <div/>:
         <Recommendations basement={this.props.address.has_basement} filter={this.state.actions} />
