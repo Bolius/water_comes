@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
- import './errorReporting';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {version} from '../package.json'
 import * as Sentry from '@sentry/browser';
 
 
@@ -16,8 +15,6 @@ Sentry.init({
     release: version,
     environment: process.env.NODE_ENV,
 });
-
-Sentry.captureException(new Error("This is my fake error message"));
 
 serviceWorker.unregister();
 ReactDOM.render(<App />, document.getElementById('root'));
