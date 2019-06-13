@@ -37,17 +37,17 @@ export default class Risk extends Component {
             </RiskTitle>
           </Col>
           <Col sx='3' sm={{size: '3'}} className="plus-btn my-auto" onClick={this.toggle}>
-            <div style={{cursor: "pointer"}}>{this.state.showDescription ? '-': '+'}</div>
+            <div style={{ cursor: "pointer" }}>{this.state.showDescription ? '-': '+'}</div>
           </Col>
         </Row>
-        {this.state.showDescription ?
+        { this.state.showDescription ?
             <Row>
               <Col>
                 {this.props.description}
               </Col>
             </Row>
           : ''
-          }
+        }
 
       </Container>
     );
