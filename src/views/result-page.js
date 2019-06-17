@@ -17,7 +17,12 @@ export default class ResultPage extends React.Component {
 
   render() {
     let dangers = this.props.dangers
-
+//
+// <<<<<<< HEAD
+//     if(!dangers.high.includes('basement') && !dangers.low.includes('basement')){
+//       if(this.props.address.has_basement){
+//         dangers.high.push('basement')
+// =======
     // If basement is not set and in lavning
     if(!(dangers.high.includes('basement') || dangers.low.includes('basement'))){
       if(this.props.address.has_basement){
