@@ -22,13 +22,23 @@ export default class DataBasis extends React.Component {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = { collapse: false };
+    this.dataRef = React.createRef();
   }
 
   toggle() {
     this.setState(state => ({ collapse: !state.collapse }));
   }
-  render() {
+  componentDidUpdate() {
+    if (!this.state.collapse) {
+      this.scrollToBottom()
+    }
+  }
 
+  scrollToBottom = () => {
+    this.dataRef.current.scrollIntoView({ behavior: 'smooth', block: "end"})
+  }
+
+  render() {
     return (
       <Container>
         <Row>
@@ -66,9 +76,11 @@ export default class DataBasis extends React.Component {
 
               Vores data er baseret på data fra følgende kilder:
               {this.state.collapse ? <LinkList/> : ''}
+
             </Col>
           </Row>
         </Collapse>
+        <div ref={this.dataRef}/>
       </Container>
     );
   }
