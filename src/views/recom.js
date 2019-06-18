@@ -20,6 +20,8 @@ export default class Recommendations extends React.Component {
     this.hide = this.hide.bind(this);
     this.show = this.show.bind(this);
     this.state = { readMore: false };
+    this.recomRef = React.createRef();
+
   }
 
   hide(){
@@ -31,11 +33,9 @@ export default class Recommendations extends React.Component {
   }
 
   componentDidMount() {
-    window.scrollBy({
-      top: 500,
-      behavior: 'smooth'
-    });
+    this.recomRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
    }
+
 
   render() {
     var articles = this.props.basement ? Articles.links : Articles.links.filter((x) => { return x.has_basement !== false})
@@ -43,7 +43,7 @@ export default class Recommendations extends React.Component {
     articles = articles.slice(0, 6)
     var other = Articles.links.filter((x) => { return !articles.includes(x);});
     return (
-        <div>
+        <div ref={this.recomRef}>
           <Row>
             <StyledHeader>
               <p style={{fontSize: '25px'}}> Her er vores anbefalinger til hvad du kan gøre </p>
@@ -67,20 +67,21 @@ export default class Recommendations extends React.Component {
               <div> <Button variant="primary" size="lg" block onClick={this.show}>Vis flere</Button> </div>
             :
             <div>
-            <Row style={{ marginBottom: "10px" }}>
-            {other.map((a, i) => (
-              <ArticleColumn key={i} sm={'12'} md={'6'}>
-                <Recommendation
-                  img={a.img}
-                  title={a.title}
-                  caption={a.caption}
-                  link={a.link}/>
-              </ArticleColumn>
-              ))}
-            </Row>
-            <Button variant="primary" size="lg" block onClick={this.hide}>Vis færre</Button>
+              <Row style={{ marginBottom: "10px" }}>
+                {other.map((a, i) => (
+                  <ArticleColumn key={i} sm={'12'} md={'6'}>
+                    <Recommendation
+                      img={a.img}
+                      title={a.title}
+                      caption={a.caption}
+                      link={a.link}/>
+                  </ArticleColumn>
+                ))}
+              </Row>
+              <Button variant="primary" size="lg" block onClick={this.hide}>Vis færre</Button>
             </div>}
         </div>
     );
   }
+
 }
