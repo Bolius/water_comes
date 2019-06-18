@@ -16,6 +16,7 @@ export default class AdressSelect extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.toggle = this.toggle.bind(this);
     this.setModal = this.setModal.bind(this);
+
     this.state = {
       address: "",
       err_modal: false,
@@ -24,6 +25,7 @@ export default class AdressSelect extends React.Component {
   }
 
   setModal() {
+    console.log(this.state.err_modal)
     this.setState({
       err_modal: true,
     });
@@ -64,8 +66,7 @@ export default class AdressSelect extends React.Component {
           json['y'] =json.adgangsadresse.adgangspunkt.koordinater[1]
           let resp = await fetch(`https://bolius.rotendahl.dk/skybrud/${json.x}/${json.y}`)
           let dangers = await resp.json()
-          console.log("recived")
-          console.log(dangers)
+
           json['dangers'] = dangers
           return json
         }
@@ -75,8 +76,7 @@ export default class AdressSelect extends React.Component {
       }
 
       url_to_json(dawa_res.data.href).then(data => {
-        if (data !== 1) {
-          console.log(data);
+        if (data !== 1 && ((data['bbr'].type === "one_fam") || (data['bbr'].type === "row") || (data['bbr'].type === "farm"))) {
           let res = {
             'text' : data.adressebetegnelse,
             'has_basement' : data.has_basement,
@@ -87,8 +87,7 @@ export default class AdressSelect extends React.Component {
             'dangers' : data['dangers']
           }
           updateRes(res)
-        } else
-        {
+        } else {
           updateModal()
         }
       })
@@ -135,8 +134,7 @@ export default class AdressSelect extends React.Component {
             paddingTop: "20px",
             zIndex: "0"
         }}>
-          BBR registret indeholder ikke nok data om huset til at lave
-          forudsigelser.
+        BBR registret indeholder ikke nok data om huset til at lave forudsigelser.
           <div style={{padding:"10px"}}>
             <div style={{verticalAlign: "middle", display:"inline-block"}}>
               <button  className="comfortscore-btn"
