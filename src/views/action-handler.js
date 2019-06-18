@@ -55,4 +55,3 @@ export default class ActionHandler extends React.Component {
     );
   }
 }
-//  <TabHeader tab={this.state.tab} setTab={this.setTab}/>

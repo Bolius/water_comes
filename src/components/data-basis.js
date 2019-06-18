@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container as BContainer, Row as BRow, Col, Collapse} from 'reactstrap'
+import { Container as BContainer, Row as BRow, Col} from 'reactstrap'
 import LinkList from './link-list.js'
 import '../styles/risk.css'
 
@@ -17,6 +17,8 @@ const Row = styled(BRow)`
   padding: 1em;
 `;
 
+
+
 export default class DataBasis extends React.Component {
   constructor(props) {
     super(props);
@@ -26,16 +28,13 @@ export default class DataBasis extends React.Component {
   }
 
   toggle() {
-    this.setState(state => ({ collapse: !state.collapse }));
-  }
-  componentDidUpdate() {
-    if (!this.state.collapse) {
-      this.scrollToBottom()
-    }
+    this.setState((state, props) => ({ collapse: !state.collapse }));
   }
 
-  scrollToBottom = () => {
-    this.dataRef.current.scrollIntoView({ behavior: 'smooth', block: "end"})
+  componentDidUpdate() {
+    if (this.state.collapse){
+      this.dataRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }
 
   render() {
@@ -49,8 +48,10 @@ export default class DataBasis extends React.Component {
             <div style={{cursor: "pointer"}}>{this.state.collapse ? '-': '+'}</div>
           </Col>
         </Row>
-        <Collapse isOpen={this.state.collapse}>
+        {
+          this.state.collapse ?
           <Row>
+            <div ref={this.dataRef}>
             <Col>
               <p>
               Vi ved, at der i fremtiden kommer flere og voldsommere vejrhændelser
@@ -76,11 +77,16 @@ export default class DataBasis extends React.Component {
 
               Vores data er baseret på data fra følgende kilder:
               {this.state.collapse ? <LinkList/> : ''}
-
             </Col>
+            </div>
           </Row>
-        </Collapse>
-        <div ref={this.dataRef}/>
+          : ""
+
+        }
+
+
+
+
       </Container>
     );
   }

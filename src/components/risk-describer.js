@@ -31,7 +31,6 @@ export default class RiskDescriber extends React.Component {
   }
 
   render() {
-    console.log(this.props.dangers)
     const riskImage = require(`../assets/gauges/risk-${this.props.risk}.png`)
     return (
       <Container>
