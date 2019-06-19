@@ -16,7 +16,7 @@ export default class ResultPage extends React.Component {
 
   render() {
     let dangers = this.props.dangers;
-    // If basement is not set and in lavning
+
     if (
       !(dangers.high.includes("basement") || dangers.low.includes("basement"))
     ) {

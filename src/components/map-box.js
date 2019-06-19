@@ -16,11 +16,13 @@ const MapRow = styled(Row)`
 `
 
 export default class MapBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.mapRef = React.createRef();
+  }
+
   componentDidMount() {
-    window.scrollBy({
-      top: 200,
-      behavior: 'smooth'
-    });
+    this.mapRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
    }
   render(){
     const mapParams = {
@@ -42,6 +44,7 @@ export default class MapBox extends React.Component {
     return(
       <Container>
         <AddressBox>
+          <div ref={this.mapRef}> </div>
           <Col className="my-auto" sm={{ size: 8}} >
             <h5 className="my-auto">{ this.props.address } </h5>
           </Col>
