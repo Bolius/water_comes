@@ -20,7 +20,7 @@
         "GOOGLE_MAPS_KEY": "xxxx"
       },
       "scripts": {
-        "test": "npm test && npm run-script coveralls"
+        "test": "npm test &&  npm run-script coverage  && npm run-script coveralls"
       }
     }
   }
