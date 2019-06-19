@@ -1,6 +1,5 @@
 import React from "react";
-import { Container as BContainer, Row, Col } from "reactstrap";
-import { Button } from "./button.js";
+import { Container as BContainer } from "reactstrap";
 import styled from "styled-components";
 
 const Container = styled(BContainer)`
