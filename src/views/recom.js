@@ -21,20 +21,28 @@ export default class Recommendations extends React.Component {
     this.show = this.show.bind(this);
     this.state = { readMore: false };
     this.recomRef = React.createRef();
-
+    this.moreRef = React.createRef();
   }
 
   hide(){
-    this.setState({readMore: false})
+    this.setState((state, props) => ({readMore: false}));
+
   }
 
   show(){
-    this.setState({readMore: true})
+    this.setState((state, props) => ({readMore: true}));
   }
 
   componentDidMount() {
     this.recomRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
    }
+
+  componentDidUpdate() {
+    if (this.state.readMore){
+      this.moreRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+
+  }
 
 
   render() {
@@ -66,7 +74,7 @@ export default class Recommendations extends React.Component {
             ?
               <div> <Button variant="primary" size="lg" block onClick={this.show}>Vis flere</Button> </div>
             :
-            <div>
+            <div ref={this.moreRef}>
               <Row style={{ marginBottom: "10px" }}>
                 {other.map((a, i) => (
                   <ArticleColumn key={i} sm={'12'} md={'6'}>

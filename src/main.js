@@ -5,6 +5,7 @@ import AdressSelect from './components/address-select.js'
 import ResultPage from './views/result-page.js'
 import DataBasis from './components/data-basis.js'
 
+
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ export default class Main extends React.Component {
     this.resetAddress = this.resetAddress.bind(this);
     this.state = {address: {}, address_selected: false};
   }
+
 
   setAddress(address) {
     let state = this.state;

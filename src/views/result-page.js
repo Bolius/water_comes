@@ -9,10 +9,15 @@ export default class ResultPage extends React.Component {
     super(props);
     this.setActions = this.setActions.bind(this);
     this.state = {actions: [], showRes: false};
+    this.moreRef = React.createRef();
   }
 
   setActions(actions) {
-    this.setState({ actions: actions, showRes: true } );
+    this.setState((state, props) => ({ actions: actions, showRes: true } ));
+  }
+
+  componentDidUpdate() {
+    this.moreRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   render() {
@@ -31,8 +36,10 @@ export default class ResultPage extends React.Component {
       <MapBox address={ this.props.address.text } reset={this.props.reset} />
       <ActionHandler dangers={dangers} shown={false} setActions={ this.setActions }/>
       {!this.state.showRes?
-        <div/>:
+        <div/> :
+        <div ref={this.moreRef} >
         <Recommendations basement={this.props.address.has_basement} filter={this.state.actions} />
+        </div>
       }
 
     </div>
