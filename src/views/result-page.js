@@ -2,6 +2,7 @@ import React from "react";
 import MapBox from "../components/map-box.js";
 import Recommendations from "./recom.js";
 import ActionHandler from "./action-handler.js";
+import ApartmentBox from "../components/apartment-box.js";
 
 export default class ResultPage extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ export default class ResultPage extends React.Component {
     }
     return (
       <div>
+        {this.props.address.appartment ? <ApartmentBox /> : ""}
         <MapBox address={this.props.address.text} reset={this.props.reset} />
         <ActionHandler
           dangers={dangers}

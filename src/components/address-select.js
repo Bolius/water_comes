@@ -42,7 +42,8 @@ export default class AdressSelect extends React.Component {
           let bbr_json = await bbr_info.json();
 
           json["has_basement"] = bbr_json.basement_area > 0;
-          json["appartment"] = bbr_json.type === "story";
+          json["appartment"] =
+            bbr_json.type === "story" || bbr_json.type === "oth";
           json["bbr"] = bbr_json;
           json["x"] = json.adgangsadresse.adgangspunkt.koordinater[0];
           json["y"] = json.adgangsadresse.adgangspunkt.koordinater[1];
@@ -59,6 +60,7 @@ export default class AdressSelect extends React.Component {
         url_to_json(dawa_res.data.href).then(data => {
           console.log(data);
           let res = {
+            appartment: data["appartment"],
             text: data.adressebetegnelse,
             has_basement: data.has_basement,
             bolig: data.adgangsadresse.bebyggelser[0],
