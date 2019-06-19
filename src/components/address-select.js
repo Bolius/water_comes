@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col, Container, Input, Modal } from "reactstrap";
+import { Row, Col, Container, Input } from "reactstrap";
 import { Button } from "./button";
 import "../styles/water_widget_dawa.css";
 
