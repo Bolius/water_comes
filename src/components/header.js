@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import water_header from '../assets/water_header.png'
+import React from "react";
+import styled from "styled-components";
+import water_header from "../assets/water_header.png";
 
 const StyledHeader = styled.div`
   background: url(${water_header});
@@ -20,13 +20,11 @@ const HeaderTitle = styled.h1`
   font-weight: 300;
 `;
 
-
-
 export default class Header extends React.Component {
   render() {
     return (
       <StyledHeader>
-          <HeaderTitle>TJEK DIN RISIKO</HeaderTitle>
+        <HeaderTitle>TJEK DIN RISIKO</HeaderTitle>
       </StyledHeader>
     );
   }
