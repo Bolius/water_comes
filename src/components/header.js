@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import water_header from "../assets/water_header.png";
 
 export default class Header extends React.Component {

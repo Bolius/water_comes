@@ -31,13 +31,13 @@ export default class Action extends Component {
       <div style={rowStyle} onClick={this.toggle}>
         <div
           style={{
-            height: "1.6m",
-            width: "1.6em",
+            height: "30px",
+            width: "30px",
             border: "5px solid #006FA8",
             backgroundColor: "white",
             color: !this.state.collapse ? "white" : "#006FA8",
             textAlign: "center",
-            fontSize: "1.4em",
+            fontSize: "1em",
             fontWeight: 800
           }}
         >
