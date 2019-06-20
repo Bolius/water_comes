@@ -14,7 +14,8 @@ export default class DataLoader extends React.Component {
 
       let bbr_json = await bbr_info.json();
 
-      json["has_basement"] = bbr_json.basement_area > 0;
+      json["has_basement"] =
+        bbr_json.basement_area > 0 || bbr_json.nr_of_floors > 2;
       json["appartment"] = bbr_json.type === "story";
       json["bbr"] = bbr_json;
       json["x"] = json.adgangsadresse.adgangspunkt.koordinater[0];
