@@ -1,12 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  Container as BContainer,
-  Row as BRow,
-  Col,
-  Collapse
-} from "reactstrap";
-import LinkList from "./link-list.js";
+import { Container as BContainer, Row as BRow, Col } from "reactstrap";
+import DataContent from "./data-content.js";
 import "../styles/risk.css";
 
 const Container = styled(BContainer)`
@@ -27,21 +22,11 @@ export default class DataBasis extends React.Component {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = { collapse: false };
-    this.dataRef = React.createRef();
   }
 
   toggle() {
     this.setState(state => ({ collapse: !state.collapse }));
   }
-  componentDidUpdate() {
-    if (!this.state.collapse) {
-      this.scrollToBottom();
-    }
-  }
-
-  scrollToBottom = () => {
-    this.dataRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
-  };
 
   render() {
     return (
@@ -54,35 +39,7 @@ export default class DataBasis extends React.Component {
             <div>{this.state.collapse ? "-" : "+"}</div>
           </Col>
         </Row>
-        <Collapse isOpen={this.state.collapse}>
-          <Row>
-            <Col>
-              <p>
-                Vi ved, at der i fremtiden kommer flere og voldsommere
-                vejrhændelser som fx skybrud. Vi ved også, at det kan være svært
-                at forholde sig til et varsel om skybrud, hvis man ikke ved,
-                hvor udsat ens bolig er.
-              </p>
-              <p>
-                Bolius er uvildige, og vores anbefalinger hviler på offentligt
-                tilgængelige data, som vi blandt andet indhenter gennem
-                Bygnings- og Boligregistret (BBR). Du skal være opmærksom på, at
-                de offentlige data kan være behæftet med usikkerheder.
-              </p>
-              <p>
-                Data kan alene anvendes til at give en overordnet vurdering. Vi
-                anbefaler, at du indhenter yderligere informationer, før du fx
-                iværksætter tiltag på baggrund af forventninger om
-                oversvømmelser. En god ide kan være at bestille et klimatjek,
-                der tager udgangspunkt i din boligs konkrete forhold og
-                beliggenhed.
-              </p>
-              Vores data er baseret på data fra følgende kilder:
-              {this.state.collapse ? <LinkList /> : ""}
-            </Col>
-          </Row>
-        </Collapse>
-        <div ref={this.dataRef} />
+        {this.state.collapse ? <DataContent /> : ""}
       </Container>
     );
   }

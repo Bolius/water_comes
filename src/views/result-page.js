@@ -9,10 +9,15 @@ export default class ResultPage extends React.Component {
     super(props);
     this.setActions = this.setActions.bind(this);
     this.state = { actions: [], showRes: false };
+    this.topRef = React.createRef();
   }
 
   setActions(actions) {
     this.setState({ actions: actions, showRes: true });
+  }
+
+  componentDidMount() {
+    window.scrollTo({ top: this.topRef.current.offsetTop, behavior: "smooth" });
   }
 
   render() {
@@ -31,7 +36,7 @@ export default class ResultPage extends React.Component {
       }
     }
     return (
-      <div>
+      <div ref={this.topRef}>
         {this.props.address.appartment ? <ApartmentBox /> : ""}
         <MapBox address={this.props.address.text} reset={this.props.reset} />
         <ActionHandler
