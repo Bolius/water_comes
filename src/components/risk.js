@@ -31,17 +31,12 @@ export default class Risk extends Component {
       <Container>
         <Row className="my-auto">
           <Col className="my-auto" sx="6" sm={{ size: "9" }}>
-            <RiskTitle>{this.props.title}</RiskTitle>
+            <RiskTitle style={{ cursor: "pointer" }} onClick={this.toggle}>
+              {this.props.title}
+            </RiskTitle>
           </Col>
-          <Col
-            sx="3"
-            sm={{ size: "3" }}
-            className="plus-btn my-auto"
-            onClick={this.toggle}
-          >
-            <div style={{ cursor: "pointer" }}>
-              {this.state.showDescription ? "-" : "+"}
-            </div>
+          <Col sx="3" sm={{ size: "3" }} className="plus-btn my-auto">
+            <div>{this.state.showDescription ? "-" : "+"}</div>
           </Col>
         </Row>
         {this.state.showDescription ? (
