@@ -16,14 +16,6 @@ const MapRow = styled(Row)`
 `;
 
 export default class MapBox extends React.Component {
-  constructor(props) {
-    super(props);
-    this.mapRef = React.createRef();
-  }
-
-  componentDidMount() {
-    this.mapRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
   render() {
     const mapParams = {
       center: this.props.address,
