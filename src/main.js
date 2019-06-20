@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "reactstrap";
 import AboutSite from "./components/about.js";
 import AdressSelect from "./components/address-select.js";
 import ResultPage from "./views/result-page.js";
@@ -37,7 +36,7 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <Container>
+      <div style={{ margin: "5%" }}>
         <AboutSite />
         {!this.state.has_data ? (
           !this.state.address_selected ? (
@@ -55,7 +54,7 @@ export default class Main extends React.Component {
             <DataBasis />
           </div>
         )}
-      </Container>
+      </div>
     );
   }
 }

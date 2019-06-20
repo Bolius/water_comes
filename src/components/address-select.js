@@ -1,14 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import { Row, Col, Container, Input } from "reactstrap";
 import { Button } from "./button";
 import "../styles/water_widget_dawa.css";
-
-const InputBox = styled(Container)`
-  background-color: #5ab3dd;
-  padding: 10px;
-  font-size: 20px;
-`;
 
 export default class AdressSelect extends React.Component {
   constructor(props) {
@@ -37,31 +29,52 @@ export default class AdressSelect extends React.Component {
 
   render() {
     return (
-      <div>
-        <InputBox>
-          <form
-            onSubmit={e => {
-              e.preventDefault();
+      <div
+        style={{
+          backgroundColor: "#5ab3dd",
+          padding: "10px",
+          fontSize: "20px"
+        }}
+      >
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignContent: "stretch",
+              alignItems: "center"
             }}
           >
-            <Row noGutters form>
-              <Col md={{ size: "9" }} sm={"12"}>
-                <div className="autocomplete-container">
-                  <Input
-                    type="search"
-                    value={this.state.address}
-                    onChange={this.handleChange}
-                    id="dawa-autocomplete-input"
-                    placeholder="Indtast din adresse...."
-                  />
-                </div>
-              </Col>
-              <Col md={{ size: "3" }} sm={"12"}>
-                <Button>TJEK RISIKO</Button>
-              </Col>
-            </Row>
-          </form>
-        </InputBox>
+            <div
+              className="autocomplete-container"
+              style={{
+                width: "70%",
+                flexGrow: "2",
+                margin: "5px"
+              }}
+            >
+              <input
+                style={{
+                  borderRadius: "5px",
+                  height: "2em",
+                  border: "0px",
+                  paddingLeft: "10px"
+                }}
+                value={this.state.address}
+                onChange={this.handleChange}
+                id="dawa-autocomplete-input"
+                placeholder="Indtast din adresse...."
+              />
+            </div>
+            <div style={{ flexGrow: "1", margin: "5px" }}>
+              <Button style={{ width: "100%" }}>TJEK RISIKO</Button>
+            </div>
+          </div>
+        </form>
       </div>
     );
   }

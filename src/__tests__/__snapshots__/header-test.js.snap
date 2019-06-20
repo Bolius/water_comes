@@ -2,10 +2,28 @@
 
 exports[`Header component it matches the snapshot 1`] = `
 <div
-  className="sc-bdVaJa jzuKoM"
+  style={
+    Object {
+      "background": "url(water_header.png)",
+      "backgroundPosition": "center center",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "cover",
+      "color": "white",
+      "height": "300px",
+      "marginBottom": "10px",
+      "paddingTop": "100px",
+      "textAlign": "center",
+    }
+  }
 >
   <h1
-    className="sc-bwzfXH fZuVsZ"
+    style={
+      Object {
+        "fontSize": "50px",
+        "fontWeight": "300",
+        "textTransform": "uppercase",
+      }
+    }
   >
     TJEK DIN RISIKO
   </h1>
