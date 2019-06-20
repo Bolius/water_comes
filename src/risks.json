@@ -14,7 +14,7 @@
   "bebyggelse": {
     "description": "Hvis en stor del af overfladen er bebygget eller belagt med asfalt, fliser, brosten mv., kan regnen have svært ved at sive ned i jorden – specielt når det regner kraftigt. Hvis vandet ikke kan løbe væk hurtigt nok, stiger risikoen for oversvømmelse.",
     "low": "Befæstelsesgraden i området er lav",
-    "medium": "Befæstelsesgraden i området middel",
+    "medium": "Befæstelsesgraden i området er middel",
     "high": "Befæstelsesgraden i området højt"
   },
   "basement": {
