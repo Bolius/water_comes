@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
 import { Button } from "./button.js";
 
 export default class MapBox extends React.Component {

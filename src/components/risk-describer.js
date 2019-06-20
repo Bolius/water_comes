@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Risk from "./risk.js";
 import Risks from "../risks.json";
 
