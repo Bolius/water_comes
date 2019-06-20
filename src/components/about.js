@@ -1,5 +1,4 @@
 import React from "react";
-import { Row } from "reactstrap";
 
 const headerStyle = {
   display: "block",
@@ -15,7 +14,7 @@ const headerStyle = {
 export default class About extends React.Component {
   render() {
     return (
-      <Row style={{ padding: "10px" }}>
+      <div style={{ padding: "10px" }}>
         <h2 style={headerStyle}>
           Tjek risikoen for, at din bolig bliver oversvømmet ved skybrud
         </h2>
@@ -25,7 +24,7 @@ export default class About extends React.Component {
           risiko for oversvømmelse. Ud fra resultatet får du gode råd til, hvad
           du kan gøre for at sikre din bolig.
         </p>
-      </Row>
+      </div>
     );
   }
 }

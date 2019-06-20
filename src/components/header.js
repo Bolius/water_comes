@@ -2,30 +2,32 @@ import React from "react";
 import styled from "styled-components";
 import water_header from "../assets/water_header.png";
 
-const StyledHeader = styled.div`
-  background: url(${water_header});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  color: white;
-  height: 300px;
-  text-align: center;
-  padding-top: 100px;
-  margin-bottom: 10px;
-`;
-
-const HeaderTitle = styled.h1`
-  text-transform: uppercase;
-  font-size: 50px;
-  font-weight: 300;
-`;
-
 export default class Header extends React.Component {
   render() {
     return (
-      <StyledHeader>
-        <HeaderTitle>TJEK DIN RISIKO</HeaderTitle>
-      </StyledHeader>
+      <div
+        style={{
+          background: `url(${water_header})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          color: "white",
+          height: "300px",
+          textAlign: "center",
+          paddingTop: "100px",
+          marginBottom: "10px"
+        }}
+      >
+        <h1
+          style={{
+            textTransform: "uppercase",
+            fontSize: "50px",
+            fontWeight: "300"
+          }}
+        >
+          TJEK DIN RISIKO
+        </h1>
+      </div>
     );
   }
 }

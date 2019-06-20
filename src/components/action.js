@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import { Row, Col } from "reactstrap";
-import "../styles/action.css";
+
+const rowStyle = {
+  margin: "10px 0px",
+  height: "3em",
+  display: "flex",
+  alignItems: "center",
+  cursor: "pointer"
+};
 
 export default class Action extends Component {
   constructor(props) {
@@ -22,17 +28,28 @@ export default class Action extends Component {
 
   render() {
     return (
-      <Row className="task" style={{ cursor: "pointer" }}>
-        <Col xs={{ size: "1" }} sm={{ size: "1", offset: 1 }}>
-          <label>
-            <input type="checkbox" onClick={this.toggle} />
-            <span className="checkmark" />
-          </label>
-        </Col>
-        <Col xs={{ size: "8" }} sm={{ size: "10" }} className="task-text">
+      <div style={rowStyle} onClick={this.toggle}>
+        <div
+          style={{
+            height: "1.6m",
+            width: "1.6em",
+            border: "5px solid #006FA8",
+            backgroundColor: "white",
+            color: !this.state.collapse ? "white" : "#006FA8",
+            textAlign: "center",
+            fontSize: "1.4em",
+            fontWeight: 800
+          }}
+        >
+          ✓
+        </div>
+        <div />
+        <div
+          style={{ marginLeft: "10px", fontWeight: "350", fontSize: "1.2em" }}
+        >
           {this.props.task}
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }
