@@ -17,9 +17,9 @@ export default class DataContent extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.dataRef);
+    //console.log(this.dataRef,  this.dataRef.current.offsetParent.offsetTop, this.dataRef.current.offsetParent.offsetParent.offsetTop);
     window.scrollTo({
-      top: this.dataRef.current.offsetParent.offsetTop,
+      top: this.dataRef.current.offsetParent.offsetParent.offsetTop,
       behavior: "smooth"
     });
   }
