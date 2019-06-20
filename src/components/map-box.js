@@ -38,7 +38,9 @@ export default class MapBox extends React.Component {
         <AddressBox>
           <div ref={this.mapRef}> </div>
           <Col className="my-auto" sm={{ size: 8 }}>
-            <h5 className="my-auto">{this.props.address} </h5>
+            <p style={{ fontSize: "1.5em" }} className="my-auto">
+              {this.props.address}{" "}
+            </p>
           </Col>
           <Col sm={{ size: 4 }} className="text-right">
             <Button onClick={this.props.reset}>Skift adresse</Button>
@@ -49,7 +51,7 @@ export default class MapBox extends React.Component {
             <img className="img-fluid" src={mapUrl} alt="Bolig Kort" />
           </Col>
           <Col sm={{ size: "6" }} style={{ marginTop: "1em" }}>
-            <h5>Her er din risikovurdering</h5>
+            <p style={{ fontSize: "1.5em" }}>Her er din risikovurdering</p>
             <p>
               {" "}
               Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved

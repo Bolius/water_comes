@@ -10,6 +10,7 @@ const RiskHeader = styled(Col)`
   background-color: #eff9fd;
   padding: 0.8em;
   marginbottom: 5px;
+  width: 100%;
 `;
 
 const RiskSummary = styled(Row)`
