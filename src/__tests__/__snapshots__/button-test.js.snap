@@ -3,7 +3,7 @@
 exports[`Button component it matches the snapshot 1`] = `
 <button
   aria-label={null}
-  className="sc-bdVaJa ksyBqg btn btn-secondary btn-block"
+  className="sc-bdVaJa ksyBqg btn btn-secondary"
   onClick={[Function]}
 />
 `;
