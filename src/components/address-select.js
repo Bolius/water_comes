@@ -71,7 +71,7 @@ export default class AdressSelect extends React.Component {
               />
             </div>
             <div style={{ flexGrow: "1", margin: "5px" }}>
-              <Button>TJEK RISIKO</Button>
+              <Button style={{ width: "100%" }}>TJEK RISIKO</Button>
             </div>
           </div>
         </form>

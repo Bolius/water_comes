@@ -65,7 +65,7 @@ export default class ActionsTaken extends React.Component {
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <Button
             onClick={this.handleChange}
-            style={{ marginBottom: "20px", width: "40%" }}
+            style={{ marginBottom: "20px", marginRight: "20px" }}
           >
             Vis Anbefalinger
           </Button>

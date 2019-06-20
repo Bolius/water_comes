@@ -32,7 +32,7 @@ export default class DataBasis extends React.Component {
             fontSize: "1.2em"
           }}
         >
-          <div style={{ paddingLeft: "40px" }}>SE DATAGRUNDLAGET HER</div>
+          <div style={{ paddingLeft: "30px" }}>SE DATAGRUNDLAGET HER</div>
           <div
             style={{
               textAling: "right",
