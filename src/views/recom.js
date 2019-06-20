@@ -32,9 +32,9 @@ export default class Recommendations extends React.Component {
   }
 
   componentDidMount() {
-    this.recomRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+    window.scrollTo({
+      top: this.recomRef.current.offsetParent.scrollHeight,
+      behavior: "smooth"
     });
   }
 
@@ -55,7 +55,7 @@ export default class Recommendations extends React.Component {
       <div ref={this.recomRef}>
         <Row>
           <StyledHeader>
-            <p style={{ fontSize: "25px" }}>
+            <p style={{ fontSize: "25px" }} ref={this.recomRef}>
               {" "}
               Her er vores anbefalinger til hvad du kan gøre{" "}
             </p>
