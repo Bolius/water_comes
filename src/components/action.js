@@ -22,7 +22,7 @@ export default class Action extends Component {
 
   render() {
     return (
-      <Row className="task">
+      <Row className="task" style={{ cursor: "pointer" }}>
         <Col xs={{ size: "1" }} sm={{ size: "1", offset: 1 }}>
           <label>
             <input type="checkbox" onClick={this.toggle} />

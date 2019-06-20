@@ -10,16 +10,14 @@ export default class DataLoader extends React.Component {
 
       bbr_info = await fetch(
         "https://ml.bolius.dk/bbr/" + encodeURI(json.adressebetegnelse),
-        {
-          mode: "cors"
-        }
+        { mode: "cors" }
       );
 
       let bbr_json = await bbr_info.json();
 
-      json["has_basement"] =
-        bbr_json.basement_area > 0;
-      json["appartment"] = bbr_json.type === "story" || bbr_json.nr_of_floors > 2;
+      json["has_basement"] = bbr_json.basement_area > 0;
+      json["appartment"] =
+        bbr_json.type === "story" || bbr_json.nr_of_floors > 2;
       json["bbr"] = bbr_json;
       json["x"] = json.adgangsadresse.adgangspunkt.koordinater[0];
       json["y"] = json.adgangsadresse.adgangspunkt.koordinater[1];
