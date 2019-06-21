@@ -1,15 +1,14 @@
 import React from "react";
-import styled from "styled-components";
-import { Container, Row, Col } from "reactstrap";
 import Action from "./action.js";
 import { Button } from "./button.js";
 
-const ActionHeader = styled(Row)`
-  font-size: 1.4em;
-  font-weight: 500;
-  margin-bottom: 0.4em;
-  margin-top: 20px;
-`;
+const headerStyle = {
+  fontSize: "1.3em",
+  fontWeight: "500",
+  marginBottom: "0.5em",
+  marginTop: "20px",
+  textAlign: "center"
+};
 
 export default class ActionsTaken extends React.Component {
   constructor(props) {
@@ -42,16 +41,16 @@ export default class ActionsTaken extends React.Component {
 
   render() {
     return (
-      <Container>
-        <ActionHeader>
+      <div>
+        <div style={headerStyle}>
           Hvad har du gjort for at forbygge oversvømmelse?
-        </ActionHeader>
-        <Row>
+        </div>
+        <div style={{ width: "90%", margin: "auto", textAlign: "center" }}>
           Fortæl os, hvad du selv har gjort for at forebygge oversvømmelse. Sæt
           hak ud for de ting, du har fået lavet. Har du intet gjort, kan du blot
           trykke ’Vis anbefalinger’
-        </Row>
-        <div className="actionContainer">
+        </div>
+        <div style={{ width: "70%", margin: "auto" }}>
           {this.props.actions.map(item => (
             <Action
               task={item.action}
@@ -63,14 +62,15 @@ export default class ActionsTaken extends React.Component {
             />
           ))}
         </div>
-        <Row>
-          <Col sm={{ size: "6", offset: 6 }} style={{ marginBottom: 20 }}>
-            <Button block onClick={this.handleChange}>
-              Vis Anbefalinger
-            </Button>
-          </Col>
-        </Row>
-      </Container>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Button
+            onClick={this.handleChange}
+            style={{ marginBottom: "20px", marginRight: "20px" }}
+          >
+            Vis Anbefalinger
+          </Button>
+        </div>
+      </div>
     );
   }
 }

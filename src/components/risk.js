@@ -1,19 +1,18 @@
 import React, { Component } from "react";
-import { Container as BContainer, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import "../styles/risk.css";
-import styled from "styled-components";
 
-const Container = styled(BContainer)`
-  background-color: #edf9fd;
-  margin-bottom: 5px;
-  margin-top: 5px;
-`;
+const ContainerStyle = {
+  backgroundColor: "#edf9fd",
+  marginBottom: "5px",
+  marginTop: "5px"
+};
 
-const RiskTitle = styled(Row)`
-  font-size: 1.2em;
-  font-weight: 300;
-  padding-left: 10px;
-`;
+const RiskTitle = {
+  fontSize: "1.2em",
+  fontweight: "300",
+  paddingLeft: "10px"
+};
 
 export default class Risk extends Component {
   constructor(props) {
@@ -28,8 +27,12 @@ export default class Risk extends Component {
 
   render() {
     return (
-      <Container>
-        <Row className="my-auto">
+      <Container style={ContainerStyle}>
+        <Row
+          className="my-auto"
+          style={{ cursor: "pointer" }}
+          onClick={this.toggle}
+        >
           <Col className="my-auto" sx="6" sm={{ size: "9" }}>
             <RiskTitle style={{ cursor: "pointer" }} onClick={this.toggle}>
               {this.props.title}

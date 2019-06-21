@@ -1,5 +1,4 @@
 import React from "react";
-import { Row, Col, Container } from "reactstrap";
 import RiskDescriber from "../components/risk-describer.js";
 import ActionsTaken from "../components/actions-taken.js";
 import Articles from "../articles.json";
@@ -34,27 +33,26 @@ export default class ActionHandler extends React.Component {
       riskNr = 2;
     }
     return (
-      <div>
-        <Container>
-          <Row style={{ marginBottom: "12px", backgroundColor: "#DAEFF9" }}>
-            <Col sm={6} style={{ marginTop: "10px" }}>
-              <RiskDescriber
-                risk={riskNr}
-                riskText={riskAssement}
-                type={this.state.tab}
-                dangers={this.props.dangers}
-              />
-            </Col>
-            <Col sm={6} style={{ marginTop: "20px" }}>
-              <ActionsTaken
-                actions={actions}
-                setActions={this.props.setActions}
-              />
-            </Col>
-          </Row>
-        </Container>
+      <div
+        style={{
+          marginBottom: "12px",
+          backgroundColor: "#DAEFF9",
+          display: "flex",
+          flexWrap: "wrap"
+        }}
+      >
+        <div style={{ flex: 1 }}>
+          <RiskDescriber
+            risk={riskNr}
+            riskText={riskAssement}
+            type={this.state.tab}
+            dangers={this.props.dangers}
+          />
+        </div>
+        <div style={{ flex: 1 }}>
+          <ActionsTaken actions={actions} setActions={this.props.setActions} />
+        </div>
       </div>
     );
   }
 }
-//  <TabHeader tab={this.state.tab} setTab={this.setTab}/>

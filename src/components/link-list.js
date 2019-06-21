@@ -6,7 +6,6 @@ export default class LinkList extends React.Component {
     return (
       <ul>
         <li>
-          {" "}
           <a
             rel="noopener noreferrer"
             target="_blank"
@@ -16,7 +15,6 @@ export default class LinkList extends React.Component {
           </a>
         </li>
         <li>
-          {" "}
           <a
             rel="noopener noreferrer"
             target="_blank"
@@ -26,13 +24,11 @@ export default class LinkList extends React.Component {
           </a>
         </li>
         <li>
-          {" "}
           <a rel="noopener noreferrer" target="_blank" href="https://bbr.dk/">
             BBR registret
           </a>
         </li>
         <li>
-          {" "}
           <a
             rel="noopener noreferrer"
             target="_blank"

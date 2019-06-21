@@ -33,7 +33,7 @@ export default class Recommendations extends React.Component {
 
   componentDidMount() {
     window.scrollTo({
-      top: this.recomRef.current.offsetParent.scrollHeight,
+      top: this.recomRef.current.offsetTop,
       behavior: "smooth"
     });
   }

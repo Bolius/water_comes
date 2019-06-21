@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { Button as BootStrapButton } from "reactstrap";
 
-export const Button = styled(BootStrapButton).attrs(() => ({
-  block: true
-}))`
+export const Button = styled(BootStrapButton).attrs(() => ({}))`
   background-color: #0e6ba3 !important;
   text-transform: uppercase;
   border-radius: 0 !important;
