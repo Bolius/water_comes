@@ -2,6 +2,36 @@ import React from "react";
 import RiskDescriber from "../components/risk-describer.js";
 import ActionsTaken from "../components/actions-taken.js";
 import Articles from "../articles.json";
+import styled from "styled-components";
+
+const ResRow = styled.div`
+  margin: 2em 0em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: "12px";
+  @media (min-width: 576px) {
+    flex-wrap: wrap;
+  }
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+  }
+  @media (min-width: 992px) {
+    flex-wrap: nowrap;
+  }
+  @media (min-width: 1200px) {
+    flex-wrap: nowrap;
+  }
+`;
+
+const ResCol = styled.div`
+  position: relative;
+  width: 100%;
+  @media (min-width: 576px) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+`;
 
 export default class ActionHandler extends React.Component {
   constructor(props) {
@@ -33,26 +63,19 @@ export default class ActionHandler extends React.Component {
       riskNr = 2;
     }
     return (
-      <div
-        style={{
-          marginBottom: "12px",
-          backgroundColor: "#DAEFF9",
-          display: "flex",
-          flexWrap: "wrap"
-        }}
-      >
-        <div style={{ flex: 1 }}>
+      <ResRow style={{ backgroundColor: "#DAEFF9" }}>
+        <ResCol>
           <RiskDescriber
             risk={riskNr}
             riskText={riskAssement}
             type={this.state.tab}
             dangers={this.props.dangers}
           />
-        </div>
-        <div style={{ flex: 1 }}>
+        </ResCol>
+        <ResCol>
           <ActionsTaken actions={actions} setActions={this.props.setActions} />
-        </div>
-      </div>
+        </ResCol>
+      </ResRow>
     );
   }
 }

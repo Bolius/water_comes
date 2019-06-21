@@ -1,5 +1,34 @@
 import React from "react";
 import { Button } from "./button.js";
+import styled from "styled-components";
+
+const MapRow = styled.div`
+  margin: 2em 0em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  @media (min-width: 576px) {
+    flex-wrap: wrap;
+  }
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+  }
+  @media (min-width: 992px) {
+    flex-wrap: nowrap;
+  }
+  @media (min-width: 1200px) {
+    flex-wrap: nowrap;
+  }
+`;
+
+const MapCol = styled.div`
+  position: relative;
+  width: 100%;
+  @media (min-width: 576px) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+`;
 
 export default class MapBox extends React.Component {
   getMapUrl(address) {
@@ -51,27 +80,17 @@ export default class MapBox extends React.Component {
             <Button onClick={this.props.reset}>Skift adresse</Button>
           </div>
         </div>
+        <MapRow style={{ display: "flex" }}>
+          <MapCol>
+            <img
+              className="img-fluid"
+              src={this.getMapUrl(this.props.address)}
+              alt="Bolig Kort"
+              style={{ marginBottom: "10px" }}
+            />
+          </MapCol>
 
-        <div
-          style={{
-            marginBottom: "2em",
-            display: "flex",
-            justifyContent: "space-evenly",
-            flexWrap: "wrap"
-          }}
-        >
-          <img
-            className="img-fluid"
-            src={this.getMapUrl(this.props.address)}
-            alt="Bolig Kort"
-            style={{ flex: 1, flexBasis: "20%" }}
-          />
-          <div
-            style={{
-              flex: 1,
-              paddingLeft: "20px"
-            }}
-          >
+          <MapCol style={{ textAlign: "center" }}>
             <p style={{ fontSize: "1.5em" }}>Her er din risikovurdering</p>
             <p>
               Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved
@@ -81,8 +100,8 @@ export default class MapBox extends React.Component {
             </p>
             Du kan klikke på de enkelte punkter for at blive klogere på, hvordan
             de påvirker risikoen for oversvømmelse.
-          </div>
-        </div>
+          </MapCol>
+        </MapRow>
       </div>
     );
   }
