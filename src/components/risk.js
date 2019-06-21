@@ -34,9 +34,7 @@ export default class Risk extends Component {
           onClick={this.toggle}
         >
           <Col className="my-auto" sx="6" sm={{ size: "9" }}>
-            <RiskTitle style={{ cursor: "pointer" }} onClick={this.toggle}>
-              {this.props.title}
-            </RiskTitle>
+            <Row style={RiskTitle}>{this.props.title}</Row>
           </Col>
           <Col sx="3" sm={{ size: "3" }} className="plus-btn my-auto">
             <div>{this.state.showDescription ? "-" : "+"}</div>
