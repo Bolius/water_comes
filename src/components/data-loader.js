@@ -48,12 +48,7 @@ export default class DataLoader extends React.Component {
 
   render() {
     return (
-      <div
-        style={{
-          textAlign: "center",
-          marginTop: "40px"
-        }}
-      >
+      <div className="data-loader">
         <Loader
           sizeUnit={"px"}
           size={25}

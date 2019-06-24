@@ -15,7 +15,7 @@
     "description": "Hvis en stor del af overfladen er bebygget eller belagt med asfalt, fliser, brosten mv., er befæstelsesgraden høj, og så kan regnen have svært ved at sive ned i jorden – specielt når det regner kraftigt. Hvis vandet ikke kan løbe væk hurtigt nok, stiger risikoen for oversvømmelse.",
     "low": "Befæstelsesgraden i området er lav",
     "medium": "Befæstelsesgraden i området er middel",
-    "high": "Befæstelsesgraden i området er højt"
+    "high": "Befæstelsesgraden i området er høj"
   },
   "basement": {
     "description": "En kælder gør boligen meget sårbar for oversvømmelse, når der er skybrud. Har du omvendt ikke en kælder, falder risikoen for oversvømmelse markant.",

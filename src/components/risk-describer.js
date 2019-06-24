@@ -16,39 +16,12 @@ export default class RiskDescriber extends React.Component {
   render() {
     const riskImage = require(`../assets/gauges/risk-${this.props.risk}.png`);
     return (
-      <div style={{ margin: "20px" }}>
-        <div
-          style={{
-            fontWeight: "600",
-            fontSize: "1.2em",
-            backgroundColor: "#d5eff9",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center"
-          }}
-        >
+      <div>
+        <div className="risk-summary">
           <h2>Skybrud</h2>
-
-          <img
-            src={riskImage}
-            style={{ height: "64px", width: "64px" }}
-            className="img-fluid"
-            alt="Risiko måler"
-          />
-
-          <h5 style={{ color: "#3687b7" }}>{this.props.riskText}</h5>
-        </div>
-
-        <div
-          style={{
-            fontSize: "1.2em",
-            fontWeight: 600,
-            backgroundColor: "#eff9fd",
-            padding: "0.8em",
-            textAlign: "center"
-          }}
-        >
-          Faktorer, der påvirker boligens risiko ved {this.props.type}
+          <img src={riskImage} alt="Risiko måler" />
+          <h5>{this.props.riskText}</h5>
+          <h5>Faktorer, der påvirker boligens risiko ved {this.props.type}</h5>
         </div>
 
         <div>

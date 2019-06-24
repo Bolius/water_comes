@@ -1,14 +1,5 @@
 import React from "react";
 import Action from "./action.js";
-import { Button } from "./button.js";
-
-const headerStyle = {
-  fontSize: "1.3em",
-  fontWeight: "500",
-  marginBottom: "0.5em",
-  marginTop: "20px",
-  textAlign: "center"
-};
 
 export default class ActionsTaken extends React.Component {
   constructor(props) {
@@ -41,16 +32,14 @@ export default class ActionsTaken extends React.Component {
 
   render() {
     return (
-      <div>
-        <div style={headerStyle}>
-          Hvad har du gjort for at forbygge oversvømmelse?
-        </div>
-        <div style={{ width: "90%", margin: "auto", textAlign: "center" }}>
+      <div className="ww-action-container">
+        <h5>Hvad har du gjort for at forbygge oversvømmelse?</h5>
+        <p>
           Fortæl os, hvad du selv har gjort for at forebygge oversvømmelse. Sæt
           hak ud for de ting, du har fået lavet. Har du intet gjort, kan du blot
           trykke ’Vis anbefalinger’
-        </div>
-        <div style={{ width: "70%", margin: "auto" }}>
+        </p>
+        <div className="ww-action-container">
           {this.props.actions.map(item => (
             <Action
               task={item.action}
@@ -62,14 +51,7 @@ export default class ActionsTaken extends React.Component {
             />
           ))}
         </div>
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Button
-            onClick={this.handleChange}
-            style={{ marginBottom: "20px", marginRight: "20px" }}
-          >
-            Vis Anbefalinger
-          </Button>
-        </div>
+        <button onClick={this.handleChange}>Vis Anbefalinger</button>
       </div>
     );
   }

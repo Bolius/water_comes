@@ -1,18 +1,6 @@
 import React from "react";
-import { Row, Col } from "reactstrap";
-import styled from "styled-components";
 import Recommendation from "../components/recommendation.js";
 import Articles from "../articles.json";
-import { Button } from "../components/button";
-
-const ArticleColumn = styled(Col)`
-  margin: 5px 0px;
-`;
-
-const StyledHeader = styled.div`
-  font-family: "roboto", sans-serif;
-  padding: 7px 20px 5px;
-`;
 
 export default class Recommendations extends React.Component {
   constructor(props) {
@@ -53,56 +41,40 @@ export default class Recommendations extends React.Component {
     });
     return (
       <div ref={this.recomRef}>
-        <Row>
-          <StyledHeader>
-            <p style={{ fontSize: "25px" }} ref={this.recomRef}>
-              {" "}
-              Her er vores anbefalinger til hvad du kan gøre{" "}
-            </p>
-            <p>
-              Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har
-              oplyst, er her vores anbefalinger.{" "}
-            </p>
-          </StyledHeader>
-        </Row>
-        <Row style={{ marginBottom: "10px" }}>
+        <div>
+          <h4>Her er vores anbefalinger til hvad du kan gøre</h4>
+          <h6>
+            Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har
+            oplyst, er her vores anbefalinger.
+          </h6>
+        </div>
+        <div className="result-container">
           {articles.map((a, i) => (
-            <ArticleColumn key={i} sm={"12"} md={"6"}>
-              <Recommendation
-                img={a.img}
-                title={a.title}
-                caption={a.caption}
-                link={a.link}
-              />
-            </ArticleColumn>
+            <Recommendation
+              key={i}
+              img={a.img}
+              title={a.title}
+              caption={a.caption}
+              link={a.link}
+            />
           ))}
-        </Row>
-        {!this.state.readMore ? (
-          <div>
-            {" "}
-            <Button variant="primary" size="lg" block onClick={this.show}>
-              Vis flere
-            </Button>{" "}
-          </div>
-        ) : (
-          <div>
-            <Row style={{ marginBottom: "10px" }}>
+          {!this.state.readMore ? (
+            <button onClick={this.show}>Vis flere</button>
+          ) : (
+            <div>
               {other.map((a, i) => (
-                <ArticleColumn key={i} sm={"12"} md={"6"}>
-                  <Recommendation
-                    img={a.img}
-                    title={a.title}
-                    caption={a.caption}
-                    link={a.link}
-                  />
-                </ArticleColumn>
+                <Recommendation
+                  key={i}
+                  img={a.img}
+                  title={a.title}
+                  caption={a.caption}
+                  link={a.link}
+                />
               ))}
-            </Row>
-            <Button variant="primary" size="lg" block onClick={this.hide}>
-              Vis færre
-            </Button>
-          </div>
-        )}
+              <button onClick={this.hide}>Vis færre</button>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
