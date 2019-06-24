@@ -1,0 +1,243 @@
+.ww-action-row {
+  margin: 10px 0px;
+  height: 3em;
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+}
+
+.ww-action-checkbox {
+  height: 30px;
+  width: 30px;
+  border: 5px solid #006fa8;
+  background-color: white;
+  color: #006fa8;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 800;
+}
+
+.ww-action-text {
+  font-size: 1.2em;
+  padding-left: 20px;
+}
+
+#root button {
+  width: 100%;
+  background-color: red;
+  text-transform: uppercase;
+  line-height: 1.5;
+  background-color: #0e6ba3;
+  border: 0px;
+  vertical-align: middle;
+  display: inline-block;
+  font-weight: 400;
+  color: white;
+  border: 0px;
+}
+
+#root button:hover {
+  background-color: #24a2b7;
+  border: 1px, solid white;
+}
+
+.ww-action-container > button {
+  width: auto !important;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  float: right;
+}
+
+.ww-action-container {
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+/* Address input */
+.ww-address-input {
+  background-color: #5ab3dd;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.ww-address-input > form {
+  display: flex;
+  margin: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: stretch;
+  justify-content: space-between;
+}
+
+.ww-address-input > form > div:first-child {
+  width: 70%;
+  flex-grow: 2;
+}
+.ww-address-input > form > div:last-child {
+  margin: 0px 10px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.ww-address-input > form > div > input {
+  border-radius: 5px;
+  border: 0px;
+}
+
+/*  appartmentbox */
+.appartmentbox {
+  margin-bottom: 25px;
+  background-color: #59b2dd;
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* data basis */
+.data-basis {
+  background-color: #eff9fd;
+  margin: 15px 0px;
+}
+
+.data-basis > div:first-child {
+  height: 2em;
+  font-weight: 600;
+  padding: 0px 30px;
+  cursor: pointer;
+  display: flex;
+  color: #006ea7;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+.data-basis > div:last-child {
+  margin: 1%;
+}
+
+.data-loader {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Map row */
+.map-row {
+  margin: 1em 0em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.map-col > img {
+  width: 100%;
+}
+
+.recommendation-container > img {
+  width: 100%;
+}
+
+.map-col {
+  flex: 1 0 300px;
+}
+
+@media (min-width: 600px) {
+  .map-col:first-child {
+    margin-right: 5px;
+  }
+  .map-col:last-child {
+    margin-right: 5px;
+  }
+}
+
+.map-address-reset {
+  background-color: #59b2dd;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  font-size: 1.5em;
+  padding: 10px 10px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.map-address-reset > div:first-child {
+  font-size: 1.2em;
+  flex-grow: 2;
+}
+
+.map-address-reset > div:last-child {
+  flex-grow: 1;
+}
+
+/* Recommendations */
+.recommendation-container {
+  background-color: #d8effa;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.recommendation-container > a:first-child {
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .recommendation-container {
+    flex-wrap: nowrap;
+  }
+}
+
+.recommendation-container img {
+  border-radius: 10px;
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+
+.risk-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.risk-summary img {
+  height: 128px;
+  width: 128px;
+}
+
+.plus-btn {
+  font-size: 1.8em;
+  font-weight: 800;
+  color: #006ea7;
+  text-align: right;
+}
+
+.risk-row {
+  padding: 5px 10px;
+  margin: 10px 10px;
+  background-color: #edf9fd;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-container {
+  background-color: #daeff9;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
+  .result-container > div {
+    flex: 1 0 50%;
+  }
+}

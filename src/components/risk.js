@@ -1,19 +1,4 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
-import "../styles/risk.css";
-
-const ContainerStyle = {
-  backgroundColor: "#edf9fd",
-  marginBottom: "5px",
-  marginTop: "5px"
-};
-
-const RiskTitle = {
-  fontSize: "1.2em",
-  fontweight: "300",
-  paddingLeft: "10px"
-};
-
 export default class Risk extends Component {
   constructor(props) {
     super(props);
@@ -27,27 +12,17 @@ export default class Risk extends Component {
 
   render() {
     return (
-      <Container style={ContainerStyle}>
-        <Row
-          className="my-auto"
-          style={{ cursor: "pointer" }}
-          onClick={this.toggle}
-        >
-          <Col className="my-auto" sx="6" sm={{ size: "9" }}>
-            <Row style={RiskTitle}>{this.props.title}</Row>
-          </Col>
-          <Col sx="3" sm={{ size: "3" }} className="plus-btn my-auto">
-            <div>{this.state.showDescription ? "-" : "+"}</div>
-          </Col>
-        </Row>
-        {this.state.showDescription ? (
-          <Row>
-            <Col>{this.props.description}</Col>
-          </Row>
-        ) : (
-          ""
-        )}
-      </Container>
+      <div>
+        <div className="risk-row" onClick={this.toggle}>
+          <h5>{this.props.title}</h5>
+          <h5 className="plus-btn">{this.state.showDescription ? "-" : "+"}</h5>
+          {this.state.showDescription ? (
+            <div>{this.props.description}</div>
+          ) : (
+            ""
+          )}
+        </div>
+      </div>
     );
   }
 }

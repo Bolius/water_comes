@@ -10,14 +10,14 @@ export default class DataContent extends React.Component {
   componentDidMount() {
     //console.log(this.dataRef,  this.dataRef.current.offsetParent.offsetTop, this.dataRef.current.offsetParent.offsetParent.offsetTop);
     window.scrollTo({
-      top: this.dataRef.current.offsetParent.offsetTop,
+      top: this.dataRef.current.offsetTop,
       behavior: "smooth"
     });
   }
 
   render() {
     return (
-      <div style={{ fontSize: "1.1em", fontWeight: "500", padding: "1em" }}>
+      <div>
         <p ref={this.dataRef}>
           Vi ved, at der i fremtiden kommer flere og voldsommere vejrhændelser
           som fx skybrud. Vi ved også, at det kan være svært at forholde sig til
