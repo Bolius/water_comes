@@ -16,7 +16,7 @@ export default class DataBasis extends React.Component {
   render() {
     return (
       <div className={"data-basis"}>
-        <div onClick={this.toggle}>
+        <div class="data-basis-header" onClick={this.toggle}>
           <h2>Se datagrundlaget her</h2>
           <span class="icon-data-basis">{this.state.collapse ? "-" : "+"}</span>
         </div>

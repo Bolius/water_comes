@@ -40,7 +40,7 @@ export default class Recommendations extends React.Component {
       return !articles.includes(x);
     });
     return (
-      <div ref={this.recomRef}>
+      <div class="recommendation-wrapper" ref={this.recomRef}>
         <div>
           <h2>Her er vores anbefalinger til hvad du kan gøre</h2>
           <p>
