@@ -17,10 +17,10 @@ export default class DataBasis extends React.Component {
     return (
       <div className={"data-basis"}>
         <div onClick={this.toggle}>
-          <div>SE DATAGRUNDLAGET HER</div>
-          <div>{this.state.collapse ? "-" : "+"}</div>
+          <h2>Se datagrundlaget her</h2>
+          <span class="icon-data-basis">{this.state.collapse ? "-" : "+"}</span>
         </div>
-        <div>{this.state.collapse ? <DataContent /> : ""}</div>
+        <div class="data-basis-content">{this.state.collapse ? <DataContent /> : ""}</div>
       </div>
     );
   }

@@ -42,11 +42,11 @@ export default class Recommendations extends React.Component {
     return (
       <div ref={this.recomRef}>
         <div>
-          <h4>Her er vores anbefalinger til hvad du kan gøre</h4>
-          <h6>
+          <h2>Her er vores anbefalinger til hvad du kan gøre</h2>
+          <p>
             Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har
             oplyst, er her vores anbefalinger.
-          </h6>
+          </p>
         </div>
         <div className="result-container">
           {articles.map((a, i) => (
@@ -61,7 +61,7 @@ export default class Recommendations extends React.Component {
           {!this.state.readMore ? (
             <button onClick={this.show}>Vis flere</button>
           ) : (
-            <div>
+            <div class="more-recommendation-container">
               {other.map((a, i) => (
                 <Recommendation
                   key={i}
@@ -74,8 +74,8 @@ export default class Recommendations extends React.Component {
               <button onClick={this.hide}>Vis færre</button>
             </div>
           )}
-        </div>
-      </div>
+        </div>      
+      </div>      
     );
   }
 }

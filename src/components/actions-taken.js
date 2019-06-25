@@ -32,25 +32,25 @@ export default class ActionsTaken extends React.Component {
 
   render() {
     return (
-      <div className="ww-action-container">
-        <h5>Hvad har du gjort for at forbygge oversvømmelse?</h5>
+      <div className="col last ww-action-container">
+        <h3>Hvad har du gjort for at forbygge oversvømmelse?</h3>
         <p>
           Fortæl os, hvad du selv har gjort for at forebygge oversvømmelse. Sæt
           hak ud for de ting, du har fået lavet. Har du intet gjort, kan du blot
           trykke ’Vis anbefalinger’
         </p>
-        <div className="ww-action-container">
-          {this.props.actions.map(item => (
-            <Action
-              task={item.action}
-              key={item.id}
-              keyId={item.id}
-              setKey={this.setKey}
-              handleChange={this.handleChange}
-              recomShown={this.state.recomShown}
-            />
-          ))}
-        </div>
+        
+        {this.props.actions.map(item => (
+          <Action
+            task={item.action}
+            key={item.id}
+            keyId={item.id}
+            setKey={this.setKey}
+            handleChange={this.handleChange}
+            recomShown={this.state.recomShown}
+          />
+        ))}
+      
         <button onClick={this.handleChange}>Vis Anbefalinger</button>
       </div>
     );

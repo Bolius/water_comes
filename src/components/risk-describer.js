@@ -16,15 +16,15 @@ export default class RiskDescriber extends React.Component {
   render() {
     const riskImage = require(`../assets/gauges/risk-${this.props.risk}.png`);
     return (
-      <div>
+      <div class="col">      
         <div className="risk-summary">
           <h2>Skybrud</h2>
           <img src={riskImage} alt="Risiko måler" />
-          <h5>{this.props.riskText}</h5>
-          <h5>Faktorer, der påvirker boligens risiko ved {this.props.type}</h5>
+          <h3>{this.props.riskText}</h3>          
         </div>
 
-        <div>
+        <div class="risk-factor">
+          <h2>Faktorer, der påvirker boligens risiko ved {this.props.type}</h2>
           {this.getRisks("high")}
           {this.getRisks("medium")}
           {this.getRisks("low")}
