@@ -20,10 +20,8 @@ export default class Recommendations extends React.Component {
   }
 
   componentDidMount() {
-    window.scrollTo({
-      top: this.recomRef.current.offsetTop,
-      behavior: "smooth"
-    });
+    // Scroll down by 200 pixels
+    window.scrollBy(0, 200);
   }
 
   render() {
@@ -70,8 +68,7 @@ export default class Recommendations extends React.Component {
                   caption={a.caption}
                   link={a.link}
                 />
-              ))}
-              <button onClick={this.hide}>Vis færre</button>
+              ))}              
             </div>
           )}
         </div>      

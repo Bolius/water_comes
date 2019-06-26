@@ -33,7 +33,7 @@ export default class MapBox extends React.Component {
           </div>
 
           <div className="col last">
-            <h3>Her er din risikovurdering</h3>
+            <h3 class="title-risc-assessment">Her er din risikovurdering</h3>
             <p>
               Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved
               oversvømmelse efter skybrud. Når du har oplyst, hvad du selv har
