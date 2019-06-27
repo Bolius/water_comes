@@ -14,10 +14,10 @@ export default class Risk extends Component {
     return (
       <div>
         <div className="risk-row" onClick={this.toggle}>
-          <h5>{this.props.title}</h5>
-          <h5 className="plus-btn">{this.state.showDescription ? "-" : "+"}</h5>
+          <h3>{this.props.title}</h3>
+          <span className="plus-btn">{this.state.showDescription ? "-" : "+"}</span>
           {this.state.showDescription ? (
-            <div>{this.props.description}</div>
+            <p>{this.props.description}</p>
           ) : (
             ""
           )}

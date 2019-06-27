@@ -8,7 +8,7 @@ export default class Recommendation extends React.Component {
           <img src={this.props.img} alt={this.props.link} />
         </a>
         <div>
-          <h5>{this.props.title}</h5>
+          <h3>{this.props.title}</h3>
           <p>
             {this.props.caption.slice(0, 80)}...
             <a rel="noopener noreferrer" target="_blank" href={this.props.link}>

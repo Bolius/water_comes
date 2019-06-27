@@ -24,18 +24,16 @@ export default class MapBox extends React.Component {
     return (
       <div>
         <div className="map-address-reset" ref={this.mapRef}>
-          <div>{this.props.address}</div>
-          <div>
-            <button onClick={this.props.reset}>Skift adresse</button>
-          </div>
+          <h2>{this.props.address}</h2>
+          <button onClick={this.props.reset}>Skift adresse</button>          
         </div>
-        <div className="map-row">
-          <div className="map-col">
+        <div className="row twocol">
+          <div className="col">
             <img src={this.getMapUrl(this.props.address)} alt="Bolig Kort" />
           </div>
 
-          <div className="map-col">
-            <h4>Her er din risikovurdering</h4>
+          <div className="col last">
+            <h3 class="title-risc-assessment">Her er din risikovurdering</h3>
             <p>
               Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved
               oversvømmelse efter skybrud. Når du har oplyst, hvad du selv har

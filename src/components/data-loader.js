@@ -25,7 +25,7 @@ export default class DataLoader extends React.Component {
         `https://ml.bolius.dk/waterComes/${json.x}/${json.y}`
       );
       let dangers = await resp.json();
-      console.log("recived");
+      console.log("received");
       console.log(dangers);
       json["dangers"] = dangers;
       return json;

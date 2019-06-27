@@ -34,13 +34,15 @@ export default class ActionHandler extends React.Component {
     }
     return (
       <div className="result-container">
-        <RiskDescriber
-          risk={riskNr}
-          riskText={riskAssement}
-          type={this.state.tab}
-          dangers={this.props.dangers}
-        />
-        <ActionsTaken actions={actions} setActions={this.props.setActions} />
+          <div class="row twocol">
+          <RiskDescriber
+            risk={riskNr}
+            riskText={riskAssement}
+            type={this.state.tab}
+            dangers={this.props.dangers}
+          />
+          <ActionsTaken actions={actions} setActions={this.props.setActions} />
+        </div>
       </div>
     );
   }

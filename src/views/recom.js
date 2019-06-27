@@ -20,10 +20,8 @@ export default class Recommendations extends React.Component {
   }
 
   componentDidMount() {
-    window.scrollTo({
-      top: this.recomRef.current.offsetTop,
-      behavior: "smooth"
-    });
+    // Scroll down by 200 pixels
+    window.scrollBy(0, 200);
   }
 
   render() {
@@ -40,13 +38,13 @@ export default class Recommendations extends React.Component {
       return !articles.includes(x);
     });
     return (
-      <div ref={this.recomRef}>
+      <div class="recommendation-wrapper" ref={this.recomRef}>
         <div>
-          <h4>Her er vores anbefalinger til hvad du kan gøre</h4>
-          <h6>
+          <h2>Her er vores anbefalinger til hvad du kan gøre</h2>
+          <p>
             Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har
             oplyst, er her vores anbefalinger.
-          </h6>
+          </p>
         </div>
         <div className="result-container">
           {articles.map((a, i) => (
@@ -61,7 +59,7 @@ export default class Recommendations extends React.Component {
           {!this.state.readMore ? (
             <button onClick={this.show}>Vis flere</button>
           ) : (
-            <div>
+            <div class="more-recommendation-container">
               {other.map((a, i) => (
                 <Recommendation
                   key={i}
@@ -70,12 +68,11 @@ export default class Recommendations extends React.Component {
                   caption={a.caption}
                   link={a.link}
                 />
-              ))}
-              <button onClick={this.hide}>Vis færre</button>
+              ))}              
             </div>
           )}
-        </div>
-      </div>
+        </div>      
+      </div>      
     );
   }
 }

@@ -13,15 +13,16 @@
 }
 
 .dawa-autocomplete-suggestions {
-    margin: 0.3em 0 0 0;
+    margin: 0;
     padding: 0;
     text-align: left;
-    border-radius: 0.3125em;
-    background: #fcfcfc;
-    box-shadow: 0 0.0625em 0.15625em rgba(0,0,0,.15);
+    border-radius: 0;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     position: absolute;
     left: 0;
     right: 0;
+    top: 2.185rem;
     z-index: 9999;
     overflow-y: auto;
     box-sizing: border-box;
@@ -33,7 +34,7 @@
     cursor: pointer;
     padding: 0.4em 0.6em;
     color: #333;
-    border: 0.0625em solid #ddd;
+    border: 1px solid #f5f5f5;
     border-bottom-width: 0;
 }
 
@@ -45,10 +46,12 @@
 .dawa-autocomplete-suggestions .dawa-autocomplete-suggestion:last-child {
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
-    border-bottom-width: 0.0625em;
+    border-bottom-width: 1px;
 }
 
 .dawa-autocomplete-suggestions .dawa-autocomplete-suggestion.dawa-selected,
 .dawa-autocomplete-suggestions .dawa-autocomplete-suggestion:hover {
-    background: #f0f0f0;
+    background: #d8effa;
+    color: #176da7;
+    text-decoration: underline;
 }
