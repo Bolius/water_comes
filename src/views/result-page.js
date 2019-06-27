@@ -9,35 +9,48 @@ export default class ResultPage extends React.Component {
     super(props);
     this.setActions = this.setActions.bind(this);
     this.state = { actions: [], showRes: false };
-    this.topRef = React.createRef();    
+    this.topRef = React.createRef();
   }
 
   setActions(actions) {
     this.setState({ actions: actions, showRes: true });
   }
 
-  scrollDown() {    
+  scrollDown() {
     // Get first div tag to calculate from
-    var h3Elements = document.getElementsByClassName('twocol');
+    var h3Elements = document.getElementsByClassName("twocol");
     if (h3Elements !== undefined) {
-      var h3Element = h3Elements !== undefined && h3Elements.length !== undefined && h3Elements.length > 0 ? h3Elements[0] : null, 
-      offsetTop = -1,
-      headerHeightAttr = document.getElementsByClassName('header') !== undefined && document.getElementsByClassName('header')[0] !== undefined ? document.getElementsByClassName('header')[0].getBoundingClientRect().height : 0,
-      headerHeight = headerHeightAttr !== undefined ? parseInt(headerHeightAttr) : 0;
+      var h3Element =
+          h3Elements !== undefined &&
+          h3Elements.length !== undefined &&
+          h3Elements.length > 0
+            ? h3Elements[0]
+            : null,
+        offsetTop = -1,
+        headerHeightAttr =
+          document.getElementsByClassName("header") !== undefined &&
+          document.getElementsByClassName("header")[0] !== undefined
+            ? document
+                .getElementsByClassName("header")[0]
+                .getBoundingClientRect().height
+            : 0,
+        // eslint-disable-next-line
+        headerHeight =
+          headerHeightAttr !== undefined ? parseInt(headerHeightAttr) : 0;
 
       if (h3Element !== null) {
         // We have an element, now let's get offsetTop
         offsetTop = h3Element.getBoundingClientRect().top;
-        
+
         // Check whether user has already scrolled down
         if (offsetTop >= window.pageYOffset) {
           window.scrollTo({
             top: offsetTop,
             behavior: "smooth"
-          });      
-        }        
+          });
+        }
       }
-    }          
+    }
   }
 
   componentDidMount() {
@@ -63,7 +76,11 @@ export default class ResultPage extends React.Component {
     return (
       <div ref={this.topRef}>
         {this.props.address.appartment ? <ApartmentBox /> : ""}
-        <MapBox class="resultpage-mapbox" address={this.props.address.text} reset={this.props.reset} />
+        <MapBox
+          class="resultpage-mapbox"
+          address={this.props.address.text}
+          reset={this.props.reset}
+        />
         <ActionHandler
           dangers={dangers}
           shown={false}
