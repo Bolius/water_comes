@@ -42,7 +42,8 @@ export default class ResultPage extends React.Component {
 
   componentDidMount() {
     // Scroll down by 100 pixels
-    window.scrollBy(0, 100);
+    let y = window.innerWidth < 800 ? 100 : 200;    
+    window.scrollBy(0, y);
   }
 
   render() {

@@ -307,6 +307,10 @@
   justify-content: space-between;
 }
 
+.data-basis-header:hover {
+  cursor: pointer;
+}
+
 .data-basis-header h2 {
   font-size: 1.25rem;
   font-family: 'nationalemedium', sans-serif;
