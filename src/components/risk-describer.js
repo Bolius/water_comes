@@ -24,7 +24,7 @@ export default class RiskDescriber extends React.Component {
         </div>
 
         <div class="risk-factor">
-          <h2>Faktorer, der påvirker boligens risiko ved {this.props.type}</h2>
+          <h2>Faktorer, der påvirker din boligs risiko ved {this.props.type}</h2>
           {this.getRisks("high")}
           {this.getRisks("medium")}
           {this.getRisks("low")}
