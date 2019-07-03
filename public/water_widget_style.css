@@ -228,9 +228,11 @@
   margin-top: 0;
 }
 
-.risk-row h3 span {
-  font-size: 2em;
-  line-height: 1.7em;
+.water-comes-app .risk-row h3 > span {
+  width: 15px;
+  height: 30px;
+  display: inline-block;
+  float: left;
 }
 
 .risk-row .red {
