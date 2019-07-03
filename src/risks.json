@@ -7,9 +7,9 @@
   },
   "ledeevne": {
     "description": "Hydraulisk ledeevne handler om, hvor hurtigt vandet kan løbe ned igennem jorden. Der kan være stor forskel på jordtyper. Regnvand løber fx hurtigt gennem sand og grus, men langsomt gennem silt og ler, der udgør det øverste jordlag.",
-    "low": "Den hydrauliske ledeevne i dit område er dårlig",
+    "low": "Den hydrauliske ledeevne i dit område er god",
     "medium": "Den hydrauliske ledeevne i dit område er mellemgod",
-    "high": "Den hydrauliske ledeevne i dit område er god"
+    "high": "Den hydrauliske ledeevne i dit område er dårlig"
   },
   "bebyggelse": {
     "description": "Hvis en stor del af overfladen er bebygget eller belagt med asfalt, fliser, brosten mv., er befæstelsesgraden høj, og så kan regnen have svært ved at sive ned i jorden – specielt når det regner kraftigt. Hvis vandet ikke kan løbe væk hurtigt nok, stiger risikoen for oversvømmelse.",
