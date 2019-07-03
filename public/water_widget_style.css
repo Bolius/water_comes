@@ -228,6 +228,13 @@
   margin-top: 0;
 }
 
+.water-comes-app .risk-row h3 > span {
+  width: 15px;
+  height: 30px;
+  display: inline-block;
+  float: left;
+}
+
 .risk-row .red {
   color: #b4383a;
 }
