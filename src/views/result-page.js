@@ -16,6 +16,43 @@ export default class ResultPage extends React.Component {
     this.setState({ actions: actions, showRes: true });
   }
 
+  scrollDown() {
+    // Get first div tag to calculate from
+    var h3Elements = document.getElementsByClassName("twocol");
+    if (h3Elements !== undefined) {
+      var h3Element =
+          h3Elements !== undefined &&
+          h3Elements.length !== undefined &&
+          h3Elements.length > 0
+            ? h3Elements[0]
+            : null,
+        offsetTop = -1,
+        headerHeightAttr =
+          document.getElementsByClassName("header") !== undefined &&
+          document.getElementsByClassName("header")[0] !== undefined
+            ? document
+                .getElementsByClassName("header")[0]
+                .getBoundingClientRect().height
+            : 0,
+        // eslint-disable-next-line
+        headerHeight =
+          headerHeightAttr !== undefined ? parseInt(headerHeightAttr) : 0;
+
+      if (h3Element !== null) {
+        // We have an element, now let's get offsetTop
+        offsetTop = h3Element.getBoundingClientRect().top;
+
+        // Check whether user has already scrolled down
+        if (offsetTop >= window.pageYOffset) {
+          window.scrollTo({
+            top: offsetTop,
+            behavior: "smooth"
+          });
+        }
+      }
+    }
+  }
+
   componentDidMount() {
     // Scroll down by xxx pixels depending on window width
     // (to get approx. device perspective)
