@@ -9,6 +9,15 @@ export default class LinkList extends React.Component {
           <a
             rel="noopener noreferrer"
             target="_blank"
+            href="https://sdfe.dk/hent-data/danmarks-hoejdemodel/"
+          >
+            Danmarks Højde model
+          </a>
+        </li>
+        <li>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
             href="https://download.kortforsyningen.dk/content/dhmbluespot-ekstremregn"
           >
             Lavinger i Danmark
@@ -26,15 +35,6 @@ export default class LinkList extends React.Component {
         <li>
           <a rel="noopener noreferrer" target="_blank" href="https://bbr.dk/">
             BBR registret
-          </a>
-        </li>
-        <li>
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://sdfe.dk/hent-data/danmarks-hoejdemodel/"
-          >
-            Danmark Højde model
           </a>
         </li>
       </ul>
