@@ -54,8 +54,26 @@ export default class ResultPage extends React.Component {
   }
 
   componentDidMount() {
-    // Scroll down by 100 pixels
-    window.scrollBy(0, 100);
+    // Scroll down by xxx pixels depending on window width
+    // (to get approx. device perspective)
+    // and only if address will not be out of sight on scroll
+    let y = window.innerWidth < 800 ? 100 : 200,
+      scrollFromY = 300;
+
+    // Get current y position off address on page
+    var elements = document.getElementsByClassName("map-address-reset"),
+      elem =
+        elements !== undefined && elements[0] !== undefined
+          ? elements[0]
+          : null,
+      rect = elem !== null ? elem.getBoundingClientRect() : null;
+
+    // Don't scroll unless shown address is at least <scrollFromY> pixels down
+    if (rect !== null && rect !== undefined && rect.y !== undefined) {
+      if (parseInt(rect.y) > scrollFromY) {
+        window.scrollBy(0, y);
+      }
+    }
   }
 
   render() {
@@ -77,7 +95,7 @@ export default class ResultPage extends React.Component {
       <div ref={this.topRef}>
         {this.props.address.appartment ? <ApartmentBox /> : ""}
         <MapBox
-          class="resultpage-mapbox"
+          className="resultpage-mapbox"
           address={this.props.address.text}
           reset={this.props.reset}
         />

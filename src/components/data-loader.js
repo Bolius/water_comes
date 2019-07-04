@@ -9,8 +9,7 @@ export default class DataLoader extends React.Component {
       var bbr_info;
 
       bbr_info = await fetch(
-        "https://ml.bolius.dk/bbr/" + encodeURI(json.adressebetegnelse),
-        { mode: "cors" }
+        "https://ml.bolius.dk/bbr/" + encodeURI(json.adressebetegnelse)
       );
 
       let bbr_json = await bbr_info.json();
