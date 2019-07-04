@@ -34,7 +34,7 @@ export default class ActionHandler extends React.Component {
     }
     return (
       <div className="result-container">
-          <div class="row twocol">
+        <div className="row twocol">
           <RiskDescriber
             risk={riskNr}
             riskText={riskAssement}
