@@ -1,25 +1,27 @@
 {
-    "name": "When the water comes",
-    "description": "A widget for the Bolius campaign around flods and water",
-    "website": "https://bolius.dk",
-    "buildpacks": [{
-        "url": "mars/create-react-app"
-    }],
-    "env": {
-        "GOOGLE_MAPS_KEY": {
-            "required": true,
-            "description": "The key for google maps API",
-            "value": "medlemssystem-staging.herokuapp.com"
-        }
-    },
-    "environments": {
-        "test": {
-            "env": {
-                "GOOGLE_MAPS_KEY": "xxxx"
-            },
-            "scripts": {
-                "test": "npm test"
-            }
-        }
+  "name": "When the water comes",
+  "description": "A widget for the Bolius campaign around flods and water",
+  "website": "https://bolius.dk",
+  "buildpacks": [
+    {
+      "url": "mars/create-react-app"
     }
+  ],
+  "env": {
+    "GOOGLE_MAPS_KEY": {
+      "required": true,
+      "description": "The key for google maps API",
+      "value": "medlemssystem-staging.herokuapp.com"
+    }
+  },
+  "environments": {
+    "test": {
+      "env": {
+        "GOOGLE_MAPS_KEY": "xxxx"
+      },
+      "scripts": {
+        "test": "npm test"
+      }
+    }
+  }
 }
