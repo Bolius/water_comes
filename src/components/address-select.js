@@ -40,7 +40,7 @@ export default class AdressSelect extends React.Component {
         json['bbr'] = bbr_json
         json['x'] =json.adgangsadresse.adgangspunkt.koordinater[0]
         json['y'] =json.adgangsadresse.adgangspunkt.koordinater[1]
-        let resp = await fetch(`https://bolius.rotendahl.dk/skybrud/${json.x}/${json.y}`)
+        let resp = await fetch(`http://127.0.0.1:4000/watercomes/${json.x}/${json.y}`)
         let dangers = await resp.json()
         console.log("recived")
         console.log(dangers)

@@ -26,12 +26,11 @@ const RiskSummary = styled(Row)`
 export default class RiskDescriber extends React.Component {
   getRisks(type){
     return this.props.dangers[type].map((id, i) =>(
-      <Risk key={i} title={Risks[id][type]} description={Risks[id].description}/>
+      <Risk key={i} id={id} title={Risks[id][type]} description={Risks[id].description}/>
     ))
   }
 
   render() {
-    console.log(this.props.dangers)
     const riskImage = require(`../assets/gauges/risk-${this.props.risk}.png`)
     return (
       <Container>
