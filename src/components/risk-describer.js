@@ -9,6 +9,7 @@ export default class RiskDescriber extends React.Component {
         key={i}
         title={Risks[id][type]}
         description={Risks[id].description}
+        danger={type}
       />
     ));
   }
@@ -16,42 +17,17 @@ export default class RiskDescriber extends React.Component {
   render() {
     const riskImage = require(`../assets/gauges/risk-${this.props.risk}.png`);
     return (
-      <div style={{ margin: "20px" }}>
-        <div
-          style={{
-            fontWeight: "600",
-            fontSize: "1.2em",
-            backgroundColor: "#d5eff9",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center"
-          }}
-        >
+      <div className="col">
+        <div className="risk-summary">
           <h2>Skybrud</h2>
-
-          <img
-            src={riskImage}
-            style={{ height: "64px", width: "64px" }}
-            className="img-fluid"
-            alt="Risiko måler"
-          />
-
-          <h5 style={{ color: "#3687b7" }}>{this.props.riskText}</h5>
+          <img src={riskImage} alt="Risiko måler" />
+          <h3>{this.props.riskText}</h3>
         </div>
 
-        <div
-          style={{
-            fontSize: "1.2em",
-            fontWeight: 600,
-            backgroundColor: "#eff9fd",
-            padding: "0.8em",
-            textAlign: "center"
-          }}
-        >
-          Faktorer, der påvirker boligens risiko ved {this.props.type}
-        </div>
-
-        <div>
+        <div className="risk-factor">
+          <h2>
+            Faktorer, der påvirker din boligs risiko ved {this.props.type}
+          </h2>
           {this.getRisks("high")}
           {this.getRisks("medium")}
           {this.getRisks("low")}

@@ -1,18 +1,6 @@
 import React from "react";
-import { Row, Col } from "reactstrap";
-import styled from "styled-components";
 import Recommendation from "../components/recommendation.js";
 import Articles from "../articles.json";
-import { Button } from "../components/button";
-
-const ArticleColumn = styled(Col)`
-  margin: 5px 0px;
-`;
-
-const StyledHeader = styled.div`
-  font-family: "roboto", sans-serif;
-  padding: 7px 20px 5px;
-`;
 
 export default class Recommendations extends React.Component {
   constructor(props) {
@@ -32,10 +20,8 @@ export default class Recommendations extends React.Component {
   }
 
   componentDidMount() {
-    window.scrollTo({
-      top: this.recomRef.current.offsetTop,
-      behavior: "smooth"
-    });
+    // Scroll down by 200 pixels
+    window.scrollBy(0, 200);
   }
 
   render() {
@@ -52,57 +38,40 @@ export default class Recommendations extends React.Component {
       return !articles.includes(x);
     });
     return (
-      <div ref={this.recomRef}>
-        <Row>
-          <StyledHeader>
-            <p style={{ fontSize: "25px" }} ref={this.recomRef}>
-              {" "}
-              Her er vores anbefalinger til hvad du kan gøre{" "}
-            </p>
-            <p>
-              Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har
-              oplyst, er her vores anbefalinger.{" "}
-            </p>
-          </StyledHeader>
-        </Row>
-        <Row style={{ marginBottom: "10px" }}>
+      <div className="recommendation-wrapper" ref={this.recomRef}>
+        <div>
+          <h2>Her er vores anbefalinger til hvad du kan gøre</h2>
+          <p>
+            Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har
+            oplyst, er her vores anbefalinger.
+          </p>
+        </div>
+        <div className="result-container">
           {articles.map((a, i) => (
-            <ArticleColumn key={i} sm={"12"} md={"6"}>
-              <Recommendation
-                img={a.img}
-                title={a.title}
-                caption={a.caption}
-                link={a.link}
-              />
-            </ArticleColumn>
+            <Recommendation
+              key={i}
+              img={a.img}
+              title={a.title}
+              caption={a.caption}
+              link={a.link}
+            />
           ))}
-        </Row>
-        {!this.state.readMore ? (
-          <div>
-            {" "}
-            <Button variant="primary" size="lg" block onClick={this.show}>
-              Vis flere
-            </Button>{" "}
-          </div>
-        ) : (
-          <div>
-            <Row style={{ marginBottom: "10px" }}>
+          {!this.state.readMore ? (
+            <button onClick={this.show}>Vis flere</button>
+          ) : (
+            <div className="more-recommendation-container">
               {other.map((a, i) => (
-                <ArticleColumn key={i} sm={"12"} md={"6"}>
-                  <Recommendation
-                    img={a.img}
-                    title={a.title}
-                    caption={a.caption}
-                    link={a.link}
-                  />
-                </ArticleColumn>
+                <Recommendation
+                  key={i}
+                  img={a.img}
+                  title={a.title}
+                  caption={a.caption}
+                  link={a.link}
+                />
               ))}
-            </Row>
-            <Button variant="primary" size="lg" block onClick={this.hide}>
-              Vis færre
-            </Button>
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
     );
   }

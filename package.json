@@ -2,7 +2,7 @@
   "name": "water_widget",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://water-comes-prod.herokuapp.com/",
+  "homepage": "/typo3conf/ext/bolius_embedded/Resources/Public/Apps/WaterComesApp",
   "dependencies": {
     "@sentry/browser": "^5.4.0",
     "bootstrap": "^4.3.1",

@@ -9,8 +9,7 @@ export default class DataLoader extends React.Component {
       var bbr_info;
 
       bbr_info = await fetch(
-        "https://ml.bolius.dk/bbr/" + encodeURI(json.adressebetegnelse),
-        { mode: "cors" }
+        "https://ml.bolius.dk/bbr/" + encodeURI(json.adressebetegnelse)
       );
 
       let bbr_json = await bbr_info.json();
@@ -25,7 +24,7 @@ export default class DataLoader extends React.Component {
         `https://ml.bolius.dk/waterComes/${json.x}/${json.y}`
       );
       let dangers = await resp.json();
-      console.log("recived");
+      console.log("received");
       console.log(dangers);
       json["dangers"] = dangers;
       return json;
@@ -48,12 +47,7 @@ export default class DataLoader extends React.Component {
 
   render() {
     return (
-      <div
-        style={{
-          textAlign: "center",
-          marginTop: "40px"
-        }}
-      >
+      <div className="data-loader">
         <Loader
           sizeUnit={"px"}
           size={25}

@@ -15,37 +15,16 @@ export default class DataBasis extends React.Component {
 
   render() {
     return (
-      <div
-        style={{
-          marginTop: "15px",
-          marginBottom: "15px",
-          backgroundColor: "#eff9fd"
-        }}
-      >
-        <div
-          onClick={this.toggle}
-          style={{
-            cursor: "pointer",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            fontSize: "1.2em"
-          }}
-        >
-          <div style={{ paddingLeft: "30px" }}>SE DATAGRUNDLAGET HER</div>
-          <div
-            style={{
-              textAling: "right",
-              color: "#006EA7",
-              paddingRight: "40px",
-              fontWeight: "800",
-              fontSize: "1.8em"
-            }}
-          >
+      <div className={"data-basis"}>
+        <div className="data-basis-header" onClick={this.toggle}>
+          <h2>Se datagrundlaget her</h2>
+          <span className="icon-data-basis">
             {this.state.collapse ? "-" : "+"}
-          </div>
+          </span>
         </div>
-        <div>{this.state.collapse ? <DataContent /> : ""}</div>
+        <div className="data-basis-content">
+          {this.state.collapse ? <DataContent /> : ""}
+        </div>
       </div>
     );
   }

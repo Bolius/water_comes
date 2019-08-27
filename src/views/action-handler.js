@@ -33,23 +33,14 @@ export default class ActionHandler extends React.Component {
       riskNr = 2;
     }
     return (
-      <div
-        style={{
-          marginBottom: "12px",
-          backgroundColor: "#DAEFF9",
-          display: "flex",
-          flexWrap: "wrap"
-        }}
-      >
-        <div style={{ flex: 1 }}>
+      <div className="result-container">
+        <div className="row twocol">
           <RiskDescriber
             risk={riskNr}
             riskText={riskAssement}
             type={this.state.tab}
             dangers={this.props.dangers}
           />
-        </div>
-        <div style={{ flex: 1 }}>
           <ActionsTaken actions={actions} setActions={this.props.setActions} />
         </div>
       </div>

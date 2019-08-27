@@ -1,5 +1,4 @@
 import React from "react";
-import AboutSite from "./components/about.js";
 import AdressSelect from "./components/address-select.js";
 import ResultPage from "./views/result-page.js";
 import DataBasis from "./components/data-basis.js";
@@ -36,25 +35,24 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <div style={{ margin: "5%" }}>
-        <AboutSite />
-        {!this.state.has_data ? (
-          !this.state.address_selected ? (
-            <AdressSelect setAddress={this.setAddress} />
+        <div className="container">
+          {!this.state.has_data ? (
+            !this.state.address_selected ? (
+              <AdressSelect setAddress={this.setAddress} />
+            ) : (
+              <DataLoader dawaData={this.state.address} setData={this.setData} />
+            )
           ) : (
-            <DataLoader dawaData={this.state.address} setData={this.setData} />
-          )
-        ) : (
-          <div>
-            <ResultPage
-              address={this.state.address}
-              dangers={this.state.address.dangers}
-              reset={this.resetAddress}
-            />
-            <DataBasis />
-          </div>
-        )}
-      </div>
+            <div>
+              <ResultPage
+                address={this.state.address}
+                dangers={this.state.address.dangers}
+                reset={this.resetAddress}
+              />
+              <DataBasis />
+            </div>
+          )}
+        </div>        
     );
   }
 }

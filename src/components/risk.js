@@ -1,19 +1,4 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
-import "../styles/risk.css";
-
-const ContainerStyle = {
-  backgroundColor: "#edf9fd",
-  marginBottom: "5px",
-  marginTop: "5px"
-};
-
-const RiskTitle = {
-  fontSize: "1.2em",
-  fontweight: "300",
-  paddingLeft: "10px"
-};
-
 export default class Risk extends Component {
   constructor(props) {
     super(props);
@@ -25,29 +10,30 @@ export default class Risk extends Component {
     this.setState(state => ({ showDescription: !state.showDescription }));
   }
 
+  getColor() {
+    if (this.props.danger === "high") {
+      return "red";
+    } else if (this.props.danger === "low") {
+      return "green";
+    } else {
+      return "yellow";
+    }
+  }
+
   render() {
     return (
-      <Container style={ContainerStyle}>
-        <Row
-          className="my-auto"
-          style={{ cursor: "pointer" }}
-          onClick={this.toggle}
-        >
-          <Col className="my-auto" sx="6" sm={{ size: "9" }}>
-            <Row style={RiskTitle}>{this.props.title}</Row>
-          </Col>
-          <Col sx="3" sm={{ size: "3" }} className="plus-btn my-auto">
-            <div>{this.state.showDescription ? "-" : "+"}</div>
-          </Col>
-        </Row>
-        {this.state.showDescription ? (
-          <Row>
-            <Col>{this.props.description}</Col>
-          </Row>
-        ) : (
-          ""
-        )}
-      </Container>
+      <div>
+        <div className="risk-row" onClick={this.toggle}>
+          <h3>
+            <span className={this.getColor()}>• </span>
+            {this.props.title}
+          </h3>
+          <span className="plus-btn">
+            {this.state.showDescription ? "-" : "+"}
+          </span>
+          {this.state.showDescription ? <p>{this.props.description}</p> : ""}
+        </div>
+      </div>
     );
   }
 }
