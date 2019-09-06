@@ -1,118 +1,37 @@
-import React from "react";
-import MapBox from "../components/map-box.js";
-import Recommendations from "./recom.js";
-import ActionHandler from "./action-handler.js";
-import ApartmentBox from "../components/apartment-box.js";
+import React from 'react';
+import MapBox from '../components/map-box.js'
+import Recommendations from './recom.js'
+import ActionHandler from './action-handler.js'
+
 
 export default class ResultPage extends React.Component {
   constructor(props) {
     super(props);
     this.setActions = this.setActions.bind(this);
-    this.state = { actions: [], showRes: false };
-    this.topRef = React.createRef();
+    this.state = {actions: [], showRes: false};
   }
 
   setActions(actions) {
-    this.setState({ actions: actions, showRes: true });
-  }
-
-  scrollDown() {
-    // Get first div tag to calculate from
-    var h3Elements = document.getElementsByClassName("twocol");
-    if (h3Elements !== undefined) {
-      var h3Element =
-          h3Elements !== undefined &&
-          h3Elements.length !== undefined &&
-          h3Elements.length > 0
-            ? h3Elements[0]
-            : null,
-        offsetTop = -1,
-        headerHeightAttr =
-          document.getElementsByClassName("header") !== undefined &&
-          document.getElementsByClassName("header")[0] !== undefined
-            ? document
-                .getElementsByClassName("header")[0]
-                .getBoundingClientRect().height
-            : 0,
-        // eslint-disable-next-line
-        headerHeight =
-          headerHeightAttr !== undefined ? parseInt(headerHeightAttr) : 0;
-
-      if (h3Element !== null) {
-        // We have an element, now let's get offsetTop
-        offsetTop = h3Element.getBoundingClientRect().top;
-
-        // Check whether user has already scrolled down
-        if (offsetTop >= window.pageYOffset) {
-          window.scrollTo({
-            top: offsetTop,
-            behavior: "smooth"
-          });
-        }
-      }
-    }
-  }
-
-  componentDidMount() {
-    // Scroll down by xxx pixels depending on window width
-    // (to get approx. device perspective)
-    // and only if address will not be out of sight on scroll
-    let y = window.innerWidth < 800 ? 100 : 200,
-      scrollFromY = 300;
-
-    // Get current y position off address on page
-    var elements = document.getElementsByClassName("map-address-reset"),
-      elem =
-        elements !== undefined && elements[0] !== undefined
-          ? elements[0]
-          : null,
-      rect = elem !== null ? elem.getBoundingClientRect() : null;
-
-    // Don't scroll unless shown address is at least <scrollFromY> pixels down
-    if (rect !== null && rect !== undefined && rect.y !== undefined) {
-      if (parseInt(rect.y) > scrollFromY) {
-        window.scrollBy(0, y);
-      }
-    }
+    this.setState({ actions: actions, showRes: true } );
   }
 
   render() {
-    let dangers = this.props.dangers;
-    const basementSet =
-      dangers.high.includes("basement") ||
-      dangers.low.includes("basement") ||
-      dangers.medium.includes("basement");
-    if (!basementSet) {
-      if (this.props.address.has_basement) {
-        dangers.high.includes("lavning")
-          ? dangers.high.push("basement")
-          : dangers.medium.push("basement");
-      } else {
-        dangers.low.push("basement");
-      }
+    let dangers = this.props.dangers
+    if(this.props.address.has_basement){
+      dangers.high.push('basement')
+    }
+    else {
+      dangers.low.push('basement')
     }
     return (
-      <div ref={this.topRef}>
-        {this.props.address.appartment ? <ApartmentBox /> : ""}
-        <MapBox
-          className="resultpage-mapbox"
-          address={this.props.address.text}
-          reset={this.props.reset}
-        />
-        <ActionHandler
-          dangers={dangers}
-          shown={false}
-          setActions={this.setActions}
-        />
-        {!this.state.showRes ? (
-          <div />
-        ) : (
-          <Recommendations
-            basement={this.props.address.has_basement}
-            filter={this.state.actions}
-          />
-        )}
-      </div>
-    );
-  }
+      <div>
+      <MapBox address={ this.props.address.text } reset={this.props.reset} />
+      <ActionHandler dangers={dangers} setActions={ this.setActions }/>
+      {!this.state.showRes?
+        <div/>:
+        <Recommendations basement={this.props.address.has_basement} filter={this.state.actions} />
+      }
+
+    </div>
+  );}
 }
