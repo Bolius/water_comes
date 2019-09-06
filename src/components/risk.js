@@ -50,7 +50,7 @@ export default class Risk extends Component {
                 {this.props.description}
                 <br/>
                 {
-                  this.props.id === 'lavning' ? <img src={t.concat(base64String)}/> : ""
+                  this.props.id === 'lavning' ? <img src={t.concat(base64String)} alt="Lavning"/> : ""
                 }
 
 
