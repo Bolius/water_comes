@@ -16,12 +16,16 @@ export default class ResultPage extends React.Component {
   }
 
   render() {
-    let dangers = this.props.dangers
+    let dangers = this.props.dangers;
     if(this.props.address.has_basement){
-      dangers.high.push('basement')
+      if (!dangers.high.includes('basement')) {
+        dangers.high.push('basement')
+      }      
     }
     else {
-      dangers.low.push('basement')
+      if (!dangers.low.includes('basement')) {
+        dangers.low.push('basement')
+      }
     }
     return (
       <div>
