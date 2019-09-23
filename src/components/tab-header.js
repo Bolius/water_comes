@@ -1,28 +1,10 @@
 import React from 'react';
-import { Nav, NavItem as BootNavItem, NavLink as BootNavLink } from 'reactstrap'
-import styled from 'styled-components';
-
-
-const NavItem = styled(BootNavItem)`
-  text-transform: uppercase;
-  font-weight: 600;
-  width: 50%;
-  text-align: center;
-`;
-
-const NavLink = styled(BootNavLink)`
-  width: 100%;
-  background-color: ${props =>
-    props.active ?
-      "#DAEFF9 !important; color:#4B8BB9 !important" :
-      "#F5F6F6 !important; padding-bottom: 5px; margin-left: 2px; margin-right: 2px;"
-  };
-`
+import { Nav, NavItem, NavLink } from 'reactstrap';
 
 
 export default class TabHeader extends React.Component {
   render() {
-    return (<div>
+    return (
       <Nav tabs className="tab" >
         <NavItem>
           <NavLink
@@ -41,6 +23,6 @@ export default class TabHeader extends React.Component {
           </NavLink>
         </NavItem>
       </Nav>
-    </div>);
+    );
   }
 }

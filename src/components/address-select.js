@@ -1,14 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Row, Col,  Container, Input } from 'reactstrap';
-import { Button } from './button'
-import '../styles/water_widget_dawa.css'
+import { Row, Col, Input, Form, Button } from 'reactstrap';
 
-const InputBox = styled(Container)`
-    background-color: #5AB3DD;
-    padding: 10px;
-    font-size: 20px
-`;
 
 export default class AdressSelect extends React.Component {
   constructor(props) {
@@ -40,7 +32,7 @@ export default class AdressSelect extends React.Component {
         json['bbr'] = bbr_json
         json['x'] =json.adgangsadresse.adgangspunkt.koordinater[0]
         json['y'] =json.adgangsadresse.adgangspunkt.koordinater[1]
-        let resp = await fetch(`http://127.0.0.1:4000/watercomes/${json.x}/${json.y}`)
+        let resp = await fetch(`https://ml.bolius.dk/waterComes/${json.x}/${json.y}`)
         let dangers = await resp.json()
         console.log("recived")
         console.log(dangers)
@@ -67,10 +59,10 @@ export default class AdressSelect extends React.Component {
 
   render() {
     return (
-      <InputBox>
-        <form onSubmit={(e) => {e.preventDefault();}}>
-          <Row noGutters form>
-            <Col md={{size: '9'}} sm={'12'}>
+      <div className="water-comes-app-address">
+        <Form onSubmit={(e) => {e.preventDefault();}}>
+          <Row>
+            <Col md={{size: '9'}} sm={'8'}>
               <div className="autocomplete-container">
                 <Input
                   type="search"
@@ -81,12 +73,12 @@ export default class AdressSelect extends React.Component {
                 />
               </div>
             </Col>
-            <Col md={{size: '3'}} sm={'12'}>
-              <Button>TJEK RISIKO</Button>
+            <Col md={{size: '3'}} sm={'4'} className="align-right">
+              <Button color="primary">Tjek risiko</Button>
             </Col>
           </Row>
-        </form>
-      </InputBox>
+        </Form>
+      </div>
     );
   }
 }
