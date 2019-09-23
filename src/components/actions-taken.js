@@ -1,16 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import {Container, Row, Col} from 'reactstrap'
+import {Row, Col, Button} from 'reactstrap'
 import Action from './action.js'
-import { Button } from './button.js'
-
-
-const ActionHeader = styled(Row)`
-  font-size: 1.4em;
-  font-weight: 500;
-  margin-bottom: 0.4em;
-  margin-top: 20px
-`;
 
 export default class ActionsTaken extends React.Component {
   constructor(props){
@@ -44,27 +34,21 @@ export default class ActionsTaken extends React.Component {
 
   render() {
     return (
-      <Container>
-        <ActionHeader>
-          Hvad har du gjort for at forbygge oversvømmelse?
-        </ActionHeader>
+      <div className="water-comes-app-taken">
+        <h3>Hvad har du gjort for at forebygge oversvømmelse?</h3>
         <Row>
-          Fortæl os, hvad du selv har gjort for at forebygge oversvømmelse.
-          Sæt hak ud for de ting, du har fået lavet. Har du intet gjort,
-          kan du blot trykke ’Vis anbefalinger’
-        </Row>
-        <div className="actionContainer">
-          {this.props.actions.map( (item) => (
-            <Action task={item.action} key={item.id} keyId={item.id} setKey={this.setKey} handleChange={this.handleChange} recomShown={this.state.recomShown} />
-          ))}
-        </div>
-        <Row>
-          <Col sm={{size:"6", offset:6}} style={{marginBottom: 20}}>
-            <Button block onClick={ this.handleChange }>
-              Vis Anbefalinger
-            </Button>
+          <Col sm={{ size: '6' }}>
+            <p>Fortæl os, hvad du selv har gjort for at forebygge oversvømmelse.</p>
+            <p>Sæt hak ud for de ting, du har fået lavet.</p>
+            <p>Har du intet gjort, kan du blot trykke ’Vis anbefalinger’</p>
+          </Col>
+          <Col sm={{ size: '6' }} className="water-comes-app-actions-list">
+            {this.props.actions.map( (item) => (
+              <Action task={item.action} key={item.id} keyId={item.id} setKey={this.setKey} handleChange={this.handleChange} recomShown={this.state.recomShown} />
+            ))}
           </Col>
         </Row>
-    </Container>);
+        <div className="align-right"><Button color="primary" onClick={ this.handleChange }>Vis Anbefalinger</Button></div>
+    </div>);
   }
 }

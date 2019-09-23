@@ -1,6 +1,4 @@
 import React from 'react';
-import { Container } from 'reactstrap'
-import AboutSite from './components/about.js'
 import AdressSelect from './components/address-select.js'
 import ResultPage from './views/result-page.js'
 import DataBasis from './components/data-basis.js'
@@ -25,8 +23,7 @@ export default class Main extends React.Component {
   }
 
   render() {return (
-    <Container>
-      <AboutSite/>
+    <div>
       {!this.state.address_selected ?
         <AdressSelect setAddress={this.setAddress}/>
       :
@@ -38,6 +35,6 @@ export default class Main extends React.Component {
       <DataBasis/>
       }
 
-    </Container>
+    </div>
   );}
 }

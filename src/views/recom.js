@@ -1,18 +1,7 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap'
-import styled from 'styled-components';
-import Recommendation from '../components/recommendation.js'
+import { Row, Col } from 'reactstrap';
+import Recommendation from '../components/recommendation.js';
 import Articles from '../articles.json'
-import { Button } from '../components/button'
-
-const ArticleColumn = styled(Col)`
-  margin: 5px 0px;
-`;
-
-const StyledHeader = styled.div`
-  font-family: "roboto", sans-serif;
-  padding: 7px 20px 5px;
-`;
 
 export default class Recommendations extends React.Component {
   constructor(props) {
@@ -43,43 +32,39 @@ export default class Recommendations extends React.Component {
     articles = articles.slice(0, 6)
     var other = Articles.links.filter((x) => { return !articles.includes(x);});
     return (
-        <div>
-          <Row>
-            <StyledHeader>
-              <p style={{fontSize: '25px'}}> Her er vores anbefalinger til hvad du kan gøre </p>
-              <p>Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har oplyst,
-              er her vores anbefalinger. </p>
-            </StyledHeader>
-          </Row>
-          <Row style={{ marginBottom: "10px" }}>
+        <div className="water-comes-app-recom">
+          <header>
+            <h2> Her er vores anbefalinger til hvad du kan gøre </h2>
+            <p>Med udgangspunkt i, hvad vi ved om din bolig, og det, du selv har oplyst,
+            er her vores anbefalinger.</p>
+          </header>
+          <Row className="water-comes-app-recom-list">
             {articles.map((a, i) => (
-            <ArticleColumn key={i} sm={'12'} md={'6'}>
+            <Col key={i} sm={'12'} md={'6'}>
               <Recommendation
                 img={a.img}
                 title={a.title}
                 caption={a.caption}
-                link={a.link}/>
-            </ArticleColumn>
+                link={a.link} />
+            </Col>
               ))}
           </Row>
-          { !this.state.readMore
-            ?
-              <div> <Button variant="primary" size="lg" block onClick={this.show}>Vis flere</Button> </div>
-            :
-            <div>
-            <Row style={{ marginBottom: "10px" }}>
+          { !this.state.readMore ? (
+              <div className="align-right"><button className="btn btn-sm btn-more" onClick={this.show}>Vis flere <span className="material-icons md-18">add</span></button></div>
+          ) : (
+            <div className="more-list"><Row className="water-comes-app-recom-list">
             {other.map((a, i) => (
-              <ArticleColumn key={i} sm={'12'} md={'6'}>
+              <Col key={i} sm={'12'} md={'6'}>
                 <Recommendation
                   img={a.img}
                   title={a.title}
                   caption={a.caption}
-                  link={a.link}/>
-              </ArticleColumn>
+                  link={a.link} />
+              </Col>
               ))}
             </Row>
-            <Button variant="primary" size="lg" block onClick={this.hide}>Vis færre</Button>
-            </div>}
+            <div className="align-right"><button className="btn btn-sm btn-more" onClick={this.hide}>Vis færre <span className="material-icons md-18">remove</span></button></div></div>
+          )}
         </div>
     );
   }
