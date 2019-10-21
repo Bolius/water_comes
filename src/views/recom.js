@@ -50,7 +50,7 @@ export default class Recommendations extends React.Component {
               ))}
           </Row>
           { !this.state.readMore ? (
-              <div className="align-right"><button className="btn btn-sm btn-more" onClick={this.show}>Vis flere <i className="icon-add-24">add</span></button></div>
+              <div className="align-right"><button className="btn btn-sm btn-more" onClick={this.show}>Vis flere <i className="icon-add-24">add</i></button></div>
           ) : (
             <div className="more-list"><Row className="water-comes-app-recom-list">
             {other.map((a, i) => (
@@ -63,7 +63,7 @@ export default class Recommendations extends React.Component {
               </Col>
               ))}
             </Row>
-            <div className="align-right"><button className="btn btn-sm btn-more" onClick={this.hide}>Vis færre <span className="icon-remove-24">remove</span></button></div></div>
+            <div className="align-right"><button className="btn btn-sm btn-more" onClick={this.hide}>Vis færre <i className="icon-remove-24">remove</i></button></div></div>
           )}
         </div>
     );
