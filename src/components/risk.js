@@ -15,11 +15,11 @@ export default class Risk extends Component {
   renderGroup(group) {
     switch (group) {
       case 'high':
-        return <span className="danger material-icons red">error_outline</span>;
+        return <span className="danger icon-error_outline-24 red">error_outline</span>;
       case 'medium':
-        return <span className="danger material-icons yellow">error_outline</span>;
+        return <span className="danger icon-error_outline-24">error_outline</span>;
       default:
-        return <span className="danger material-icons green">check_circle_outline</span>;
+        return <span className="danger icon-check_circle_outline-24">check_circle_outline</span>;
     }
   }
 
@@ -29,7 +29,11 @@ export default class Risk extends Component {
         <header onClick={this.toggle}>
           {this.renderGroup(this.props.type)}
           <h4>{this.props.title}</h4>
-          <span className="material-icons md-18">{this.state.showDescription ? 'remove': 'add'}</span>
+          {this.state.showDescription ? (
+            <i className="icon-remove-24">remove</i>
+            ) : (
+            <i className="icon-add-24">add</i>
+          )}
         </header>
         {this.state.showDescription ?
             <p className="water-comes-app-risk-description">

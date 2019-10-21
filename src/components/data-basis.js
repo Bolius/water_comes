@@ -18,9 +18,11 @@ export default class DataBasis extends React.Component {
       <Col className="water-comes-app-data">
         <header onClick={this.toggle}>
           <h3>Se datagrundlaget her</h3>
-          <span className="material-icons md-18" >
-            {this.state.collapse ? 'remove': 'add'}
-          </span>
+          {this.state.collapse ? (
+            <i className="icon-remove-24">remove</i>
+            ) : (
+            <i className="icon-add-24">add</i>
+          )}
         </header>
         <Collapse isOpen={this.state.collapse}>        
           <p>
