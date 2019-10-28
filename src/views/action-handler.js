@@ -1,5 +1,4 @@
 import React from 'react';
-import {Row, Col, Container} from 'reactstrap'
 import RiskDescriber from '../components/risk-describer.js'
 import ActionsTaken from '../components/actions-taken.js'
 import Articles from '../articles.json'
@@ -34,23 +33,16 @@ export default class ActionHandler extends React.Component {
       riskAssement = 'Lav risiko'
       riskNr = 2
     }
+    
     return (
-    <div>
-      <Container>
-      <Row style={{ marginBottom: '12px' , backgroundColor: "#DAEFF9"}}>
-        <Col sm={6} style={{ marginTop: '10px'}}>
-          <RiskDescriber
-            risk={riskNr}
-            riskText={riskAssement}
-            type={this.state.tab}
-            dangers={this.props.dangers}
-          />
-        </Col>
-        <Col sm={6} style={{ marginTop: '20px'}}>
-          <ActionsTaken actions={actions} setActions={this.props.setActions}/>
-        </Col>
-      </Row>
-      </Container>
+    <div className="water-comes-app-actions">
+      <RiskDescriber
+        risk={riskNr}
+        riskText={riskAssement}
+        type={this.state.tab}
+        dangers={this.props.dangers}
+      />
+      <ActionsTaken actions={actions} setActions={this.props.setActions}/>
     </div>
     );
   }

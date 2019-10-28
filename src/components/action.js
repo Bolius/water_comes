@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'reactstrap';
-import '../styles/action.css'
 
 export default class Action extends Component {
   constructor(props) {
@@ -24,17 +22,10 @@ export default class Action extends Component {
 
   render() {
     return (
-      <Row className="task">
-        <Col xs={{size:'1'}} sm={{size: '1', offset: 1}}>
-        <label>
-          <input type="checkbox" onClick={this.toggle}/>
-          <span className="checkmark"></span>
-        </label>
-        </Col>
-        <Col xs={{size:'8'}} sm={{size: '10'}} className="task-text">
-          {this.props.task}
-        </Col>
-      </Row>
+      <div className="water-comes-app-task custom-control custom-checkbox">        
+          <input type="checkbox" onClick={this.toggle} className="custom-control-input"/>       
+          <label className="custom-control-label" onClick={this.toggle}>{this.props.task}</label>       
+      </div>
     );
   }
 }
