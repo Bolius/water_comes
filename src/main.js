@@ -1,6 +1,7 @@
 import React from 'react';
 import AdressSelect from './components/address-select.js'
 import ResultPage from './views/result-page.js'
+import Modal from 'react-responsive-modal';
 import DataBasis from './components/data-basis.js'
 
 export default class Main extends React.Component {
@@ -8,7 +9,12 @@ export default class Main extends React.Component {
     super(props);
     this.setAddress = this.setAddress.bind(this);
     this.resetAddress = this.resetAddress.bind(this);
-    this.state = {address: {}, address_selected: false};
+    this.state = {
+      address: {},
+      address_selected: false,
+      showDataDescriber: false
+    };
+    this.toggle = this.toggle.bind(this);
   }
 
   setAddress(address) {
@@ -16,6 +22,13 @@ export default class Main extends React.Component {
     state.address = address;
     state.address_selected = true;
     this.setState(state);
+
+  }
+
+  toggle() {
+    this.setState({
+      showDataDescriber: !this.state.showDataDescriber,
+    });
   }
 
   resetAddress(){
@@ -32,7 +45,19 @@ export default class Main extends React.Component {
       {!this.state.address_selected ?
         ""
       :
-      <DataBasis/>
+      <div>
+      <Modal
+        open={this.state.showDataDescriber}
+        closeOnEsc onClose={this.toggle}>
+
+        <DataBasis/>
+
+
+      </Modal>
+      <header onClick={this.toggle}>
+        <h3>Se datagrundlaget her</h3>
+      </header>
+      </div>
       }
 
     </div>

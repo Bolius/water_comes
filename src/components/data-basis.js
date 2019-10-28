@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, Collapse} from 'reactstrap';
+import {Col} from 'reactstrap';
 import LinkList from './link-list.js'
 
 export default class DataBasis extends React.Component {
@@ -16,15 +16,7 @@ export default class DataBasis extends React.Component {
 
     return (
       <Col className="water-comes-app-data">
-        <header onClick={this.toggle}>
-          <h3>Se datagrundlaget her</h3>
-          {this.state.collapse ? (
-            <i className="icon-remove-24">remove</i>
-            ) : (
-            <i className="icon-add-24">add</i>
-          )}
-        </header>
-        <Collapse isOpen={this.state.collapse}>        
+
           <p>
           Vi ved, at der i fremtiden kommer flere og voldsommere vejrhændelser
           som fx skybrud. Vi ved også, at det kan være svært at forholde sig
@@ -48,8 +40,8 @@ export default class DataBasis extends React.Component {
           </p>
 
           <h4>Vores data er baseret på data fra følgende kilder:</h4>
-          {this.state.collapse ? <LinkList/> : ''}
-        </Collapse>
+          <LinkList/>
+
       </Col>
     );
   }

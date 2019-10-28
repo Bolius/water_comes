@@ -8,7 +8,10 @@ export default class ResultPage extends React.Component {
   constructor(props) {
     super(props);
     this.setActions = this.setActions.bind(this);
-    this.state = {actions: [], showRes: false};
+    this.state = {
+      actions: [],
+      showRes: false
+    };
   }
 
   setActions(actions) {
