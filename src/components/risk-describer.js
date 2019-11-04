@@ -6,12 +6,11 @@ import Risks from '../risks.json';
 export default class RiskDescriber extends React.Component {
   getRisks(type){
     return this.props.dangers[type].map((id, i) =>(
-      <Risk key={i} title={Risks[id][type]} description={Risks[id].description}/>
+      <Risk key={i} title={Risks[id][type]} description={Risks[id].description} image={this.props.dangers[id]}/>
     ))
   }
 
   render() {
-    console.log(this.props.dangers)
     const riskImage = require(`../assets/gauges/risk-${this.props.risk}.png`)
     return (
       <div className="water-comes-app-hightlighted">

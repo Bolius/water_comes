@@ -24,6 +24,7 @@ export default class Risk extends Component {
   }
 
   render() {
+    var base64str = this.props.image
     return (
       <div className="water-comes-app-risk">
         <header onClick={this.toggle}>
@@ -38,7 +39,12 @@ export default class Risk extends Component {
         {this.state.showDescription ?
             <Row>
               <Col>
-                {this.props.description}
+                {this.props.description} < br />
+                {
+                  (typeof base64str) == "undefined" ?
+                  "":
+                  <img src={ base64str } alt="Lavning"/ >
+                }
               </Col>
             </Row>
           : ''
