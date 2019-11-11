@@ -22,7 +22,6 @@ export default class Main extends React.Component {
     state.address = address;
     state.address_selected = true;
     this.setState(state);
-
   }
 
   toggle() {

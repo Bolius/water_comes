@@ -25,11 +25,7 @@ export default class ResultPage extends React.Component {
         dangers.high.push('basement')
       }
     }
-    else {
-      if (!dangers.low.includes('basement')) {
-        dangers.low.push('basement')
-      }
-    }
+
     return (
       <div>
       {this.props.address.apartment ? <ApartmentBox /> : ""}

@@ -3,8 +3,9 @@
     "description": "Regnvandet søger altid mod det laveste punkt i landskabet. Derfor kan det være et problem, hvis din bolig fx ligger i en lavning, hvor vandet kan samle sig. Bor du omvendt på en bakketop, vil vandet typisk søge nedad og væk fra din bolig.",
     "low" : "Din bolig ligger ikke i en lavning",
     "medium":"Din bolig ligger ikke i en lavning",
-    "high" : "Din bolig ligger i en lavning"
-  },
+    "high" : "Din bolig ligger i en lavning",
+    "text": "Procentdel af grund/bolig, som ligger i en lavning: "
+ },
   "ledeevne" : {
     "description": "Hvis den hydrauliske ledeevne er dårlig i dit område, kan vandet have svært ved at sive ned gennem det øverste jordlag. Det øger risikoen for oversvømmelser af boligen, fordi vandet kan samle sig i store mængder på overfladen. Hvis den hydrauliske ledeevne derimod er god, har regnvandet lettere ved at sive ned i undergrunden og væk fra boligen.",
     "low" : "Den hydrauliske ledeevne i området er god",
@@ -15,7 +16,8 @@
     "description": "Hvis en stor del af overfladen er bebygget eller belagt med asfalt, fliser, brosten mv., kan regnen have svært ved at sive ned i jorden – specielt når det regner kraftigt. Hvis vandet ikke kan løbe væk hurtigt nok, stiger risikoen for oversvømmelse.",
     "low" : "Befæstelsesgraden i området er lav",
     "medium":"Befæstelsesgraden i området middel",
-    "high" : "Befæstelsesgraden i området højt"
+    "high" : "Befæstelsesgraden i området højt",
+    "text" : "Befæstelsesgrad i procent: "
   },
   "basement": {
     "description": "En kælder gør boligen meget sårbar for oversvømmelse, når der er skybrud, fordi den ligger under jordoverfladen. Har du omvendt ikke en kælder, falder risikoen for oversvømmelse.",

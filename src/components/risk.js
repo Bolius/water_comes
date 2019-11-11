@@ -40,11 +40,15 @@ export default class Risk extends Component {
             <Row>
               <Col>
                 {this.props.description} < br />
+
+                <p><b>{this.props.text} {this.props.percentage}</b></p> < br />
+
                 {
                   (typeof base64str) == "undefined" ?
                   "":
                   <img src={ base64str } alt="Lavning"/ >
                 }
+
               </Col>
             </Row>
           : ''

@@ -6,17 +6,27 @@ import Articles from '../articles.json'
 export default class ActionHandler extends React.Component {
   constructor(props) {
     super(props);
-    this.setTab = this.setTab.bind(this);
+    this.setSkybrud = this.setSkybrud.bind(this);
+    this.setStormflod = this.setStormflod.bind(this);
+
     this.state = {
       tab: "skybrud",
+
     };
   }
 
-  setTab(tab) {
+  setSkybrud() {
     let state = this.state;
-    state.tab = tab;
+    state.tab = "skybrud";
     this.setState(state)
   }
+
+  setStormflod() {
+    let state = this.state;
+    state.tab = "stormflod";
+    this.setState(state)
+  }
+
 
   render() {
     const actions = Articles.actions
@@ -33,18 +43,20 @@ export default class ActionHandler extends React.Component {
       riskAssement = 'Lav risiko'
       riskNr = 2
     }
-    
+
     return (
     <div className="water-comes-app-actions">
-      <RiskDescriber
-        risk={riskNr}
-        riskText={riskAssement}
-        type={this.state.tab}
-        dangers={this.props.dangers}
-      />
+        <RiskDescriber
+          risk={riskNr}
+          riskText={riskAssement}
+          type={this.state.tab}
+          dangers={this.props.dangers}
+          tab1={ this.setSkybrud }
+          tab2={ this.setStormflod }
+        />
+
       <ActionsTaken actions={actions} setActions={this.props.setActions}/>
     </div>
     );
   }
 }
-//  <TabHeader tab={this.state.tab} setTab={this.setTab}/>

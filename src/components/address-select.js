@@ -1,7 +1,5 @@
 import React from 'react';
 import { Row, Col, Input, Form, Button } from 'reactstrap';
-import Modal from 'react-responsive-modal';
-
 export default class AdressSelect extends React.Component {
   constructor(props) {
     super(props);
@@ -43,8 +41,10 @@ export default class AdressSelect extends React.Component {
         json['x'] =json.adgangsadresse.adgangspunkt.koordinater[0]
         json['y'] =json.adgangsadresse.adgangspunkt.koordinater[1]
         let resp = await fetch(`https://ml.bolius.dk/waterComes/${json.x}/${json.y}`)
+        //await fetch(`http://127.0.0.1:4000/watercomes/${json.x}/${json.y}`)
+
         let dangers = await resp.json()
-        console.log("recived")
+        console.log("recieved")
         console.log(dangers)
         json['dangers'] = dangers
         return json
@@ -70,62 +70,7 @@ export default class AdressSelect extends React.Component {
   }
 
   render() {
-    return ( <div>
-      <Modal
-        showCloseIcon={false}
-        open={this.state.err_modal}
-        closeOnEsc onClose={this.toggle}
-        closeOnOverlayClick={true}
-        styles={{modal: {
-          borderRadius: "30px",
-          padding: "0",
-          backgroundColor: "#404040",
-          textAlign: "center",
-          position: "relative",
-        }}}
-      >
-        <div><div style={{
-          border: "2px solid white",
-          height: "3em",
-          backgroundColor: "#93CBBD",
-          borderRadius: "30px",
-          textAlign: "center",
-          position: "relative",
-          zIndex: "1"
-        }}>
-        <br/>
-          <span className="text-danger text-center">Fejl: </span>
-          Mangelfuld data fra BBR
-        </div>
-        <div style={{
-            backgroundColor:"#EBF5F5",
-            width: "100%",
-            margin:"auto",
-            marginTop:"-10px",
-            borderRadius: "20px",
-            paddingTop: "20px",
-            zIndex: "0"
-        }}>
-          BBR registret indeholder ikke nok data om huset til at lave
-          forudsigelser.
-          <div style={{padding:"10px"}}>
-            <div style={{verticalAlign: "middle", display:"inline-block"}}>
-              <button
-              style={{marginRight:"20px"}}
-              onClick={() => {window.open("https://bbr.dk/ret")}}
-            >
-              Ret BBR data
-            </button></div>
-            <div style={{verticalAlign: "middle", display:"inline-block"}}>
-              <button onClick={this.toggle}>
-                Prøv anden adresse
-              </button>
-            </div>
-          </div>
-          </div>
-        </div>
-      </Modal>
-
+    return (
       <div className="water-comes-app-address">
         <Form onSubmit={(e) => {e.preventDefault();}}>
           <Row>
@@ -145,7 +90,6 @@ export default class AdressSelect extends React.Component {
             </Col>
           </Row>
         </Form>
-      </div>
       </div>
     );
   }
