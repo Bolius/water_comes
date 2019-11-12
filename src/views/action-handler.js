@@ -44,11 +44,24 @@ export default class ActionHandler extends React.Component {
       riskNr = 2
     }
 
+    var riskNr_stormflod = 3
+    var riskAssement_stormflod = 'Mellem risiko'
+    const stormflod_risk = this.props.dangers.stormflod_risk
+    if (stormflod_risk === 'low'){
+      riskNr_stormflod = 2
+      riskAssement_stormflod = 'Lav risiko'}
+    else if (stormflod_risk === 'high') {
+      riskNr_stormflod = 4
+      riskAssement_stormflod = 'Høj risiko'}
+
+
     return (
     <div className="water-comes-app-actions">
         <RiskDescriber
           risk={riskNr}
+          risk_stormflod={riskNr_stormflod}
           riskText={riskAssement}
+          riskText_stormflod={riskAssement_stormflod}
           type={this.state.tab}
           dangers={this.props.dangers}
           tab1={ this.setSkybrud }

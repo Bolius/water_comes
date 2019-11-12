@@ -27,7 +27,9 @@ export default class AdressSelect extends React.Component {
       address: target
     }));
     var updateRes = this.props.setAddress
+    var setLoading = this.props.setLoading
     this.state.dawa.dawaAutocomplete(inputElm, { select: function(dawa_res) {
+      setLoading()
       async function url_to_json(url) {
         const response = await fetch(url, {mode: 'cors'});
         let json = await response.json();
@@ -41,6 +43,7 @@ export default class AdressSelect extends React.Component {
         json['x'] =json.adgangsadresse.adgangspunkt.koordinater[0]
         json['y'] =json.adgangsadresse.adgangspunkt.koordinater[1]
         let resp = await fetch(`https://ml.bolius.dk/waterComes/${json.x}/${json.y}`)
+
         //await fetch(`http://127.0.0.1:4000/watercomes/${json.x}/${json.y}`)
 
         let dangers = await resp.json()
@@ -64,9 +67,14 @@ export default class AdressSelect extends React.Component {
           'dangers' : data['dangers']
         }
       updateRes(res)
+
       })
+
+
       }
+
     });
+
   }
 
   render() {

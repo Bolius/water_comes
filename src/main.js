@@ -3,6 +3,8 @@ import AdressSelect from './components/address-select.js'
 import ResultPage from './views/result-page.js'
 import Modal from 'react-responsive-modal';
 import DataBasis from './components/data-basis.js'
+import { BeatLoader as Loader } from "react-spinners";
+
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -12,15 +14,18 @@ export default class Main extends React.Component {
     this.state = {
       address: {},
       address_selected: false,
-      showDataDescriber: false
+      showDataDescriber: false,
+      loading: false,
     };
     this.toggle = this.toggle.bind(this);
+    this.setLoading = this.setLoading.bind(this);
   }
 
   setAddress(address) {
     let state = this.state;
     state.address = address;
     state.address_selected = true;
+    state.loading = false;
     this.setState(state);
   }
 
@@ -34,13 +39,26 @@ export default class Main extends React.Component {
     this.setState({address: {}, address_selected: false})
   }
 
+  setLoading(){
+    this.setState({ loading: !this.state.loading })
+  }
+
   render() {return (
     <div>
-      {!this.state.address_selected ?
-        <AdressSelect setAddress={this.setAddress}/>
-      :
-        <ResultPage address={this.state.address} reset={this.resetAddress} dangers={this.state.address.dangers}/>
+      { !this.state.loading ?
+        (!this.state.address_selected ?
+          <AdressSelect setAddress={this.setAddress} setLoading={this.setLoading}/>
+        :
+          <ResultPage address={this.state.address} reset={this.resetAddress} dangers={this.state.address.dangers}/>
+        ) :
+        <Loader
+          sizeUnit={"px"}
+          size={25}
+          color={"rgb(94, 179, 219)"}
+          loading={true}
+        />
       }
+
       {!this.state.address_selected ?
         ""
       :

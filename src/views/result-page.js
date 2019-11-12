@@ -4,6 +4,7 @@ import Recommendations from './recom.js'
 import ActionHandler from './action-handler.js'
 import ApartmentBox from "../components/apartment-box.js";
 
+
 export default class ResultPage extends React.Component {
   constructor(props) {
     super(props);

@@ -46,7 +46,7 @@ export default class Risk extends Component {
                 {
                   (typeof base64str) == "undefined" ?
                   "":
-                  <img src={ base64str } alt="Lavning"/ >
+                  <img src={ base64str } alt="img"/ >
                 }
 
               </Col>
