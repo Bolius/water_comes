@@ -21,7 +21,6 @@ export default class Resume extends React.Component {
     ))
   }
   render() {
-    console.log(this.props.dangers)
     return (
       <div className="water-comes-app-taken">
         <h3>Opsummering</h3>

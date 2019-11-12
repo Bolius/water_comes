@@ -8,16 +8,7 @@ export default class AdressSelect extends React.Component {
       address: "",
       finalAddress: "",
       dawa: require("dawa-autocomplete2"),
-      err_modal: false
     };
-    this.toggle = this.toggle.bind(this);
-  }
-  toggle() {
-    this.setState({
-      err_modal: !this.state.err_modal,
-      address: "",
-      finalAddress: ""
-    });
   }
 
   handleChange(event) {
@@ -43,7 +34,6 @@ export default class AdressSelect extends React.Component {
         json['x'] =json.adgangsadresse.adgangspunkt.koordinater[0]
         json['y'] =json.adgangsadresse.adgangspunkt.koordinater[1]
         let resp = await fetch(`https://ml.bolius.dk/waterComes/${json.x}/${json.y}`)
-
         //await fetch(`http://127.0.0.1:4000/watercomes/${json.x}/${json.y}`)
 
         let dangers = await resp.json()
@@ -69,12 +59,8 @@ export default class AdressSelect extends React.Component {
       updateRes(res)
 
       })
-
-
       }
-
     });
-
   }
 
   render() {

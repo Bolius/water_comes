@@ -1,13 +1,6 @@
-// Mainly as a way to keep scrool
 import React from 'react';
 
 export default class LinkList extends React.Component {
-  /*componentDidMount() {
-    window.scrollBy({
-      top: 200,
-      behavior: 'smooth'
-    });
-   }*/
   render() {
     return (
       <ul>
