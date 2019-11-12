@@ -1,7 +1,7 @@
 import React from 'react';
 import RiskDescriber from '../components/risk-describer.js'
-import ActionsTaken from '../components/actions-taken.js'
-import Articles from '../articles.json'
+import Resume from '../components/resume.js'
+//import Articles from '../articles.json'
 
 export default class ActionHandler extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ export default class ActionHandler extends React.Component {
 
 
   render() {
-    const actions = Articles.actions
+    //const actions = Articles.actions
     let riskAssement = 'Mellem risiko'
     let riskNr = 3
     const nrHighs = this.props.dangers.high.length
@@ -68,7 +68,7 @@ export default class ActionHandler extends React.Component {
           tab2={ this.setStormflod }
         />
 
-      <ActionsTaken actions={actions} setActions={this.props.setActions}/>
+      <Resume dangers={ this.props.dangers }/>
     </div>
     );
   }
