@@ -1,4 +1,14 @@
-import React from "react";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col,  Container, Input } from 'reactstrap';
+import { Button } from './button'
+import '../styles/water_widget_dawa.css'
+
+const InputBox = styled(Container)`
+    background-color: #5AB3DD;
+    padding: 10px;
+    font-size: 20px
+`;
 
 export default class AdressSelect extends React.Component {
   constructor(props) {
@@ -6,6 +16,7 @@ export default class AdressSelect extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       address: "",
+      finalAddress: "",
       dawa: require("dawa-autocomplete2")
     };
   }
@@ -16,36 +27,66 @@ export default class AdressSelect extends React.Component {
     this.setState((prevState, props) => ({
       address: target
     }));
+    var updateRes = this.props.setAddress
+    this.state.dawa.dawaAutocomplete(inputElm, { select: function(dawa_res) {
+      async function url_to_json(url) {
+        const response = await fetch(url, {mode: 'cors'});
+        let json = await response.json();
+        const bbr_info = await fetch(
+          "https://ml.bolius.dk/bbr/"+ encodeURI(json.adressebetegnelse)
+        )
+        let bbr_json = await bbr_info.json()
+        json['has_basement'] = bbr_json.basement_area > 0
+        json['bbr'] = bbr_json
+        json['x'] =json.adgangsadresse.adgangspunkt.koordinater[0]
+        json['y'] =json.adgangsadresse.adgangspunkt.koordinater[1]
+        let resp = await fetch(`http://127.0.0.1:4000/watercomes/${json.x}/${json.y}`)
+        let dangers = await resp.json()
+        console.log("recived")
+        console.log(dangers)
+        json['dangers'] = dangers
+        return json
+      }
 
-    var updateRes = this.props.setAddress;
-    this.state.dawa.dawaAutocomplete(inputElm, {
-      select: function(dawa_res) {
-        updateRes(dawa_res);
+      url_to_json(dawa_res.data.href).then(data => {
+        console.log(data);
+        let res = {
+          'text' : data.adressebetegnelse,
+          'has_basement' : data.has_basement,
+          'bolig': data.adgangsadresse.bebyggelser[0],
+          'bbr': data['bbr'],
+          'x' : data.adgangsadresse.adgangspunkt.koordinater[0],
+          'y' : data.adgangsadresse.adgangspunkt.koordinater[1],
+          'dangers' : data['dangers']
+        }
+      updateRes(res)
+      })
       }
     });
   }
 
   render() {
     return (
-      <div className="ww-address-input">
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-          }}
-        >
-          <div className="autocomplete-container">
-            <input
-              value={this.state.address}
-              onChange={this.handleChange}
-              id="dawa-autocomplete-input"
-              placeholder="Indtast din adresse...."
-            />
-          </div>
-          <div>
-            <button>TJEK RISIKO</button>
-          </div>
+      <InputBox>
+        <form onSubmit={(e) => {e.preventDefault();}}>
+          <Row noGutters form>
+            <Col md={{size: '9'}} sm={'12'}>
+              <div className="autocomplete-container">
+                <Input
+                  type="search"
+                  value={this.state.address}
+                  onChange={this.handleChange}
+                  id="dawa-autocomplete-input"
+                  placeholder="Indtast din adresse...."
+                />
+              </div>
+            </Col>
+            <Col md={{size: '3'}} sm={'12'}>
+              <Button>TJEK RISIKO</Button>
+            </Col>
+          </Row>
         </form>
-      </div>
+      </InputBox>
     );
   }
 }

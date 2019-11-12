@@ -1,8 +1,19 @@
-import React from "react";
-import Action from "./action.js";
+import React from 'react';
+import styled from 'styled-components';
+import {Container, Row, Col} from 'reactstrap'
+import Action from './action.js'
+import { Button } from './button.js'
+
+
+const ActionHeader = styled(Row)`
+  font-size: 1.4em;
+  font-weight: 500;
+  margin-bottom: 0.4em;
+  margin-top: 20px
+`;
 
 export default class ActionsTaken extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.setKey = this.setKey.bind(this);
@@ -10,49 +21,50 @@ export default class ActionsTaken extends React.Component {
       actionsTaken: [],
       recomShown: false
     };
-  }
+  };
 
   setKey(key) {
-    let newKeyList = this.state.actionsTaken.includes(key)
-      ? this.state.actionsTaken.filter(i => {
-          return i !== key;
-        })
-      : this.state.actionsTaken.concat(key);
-    this.setState({ actionsTaken: newKeyList, recomShown: false });
+    let newKeyList =
+    (this.state.actionsTaken.includes(key)) ? this.state.actionsTaken.filter((i) => {return i !== key})
+    : this.state.actionsTaken.concat(key)
+    this.setState({ actionsTaken: newKeyList, recomShown: false});
   }
 
   handleChange() {
-    if (this.state.recomShown) {
-      this.props.setActions(this.state.actionsTaken);
-    } else {
-      this.props.setActions(this.state.actionsTaken);
-      this.setState(state => ({ recomShown: true }));
+    if (this.state.recomShown){
+      this.props.setActions( this.state.actionsTaken );
     }
+    else {
+      this.props.setActions( this.state.actionsTaken );
+      this.setState(state => ({  recomShown: true}));
+    }
+
   }
+
 
   render() {
     return (
-      <div className="col last ww-action-container">
-        <h3>Hvad har du gjort for at forbygge oversvømmelse?</h3>
-        <p>
-          Fortæl os, hvad du selv har gjort for at forebygge oversvømmelse. Sæt
-          hak ud for de ting, du har fået lavet. Har du intet gjort, kan du blot
-          trykke ’Vis anbefalinger’
-        </p>
-        
-        {this.props.actions.map(item => (
-          <Action
-            task={item.action}
-            key={item.id}
-            keyId={item.id}
-            setKey={this.setKey}
-            handleChange={this.handleChange}
-            recomShown={this.state.recomShown}
-          />
-        ))}
-      
-        <button onClick={this.handleChange}>Vis Anbefalinger</button>
-      </div>
-    );
+      <Container>
+        <ActionHeader>
+          Hvad har du gjort for at forbygge oversvømmelse?
+        </ActionHeader>
+        <Row>
+          Fortæl os, hvad du selv har gjort for at forebygge oversvømmelse.
+          Sæt hak ud for de ting, du har fået lavet. Har du intet gjort,
+          kan du blot trykke ’Vis anbefalinger’
+        </Row>
+        <div className="actionContainer">
+          {this.props.actions.map( (item) => (
+            <Action task={item.action} key={item.id} keyId={item.id} setKey={this.setKey} handleChange={this.handleChange} recomShown={this.state.recomShown} />
+          ))}
+        </div>
+        <Row>
+          <Col sm={{size:"6", offset:6}} style={{marginBottom: 20}}>
+            <Button block onClick={ this.handleChange }>
+              Vis Anbefalinger
+            </Button>
+          </Col>
+        </Row>
+    </Container>);
   }
 }
