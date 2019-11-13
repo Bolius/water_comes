@@ -1,12 +1,9 @@
 const exampleAddress = {
-  bbrInfo: {
-    address: "Kjærmarken 103, 6771 Gredstedbro",
-    hasBasement: false,
-    propType: "Enfamiliehuse",
-    type: "Fritliggende enfamilieshus (parcelhus)",
-    x: 55.40155718,
-    y: 8.74227837
-  },
+  isApartment: false,
+  hasBasement: true,
+  text: "Kjærmarken 103, 6771 Gredstedbro",
+  x: 55.40155718,
+  y: 8.74227837,
   dangers: {
     risks: {
       medium: [],
