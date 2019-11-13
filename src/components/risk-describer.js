@@ -1,7 +1,7 @@
 import React from "react";
 import Risk from "./risk.js";
 import Risks from "../risks.json";
-import { Row, Col } from "reactstrap";
+import { Row } from "reactstrap";
 
 export default class RiskDescriber extends React.Component {
   getRisks(type) {
@@ -29,7 +29,7 @@ export default class RiskDescriber extends React.Component {
         </Row>
         <div className="water-comes-app-explanation">
           <h3>Faktorer, der påvirker boligens risiko ved {this.props.tab} </h3>
-          {this.props.tab === "skybrud" ? (
+          {this.props.risk.title === "Skybrud" ? (
             <div>
               {this.getRisks("high")}
               {this.getRisks("medium")}
