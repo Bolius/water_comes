@@ -1,6 +1,7 @@
 import React from "react";
 import AdressSelect from "./components/address-select.js";
 import ResultPage from "./views/result-page.js";
+import exampleAddress from "./example_response.js";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -9,9 +10,14 @@ export default class Main extends React.Component {
     this.resetAddress = this.resetAddress.bind(this);
 
     this.state = {
-      address: {},
-      address_selected: false
-    };
+      address: exampleAddress,
+      address_selected: true
+    }; // For debug
+
+    // this.state = {
+    //   address: {},
+    //   address_selected: false
+    // };
   }
 
   setAddress(address) {
