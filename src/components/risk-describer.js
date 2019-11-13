@@ -4,20 +4,6 @@ import Risks from "../risks.json";
 import { Row, Col } from "reactstrap";
 
 export default class RiskDescriber extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleTab = this.toggleTab.bind(this);
-    this.state = {
-      tab: "skybrud"
-    };
-  }
-
-  toggleTab(state) {
-    this.setState({
-      tab: state
-    });
-  }
-
   getRisks(type) {
     return this.props.dangers.risks[type].map((id, i) => (
       <Risk
@@ -32,33 +18,18 @@ export default class RiskDescriber extends React.Component {
   }
 
   render() {
-    const rain_image = require(`../assets/gauges/risk-${this.props.rain_risk.factor}.png`);
-    const riskImageTab2 = require(`../assets/gauges/risk-${this.props.flood_risk.factor}.png`);
+    const image = require(`../assets/gauges/risk-${this.props.risk.factor}.png`);
 
     return (
       <div className="water-comes-app-hightlighted">
-        <Row>
-          <Col
-            onClick={() => this.toggleTab("skybrud")}
-            className="water-comes-app-estimate"
-          >
-            <h3>Skybrud</h3>
-            <img src={rain_image} className="img-fluid" alt="Risiko måler" />
-            <p>{this.props.rain_risk.text}</p>
-          </Col>
-
-          <Col
-            onClick={() => this.toggleTab("stormflod")}
-            className="water-comes-app-estimate"
-          >
-            <h3>Stormflod</h3>
-            <img src={riskImageTab2} className="img-fluid" alt="Risiko måler" />
-            <p>{this.props.flood_risk.text}</p>
-          </Col>
+        <Row className="water-comes-app-estimate">
+          <h3>{this.props.risk.title}</h3>
+          <img src={image} className="img-fluid" alt="Risiko måler" />
+          <p>{this.props.risk.text}</p>
         </Row>
         <div className="water-comes-app-explanation">
-          <h3>Faktorer, der påvirker boligens risiko ved {this.state.tab}</h3>
-          {this.state.tab === "skybrud" ? (
+          <h3>Faktorer, der påvirker boligens risiko ved {this.props.tab} </h3>
+          {this.props.tab === "skybrud" ? (
             <div>
               {this.getRisks("high")}
               {this.getRisks("medium")}

@@ -2,6 +2,24 @@ import React from "react";
 import RiskDescriber from "../components/risk-describer.js";
 import Resume from "../components/resume.js";
 export default class ActionHandler extends React.Component {
+  constructor(props) {
+    super(props);
+    this.toggleTab = this.toggleTab.bind(this);
+    const types = Object.keys(this.props.dangers.risks);
+    const nr_factors = types.map(type => this.props.dangers.risks[type].length);
+    const risk = types[nr_factors.indexOf(Math.max.apply(Math, nr_factors))];
+    let rain_risk = this.formatRisks(risk);
+    let flood_risk = this.formatRisks(this.props.dangers.flood.risk);
+    rain_risk["title"] = "Skybrud";
+    flood_risk["title"] = "Stormflod";
+
+    this.state = {
+      tab: "skybrud",
+      active_risk: rain_risk,
+      rain_risk: rain_risk,
+      flood_risk: flood_risk
+    };
+  }
   formatRisks(value) {
     let risk = {};
     switch (value) {
@@ -19,22 +37,44 @@ export default class ActionHandler extends React.Component {
     return risk;
   }
 
-  render() {
-    const types = Object.keys(this.props.dangers.risks);
-    const nr_factors = types.map(type => this.props.dangers.risks[type].length);
-    const risk = types[nr_factors.indexOf(Math.max.apply(Math, nr_factors))];
-    const rain_risk = this.formatRisks(risk);
-    console.log(this.props.dangers.flood.risk);
-    const flood_risk = this.formatRisks(this.props.dangers.flood.risk);
+  toggleTab(state) {
+    this.setState({
+      tab: state,
+      active_risk:
+        state === "skybrud" ? this.state.rain_risk : this.state.flood_risk
+    });
+  }
 
+  render() {
     return (
-      <div className="water-comes-app-actions">
-        <RiskDescriber
-          rain_risk={rain_risk}
-          flood_risk={flood_risk}
-          dangers={this.props.dangers}
-        />
-        <Resume dangers={this.props.dangers} />
+      <div>
+        <ul class="nav nav-tabs">
+          <li class="nav-item" onClick={() => this.toggleTab("skybrud")}>
+            <a
+              class={
+                "nav-link " + (this.state.tab === "skybrud" ? " active" : "")
+              }
+            >
+              Skybrud
+            </a>
+          </li>
+          <li class="nav-item" onClick={() => this.toggleTab("stormflod")}>
+            <a
+              class={
+                "nav-link " + (this.state.tab === "stormflod" ? " active" : "")
+              }
+            >
+              Stormflod
+            </a>
+          </li>
+        </ul>
+        <div className="water-comes-app-actions">
+          <RiskDescriber
+            risk={this.state.active_risk}
+            dangers={this.props.dangers}
+          />
+          <Resume dangers={this.props.dangers} />
+        </div>
       </div>
     );
   }
