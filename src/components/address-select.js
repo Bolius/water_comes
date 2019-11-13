@@ -67,7 +67,7 @@ export default class AdressSelect extends React.Component {
       y: houseData.bbrInfo.y,
       dangers: dangers
     };
-    this.props.setAddress(result);
+    this.props.setData(result);
   }
 
   handleChange(event) {

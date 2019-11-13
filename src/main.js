@@ -1,51 +1,41 @@
 import React from "react";
 import AdressSelect from "./components/address-select.js";
 import ResultPage from "./views/result-page.js";
-import exampleAddress from "./example_response.js";
+import exampleHouseData from "./example_house_data.js";
 
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.setAddress = this.setAddress.bind(this);
-    this.resetAddress = this.resetAddress.bind(this);
+    this.setData = this.setData.bind(this);
+    this.reset = this.reset.bind(this);
 
     this.state = {
-      address: exampleAddress,
-      address_selected: true
-    }; // For debug
+      houseData: {},
+      hasData: false
+    };
 
-    // this.state = {
-    //   address: {},
-    //   address_selected: false
-    // };
+    this.state = {
+      houseData: exampleHouseData,
+      hasData: true
+    }; // For debug
   }
 
-  setAddress(address) {
+  setData(houseData) {
     this.setState({
-      address_selected: true,
-      address: address
+      hasData: true,
+      houseData: houseData
     });
   }
 
-  resetAddress() {
-    this.setState({ address: {}, address_selected: false });
+  reset() {
+    this.setState({ houseData: {}, hasData: false });
   }
 
   render() {
-    if (!this.state.address_selected) {
-      return (
-        <div>
-          <AdressSelect setAddress={this.setAddress} />
-        </div>
-      );
+    if (!this.state.hasData) {
+      return <AdressSelect setData={this.setData} />;
     } else {
-      return (
-        <ResultPage
-          address={this.state.address}
-          reset={this.resetAddress}
-          dangers={this.state.address.dangers}
-        />
-      );
+      return <ResultPage houseData={this.state.houseData} reset={this.reset} />;
     }
   }
 }
