@@ -21,9 +21,7 @@ export default class DataBasis extends React.Component {
   render() {
     return (
       <div>
-        <h2 onClick={this.toggle}>
-          <h3>Se datagrundlaget her</h3>
-        </h2>
+        <h3 onClick={this.toggle}>Se datagrundlaget her</h3>
         <Modal
           open={this.state.showDataDescriber}
           closeOnEsc

@@ -1,11 +1,13 @@
 import React from "react";
 import { Row, Col, Input, Form, Button } from "reactstrap";
 import { BeatLoader as Loader } from "react-spinners";
+import constructQuery from "../graphQL_query.js";
 
 export default class AdressSelect extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.getData = this.getData.bind(this);
     this.state = {
       isLoading: false,
       address: "",
@@ -14,55 +16,73 @@ export default class AdressSelect extends React.Component {
     };
   }
 
+  async getData(dawa_res) {
+    this.setState({ isLoading: !this.state.isLoading });
+    let kvhx = await fetch(dawa_res.data.href)
+      .then(resp => resp.json())
+      .then(data => data.kvhx);
+
+    const houseData = await fetch(process.env.REACT_APP_GRAPHQL_URL, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: constructQuery(kvhx)
+    })
+      .then(response => response.json())
+      .then(data => data.data.house);
+
+    console.log(houseData);
+    // Make this loadable:
+    let dangers = {
+      risks: {
+        medium: [],
+        high: ["ledeevne", "bebyggelse"],
+        low: ["lavning"]
+      },
+      flood: {
+        groundHeight: 7.6,
+        risk: "low",
+        floodLowerLimit: 200.0,
+        floodMediumLimit: 300.0,
+        floodHighLimit: 400.0
+      },
+      hollowing: {
+        areaPercentage: 11,
+        image: "image",
+        housePercentage: 0
+      },
+      fastningDegree: {
+        housePercentage: 47,
+        image: "image",
+        areaPercentage: 49
+      },
+      coundictivity: 98.8
+    };
+    let result = await {
+      isApartment: houseData.bbrInfo.propType === "Etageboliger",
+      hasBasement: houseData.bbrInfo.hasBasement,
+      text: houseData.bbrInfo.address,
+      x: houseData.bbrInfo.x,
+      y: houseData.bbrInfo.y,
+      dangers: dangers
+    };
+    this.props.setAddress(result);
+  }
+
   handleChange(event) {
     var target = event.target.value;
     this.setState((prevState, props) => ({
       address: target
     }));
-    var react = this; // Hack to refer to "this" in next function
+    var selectHandler = this.getData; // Hack: this. changes meaning in call
     this.state.dawa.dawaAutocomplete(
       document.getElementById("dawa-autocomplete-input"),
       {
-        select: function(dawa_res) {
-          react.setState({ isLoading: !react.state.isLoading });
-          async function url_to_json(url) {
-            const response = await fetch(url, { mode: "cors" });
-            let json = await response.json();
-            const bbr_info = await fetch(
-              "https://ml.bolius.dk/bbr/" + encodeURI(json.adressebetegnelse)
-            );
-            let bbr_json = await bbr_info.json();
-            json["apartment"] =
-              bbr_json.type === "story" || bbr_json.type === "oth";
-            json["has_basement"] = bbr_json.basement_area > 0;
-            json["bbr"] = bbr_json;
-            json["x"] = json.adgangsadresse.adgangspunkt.koordinater[0];
-            json["y"] = json.adgangsadresse.adgangspunkt.koordinater[1];
-            let resp = await fetch(
-              `https://ml.bolius.dk/waterComes/${json.x}/${json.y}`
-            );
-            let dangers = await resp.json();
-            json["dangers"] = dangers;
-            return json;
-          }
-          url_to_json(dawa_res.data.href).then(data => {
-            let res = {
-              apartment: data.apartment,
-              text: data.adressebetegnelse,
-              has_basement: data.has_basement,
-              bolig: data.adgangsadresse.bebyggelser[0],
-              bbr: data["bbr"],
-              x: data.adgangsadresse.adgangspunkt.koordinater[0],
-              y: data.adgangsadresse.adgangspunkt.koordinater[1],
-              dangers: data["dangers"]
-            };
-            react.props.setAddress(res);
-          });
-        }
+        select: selectHandler
       }
     );
   }
-
   render() {
     if (this.state.isLoading) {
       return (
