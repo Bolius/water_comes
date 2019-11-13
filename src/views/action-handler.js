@@ -1,58 +1,41 @@
-import React from 'react';
-import {Row, Col, Container} from 'reactstrap'
-import RiskDescriber from '../components/risk-describer.js'
-import ActionsTaken from '../components/actions-taken.js'
-import Articles from '../articles.json'
-
+import React from "react";
+import RiskDescriber from "../components/risk-describer.js";
+import Resume from "../components/resume.js";
 export default class ActionHandler extends React.Component {
-  constructor(props) {
-    super(props);
-    this.setTab = this.setTab.bind(this);
-    this.state = {
-      tab: "skybrud",
-    };
-  }
+  formatRisks(value) {
+    let risk = {};
+    switch (value) {
+      case "high":
+        risk = { text: "Høj risiko", factor: 4 };
+        break;
+      case "low":
+        risk = { text: "Lav risiko", factor: 2 };
+        break;
 
-  setTab(tab) {
-    let state = this.state;
-    state.tab = tab;
-    this.setState(state)
+      default:
+        risk = { text: "Mellem risiko", factor: 3 };
+        break;
+    }
+    return risk;
   }
 
   render() {
-    const actions = Articles.actions
-    let riskAssement = 'Mellem risiko'
-    let riskNr = 3
-    const nrHighs = this.props.dangers.high.length
-    const nrLows = this.props.dangers.low.length
-    const nrMids = this.props.dangers.medium.length
-    if(nrHighs > nrLows && nrHighs > nrMids){
-      riskAssement = 'Høj risiko'
-      riskNr = 4
-    }
-    else if (nrLows > nrHighs && nrLows > nrMids) {
-      riskAssement = 'Lav risiko'
-      riskNr = 2
-    }
+    const types = Object.keys(this.props.dangers.risks);
+    const nr_factors = types.map(type => this.props.dangers.risks[type].length);
+    const risk = types[nr_factors.indexOf(Math.max.apply(Math, nr_factors))];
+    const rain_risk = this.formatRisks(risk);
+    console.log(this.props.dangers.flood.risk);
+    const flood_risk = this.formatRisks(this.props.dangers.flood.risk);
+
     return (
-    <div>
-      <Container>
-      <Row style={{ marginBottom: '12px' , backgroundColor: "#DAEFF9"}}>
-        <Col sm={6} style={{ marginTop: '10px'}}>
-          <RiskDescriber
-            risk={riskNr}
-            riskText={riskAssement}
-            type={this.state.tab}
-            dangers={this.props.dangers}
-          />
-        </Col>
-        <Col sm={6} style={{ marginTop: '20px'}}>
-          <ActionsTaken actions={actions} setActions={this.props.setActions}/>
-        </Col>
-      </Row>
-      </Container>
-    </div>
+      <div className="water-comes-app-actions">
+        <RiskDescriber
+          rain_risk={rain_risk}
+          flood_risk={flood_risk}
+          dangers={this.props.dangers}
+        />
+        <Resume dangers={this.props.dangers} />
+      </div>
     );
   }
 }
-//  <TabHeader tab={this.state.tab} setTab={this.setTab}/>

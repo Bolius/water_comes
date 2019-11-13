@@ -1,92 +1,125 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Row, Col,  Container, Input } from 'reactstrap';
-import { Button } from './button'
-import '../styles/water_widget_dawa.css'
-
-const InputBox = styled(Container)`
-    background-color: #5AB3DD;
-    padding: 10px;
-    font-size: 20px
-`;
+import React from "react";
+import { Row, Col, Input, Form, Button } from "reactstrap";
+import { BeatLoader as Loader } from "react-spinners";
+import constructQuery from "../graphQL_query.js";
 
 export default class AdressSelect extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.getData = this.getData.bind(this);
     this.state = {
+      isLoading: false,
       address: "",
       finalAddress: "",
       dawa: require("dawa-autocomplete2")
     };
   }
 
+  async getData(dawa_res) {
+    this.setState({ isLoading: !this.state.isLoading });
+    let kvhx = await fetch(dawa_res.data.href)
+      .then(resp => resp.json())
+      .then(data => data.kvhx);
+
+    const houseData = await fetch(process.env.REACT_APP_GRAPHQL_URL, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: constructQuery(kvhx)
+    })
+      .then(response => response.json())
+      .then(data => data.data.house);
+
+    console.log(houseData);
+    // Make this loadable:
+    let dangers = {
+      risks: {
+        medium: [],
+        high: ["ledeevne", "bebyggelse"],
+        low: ["lavning"]
+      },
+      flood: {
+        groundHeight: 7.6,
+        risk: "low",
+        floodLowerLimit: 200.0,
+        floodMediumLimit: 300.0,
+        floodHighLimit: 400.0
+      },
+      hollowing: {
+        areaPercentage: 11,
+        image: "image",
+        housePercentage: 0
+      },
+      fastningDegree: {
+        housePercentage: 47,
+        image: "image",
+        areaPercentage: 49
+      },
+      coundictivity: 98.8
+    };
+    let result = await {
+      isApartment: houseData.bbrInfo.propType === "Etageboliger",
+      hasBasement: houseData.bbrInfo.hasBasement,
+      text: houseData.bbrInfo.address,
+      x: houseData.bbrInfo.x,
+      y: houseData.bbrInfo.y,
+      dangers: dangers
+    };
+    this.props.setData(result);
+  }
+
   handleChange(event) {
     var target = event.target.value;
-    var inputElm = document.getElementById("dawa-autocomplete-input");
     this.setState((prevState, props) => ({
       address: target
     }));
-    var updateRes = this.props.setAddress
-    this.state.dawa.dawaAutocomplete(inputElm, { select: function(dawa_res) {
-      async function url_to_json(url) {
-        const response = await fetch(url, {mode: 'cors'});
-        let json = await response.json();
-        const bbr_info = await fetch(
-          "https://ml.bolius.dk/bbr/"+ encodeURI(json.adressebetegnelse)
-        )
-        let bbr_json = await bbr_info.json()
-        json['has_basement'] = bbr_json.basement_area > 0
-        json['bbr'] = bbr_json
-        json['x'] =json.adgangsadresse.adgangspunkt.koordinater[0]
-        json['y'] =json.adgangsadresse.adgangspunkt.koordinater[1]
-        let resp = await fetch(`http://127.0.0.1:4000/watercomes/${json.x}/${json.y}`)
-        let dangers = await resp.json()
-        console.log("recived")
-        console.log(dangers)
-        json['dangers'] = dangers
-        return json
+    var selectHandler = this.getData; // Hack: this. changes meaning in call
+    this.state.dawa.dawaAutocomplete(
+      document.getElementById("dawa-autocomplete-input"),
+      {
+        select: selectHandler
       }
-
-      url_to_json(dawa_res.data.href).then(data => {
-        console.log(data);
-        let res = {
-          'text' : data.adressebetegnelse,
-          'has_basement' : data.has_basement,
-          'bolig': data.adgangsadresse.bebyggelser[0],
-          'bbr': data['bbr'],
-          'x' : data.adgangsadresse.adgangspunkt.koordinater[0],
-          'y' : data.adgangsadresse.adgangspunkt.koordinater[1],
-          'dangers' : data['dangers']
-        }
-      updateRes(res)
-      })
-      }
-    });
-  }
-
-  render() {
-    return (
-      <InputBox>
-        <form onSubmit={(e) => {e.preventDefault();}}>
-          <Row noGutters form>
-            <Col md={{size: '9'}} sm={'12'}>
-              <div className="autocomplete-container">
-                <Input
-                  type="search"
-                  value={this.state.address}
-                  onChange={this.handleChange}
-                  id="dawa-autocomplete-input"
-                  placeholder="Indtast din adresse...."
-                />
-              </div>
-            </Col>
-            <Col md={{size: '3'}} sm={'12'}>
-              <Button>TJEK RISIKO</Button>
-            </Col>
-          </Row>
-        </form>
-      </InputBox>
     );
+  }
+  render() {
+    if (this.state.isLoading) {
+      return (
+        <Loader
+          sizeUnit={"px"}
+          size={25}
+          color={"rgb(94, 179, 219)"}
+          loading={true}
+        />
+      );
+    } else {
+      return (
+        <div className="water-comes-app-address">
+          <Form
+            onSubmit={e => {
+              e.preventDefault();
+            }}
+          >
+            <Row>
+              <Col md={{ size: "9" }} sm={"8"}>
+                <div className="autocomplete-container">
+                  <Input
+                    type="search"
+                    value={this.state.address}
+                    onChange={this.handleChange}
+                    id="dawa-autocomplete-input"
+                    placeholder="Indtast din adresse...."
+                  />
+                </div>
+              </Col>
+              <Col md={{ size: "3" }} sm={"4"} className="align-right">
+                <Button color="primary">Tjek risiko</Button>
+              </Col>
+            </Row>
+          </Form>
+        </div>
+      );
+    }
   }
 }
