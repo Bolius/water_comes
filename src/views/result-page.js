@@ -1,37 +1,26 @@
-import React from 'react';
-import MapBox from '../components/map-box.js'
-import Recommendations from './recom.js'
-import ActionHandler from './action-handler.js'
-
+import React from "react";
+import MapBox from "../components/map-box.js";
+import ActionHandler from "./action-handler.js";
+import ApartmentBox from "../components/apartment-box.js";
+import DataBasis from "../components/data-basis.js";
 
 export default class ResultPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.setActions = this.setActions.bind(this);
-    this.state = {actions: [], showRes: false};
-  }
-
-  setActions(actions) {
-    this.setState({ actions: actions, showRes: true } );
-  }
-
   render() {
-    let dangers = this.props.dangers
-    if(this.props.address.has_basement){
-      dangers.high.push('basement')
+    let dangers = this.props.houseData.dangers;
+    if (
+      this.props.houseData.hasBasement &&
+      !dangers.risks.high.includes("basement")
+    ) {
+      dangers.risks.high.push("basement");
     }
-    else {
-      dangers.low.push('basement')
-    }
+
     return (
       <div>
-      <MapBox address={ this.props.address.text } reset={this.props.reset} />
-      <ActionHandler dangers={dangers} setActions={ this.setActions }/>
-      {!this.state.showRes?
-        <div/>:
-        <Recommendations basement={this.props.address.has_basement} filter={this.state.actions} />
-      }
-
-    </div>
-  );}
+        {this.props.houseData.isApartment ? <ApartmentBox /> : ""}
+        <MapBox address={this.props.houseData.text} reset={this.props.reset} />
+        <ActionHandler dangers={dangers} />
+        <DataBasis />
+      </div>
+    );
+  }
 }

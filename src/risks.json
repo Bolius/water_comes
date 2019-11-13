@@ -1,25 +1,63 @@
 {
   "lavning" : {
-    "description": "Regnvandet søger altid mod det laveste punkt i terrænet. Og derfor kan det være et problem, hvis din bolig ligger i en lavning i forhold til det øvrige terræn. Bor du omvendt på en bakketop, vil vandet typisk søge ned i terrænet.",
+    "description": "Regnvandet søger altid mod det laveste punkt i landskabet. Derfor kan det være et problem, hvis din bolig fx ligger i en lavning, hvor vandet kan samle sig. Bor du omvendt på en bakketop, vil vandet typisk søge nedad og væk fra din bolig.",
     "low" : "Din bolig ligger ikke i en lavning",
     "medium":"Din bolig ligger ikke i en lavning",
-    "high" : "Din bolig ligger i en lavning"
-  },
+    "high" : "Din bolig ligger i en lavning",
+    "text": "Procentdel af grund/bolig, som ligger i en lavning: ",
+    "recommendation_text" : "Din bolig ligger i en lavning. Det betyder at .... ",
+    "recommendations": [
+      {
+        "title": "løsning A",
+        "description": "Du kan blandt andet gøre ....",
+        "link": "https://www.bolius.dk/saadan-beskytter-du-dit-hus-mod-regn-14988/"
+      }
+    ]
+ },
   "ledeevne" : {
-    "description": "Hydraulisk ledeevne handler om, hvor hurtigt vandet kan løbe ned igennem jorden. Der kan være stor forskel på jordtyper. Regnvand løber fx hurtigt gennem sand og grus, men langsomt gennem silt og ler, der udgør det øverste jordlag.",
-    "low" : "Den hydrauliske ledeevne i området er dårlig",
+    "description": "Hvis den hydrauliske ledeevne er dårlig i dit område, kan vandet have svært ved at sive ned gennem det øverste jordlag. Det øger risikoen for oversvømmelser af boligen, fordi vandet kan samle sig i store mængder på overfladen. Hvis den hydrauliske ledeevne derimod er god, har regnvandet lettere ved at sive ned i undergrunden og væk fra boligen.",
+    "low" : "Den hydrauliske ledeevne i området er god",
     "medium":"Den hydrauliske ledeevne i området er mellemgod",
-    "high" : "Den hydrauliske ledeevne i området er god"
+    "high" : "Den hydrauliske ledeevne i området er dårlig",
+    "recommendation_text" : "Den hydrauliske ledeevne er dårlig. Det betyder at .... ",
+    "recommendations": [
+      {
+        "title": "løsning B",
+        "description": "Du kan blandt andet gøre ....",
+        "link": "https://www.bolius.dk/saadan-beskytter-du-dit-hus-mod-regn-14988/"
+      }
+    ]
   },
   "bebyggelse": {
     "description": "Hvis en stor del af overfladen er bebygget eller belagt med asfalt, fliser, brosten mv., kan regnen have svært ved at sive ned i jorden – specielt når det regner kraftigt. Hvis vandet ikke kan løbe væk hurtigt nok, stiger risikoen for oversvømmelse.",
     "low" : "Befæstelsesgraden i området er lav",
-    "medium":"Befæstelsesgraden i området middel",
-    "high" : "Befæstelsesgraden i området højt"
+    "medium":"Befæstelsesgraden i området er middel",
+    "high" : "Befæstelsesgraden i området er højt",
+    "text" : "Befæstelsesgrad i procent: ",
+    "recommendation_text" : "Befæstelsesgraden i området er middel til højt. Det betyder at .... ",
+    "recommendations": [
+      {
+        "title": "løsning C",
+        "description": "Du kan blandt andet gøre ....",
+        "link": "https://www.bolius.dk/saadan-beskytter-du-dit-hus-mod-regn-14988/"
+      }
+    ]
   },
   "basement": {
-    "description": "En kælder gør boligen meget sårbar for oversvømmelse, når der er skybrud. Har du omvendt ikke en kælder, falder risikoen for oversvømmelse markant.",
+    "description": "En kælder gør boligen meget sårbar for oversvømmelse, når der er skybrud, fordi den ligger under jordoverfladen. Har du omvendt ikke en kælder, falder risikoen for oversvømmelse.",
     "low" : "Din bolig har ikke en kælder",
-    "high" : "Din bolig har en kælder"
+    "high" : "Din bolig har en kælder",
+    "recommendation_text" : "Din bolig har en kælder. Det betyder at .... ",
+    "recommendations": [
+      {
+        "title": "løsning D",
+        "description": "Du kan blandt andet gøre ....",
+        "link": "https://www.bolius.dk/saadan-beskytter-du-dit-hus-mod-regn-14988/"
+      }
+    ]
+  },
+  "other": {
+    "description": "Vi tager ikke højde for .....",
+    "title": "Faktorer der ikke tages højde for"
   }
 }
