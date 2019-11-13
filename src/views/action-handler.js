@@ -1,9 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import RiskDescriber from "../components/risk-describer.js";
 import Resume from "../components/resume.js";
-
-import classnames from "classnames";
-
 export default class ActionHandler extends React.Component {
   formatRisks(value) {
     let risk = {};
@@ -14,7 +11,8 @@ export default class ActionHandler extends React.Component {
       case "low":
         risk = { text: "Lav risiko", factor: 2 };
         break;
-      case "medium":
+
+      default:
         risk = { text: "Mellem risiko", factor: 3 };
         break;
     }
