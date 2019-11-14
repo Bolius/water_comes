@@ -1,5 +1,6 @@
 import React from "react";
 import AdressSelect from "./components/address-select.js";
+import DataModal from "./components/data-modal.js";
 import ResultPage from "./views/result-page.js";
 import exampleHouseData from "./example_house_data.js";
 
@@ -8,8 +9,9 @@ export default class Main extends React.Component {
     super(props);
     this.setData = this.setData.bind(this);
     this.reset = this.reset.bind(this);
-
+    this.toggleDataModal = this.toggleDataModal.bind(this);
     this.state = {
+      showModal: false,
       houseData: {},
       hasData: false
     };
@@ -18,6 +20,12 @@ export default class Main extends React.Component {
     //   houseData: exampleHouseData,
     //   hasData: true
     // }; // For debug
+  }
+
+  toggleDataModal() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
   }
 
   setData(houseData) {
@@ -32,10 +40,25 @@ export default class Main extends React.Component {
   }
 
   render() {
-    if (!this.state.hasData) {
-      return <AdressSelect setData={this.setData} />;
-    } else {
-      return <ResultPage houseData={this.state.houseData} reset={this.reset} />;
-    }
+    return (
+      <div>
+        <DataModal
+          showModal={this.state.showModal}
+          toggleDataModal={this.toggleDataModal}
+        />
+        {!this.state.hasData ? (
+          <AdressSelect
+            toggleDataModal={this.toggleDataModal}
+            setData={this.setData}
+          />
+        ) : (
+          <ResultPage
+            toggleDataModal={this.toggleDataModal}
+            houseData={this.state.houseData}
+            reset={this.reset}
+          />
+        )}
+      </div>
+    );
   }
 }
