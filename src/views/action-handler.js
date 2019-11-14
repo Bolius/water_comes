@@ -73,7 +73,11 @@ export default class ActionHandler extends React.Component {
             risk={this.state.active_risk}
             dangers={this.props.dangers}
           />
-          <Resume dangers={this.props.dangers} />
+          <Resume
+            active={this.state.tab}
+            risk={this.state.active_risk}
+            dangers={this.props.dangers}
+          />
         </div>
       </div>
     );

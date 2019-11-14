@@ -44,7 +44,10 @@ export default class MapBox extends React.Component {
               <p>
                 Vær opmærksom på, at din risiko er baseret på offentligt
                 tilgængelige data, som kan være behæftet med usikkerheder.
-                <button onClick={this.props.toggleDataDescription}>
+                <button
+                  className="btn btn-link"
+                  onClick={this.props.toggleDataDescription}
+                >
                   Læs mere her
                 </button>
               </p>

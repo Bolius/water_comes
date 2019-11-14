@@ -5,16 +5,30 @@ import { Row } from "reactstrap";
 
 export default class RiskDescriber extends React.Component {
   getRisks(threat) {
-    return this.props.dangers.risks[threat].map((factor, i) => (
-      <Risk
-        key={i}
-        title={Risks[factor][threat]}
-        description={Risks[factor].description}
-        percentage={this.props.dangers[String(factor).concat("_percentage")]}
-        text={Risks[factor].text}
-        image={this.getImage(factor)}
-      />
-    ));
+    return this.props.dangers.risks[threat]
+      .filter(type => type !== "basement")
+      .map((factor, i) => (
+        <Risk
+          key={i}
+          threat={threat}
+          title={Risks[factor][threat]}
+          description={Risks[factor].description}
+          image={this.getImage(factor)}
+        />
+      ));
+  }
+
+  renderBasement() {
+    if (this.props.dangers.risks["high"].includes("basement")) {
+      return (
+        <Risk
+          key={5}
+          threat={"high"}
+          title={Risks.basement.title}
+          description={Risks.basement.description}
+        />
+      );
+    }
   }
 
   getImage(factor) {
@@ -50,12 +64,14 @@ export default class RiskDescriber extends React.Component {
           <h3>Faktorer, der påvirker boligens risiko ved {this.props.tab} </h3>
           {this.props.risk.title === "Skybrud" ? (
             <div>
+              {this.renderBasement()}
               {this.getRisks("high")}
               {this.getRisks("medium")}
               {this.getRisks("low")}
               <Risk
                 title={Risks["other"].title}
                 description={Risks["other"].description}
+                threat={"medium"}
               />
             </div>
           ) : (

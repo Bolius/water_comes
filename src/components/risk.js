@@ -12,7 +12,7 @@ export default class Risk extends Component {
     this.setState(state => ({ showDescription: !state.showDescription }));
   }
 
-  renderGroup(group) {
+  threatImage(group) {
     switch (group) {
       case "high":
         return (
@@ -33,11 +33,17 @@ export default class Risk extends Component {
     }
   }
 
+  renderText(text) {
+    return text
+      .split("\n")
+      .map(t => <p dangerouslySetInnerHTML={{ __html: t }} />);
+  }
+
   render() {
     return (
       <div className="water-comes-app-risk">
         <header onClick={this.toggle}>
-          {this.renderGroup(this.props.type)}
+          {this.threatImage(this.props.threat)}
           <h4>{this.props.title}</h4>
           {this.state.showDescription ? (
             <i className="icon-remove-24">remove</i>
@@ -48,12 +54,7 @@ export default class Risk extends Component {
         {this.state.showDescription ? (
           <Row>
             <Col>
-              {this.props.description} <br />
-              <p>
-                <b>
-                  {this.props.text} {this.props.percentage}
-                </b>
-              </p>
+              {this.renderText(this.props.description)}
               {this.props.image !== undefined ? (
                 <img src={this.props.image} alt="map" />
               ) : (

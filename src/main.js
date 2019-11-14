@@ -13,7 +13,7 @@ export default class Main extends React.Component {
       houseData: {},
       hasData: false
     };
-    //
+
     // this.state = {
     //   houseData: exampleHouseData,
     //   hasData: true
