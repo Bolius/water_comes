@@ -59,5 +59,16 @@
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "webpack-cli": "^3.3.10"
+  },
+  "description": "A widget made for the _when the water comes_ campaign.",
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bolius/water_comes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bolius/water_comes/issues"
   }
 }

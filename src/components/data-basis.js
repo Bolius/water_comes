@@ -20,8 +20,11 @@ export default class DataBasis extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3 onClick={this.toggle}>Se datagrundlaget her</h3>
+      <div className="water-comes-app-data">
+        <header onClick={this.toggle}>
+          <h3>Se datagrundlaget her</h3>
+          <i className="icon-add-24">add</i>
+        </header>
         <Modal
           open={this.state.showDataDescriber}
           closeOnEsc

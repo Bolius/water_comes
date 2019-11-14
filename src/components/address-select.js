@@ -89,7 +89,7 @@ export default class AdressSelect extends React.Component {
         <Loader
           sizeUnit={"px"}
           size={25}
-          color={"rgb(94, 179, 219)"}
+          color={"rgb(207, 227, 227)"}
           loading={true}
         />
       );

@@ -1,12 +1,13 @@
 import React from "react";
 import { Row, Col, Button } from "reactstrap";
+import ApartmentBox from "./apartment-box.js";
 
 export default class MapBox extends React.Component {
   render() {
     const mapParams = {
       center: this.props.address,
       zoom: 18,
-      size: "600x225",
+      size: "600x338",
       maptype: "hybrid",
       markers: `color:0x58B1DD|location:${this.props.address}`,
       key: process.env.REACT_APP_GOOGLE_MAPS_KEY,
@@ -34,16 +35,12 @@ export default class MapBox extends React.Component {
               </Button>
             </Col>
             <Col sm={{ size: "6" }}>
+              {this.props.isApartment ? <ApartmentBox /> : ""}
               <p>
-                Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved
-                oversvømmelse efter skybrud. Når du har oplyst, hvad du selv har
-                gjort for at undgå oversvømmelser, får du en række anbefalinger
-                til nye tiltag.
+                Nedenfor kan du få et indtryk af, hvor udsat din bolig er ved oversvømmelse, når vandet kommer udefra. Du kan også få gode råd til, hvordan du bedst forebygger oversvømmelse i fremtiden.
               </p>
-
               <p>
-                Vær opmærksom på, at din risiko er baseret på offentligt
-                tilgængelige data, som kan være behæftet med usikkerheder. Læs
+                Vær opmærksom på, at resultatet er vejledende og kan være behæftet med usikkerheder. Læs
                 mere her.
               </p>
             </Col>
