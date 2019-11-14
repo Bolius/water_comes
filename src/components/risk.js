@@ -16,19 +16,15 @@ export default class Risk extends Component {
     switch (group) {
       case "high":
         return (
-          <span className="danger icon-error_outline-24 red">
-            error_outline
-          </span>
+          <span className="danger icon-high-risc">high risc</span>
         );
       case "medium":
         return (
-          <span className="danger icon-error_outline-24">error_outline</span>
+          <span className="danger icon-change_history-24">medium risc</span>
         );
       default:
         return (
-          <span className="danger icon-check_circle_outline-24">
-            check_circle_outline
-          </span>
+          <span className="danger icon-low-risc">low risc</span>
         );
     }
   }

@@ -47,7 +47,7 @@ export default class ActionHandler extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="water-comes-app-tabs">
         <ul className="nav nav-tabs">
           <li className="nav-item" onClick={() => this.toggleTab("skybrud")}>
             <a
