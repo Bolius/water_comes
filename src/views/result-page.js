@@ -5,20 +5,6 @@ import ActionHandler from "./action-handler.js";
 import DataBasis from "../components/data-basis.js";
 
 export default class ResultPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleDataDescription = this.toggleDataDescription.bind(this);
-    this.state = {
-      showDataDescriber: false
-    };
-  }
-
-  toggleDataDescription() {
-    this.setState({
-      showDataDescriber: !this.state.showDataDescriber
-    });
-  }
-
   render() {
     let dangers = this.props.houseData.dangers;
     if (
@@ -36,10 +22,7 @@ export default class ResultPage extends React.Component {
           reset={this.props.reset}
         />
         <ActionHandler dangers={dangers} />
-        <DataBasis
-          toggleDataDescription={this.toggleDataDescription}
-          showDataDescriber={this.state.showDataDescriber}
-        />
+        <DataBasis showModal={this.props.toggleDataModal} />
       </div>
     );
   }
