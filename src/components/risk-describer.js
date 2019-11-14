@@ -4,17 +4,37 @@ import Risks from "../risks.json";
 import { Row } from "reactstrap";
 
 export default class RiskDescriber extends React.Component {
-  getRisks(type) {
-    return this.props.dangers.risks[type].map((id, i) => (
+  getRisks(threat) {
+    return this.props.dangers.risks[threat].map((factor, i) => (
       <Risk
         key={i}
-        title={Risks[id][type]}
-        description={Risks[id].description}
-        image={this.props.dangers[id]}
-        percentage={this.props.dangers[String(id).concat("_percentage")]}
-        text={Risks[id].text}
+        title={Risks[factor][threat]}
+        description={Risks[factor].description}
+        image={this.props.dangers[factor]}
+        percentage={this.props.dangers[String(factor).concat("_percentage")]}
+        text={Risks[factor].text}
+        image={this.getImage(factor)}
       />
     ));
+  }
+
+  getImage(factor) {
+    let img = undefined;
+    switch (factor) {
+      case "lavning":
+        img = this.props.dangers.hollowing.image;
+        img = img.substring(2, img.length - 1);
+        img = `data:image/png;base64,${img}`;
+        break;
+      case "bebyggelse":
+        img = this.props.dangers.fastningDegree.image;
+        img = img.substring(2, img.length - 1);
+        img = `data:image/png;base64,${img}`;
+        break;
+      default:
+        img = undefined;
+    }
+    return img;
   }
 
   render() {

@@ -48,19 +48,19 @@ export default class ActionHandler extends React.Component {
   render() {
     return (
       <div>
-        <ul class="nav nav-tabs">
-          <li class="nav-item" onClick={() => this.toggleTab("skybrud")}>
+        <ul className="nav nav-tabs">
+          <li className="nav-item" onClick={() => this.toggleTab("skybrud")}>
             <a
-              class={
+              className={
                 "nav-link " + (this.state.tab === "skybrud" ? " active" : "")
               }
             >
               Skybrud
             </a>
           </li>
-          <li class="nav-item" onClick={() => this.toggleTab("stormflod")}>
+          <li className="nav-item" onClick={() => this.toggleTab("stormflod")}>
             <a
-              class={
+              className={
                 "nav-link " + (this.state.tab === "stormflod" ? " active" : "")
               }
             >

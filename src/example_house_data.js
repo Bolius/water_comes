@@ -1,3 +1,6 @@
+import hollowingImg from "./hollowing_img.js";
+import fastningImg from "./fastning_img.js";
+
 const exampleAddress = {
   isApartment: false,
   hasBasement: true,
@@ -19,12 +22,12 @@ const exampleAddress = {
     },
     hollowing: {
       areaPercentage: 11,
-      image: "image",
+      image: hollowingImg,
       housePercentage: 0
     },
     fastningDegree: {
       housePercentage: 47,
-      image: "image",
+      image: fastningImg,
       areaPercentage: 49
     },
     coundictivity: 98.8

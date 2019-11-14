@@ -34,7 +34,6 @@ export default class Risk extends Component {
   }
 
   render() {
-    var base64str = this.props.image;
     return (
       <div className="water-comes-app-risk">
         <header onClick={this.toggle}>
@@ -54,12 +53,11 @@ export default class Risk extends Component {
                 <b>
                   {this.props.text} {this.props.percentage}
                 </b>
-              </p>{" "}
-              <br />
-              {typeof base64str == "undefined" ? (
-                ""
+              </p>
+              {this.props.image !== undefined ? (
+                <img src={this.props.image} alt="map" />
               ) : (
-                <img src={base64str} alt="img" />
+                ""
               )}
             </Col>
           </Row>

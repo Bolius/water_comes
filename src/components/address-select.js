@@ -47,16 +47,8 @@ export default class AdressSelect extends React.Component {
         floodMediumLimit: 300.0,
         floodHighLimit: 400.0
       },
-      hollowing: {
-        areaPercentage: 11,
-        image: "image",
-        housePercentage: 0
-      },
-      fastningDegree: {
-        housePercentage: 47,
-        image: "image",
-        areaPercentage: 49
-      },
+      hollowing: houseData.waterRisk.hollowing,
+      fastningDegree: houseData.waterRisk.fastningDegree,
       coundictivity: 98.8
     };
     let result = await {
