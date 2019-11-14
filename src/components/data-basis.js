@@ -4,28 +4,16 @@ import LinkList from "./link-list.js";
 import Modal from "react-responsive-modal";
 
 export default class DataBasis extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      showDataDescriber: false
-    };
-  }
-
-  toggle() {
-    this.setState({
-      showDataDescriber: !this.state.showDataDescriber
-    });
-  }
-
   render() {
     return (
       <div>
-        <h3 onClick={this.toggle}>Se datagrundlaget her</h3>
+        <h3 onClick={this.props.toggleDataDescription}>
+          Se datagrundlaget her
+        </h3>
         <Modal
-          open={this.state.showDataDescriber}
+          open={this.props.showDataDescriber}
           closeOnEsc
-          onClose={this.toggle}
+          onClose={this.props.toggleDataDescription}
         >
           <Col className="water-comes-app-data">
             <p>

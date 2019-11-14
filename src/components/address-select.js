@@ -37,20 +37,19 @@ export default class AdressSelect extends React.Component {
     let dangers = {
       risks: {
         medium: [],
-        high: ["ledeevne", "bebyggelse"],
-        low: ["lavning"]
+        high: [],
+        low: []
       },
-      flood: {
-        groundHeight: 7.6,
-        risk: "low",
-        floodLowerLimit: 200.0,
-        floodMediumLimit: 300.0,
-        floodHighLimit: 400.0
-      },
+      flood: houseData.waterRisk.flood,
       hollowing: houseData.waterRisk.hollowing,
       fastningDegree: houseData.waterRisk.fastningDegree,
-      coundictivity: 98.8
+      conductivity: houseData.waterRisk.conductivity
     };
+    console.log(dangers);
+    dangers.risks[dangers.hollowing.risk].push("lavning");
+    dangers.risks[dangers.fastningDegree.risk].push("bebyggelse");
+    dangers.risks[dangers.conductivity.risk].push("ledeevne");
+
     let result = await {
       isApartment: houseData.bbrInfo.propType === "Etageboliger",
       hasBasement: houseData.bbrInfo.hasBasement,
@@ -64,6 +63,7 @@ export default class AdressSelect extends React.Component {
 
   handleChange(event) {
     var target = event.target.value;
+
     this.setState((prevState, props) => ({
       address: target
     }));

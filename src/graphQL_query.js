@@ -14,17 +14,22 @@ const queryStr = `{
           risk
           floodLowerLimit
           floodMediumLimit
-          floodHighLimit
         }
         hollowing {
           areaPercentage
           housePercentage
           image
+          risk
         }
         fastningDegree {
           housePercentage
           image
           areaPercentage
+          risk
+        }
+        conductivity {
+          value
+          risk
         }
       }
     }

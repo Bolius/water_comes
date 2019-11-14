@@ -10,7 +10,6 @@ export default class RiskDescriber extends React.Component {
         key={i}
         title={Risks[factor][threat]}
         description={Risks[factor].description}
-        image={this.props.dangers[factor]}
         percentage={this.props.dangers[String(factor).concat("_percentage")]}
         text={Risks[factor].text}
         image={this.getImage(factor)}
