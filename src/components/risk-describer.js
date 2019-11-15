@@ -24,7 +24,18 @@ export default class RiskDescriber extends React.Component {
         <Risk
           key={5}
           threat={"high"}
-          title={Risks.basement.title}
+          title={Risks["kælder"].high}
+          description={Risks.basement.description}
+        />
+      );
+    } else {
+      // Dirty hack because specifications changed last minute.
+      // TODO make basement proper risk again.
+      return (
+        <Risk
+          key={10}
+          threat={"low"}
+          title={Risks["kælder"].low}
           description={Risks.basement.description}
         />
       );

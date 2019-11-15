@@ -3,15 +3,15 @@ import fastningImg from "./fastning_img.js";
 
 const exampleAddress = {
   isApartment: false,
-  hasBasement: false,
+  hasBasement: true,
   text: "Kjærmarken 103, 6771 Gredstedbro",
   x: 55.40155718,
   y: 8.74227837,
   dangers: {
     risks: {
-      medium: [],
-      high: [],
-      low: ["bebyggelse", "lavning", "ledeevne"]
+      medium: ["ledeevne"],
+      high: ["bebyggelse"],
+      low: ["lavning"]
     },
     conductivity: {
       risk: "low",

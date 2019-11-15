@@ -2,27 +2,6 @@ import React from "react";
 import Risk from "../risks.json";
 
 export default class Resume extends React.Component {
-  getLinks(type) {
-    return "hej";
-    return Risk[type].recommendations.map((r, i) => (
-      <div key={i}>
-        <p>
-          {" "}
-          {r.description}. Læs mere om {r.title} <a href={r.link}>her</a>
-        </p>
-      </div>
-    ));
-  }
-
-  getRisks(level) {
-    return this.props.dangers.risks[level].map((id, i) => (
-      <div key={i}>
-        {Risk[id].recommendation_text}
-        {this.getLinks(id)}
-      </div>
-    ));
-  }
-
   floodResults() {
     return (
       <p>
@@ -46,7 +25,7 @@ export default class Resume extends React.Component {
       case 3:
         factors.push(Risk.results[this.props.active].medium);
         break;
-      case 2:
+      default:
         factors.push(Risk.results[this.props.active].low);
         break;
     }
@@ -72,7 +51,9 @@ export default class Resume extends React.Component {
       factors.push(Risk.results.fastningDegree.high);
     }
 
-    return factors.map(res => <p dangerouslySetInnerHTML={{ __html: res }} />);
+    return factors.map((res, i) => (
+      <p key={i} dangerouslySetInnerHTML={{ __html: res }} />
+    ));
   }
 
   render() {
@@ -82,6 +63,7 @@ export default class Resume extends React.Component {
         {this.props.active === "skybrud"
           ? this.rainResults()
           : this.floodResults()}
+
         <p>
           Når først DMI har varslet skybrud eller stormflod, er det begrænset,
           hvad du kan gøre. Men du kan hente{" "}
