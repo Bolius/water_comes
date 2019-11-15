@@ -5,7 +5,7 @@
   },
   "lavning": {
     "description": "Regnvandet søger altid mod det laveste punkt i landskabet. Derfor kan det være et problem, hvis din bolig fx ligger i en lavning, hvor vandet kan samle sig. Bor du omvendt på en bakketop, vil vandet typisk søge nedad og væk fra din bolig.",
-    "low": "Din bolig <strong>ligger</strong> ikke i en lavning",
+    "low": "Din bolig ligger ikke i en lavning",
     "high": "Din bolig ligger i en lavning"
   },
   "ledeevne": {

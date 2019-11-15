@@ -16,10 +16,10 @@ export default class Main extends React.Component {
       hasData: false
     };
 
-    this.state = {
-      houseData: exampleHouseData,
-      hasData: true
-    }; // For debug
+    // this.state = {
+    //   houseData: exampleHouseData,
+    //   hasData: true
+    // }; // For debug
   }
 
   toggleDataModal() {
