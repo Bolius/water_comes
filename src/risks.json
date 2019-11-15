@@ -41,15 +41,35 @@
       "low": "Baseret på de offentligt tilgængelige oplysninger, vi har om din bolig, er risikoen for oversvømmelse ved kraftig regn eller skybrud samlet set <strong>lav</strong>.<br>At der ikke er høj risiko for oversvømmelse betyder ikke, at du ikke behøver forberede dig grundigt efter et varsel. Med vores <a target=\"_blank\" href=\"https://www.bolius.dk/8-gode-raad-foer-skybrud-7948\">8 gode råd før skybrud</a> kan du få en ekstra sikkerhed for, at vandet bliver udenfor din bolig."
     },
     "conductivity": {
-      "medium": "Jordbundsforholdene på din grund gør det middelsvært for regnvandet at sive ned i undergrunden. Det øger risikoen for, at vandet ophober sig på overfladen, hvor det kan skabe problemer. <a href=\"https://www.bolius.dk/bliv-klogere-paa-hvad-en-faskine-er-19268\" target=\"_blank\">En faskine</a>, der er et midlertidigt vanddepot under jorden, kan være en god løsning.",
-      "high": "Jordbundsforholdene på din grund gør det svært for regnvandet at sive ned i undergrunden. Det øger risikoen for, at vandet ophober sig på overfladen, hvor det kan skabe problemer. <a href=\"https://www.bolius.dk/bliv-klogere-paa-hvad-en-faskine-er-19268\" target=\"_blank\">En faskine</a>, der er et midlertidigt vanddepot under jorden, kan være en god løsning."
+      "medium": "Jordbundsforholdene på din grund gør det middelsvært for regnvandet at sive ned i undergrunden. Det øger risikoen for, at vandet ophober sig på overfladen, hvor det kan skabe problemer. En faskine der er et midlertidigt vanddepot under jorden, kan være en god løsning.",
+      "high": "Jordbundsforholdene på din grund gør det svært for regnvandet at sive ned i undergrunden. Det øger risikoen for, at vandet ophober sig på overfladen, hvor det kan skabe problemer. En faskine, der er et midlertidigt vanddepot under jorden, kan være en god løsning.",
+      "link": {
+        "title": "Bliv klogere på hvad en faskine er",
+        "url": "https://www.bolius.dk/bliv-klogere-paa-hvad-en-faskine-er-19268"
+      }
     },
     "fastningDegree": {
-      "medium": "Mængden af asfalt, fliser og andre tætte materialer i dit boligområde er middelhøj. Det øger risikoen for, at kloakkerne overbelastes ved kraftig regn. Når kloaksystemet ikke kan fungere optimalt, øges risikoen for oversvømmelser i området. Du kan overveje at benytte <a target=\"_blank\" href=\"https://www.bolius.dk/fliser-og-belaegninger-som-nedsaetter-risikoen-for-oversvoemmelse-19743\">fliser og belægninger</a>, som gør det nemmere for vandet at sive ned i jorden eller lede det væk fra huset og mod faskiner eller regnbede.  ",
-      "high": "Mængden af asfalt, fliser og andre tætte materialer i dit boligområde er høj. Det øger risikoen for, at kloakkerne overbelastes ved kraftig regn. Når kloaksystemet ikke kan fungere optimalt, øges risikoen for oversvømmelser i området. Du kan overveje at benytte <a target=\"_blank\" href=\"https://www.bolius.dk/fliser-og-belaegninger-som-nedsaetter-risikoen-for-oversvoemmelse-19743\">fliser og belægninger</a>, som gør det nemmere for vandet at sive ned i jorden eller lede det væk fra huset og mod faskiner eller regnbede."
+      "medium": "Mængden af asfalt, fliser og andre tætte materialer i dit boligområde er middelhøj. Det øger risikoen for, at kloakkerne overbelastes ved kraftig regn. Når kloaksystemet ikke kan fungere optimalt, øges risikoen for oversvømmelser i området. Du kan overveje at benytte fliser og belægninger, som gør det nemmere for vandet at sive ned i jorden eller lede det væk fra huset og mod faskiner eller regnbede.  ",
+      "high": "Mængden af asfalt, fliser og andre tætte materialer i dit boligområde er høj. Det øger risikoen for, at kloakkerne overbelastes ved kraftig regn. Når kloaksystemet ikke kan fungere optimalt, øges risikoen for oversvømmelser i området. Du kan overveje at benytte fliser og belægninger, som gør det nemmere for vandet at sive ned i jorden eller lede det væk fra huset og mod faskiner eller regnbede.",
+      "link": {
+        "title": "fliser og belægninger som nedsaetter risikoen for oversvoemmelse",
+        "url": "https://www.bolius.dk/fliser-og-belaegninger-som-nedsaetter-risikoen-for-oversvoemmelse-19743"
+      }
     },
 
-    "basement": "Det fremgår af de offentligt tilgængelige oplysninger, at du har en kælder. En kælder er typisk meget sårbar over for oversvømmelse. Har du afløb i kælderen, bør du overveje at installere et <a target=\"_blank\" href=\"https://www.bolius.dk/hoejvandslukke-18878\">højvandslukke</a>, der kan forhindre kloakvand i at løbe baglæns i kloakken og op igennem dit kælderafløb eller toilet.",
-    "hollwing": "Ifølge vores oplysninger ligger din bolig i en lavning. Regnvand søger altid mod det laveste punkt, og dermed øges risikoen for oversvømmelse. Overvej at anlægge et <a target=\"_blank\" href=\"https://www.bolius.dk/saadan-anlaegger-du-et-regnbed-i-haven-20933\">regnbed</a> for at mindske risikoen. Med <a target=\"_blank\" href=\"https://www.bolius.dk/saadan-undgaar-du-oversvoemmelse-i-haven-15069\">de rigtige planter og belægninger</a> kan du nedsætte risikoen yderligere."
+    "basement": {
+      "text": "Det fremgår af de offentligt tilgængelige oplysninger, at du har en kælder. En kælder er typisk meget sårbar over for oversvømmelse. Har du afløb i kælderen, bør du overveje at installere et højvandslukke, der kan forhindre kloakvand i at løbe baglæns i kloakken og op igennem dit kælderafløb eller toilet.",
+      "link": {
+        "title": "Højvandslukke",
+        "url": "https://www.bolius.dk/hoejvandslukke-18878"
+      }
+    },
+    "hollwing": {
+      "text": "Ifølge vores oplysninger ligger din bolig i en lavning. Regnvand søger altid mod det laveste punkt, og dermed øges risikoen for oversvømmelse. Overvej at anlægge et regnbed for at mindske risikoen. Med de rigtige planter og belægninger kan du nedsætte risikoen yderligere.",
+      "link": {
+        "title": "Spdan anlægger du et regnbed i haven",
+        "url": "https://www.bolius.dk/saadan-anlaegger-du-et-regnbed-i-haven-20933"
+      }
+    }
   }
 }

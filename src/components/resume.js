@@ -51,8 +51,20 @@ export default class Resume extends React.Component {
       factors.push(Risk.results.fastningDegree.high);
     }
 
-    return factors.map((res, i) => (
-      <p key={i} dangerouslySetInnerHTML={{ __html: res }} />
+    return factors.map((factor, i) => (
+      <div>
+        <p key={i} dangerouslySetInnerHTML={{ __html: factor }} />
+        {factor.link !== undefined ? (
+          <p class="inline-links-in-article">
+            <span class="category orange">Læs også: </span>
+            <a href={factor.link.url} target="_blank">
+              Link titel
+            </a>
+          </p>
+        ) : (
+          ""
+        )}
+      </div>
     ));
   }
 
