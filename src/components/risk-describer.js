@@ -66,10 +66,9 @@ export default class RiskDescriber extends React.Component {
 
     return (
       <div className="water-comes-app-hightlighted">
-        <Row className="water-comes-app-estimate">
-          <h3>{this.props.risk.title}</h3>
+        <Row noGutters className="water-comes-app-estimate">
           <img src={image} className="img-fluid" alt="Risiko måler" />
-          <p>{this.props.risk.text}</p>
+          <p className={"risc-" +this.props.risk.factor}>{this.props.risk.text}</p>
         </Row>
         <div className="water-comes-app-explanation">
           <h3>Faktorer, der påvirker boligens risiko ved {this.props.tab} </h3>

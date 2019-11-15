@@ -81,13 +81,32 @@ export default class AdressSelect extends React.Component {
         <Loader
           sizeUnit={"px"}
           size={25}
-          color={"rgb(94, 179, 219)"}
+          color={"rgb(207, 227, 227)"}
           loading={true}
         />
       );
     } else {
       return (
         <div className="water-comes-app-address">
+          <h2>Tjek risikoen for, at din bolig bliver oversvømmet</h2>
+
+          <p>
+            Tast din adresse og få indblik i, hvad der kan påvirke din boligs
+            risiko for oversvømmelse ved skybrud eller stormflod. Du får også
+            konkrete råd til, hvad du kan gøre for at sikre din bolig.
+          </p>
+
+          <p>
+            Vær opmærksom på, at resultatet er baseret på offentligt
+            tilgængelige data, som kan være behæftet med usikkerheder.{" "}
+            <button
+              className="btn btn-link"
+              onClick={this.props.toggleDataModal}
+            >
+              Læs mere om datagrundlaget her.
+            </button>
+          </p>
+
           <Form
             onSubmit={e => {
               e.preventDefault();
@@ -110,6 +129,14 @@ export default class AdressSelect extends React.Component {
               </Col>
             </Row>
           </Form>
+          <p className="small">
+            Risikoberegneren egner sig ikke til lejligheder. Vi gemmer ikke din
+            adresse. Læs vores{" "}
+            <a href="https://www.bolius.dk/cookiepolitik-og-retningslinjer-paa-bolius-platforme">
+              cookiepolitik og øvrige retningslinjer
+            </a>
+            .
+          </p>
         </div>
       );
     }
