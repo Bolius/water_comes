@@ -13,6 +13,12 @@ export default class ResultPage extends React.Component {
     ) {
       dangers.risks.high.push("basement");
     }
+    if (
+      !this.props.houseData.hasBasement &&
+      !dangers.risks.low.includes("basement")
+    ) {
+      dangers.risks.low.push("basement");
+    }
 
     return (
       <div>

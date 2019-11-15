@@ -3,7 +3,7 @@ import fastningImg from "./fastning_img.js";
 
 const exampleAddress = {
   isApartment: false,
-  hasBasement: true,
+  hasBasement: false,
   text: "Kjærmarken 103, 6771 Gredstedbro",
   x: 55.40155718,
   y: 8.74227837,

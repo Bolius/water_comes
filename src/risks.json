@@ -1,7 +1,8 @@
 {
   "kælder": {
     "low": "Din bolig har ikke en kælder",
-    "high": "Din bolig har en kælder"
+    "high": "Din bolig har en kælder",
+    "description": "Noget med en kælder"
   },
   "lavning": {
     "description": "Regnvandet søger altid mod det laveste punkt i landskabet. Derfor kan det være et problem, hvis din bolig fx ligger i en lavning, hvor vandet kan samle sig. Bor du omvendt på en bakketop, vil vandet typisk søge nedad og væk fra din bolig.",

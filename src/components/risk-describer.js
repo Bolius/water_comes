@@ -6,7 +6,7 @@ import { Row } from "reactstrap";
 export default class RiskDescriber extends React.Component {
   getRisks(threat) {
     return this.props.dangers.risks[threat]
-      .filter(type => type !== "basement")
+      .map(type => (type === "basement" ? "kælder" : type))
       .map((factor, i) => (
         <Risk
           key={i}
@@ -16,30 +16,6 @@ export default class RiskDescriber extends React.Component {
           image={this.getImage(factor)}
         />
       ));
-  }
-
-  renderBasement() {
-    if (this.props.dangers.risks["high"].includes("basement")) {
-      return (
-        <Risk
-          key={5}
-          threat={"high"}
-          title={Risks["kælder"].high}
-          description={Risks.basement.description}
-        />
-      );
-    } else {
-      // Dirty hack because specifications changed last minute.
-      // TODO make basement proper risk again.
-      return (
-        <Risk
-          key={10}
-          threat={"low"}
-          title={Risks["kælder"].low}
-          description={Risks.basement.description}
-        />
-      );
-    }
   }
 
   getImage(factor) {
@@ -68,13 +44,16 @@ export default class RiskDescriber extends React.Component {
       <div className="water-comes-app-hightlighted">
         <Row noGutters className="water-comes-app-estimate">
           <img src={image} className="img-fluid" alt="Risiko måler" />
-          <p className={"risc-" +this.props.risk.factor}>{this.props.risk.text}</p>
+          <p className={"risc-" + this.props.risk.factor}>
+            {this.props.risk.text}
+          </p>
         </Row>
         <div className="water-comes-app-explanation">
-          <h3>Faktorer, der påvirker boligens risiko ved {this.props.tab} </h3>
+          <h3>
+            Faktorer, der påvirker boligens risiko ved {this.props.active}{" "}
+          </h3>
           {this.props.risk.title === "Skybrud" ? (
             <div>
-              {this.renderBasement()}
               {this.getRisks("high")}
               {this.getRisks("medium")}
               {this.getRisks("low")}

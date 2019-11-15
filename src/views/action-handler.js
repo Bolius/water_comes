@@ -72,6 +72,7 @@ export default class ActionHandler extends React.Component {
           <RiskDescriber
             risk={this.state.active_risk}
             dangers={this.props.dangers}
+            active={this.state.tab}
           />
           <Resume
             active={this.state.tab}
