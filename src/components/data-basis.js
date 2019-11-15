@@ -1,7 +1,4 @@
 import React from "react";
-import { Col } from "reactstrap";
-import LinkList from "./link-list.js";
-import Modal from "react-responsive-modal";
 
 export default class DataBasis extends React.Component {
   render() {
