@@ -5,43 +5,45 @@ export default class ActionHandler extends React.Component {
   constructor(props) {
     super(props);
     this.toggleTab = this.toggleTab.bind(this);
-    const types = Object.keys(this.props.dangers.risks);
-    const nr_factors = types.map(type => this.props.dangers.risks[type].length);
-    const risk = types[nr_factors.indexOf(Math.max.apply(Math, nr_factors))];
-    let rain_risk = this.formatRisks(risk);
-    let flood_risk = this.formatRisks(this.props.dangers.flood.risk);
-    rain_risk["title"] = "Skybrud";
-    flood_risk["title"] = "Stormflod";
+
+    const rain_risks_names = [
+      "basement",
+      "conductivity",
+      "hollowing",
+      "fastningDegree"
+    ];
+
+    this.rain_risks = {};
+    for (var risk of rain_risks_names) {
+      this.rain_risks[risk] = this.props.dangers[risk];
+    }
+
+    // The most common risk level exluding flood risk
+    let rain_risk_levels = rain_risks_names.map(
+      threat => this.props.dangers[threat].risk
+    );
+    this.rain_threat = ["high", "medium", "low"]
+      .map(level => [
+        level,
+        rain_risk_levels.filter(risk_level => risk_level === level).length
+      ])
+      .reduce((acc, elem) => (acc[1] < elem[1] ? elem : acc), ["def", 0])[0];
 
     this.state = {
       tab: "skybrud",
-      active_risk: rain_risk,
-      rain_risk: rain_risk,
-      flood_risk: flood_risk
+      threatLevel: this.rain_threat,
+      risks: this.rain_risks
     };
-  }
-  formatRisks(value) {
-    let risk = {};
-    switch (value) {
-      case "high":
-        risk = { text: "Høj risiko", factor: 4 };
-        break;
-      case "low":
-        risk = { text: "Lav risiko", factor: 2 };
-        break;
-
-      default:
-        risk = { text: "Mellem risiko", factor: 3 };
-        break;
-    }
-    return risk;
   }
 
   toggleTab(state) {
     this.setState({
       tab: state,
-      active_risk:
-        state === "skybrud" ? this.state.rain_risk : this.state.flood_risk
+      threatLevel: "skybrud" ? this.rain_threat : this.props.dangers.flood.risk,
+      risks:
+        state === "skybrud"
+          ? this.rain_risks
+          : { flood: this.props.dangers.flood }
     });
   }
 
@@ -68,18 +70,18 @@ export default class ActionHandler extends React.Component {
             </a>
           </li>
         </ul>
-        <div className="water-comes-app-actions">
-          <RiskDescriber
-            risk={this.state.active_risk}
-            dangers={this.props.dangers}
-            active={this.state.tab}
-          />
-          <Resume
-            active={this.state.tab}
-            risk={this.state.active_risk}
-            dangers={this.props.dangers}
-          />
-        </div>
+        <div className="water-comes-app-actions"></div>
+        <RiskDescriber
+          threatLevel={this.state.threatLevel}
+          risks={this.state.risks}
+          active={this.state.tab}
+        />
+        <Resume
+          threatLevel={this.state.threatLevel}
+          active={this.state.tab}
+          risk={this.state.active_risk}
+          dangers={this.props.dangers}
+        />
       </div>
     );
   }

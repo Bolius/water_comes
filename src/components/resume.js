@@ -1,5 +1,5 @@
 import React from "react";
-import Risk from "../risks.json";
+import RisksDB from "../risks.json";
 
 export default class Resume extends React.Component {
   floodResults() {
@@ -9,7 +9,7 @@ export default class Resume extends React.Component {
         {this.props.dangers.flood.groundHeight} meter over havets overflade.
         <p
           dangerouslySetInnerHTML={{
-            __html: Risk.results.flood[this.props.dangers.flood.risk]
+            __html: RisksDB.results.flood[this.props.dangers.flood.risk]
           }}
         />
       </p>
@@ -18,38 +18,51 @@ export default class Resume extends React.Component {
 
   rainResults() {
     let factors = [];
-    switch (this.props.risk.factor) {
-      case 4:
-        factors.push(Risk.results[this.props.active].high);
-        break;
-      case 3:
-        factors.push(Risk.results[this.props.active].medium);
-        break;
-      default:
-        factors.push(Risk.results[this.props.active].low);
-        break;
+    factors.push({
+      text: RisksDB.results[this.props.active][this.props.threatLevel],
+      link: RisksDB.results[this.props.active].link
+    });
+
+    if (this.props.dangers.basement.risk === "high") {
+      factors.push(RisksDB.results.basement);
     }
 
-    if (this.props.dangers.risks.high.includes("basement")) {
-      factors.push(Risk.results.basement);
-    }
     if (this.props.dangers.hollowing.risk === "high") {
-      factors.push(Risk.results.hollwing);
+      factors.push(RisksDB.results.hollwing);
     }
 
-    if (this.props.dangers.conductivity.risk === "medium") {
-      factors.push(Risk.results.conductivity.medium);
+    if (this.props.dangers.conductivity.risk != "low") {
+      factors.push({
+        text:
+          RisksDB.results.conductivity[this.props.dangers.conductivity.risk],
+        link: RisksDB.results.conductivity.link
+      });
     }
-    if (this.props.dangers.conductivity.risk === "high") {
-      factors.push(Risk.results.conductivity.high);
+    if (this.props.dangers.fastningDegree.risk != "low") {
+      factors.push({
+        text:
+          RisksDB.results.fastningDegree[
+            this.props.dangers.fastningDegree.risk
+          ],
+        link: RisksDB.results.fastningDegree.link
+      });
     }
 
-    if (this.props.dangers.fastningDegree.risk === "medium") {
-      factors.push(Risk.results.fastningDegree.medium);
-    }
-    if (this.props.dangers.fastningDegree.risk === "high") {
-      factors.push(Risk.results.fastningDegree.high);
-    }
+    return factors.map((factor, i) => (
+      <div>
+        <p key={i} dangerouslySetInnerHTML={{ __html: factor.text }} />
+        {factor.link !== undefined ? (
+          <p class="inline-links-in-article">
+            <span class="category orange">Læs også: </span>
+            <a href={factor.link.url} target="_blank">
+              {factor.link.title}
+            </a>
+          </p>
+        ) : (
+          ""
+        )}
+      </div>
+    ));
 
     return factors.map((factor, i) => (
       <div>

@@ -33,30 +33,17 @@ export default class AdressSelect extends React.Component {
       .then(data => data.data.house);
 
     console.log(houseData);
-    // Make this loadable:
-    let dangers = {
-      risks: {
-        medium: [],
-        high: [],
-        low: []
-      },
-      flood: houseData.waterRisk.flood,
-      hollowing: houseData.waterRisk.hollowing,
-      fastningDegree: houseData.waterRisk.fastningDegree,
-      conductivity: houseData.waterRisk.conductivity
-    };
-    console.log(dangers);
-    dangers.risks[dangers.hollowing.risk].push("lavning");
-    dangers.risks[dangers.fastningDegree.risk].push("bebyggelse");
-    dangers.risks[dangers.conductivity.risk].push("ledeevne");
 
     let result = await {
       isApartment: houseData.bbrInfo.propType === "Etageboliger",
-      hasBasement: houseData.bbrInfo.hasBasement,
       text: houseData.bbrInfo.address,
-      x: houseData.bbrInfo.x,
-      y: houseData.bbrInfo.y,
-      dangers: dangers
+      dangers: {
+        basement: { risk: houseData.bbrInfo.hasBasement ? "high" : "low" },
+        flood: houseData.waterRisk.flood,
+        hollowing: houseData.waterRisk.hollowing,
+        fastningDegree: houseData.waterRisk.fastningDegree,
+        conductivity: houseData.waterRisk.conductivity
+      }
     };
     this.props.setData(result);
   }
