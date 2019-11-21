@@ -1,13 +1,13 @@
-function trackEvent(action) {
+async function trackEvent(action) {
   var dataLayer = (window.dataLayer = window.dataLayer || []);
-  const log = dataLayer.push({
+  const log = {
     event: "klimaCheck",
     eventCategory: "Water comes APP",
-    eventAction: action.description,
-    eventLabel: eventLabel,
-    cloudbirstDimension: cloudbirstDimension,
-    floodDimension: floodDimension
-  });
+    eventAcFDtion: action.description,
+    eventLabel: action.eventLabel,
+    cloudbirstDimension: action.cloudbirstDimension,
+    floodDimension: action.floodDimension
+  };
 
   dataLayer.push(log);
   console.log("logged");

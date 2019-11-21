@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col } from "reactstrap";
+import trackEvent from "../action_logger.js";
 
 export default class Risk extends Component {
   constructor(props) {
@@ -10,6 +11,12 @@ export default class Risk extends Component {
 
   toggle() {
     this.setState(state => ({ showDescription: !state.showDescription }));
+    trackEvent({
+      description: "Faneblad: ",
+      eventLabel: `Faktorer: ${this.props.title}`,
+      cloudbirstDimension: "ukendt",
+      floodDimension: "ukendt"
+    });
   }
 
   threatImage(group) {

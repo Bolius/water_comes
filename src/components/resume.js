@@ -1,7 +1,16 @@
 import React from "react";
 import RisksDB from "../risks.json";
+import trackEvent from "../action_logger.js";
 
 export default class Resume extends React.Component {
+  logCLick(factor) {
+    trackEvent({
+      description: `Faneblad: ${this.props.active}`,
+      eventLabel: `Resume: ${factor.link.title}`,
+      cloudbirstDimension: this.props.dangers.rain_threat,
+      floodDimension: this.props.dangers.flood.risk
+    });
+  }
   floodResults() {
     let factors = [];
     factors.push({
@@ -22,9 +31,19 @@ export default class Resume extends React.Component {
       <div>
         <p key={i} dangerouslySetInnerHTML={{ __html: factor.text }} />
         {factor.link !== undefined ? (
+<<<<<<< Updated upstream
           <p className="inline-links-in-article">
             <span className="category orange">Læs også: </span>
             <a href={factor.link.url} target="_blank" rel="noopener noreferrer">
+=======
+          <p class="inline-links-in-article">
+            <span class="category orange">Læs også: </span>
+            <a
+              onClick={factor => this.logCLick(factor)}
+              href={factor.link.url}
+              target="_blank"
+            >
+>>>>>>> Stashed changes
               {factor.link.title}
             </a>
           </p>
