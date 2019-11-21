@@ -70,18 +70,19 @@ export default class ActionHandler extends React.Component {
             </a>
           </li>
         </ul>
-        <div className="water-comes-app-actions"></div>
-        <RiskDescriber
-          threatLevel={this.state.threatLevel}
-          risks={this.state.risks}
-          active={this.state.tab}
-        />
-        <Resume
-          threatLevel={this.state.threatLevel}
-          active={this.state.tab}
-          risk={this.state.active_risk}
-          dangers={this.props.dangers}
-        />
+        <div className="water-comes-app-actions">
+          <RiskDescriber
+            threatLevel={this.state.threatLevel}
+            risks={this.state.risks}
+            active={this.state.tab}
+          />
+          <Resume
+            threatLevel={this.state.threatLevel}
+            active={this.state.tab}
+            risk={this.state.active_risk}
+            dangers={this.props.dangers}
+          />
+        </div>
       </div>
     );
   }

@@ -47,7 +47,7 @@ export default class Risk extends Component {
             <Col>
               {this.renderText(this.props.description)}
               {this.props.image !== undefined ? (
-                <img src={this.props.image} alt="map" />
+                <div className="map-wrapper"><img src={this.props.image} alt="map" /></div>
               ) : (
                 ""
               )}

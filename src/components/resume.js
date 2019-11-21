@@ -22,9 +22,9 @@ export default class Resume extends React.Component {
       <div>
         <p key={i} dangerouslySetInnerHTML={{ __html: factor.text }} />
         {factor.link !== undefined ? (
-          <p class="inline-links-in-article">
-            <span class="category orange">Læs også: </span>
-            <a href={factor.link.url} target="_blank">
+          <p className="inline-links-in-article">
+            <span className="category orange">Læs også: </span>
+            <a href={factor.link.url} target="_blank" rel="noopener noreferrer">
               {factor.link.title}
             </a>
           </p>
@@ -53,14 +53,14 @@ export default class Resume extends React.Component {
       factors.push(RisksDB.results.hollwing);
     }
 
-    if (this.props.dangers.conductivity.risk != "low") {
+    if (this.props.dangers.conductivity.risk !== "low") {
       factors.push({
         text:
           RisksDB.results.conductivity[this.props.dangers.conductivity.risk],
         link: RisksDB.results.conductivity.link
       });
     }
-    if (this.props.dangers.fastningDegree.risk != "low") {
+    if (this.props.dangers.fastningDegree.risk !== "low") {
       factors.push({
         text:
           RisksDB.results.fastningDegree[
@@ -74,9 +74,9 @@ export default class Resume extends React.Component {
       <div>
         <p key={i} dangerouslySetInnerHTML={{ __html: factor.text }} />
         {factor.link !== undefined ? (
-          <p class="inline-links-in-article">
-            <span class="category orange">Læs også: </span>
-            <a href={factor.link.url} target="_blank">
+          <p className="inline-links-in-article">
+            <span className="category orange">Læs også: </span>
+            <a href={factor.link.url} target="_blank" rel="noopener noreferrer">
               {factor.link.title}
             </a>
           </p>
@@ -95,20 +95,20 @@ export default class Resume extends React.Component {
           ? this.rainResults()
           : this.floodResults()}
 
-        <div style={{ border: "1px solid black" }}>
+        <div className="frame-layout-1">
           <p>
             Når først DMI har varslet skybrud eller stormflod, er det begrænset,
             hvad du kan gøre. Men du kan hente vores overskuelige tjekliste med
-            gode råd for at se, hvad du kan gøre her og nu.
-            <p class="inline-links-in-article">
-              <span class="category orange">Læs også: </span>
-              <a
-                href="https://www.bolius.dk/tjekliste-saadan-goer-du-naar-vandet-kommer-udefra-77128/"
-                target="_blank"
+            gode råd for at se, hvad du kan gøre her og nu.</p>
+          <p className="inline-links-in-article">
+            <span className="category orange">Læs også: </span>
+            <a href="https://www.bolius.dk/tjekliste-saadan-goer-du-naar-vandet-kommer-udefra-77128/"
+                target="_blank" rel="noopener noreferrer"
               >
                 Hent tjeklisten her
-              </a>
-            </p>
+            </a>
+          </p>
+          <p>
             Beregnerens vurdering er vejledende og kan aldrig erstatte en faglig
             gennemgang, der omfatter alle din boligs konkrete forhold.
           </p>
