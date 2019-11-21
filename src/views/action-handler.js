@@ -75,6 +75,7 @@ export default class ActionHandler extends React.Component {
             threatLevel={this.state.threatLevel}
             risks={this.state.risks}
             active={this.state.tab}
+            dangers={this.props.dangers}
           />
           <Resume
             threatLevel={this.state.threatLevel}

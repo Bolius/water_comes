@@ -12,10 +12,10 @@ export default class Risk extends Component {
   toggle() {
     this.setState(state => ({ showDescription: !state.showDescription }));
     trackEvent({
-      description: "Faneblad: ",
+      description: `Faneblad: ${this.props.tab}`,
       eventLabel: `Faktorer: ${this.props.title}`,
-      cloudbirstDimension: "ukendt",
-      floodDimension: "ukendt"
+      cloudbirstDimension: this.props.dangers.rain_threat,
+      floodDimension: this.props.dangers.flood.risk
     });
   }
 
@@ -54,7 +54,9 @@ export default class Risk extends Component {
             <Col>
               {this.renderText(this.props.description)}
               {this.props.image !== undefined ? (
-                <div className="map-wrapper"><img src={this.props.image} alt="map" /></div>
+                <div className="map-wrapper">
+                  <img src={this.props.image} alt="map" />
+                </div>
               ) : (
                 ""
               )}

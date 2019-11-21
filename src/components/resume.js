@@ -33,7 +33,12 @@ export default class Resume extends React.Component {
         {factor.link !== undefined ? (
           <p className="inline-links-in-article">
             <span className="category orange">Læs også: </span>
-            <a href={factor.link.url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={factor.link.url}
+              onClick={() => this.logCLick(factor)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {factor.link.title}
             </a>
           </p>
@@ -85,7 +90,12 @@ export default class Resume extends React.Component {
         {factor.link !== undefined ? (
           <p className="inline-links-in-article">
             <span className="category orange">Læs også: </span>
-            <a href={factor.link.url} target="_blank" rel="noopener noreferrer">
+            <a
+              onClick={() => this.logCLick(factor)}
+              href={factor.link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {factor.link.title}
             </a>
           </p>

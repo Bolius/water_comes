@@ -5,6 +5,7 @@ const exampleAddress = {
   isApartment: false,
   text: "Kjærmarken 103, 6771 Gredstedbro",
   dangers: {
+    rain_threat: "low",
     basement: {
       risk: "high"
     },
