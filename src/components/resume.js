@@ -31,19 +31,9 @@ export default class Resume extends React.Component {
       <div>
         <p key={i} dangerouslySetInnerHTML={{ __html: factor.text }} />
         {factor.link !== undefined ? (
-<<<<<<< Updated upstream
           <p className="inline-links-in-article">
             <span className="category orange">Læs også: </span>
             <a href={factor.link.url} target="_blank" rel="noopener noreferrer">
-=======
-          <p class="inline-links-in-article">
-            <span class="category orange">Læs også: </span>
-            <a
-              onClick={factor => this.logCLick(factor)}
-              href={factor.link.url}
-              target="_blank"
-            >
->>>>>>> Stashed changes
               {factor.link.title}
             </a>
           </p>
@@ -118,13 +108,16 @@ export default class Resume extends React.Component {
           <p>
             Når først DMI har varslet skybrud eller stormflod, er det begrænset,
             hvad du kan gøre. Men du kan hente vores overskuelige tjekliste med
-            gode råd for at se, hvad du kan gøre her og nu.</p>
+            gode råd for at se, hvad du kan gøre her og nu.
+          </p>
           <p className="inline-links-in-article">
             <span className="category orange">Læs også: </span>
-            <a href="https://www.bolius.dk/tjekliste-saadan-goer-du-naar-vandet-kommer-udefra-77128/"
-                target="_blank" rel="noopener noreferrer"
-              >
-                Hent tjeklisten her
+            <a
+              href="https://www.bolius.dk/tjekliste-saadan-goer-du-naar-vandet-kommer-udefra-77128/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hent tjeklisten her
             </a>
           </p>
           <p>
