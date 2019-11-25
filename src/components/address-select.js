@@ -4,6 +4,9 @@ import { BeatLoader as Loader } from "react-spinners";
 import constructQuery from "../graphQL_query.js";
 import trackEvent from "../action_logger.js";
 import computeRainRisk from "../helpers/rain_risk.js";
+import backendLog from "../helpers/backendLog.js";
+import Modal from "react-responsive-modal";
+import * as Sentry from "@sentry/browser";
 
 export default class AdressSelect extends React.Component {
   constructor(props) {
@@ -11,6 +14,7 @@ export default class AdressSelect extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.getData = this.getData.bind(this);
     this.state = {
+      failed: false,
       isLoading: false,
       address: "",
       finalAddress: "",
@@ -20,20 +24,38 @@ export default class AdressSelect extends React.Component {
 
   async getData(dawa_res) {
     this.setState({ isLoading: true });
-    let kvhx = await fetch(dawa_res.data.href)
+
+    let houseData = await fetch(dawa_res.data.href)
       .then(resp => resp.json())
-      .then(data => data.kvhx);
-
-    const houseData = await fetch(process.env.REACT_APP_GRAPHQL_URL, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: constructQuery(kvhx)
-    })
+      .then(data => data.kvhx)
+      .then(kvhx =>
+        fetch(process.env.REACT_APP_GRAPHQL_URL, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: constructQuery(kvhx)
+        })
+      )
       .then(response => response.json())
-      .then(data => data.data.house);
-
+      .then(data => data.data.house)
+      .catch(err => {
+        this.setState({
+          failed: true,
+          isLoading: false,
+          address: "",
+          finalAddress: "",
+          dawa: require("dawa-autocomplete2")
+        });
+        console.log("fejl");
+        console.log(err);
+        console.log(Sentry.captureException(err));
+        return { failed: true };
+      });
+    backendLog(dawa_res.tekst, "Vandet kommer indtastet");
+    if (houseData.failed) {
+      return;
+    }
     console.log(houseData);
 
     let result = await {
@@ -93,6 +115,21 @@ export default class AdressSelect extends React.Component {
     } else {
       return (
         <div className="water-comes-app-address">
+          <Modal
+            open={this.state.failed}
+            closeOnEsc
+            onClose={() => this.setState({ failed: false })}
+          >
+            <Col className="water-comes-app-data">
+              <p>
+                Der opstod en fejl under beregningen. Prøv igen ved at
+                genopfriske siden. Virker det ikke, kan fejlen skyldes et
+                teknisk problem hos en af de leverandører, vi henter oplysninger
+                fra.
+              </p>
+            </Col>
+          </Modal>
+
           <h2>Tjek risikoen for, at din bolig bliver oversvømmet</h2>
 
           <p>

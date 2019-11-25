@@ -1,17 +1,17 @@
 {
   "hollowing": {
-    "description": "Regnvandet søger altid mod det laveste punkt i landskabet. Derfor kan det være et problem, hvis din bolig fx ligger i en lavning, hvor vandet kan samle sig. Bor du omvendt på en bakketop, vil vandet typisk søge nedad og væk fra din bolig.",
+    "description": "Regnvandet søger altid mod det laveste punkt i landskabet. Derfor kan det være et problem, hvis din bolig fx ligger i en lavning, hvor vandet kan samle sig. Bor du omvendt på en bakketop, vil vandet typisk søge nedad og væk fra din bolig.\nKortet nedenfor viser lavninger i området nær din bolig.",
     "low": "Din bolig ligger ikke i en lavning",
     "high": "Din bolig ligger i en lavning"
   },
   "conductivity": {
-    "description": "Hvis den hydrauliske ledeevne er dårlig i dit område, kan vandet have svært ved at sive ned gennem det øverste jordlag. Det øger risikoen for oversvømmelser af boligen, fordi vandet kan samle sig i store mængder på overfladen. Hvis den hydrauliske ledeevne derimod er god, har regnvandet lettere ved at sive ned i undergrunden og væk fra boligen.",
+    "description": "Jordbundsforholdene på grunden er afgørende for den såkaldte hydrauliske ledeevne i dit område. Hvis ledeevnen er dårlig, kan vandet have svært ved at sive ned gennem det øverste jordlag. Det øger risikoen for oversvømmelser af boligen, fordi vandet kan samle sig i store mængder på overfladen. Hvis den hydrauliske ledeevne derimod er god, har regnvandet lettere ved at sive ned i undergrunden og væk fra boligen.",
     "low": "Grundens jordbundsforhold gør det let for vandet at sive ned",
     "medium": "Grundens jordbundsforhold gør det middelsvært for vandet at sive ned",
     "high": "Grundens jordbundsforhold gør det svært for vandet at sive ned"
   },
   "fastningDegree": {
-    "description": "Hvis en stor del af overfladen er bebygget eller belagt med asfalt, fliser, brosten mv., kan regnen have svært ved at sive ned i jorden – specielt når det regner kraftigt. Hvis vandet ikke kan løbe væk hurtigt nok, stiger risikoen for oversvømmelse.",
+    "description": "Hvis den såkaldte befæstelsesgrad er høj – altså hvis en stor del af overfladen er bebygget eller belagt med asfalt, fliser, brosten mv. - kan regnen have svært ved at sive ned i jorden. Særligt når det regner kraftigt. Hvis vandet ikke kan løbe væk hurtigt nok, stiger risikoen for oversvømmelse.\nKortet nedenfor viser, hvordan den såkaldte befæstelsesgrad ser ud i dit område. Hvor den røde farve er kraftigst, er befæstelsesgraden højest.",
     "low": "Dit område er i mindre grad belagt med materialer som fx asfalt, fliser og brosten",
     "medium": "Dit område er i nogen grad belagt med materialer som fx asfalt, fliser og brosten",
     "high": "Dit område er i høj grad belagt med materialer som fx asfalt, fliser og brosten"
@@ -21,9 +21,13 @@
     "high": "Din bolig har en kælder",
     "description": "En kælder gør boligen meget sårbar for oversvømmelse, når der er skybrud, fordi den ligger under jordoverfladen. Har du omvendt ikke en kælder, falder risikoen for oversvømmelse."
   },
-  "other": {
-    "title": "Andre væsentlige faktorer",
+  "rain_other": {
+    "title": "Andre væsentlige faktorer ved skybrud",
     "description": "Der kan være andre faktorer, der påvirker din boligs risiko for oversvømmelse, som denne beregner ikke tager højde for. Vi har desværre ikke data for kloakkernes stand i dit område.\nKloakkerne kan påvirke din boligs risiko for oversvømmelse i væsentlig grad. Er der for små og for hårdt belastede kloakker i området omkring din bolig, vil et skybrud kunne overbelaste kloaksystemet og skubbe vandet baglæns i rørene. Sker det, er risikoen for oversvømmelse høj, selvom din bolig ikke ligger i en lavning.\nHvis du har fald væk fra boligen, højvandslukke i dine kloakker, afledning af regnvand til faskine eller lignende forhold, som dæmmer op for oversvømmelser, vil din risiko omvendt være lavere, end vi kan se ud fra de tilgængelige data."
+  },
+  "flood_other": {
+    "title": "Andre væsentlige faktorer ved stormflod",
+    "description": "Der kan være andre faktorer, der påvirker din boligs risiko for oversvømmelse ved stormflod. Beregneren tager ikke højde for improviserede diger, højvandsmure eller andre tiltag, du selv har gjort for at forebygge oversvømmelser efter stormflod som fx en FloodFrame."
   },
   "flood": {
     "low": "Din boligs placering viser, at der ikke umiddelbart er risiko for oversvømmelse ved stormflod",

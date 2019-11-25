@@ -68,12 +68,21 @@ export default class RiskDescriber extends React.Component {
           </h3>
           <div>
             {this.getRisks(this.props.risks)}
-            <Risk
-              title={RiskFile["other"].title}
-              description={RiskFile["other"].description}
-              threat={"medium"}
-              dangers={this.props.dangers}
-            />
+            {this.props.active === "skybrud" ? (
+              <Risk
+                title={RiskFile["rain_other"].title}
+                description={RiskFile["rain_other"].description}
+                threat={"medium"}
+                dangers={this.props.dangers}
+              />
+            ) : (
+              <Risk
+                title={RiskFile["flood_other"].title}
+                description={RiskFile["flood_other"].description}
+                threat={"medium"}
+                dangers={this.props.dangers}
+              />
+            )}
           </div>
         </div>
       </div>
