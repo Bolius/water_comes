@@ -6,32 +6,20 @@ export default class ActionHandler extends React.Component {
     super(props);
     this.toggleTab = this.toggleTab.bind(this);
 
+    this.rain_risks = {};
     const rain_risks_names = [
       "basement",
       "conductivity",
       "hollowing",
       "fastningDegree"
     ];
-
-    this.rain_risks = {};
     for (var risk of rain_risks_names) {
       this.rain_risks[risk] = this.props.dangers[risk];
     }
 
-    // The most common risk level exluding flood risk
-    let rain_risk_levels = rain_risks_names.map(
-      threat => this.props.dangers[threat].risk
-    );
-    this.rain_threat = ["high", "medium", "low"]
-      .map(level => [
-        level,
-        rain_risk_levels.filter(risk_level => risk_level === level).length
-      ])
-      .reduce((acc, elem) => (acc[1] < elem[1] ? elem : acc), ["def", 0])[0];
-
     this.state = {
       tab: "skybrud",
-      threatLevel: this.rain_threat,
+      threatLevel: this.props.dangers.rain_threat,
       risks: this.rain_risks
     };
   }
@@ -39,7 +27,10 @@ export default class ActionHandler extends React.Component {
   toggleTab(state) {
     this.setState({
       tab: state,
-      threatLevel: "skybrud" ? this.rain_threat : this.props.dangers.flood.risk,
+      threatLevel:
+        state === "skybrud"
+          ? this.props.dangers.rain_threat
+          : this.props.dangers.flood.risk,
       risks:
         state === "skybrud"
           ? this.rain_risks
@@ -52,22 +43,22 @@ export default class ActionHandler extends React.Component {
       <div className="water-comes-app-tabs">
         <ul className="nav nav-tabs">
           <li className="nav-item" onClick={() => this.toggleTab("skybrud")}>
-            <a
+            <span
               className={
                 "nav-link " + (this.state.tab === "skybrud" ? " active" : "")
               }
             >
               Skybrud
-            </a>
+            </span>
           </li>
           <li className="nav-item" onClick={() => this.toggleTab("stormflod")}>
-            <a
+            <span
               className={
                 "nav-link " + (this.state.tab === "stormflod" ? " active" : "")
               }
             >
               Stormflod
-            </a>
+            </span>
           </li>
         </ul>
         <div className="water-comes-app-actions">

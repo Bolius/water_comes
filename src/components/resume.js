@@ -28,8 +28,8 @@ export default class Resume extends React.Component {
     }
 
     return factors.map((factor, i) => (
-      <div>
-        <p key={i} dangerouslySetInnerHTML={{ __html: factor.text }} />
+      <div key={i}>
+        <p dangerouslySetInnerHTML={{ __html: factor.text }} />
         {factor.link !== undefined ? (
           <p className="inline-links-in-article">
             <span className="category orange">Læs også: </span>
@@ -85,8 +85,8 @@ export default class Resume extends React.Component {
     }
 
     return factors.map((factor, i) => (
-      <div>
-        <p key={i} dangerouslySetInnerHTML={{ __html: factor.text }} />
+      <div key={i}>
+        <p dangerouslySetInnerHTML={{ __html: factor.text }} />
         {factor.link !== undefined ? (
           <p className="inline-links-in-article">
             <span className="category orange">Læs også: </span>

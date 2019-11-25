@@ -3,6 +3,7 @@ import AdressSelect from "./components/address-select.js";
 import DataModal from "./components/data-modal.js";
 import ResultPage from "./views/result-page.js";
 import exampleHouseData from "./example_house_data.js";
+import computeRainRisk from "./helpers/rain_risk.js";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -16,9 +17,11 @@ export default class Main extends React.Component {
       hasData: false
     };
     if (process.env.REACT_APP_SKIP_INPUT === "true") {
+      let data = exampleHouseData;
+      data.dangers.rain_threat = computeRainRisk(exampleHouseData.dangers);
       this.state = {
         showModal: false,
-        houseData: exampleHouseData,
+        houseData: data,
         hasData: true
       };
     }

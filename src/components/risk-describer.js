@@ -48,6 +48,8 @@ export default class RiskDescriber extends React.Component {
       case "low":
         riskText = "lav risiko";
         break;
+      default:
+        console.log("error");
     }
     const image = require(`../assets/gauges/risk-${this.props.threatLevel}.png`);
     const hacky_threat_nr =
@@ -70,6 +72,7 @@ export default class RiskDescriber extends React.Component {
               title={RiskFile["other"].title}
               description={RiskFile["other"].description}
               threat={"medium"}
+              dangers={this.props.dangers}
             />
           </div>
         </div>

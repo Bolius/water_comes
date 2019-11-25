@@ -34,7 +34,7 @@ export default class Risk extends Component {
   renderText(text) {
     return text
       .split("\n")
-      .map(t => <p dangerouslySetInnerHTML={{ __html: t }} />);
+      .map((t, i) => <p key={i} dangerouslySetInnerHTML={{ __html: t }} />);
   }
 
   render() {

@@ -3,6 +3,7 @@ import { Row, Col, Input, Form, Button } from "reactstrap";
 import { BeatLoader as Loader } from "react-spinners";
 import constructQuery from "../graphQL_query.js";
 import trackEvent from "../action_logger.js";
+import computeRainRisk from "../helpers/rain_risk.js";
 
 export default class AdressSelect extends React.Component {
   constructor(props) {
@@ -46,31 +47,8 @@ export default class AdressSelect extends React.Component {
         conductivity: houseData.waterRisk.conductivity
       }
     };
+    result.dangers.rain_threat = computeRainRisk(result.dangers);
 
-    const rain_risks_names = [
-      "basement",
-      "conductivity",
-      "hollowing",
-      "fastningDegree"
-    ];
-
-    result.rain_risks = {};
-    for (var risk of rain_risks_names) {
-      result.rain_risks[risk] = result.dangers[risk];
-    }
-
-    // The most common risk level exluding flood risk
-    let rain_risk_levels = rain_risks_names.map(
-      threat => result.dangers[threat].risk
-    );
-    result.dangers.rain_threat = ["high", "medium", "low"]
-      .map(level => [
-        level,
-        rain_risk_levels.filter(risk_level => risk_level === level).length
-      ])
-      .reduce((acc, elem) => (acc[1] < elem[1] ? elem : acc), ["def", 0])[0];
-
-    console.log(result);
     trackEvent({
       description: "Adresse indtastet",
       // Gets 2300 københavn part of adrress
