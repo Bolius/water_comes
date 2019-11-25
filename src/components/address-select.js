@@ -19,7 +19,7 @@ export default class AdressSelect extends React.Component {
   }
 
   async getData(dawa_res) {
-    this.setState({ isLoading: !this.state.isLoading });
+    this.setState({ isLoading: true });
     let kvhx = await fetch(dawa_res.data.href)
       .then(resp => resp.json())
       .then(data => data.kvhx);
@@ -69,10 +69,14 @@ export default class AdressSelect extends React.Component {
       address: target
     }));
     var selectHandler = this.getData; // Hack: 'this' changes meaning in call
+    var that = this;
     this.state.dawa.dawaAutocomplete(
       document.getElementById("dawa-autocomplete-input"),
       {
-        select: selectHandler
+        select: dawa_res => {
+          that.setState({ isLoading: true });
+          selectHandler(dawa_res);
+        }
       }
     );
   }
