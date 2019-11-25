@@ -137,7 +137,11 @@ export default class AdressSelect extends React.Component {
           <p className="small">
             Risikoberegneren egner sig ikke til lejligheder. Vi gemmer ikke din
             adresse. Læs vores{" "}
-            <a href="https://www.bolius.dk/cookiepolitik-og-retningslinjer-paa-bolius-platforme">
+            <a
+              href="https://www.bolius.dk/cookiepolitik-og-retningslinjer-paa-bolius-platforme"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               cookiepolitik og øvrige retningslinjer
             </a>
             .
