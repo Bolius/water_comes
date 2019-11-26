@@ -12,6 +12,7 @@ export default class Main extends React.Component {
     this.reset = this.reset.bind(this);
     this.toggleDataModal = this.toggleDataModal.bind(this);
     this.state = {
+      nrAddress: 1,
       showModal: false,
       houseData: {},
       hasData: false
@@ -20,6 +21,7 @@ export default class Main extends React.Component {
       let data = exampleHouseData;
       data.dangers.rain_threat = computeRainRisk(exampleHouseData.dangers);
       this.state = {
+        nrAddress: 1,
         showModal: false,
         houseData: data,
         hasData: true
@@ -41,7 +43,11 @@ export default class Main extends React.Component {
   }
 
   reset() {
-    this.setState({ houseData: {}, hasData: false });
+    this.setState({
+      houseData: {},
+      hasData: false,
+      nrAddress: this.state.nrAddress + 1
+    });
   }
 
   render() {
@@ -53,6 +59,7 @@ export default class Main extends React.Component {
         />
         {!this.state.hasData ? (
           <AdressSelect
+            key={this.state.nrAddress}
             toggleDataModal={this.toggleDataModal}
             setData={this.setData}
           />
