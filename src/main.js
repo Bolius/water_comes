@@ -38,7 +38,8 @@ export default class Main extends React.Component {
   setData(houseData) {
     this.setState({
       hasData: true,
-      houseData: houseData
+      houseData: houseData,
+      nrAddress: this.state.nrAddress + 1
     });
   }
 
