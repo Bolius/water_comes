@@ -123,6 +123,14 @@ export default class Resume extends React.Component {
           <p className="inline-links-in-article">
             <span className="category orange">Anbefaling: </span>
             <a
+              onClick={() =>
+                trackEvent({
+                  description: `Faneblad: ${this.props.active}`,
+                  eventLabel: `Resume: Hent tjekliste`,
+                  cloudbirstDimension: this.props.dangers.rain_threat,
+                  floodDimension: this.props.dangers.flood.risk
+                })
+              }
               href="https://www.bolius.dk/fileadmin/user_upload/Tjekliste_til_klimasikring_af_boligen_fra_Videncentret_Bolius.pdf"
               target="_blank"
               rel="noopener noreferrer"
