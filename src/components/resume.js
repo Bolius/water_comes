@@ -121,9 +121,9 @@ export default class Resume extends React.Component {
             gode råd for at se, hvad du kan gøre her og nu.
           </p>
           <p className="inline-links-in-article">
-            <span className="category orange">Læs også: </span>
+            <span className="category orange">Anbefaling: </span>
             <a
-              href="https://www.bolius.dk/tjekliste-saadan-goer-du-naar-vandet-kommer-udefra-77128/"
+              href="https://www.bolius.dk/fileadmin/user_upload/Tjekliste_til_klimasikring_af_boligen_fra_Videncentret_Bolius.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >

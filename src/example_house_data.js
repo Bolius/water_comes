@@ -6,14 +6,14 @@ const exampleAddress = {
   text: "Kjærmarken 103, 6771 Gredstedbro",
   dangers: {
     basement: {
-      risk: "low"
+      risk: "high"
     },
     conductivity: {
-      risk: "medium",
+      risk: "high",
       value: 1175
     },
     hollowing: {
-      risk: "low",
+      risk: "high",
       areaPercentage: 11,
       image: hollowingImg,
       housePercentage: 0
@@ -22,7 +22,7 @@ const exampleAddress = {
       housePercentage: 47,
       image: fastningImg,
       areaPercentage: 49,
-      risk: "low"
+      risk: "high"
     },
     flood: {
       risk: "high"
