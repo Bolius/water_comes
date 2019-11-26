@@ -21,7 +21,6 @@ export default class Main extends React.Component {
       let data = exampleHouseData;
       data.dangers.rain_threat = computeRainRisk(exampleHouseData.dangers);
       this.state = {
-        nrAddress: 1,
         showModal: false,
         houseData: data,
         hasData: true
@@ -38,16 +37,14 @@ export default class Main extends React.Component {
   setData(houseData) {
     this.setState({
       hasData: true,
-      houseData: houseData,
-      nrAddress: this.state.nrAddress + 1
+      houseData: houseData
     });
   }
 
   reset() {
     this.setState({
       houseData: {},
-      hasData: false,
-      nrAddress: this.state.nrAddress + 1
+      hasData: false
     });
   }
 
@@ -60,7 +57,6 @@ export default class Main extends React.Component {
         />
         {!this.state.hasData ? (
           <AdressSelect
-            key={this.state.nrAddress}
             toggleDataModal={this.toggleDataModal}
             setData={this.setData}
           />

@@ -13,16 +13,29 @@ export default class AdressSelect extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.getData = this.getData.bind(this);
+    let dawa = require("dawa-autocomplete2");
     this.state = {
       failed: false,
       isLoading: false,
       address: "",
       finalAddress: "",
-      dawa: require("dawa-autocomplete2")
+      dawa: dawa
     };
+  }
+  componentDidMount() {
+    this.state.dawa.dawaAutocomplete(
+      document.getElementById("dawa-autocomplete-input"),
+      {
+        select: dawa_res => {
+          this.setState({ isLoading: true });
+          this.getData(dawa_res);
+        }
+      }
+    );
   }
 
   async getData(dawa_res) {
+    console.log("Fetching data");
     this.setState({ isLoading: true });
 
     let houseData = await fetch(dawa_res.data.href)
@@ -86,21 +99,9 @@ export default class AdressSelect extends React.Component {
 
   handleChange(event) {
     var target = event.target.value;
-
     this.setState((prevState, props) => ({
       address: target
     }));
-    var selectHandler = this.getData; // Hack: 'this' changes meaning in call
-    var that = this;
-    this.state.dawa.dawaAutocomplete(
-      document.getElementById("dawa-autocomplete-input"),
-      {
-        select: dawa_res => {
-          that.setState({ isLoading: true });
-          selectHandler(dawa_res);
-        }
-      }
-    );
   }
   render() {
     if (this.state.isLoading) {
