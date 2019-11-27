@@ -6,14 +6,15 @@ import { Row } from "reactstrap";
 export default class RiskDescriber extends React.Component {
   getRisks(risks) {
     const risk_types = Object.keys(risks);
-    console.log(risks);
+    //console.log(risks);
     const ordered_risks = ["high", "medium", "low"]
       .map(level =>
         risk_types.filter(risk_type => risks[risk_type].risk === level)
       )
-      .flat()
+      .reduce((acc, val) => acc.concat(val), [])
       .map(key => ({ name: key, data: risks[key] }));
-    console.log(ordered_risks);
+    
+    //console.log(ordered_risks);
 
     return ordered_risks.map((threat, i) => (
       <Risk
