@@ -2,10 +2,10 @@
   "name": "water_widget",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://water-comes-prod.herokuapp.com/",
+  "homepage": "https://www.bolius.dk/fileadmin/apps/water_comes/yougov/",
   "dependencies": {
     "@sentry/browser": "^5.9.1",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.4.0",
     "dawa-autocomplete2": "^1.0.2",
     "npm": "^6.13.1",
     "react": "^16.12.0",
