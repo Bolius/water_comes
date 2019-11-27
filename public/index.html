@@ -72,6 +72,17 @@
         return target;
       };
     }
+    if (!Object.entries) {
+      Object.entries = function( obj ){
+        var ownProps = Object.keys( obj ),
+            i = ownProps.length,
+            resArray = new Array(i); // preallocate the Array
+        while (i--)
+          resArray[i] = [ownProps[i], obj[ownProps[i]]];
+        
+        return resArray;
+      };
+    }
     </script>
     <div id="root" class="water-comes-app"></div>
     <!--
