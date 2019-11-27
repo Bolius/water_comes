@@ -50,7 +50,7 @@ export default class AdressSelect extends React.Component {
 
     // Setup our listener to process compeleted requests
     xhr.onreadystatechange = function () {
-      // Only run if the request is complete
+      // Only run if the request is complete  
       if (xhr.readyState !== 4) return;
 
       // Process our return data
@@ -58,7 +58,7 @@ export default class AdressSelect extends React.Component {
         // Succes, get data
         let data = JSON.parse(xhr.responseText), 
             kvhx = data.kvhx;
-        
+              
         // Create and send a POST request
         xhrQl.open('POST', process.env.REACT_APP_GRAPHQL_URL);
         xhrQl.setRequestHeader("Content-Type", "application/json");
@@ -75,7 +75,7 @@ export default class AdressSelect extends React.Component {
         });
         
         console.log('error', xhr);
-        console.log(Sentry.captureException(xhr));
+        // console.log(Sentry.captureException(xhr));
         return { failed: true };
       }
 
@@ -93,7 +93,7 @@ export default class AdressSelect extends React.Component {
         houseData = data.data.house;
 
         backendLog(dawa_res.tekst, "Vandet kommer indtastet");
-        if (houseData.failed) {
+        if (houseData.failed !== undefined && houseData.failed) {
           return;
         }
         
