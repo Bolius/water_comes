@@ -4,20 +4,19 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     env:
-      ci: true
+      CI: true
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Build enviroment
-      run: npm install
-    - name: Run tests
-      run: npm test
-    - name: Creating coverage
-      run: npm test -- --coverage --watchAll=false
-    - name: Upload coverage
-      uses: coverallsapp/github-action@v1.0.1
-      with:
-        github-token: ${{ secrets.github_token }}
+      - uses: actions/checkout@v1
+      - name: Build enviroment
+        run: npm install
+      - name: Run tests
+        run: npm test
+      - name: Creating coverage
+        run: npm test -- --coverage --watchAll=false
+      - name: Upload coverage
+        uses: coverallsapp/github-action@v1.0.1
+        with:
+          github-token: ${{ secrets.github_token }}
