@@ -6,6 +6,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      ci: true
 
     steps:
     - uses: actions/checkout@v1
