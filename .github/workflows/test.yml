@@ -16,4 +16,4 @@ jobs:
     - name: Upload coverage
       uses: coverallsapp/github-action@v1.0.1
       with:
-        github-token: ${{secrets.COVERALL_TOKEN}}
+        github-token: ${{ secrets.github_token }}
