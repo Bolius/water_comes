@@ -12,6 +12,8 @@ jobs:
     - name: Build enviroment
       run: npm install
     - name: Run tests
+      run: npm test
+    - name: Creating coverage
       run: npm test -- --coverage --watchAll=false
     - name: Upload coverage
       uses: coverallsapp/github-action@v1.0.1
