@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build enviroment
+      run: npm install
+    - name: Run tests
+      run: npm test -- --coverage --watchAll=false
+    - name: Upload coverage
+      uses: coverallsapp/github-action@v1.0.1
+      with:
+        github-token: ${{secrets.COVERALL_TOKEN}}
