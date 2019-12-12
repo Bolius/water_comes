@@ -16,7 +16,6 @@
     "react-spinners": "^0.6.1",
     "react-test-renderer": "^16.12.0",
     "reactstrap": "^8.1.1",
-    "styled-components": "^4.4.1",
     "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "scripts": {
@@ -71,7 +70,7 @@
     "type": "git",
     "url": "git+https://github.com/Bolius/water_comes.git"
   },
-  "author": "",
+  "author": "Benjamin Rotendahl",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Bolius/water_comes/issues"
