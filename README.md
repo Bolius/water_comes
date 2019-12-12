@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/Bolius/water_comes/badge.svg?branch=master)](https://coveralls.io/github/Bolius/water_comes?branch=master)
+
 ## Water widget
 
 A widget made for the _when the water comes_ campaign.
