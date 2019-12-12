@@ -2,7 +2,6 @@ import React from "react";
 import RiskDB from "../risks.json";
 
 import Risk from "./risk.js";
-import trackEvent from "../action_logger.js";
 
 export default function RiskDescriber(props) {
   const image = require(`../assets/gauges/risk-${props.threatLevel}.png`);
@@ -10,7 +9,7 @@ export default function RiskDescriber(props) {
     ["low", "medium", "high"].indexOf(props.threatLevel) + 2;
 
   const riskImage = (
-    <div noGutters className="water-comes-app-estimate">
+    <div className="water-comes-app-estimate">
       <img src={image} className="img-fluid" alt="Risiko måler" />
       <p className={`risc-${hacky_threat_nr}`}>
         {getRiskText(props.threatLevel)}
@@ -24,20 +23,22 @@ export default function RiskDescriber(props) {
 
       <div className="water-comes-app-explanation">
         <h3>Faktorer, der påvirker boligens risiko ved {props.floodType}</h3>
-        <div>
-          {constructRisks(props.risks, props.dangers, props.floodType)}
+        <div className="risk-list">
+          {constructRisks(props.risks, props.logClick)}
 
           {props.floodType === "skybrud" ? (
             <Risk
               title={RiskDB["rain_other"].title}
               description={RiskDB["rain_other"].description}
               threatLevel={"medium"}
+              logClick={() => props.logClick(RiskDB["rain_other"].title)}
             />
           ) : (
             <Risk
               title={RiskDB["flood_other"].title}
               description={RiskDB["flood_other"].description}
               threatLevel={"medium"}
+              logClick={() => props.logClick(RiskDB["flood_other"].title)}
             />
           )}
         </div>
@@ -55,11 +56,11 @@ function getRiskText(threatLevel) {
     case "low":
       return "lav risiko";
     default:
-      throw `Invalid threatlevel: ${threatLevel}`;
+      throw new `Invalid threatlevel: ${threatLevel}`();
   }
 }
 
-function constructRisks(risks, dangers, floodType) {
+function constructRisks(risks, logClick) {
   const risk_types = Object.keys(risks);
   const ordered_risks = ["high", "medium", "low"]
     .map(level =>
@@ -68,13 +69,6 @@ function constructRisks(risks, dangers, floodType) {
     .reduce((acc, val) => acc.concat(val), [])
     .map(key => ({ name: key, data: risks[key] }));
 
-  const logClick = title =>
-    trackEvent({
-      description: `Faneblad: ${floodType}`,
-      eventLabel: `Faktorer: ${title}`,
-      cloudbirstDimension: dangers.rain_threat,
-      floodDimension: dangers.flood.risk
-    });
   return ordered_risks.map((threat, i) => (
     <Risk
       key={i}

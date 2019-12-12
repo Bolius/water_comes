@@ -51,7 +51,7 @@ function threatImage(threatLevel) {
     case "low":
       return <span className="danger icon-low-risc">low risc</span>;
     default:
-      throw `Invalid threatLevel: ${threatLevel}`;
+      throw new `Invalid threatLevel: ${threatLevel}`();
   }
 }
 
