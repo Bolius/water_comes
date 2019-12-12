@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Row, Col } from "reactstrap";
 
 export default function Risk(props) {
   const [showDescription, setShowDescription] = useState(false);
@@ -20,12 +19,10 @@ export default function Risk(props) {
   );
 
   const description = (
-    <Row>
-      <Col>
-        {renderText(props.description)}
-        {renderMap(props.map)}
-      </Col>
-    </Row>
+    <div>
+      {renderText(props.description)}
+      {renderMap(props.map)}
+    </div>
   );
   return (
     <div className="water-comes-app-risk">
@@ -51,8 +48,10 @@ function threatImage(threatLevel) {
       return <span className="danger icon-high-risc">high risc</span>;
     case "medium":
       return <span className="danger icon-change_history-24">medium risc</span>;
-    default:
+    case "low":
       return <span className="danger icon-low-risc">low risc</span>;
+    default:
+      throw `Invalid threatLevel: ${threatLevel}`;
   }
 }
 
