@@ -38,34 +38,33 @@ export default class AdressSelect extends React.Component {
     console.log("Fetching data");
     this.setState({ isLoading: true });
 
-    // Remember "this" for async operations 
+    // Remember "this" for async operations
     var that = this;
 
     // Set up our HTTP request
     var houseData = {
-          failed: false
-        }, 
-        xhr = new XMLHttpRequest(), 
-        xhrQl = new XMLHttpRequest();
+        failed: false
+      },
+      xhr = new XMLHttpRequest(),
+      xhrQl = new XMLHttpRequest();
 
     // Setup our listener to process compeleted requests
-    xhr.onreadystatechange = function () {
-      // Only run if the request is complete  
+    xhr.onreadystatechange = function() {
+      // Only run if the request is complete
       if (xhr.readyState !== 4) return;
 
       // Process our return data
       if (xhr.status >= 200 && xhr.status < 300) {
         // Succes, get data
-        let data = JSON.parse(xhr.responseText), 
-            kvhx = data.kvhx;
-              
+        let data = JSON.parse(xhr.responseText),
+          kvhx = data.kvhx;
+
         // Create and send a POST request
-        xhrQl.open('POST', process.env.REACT_APP_GRAPHQL_URL);
+        xhrQl.open("POST", process.env.REACT_APP_GRAPHQL_URL);
         xhrQl.setRequestHeader("Content-Type", "application/json");
         xhrQl.send(constructQuery(kvhx));
-      } 
-      else {
-        // What to do when the request has failed        
+      } else {
+        // What to do when the request has failed
         that.setState({
           failed: true,
           isLoading: false,
@@ -73,16 +72,15 @@ export default class AdressSelect extends React.Component {
           finalAddress: "",
           dawa: require("dawa-autocomplete2")
         });
-        
-        console.log('error', xhr);
-        // console.log(Sentry.captureException(xhr));
+
+        console.log("error", xhr);
+        console.log(Sentry.captureException(xhr));
         return { failed: true };
       }
-
     };
 
     // Setup our listener to process QL
-    xhrQl.onreadystatechange = function () {
+    xhrQl.onreadystatechange = function() {
       // Only run if the request is complete
       if (xhrQl.readyState !== 4) return;
 
@@ -96,7 +94,7 @@ export default class AdressSelect extends React.Component {
         if (houseData.failed !== undefined && houseData.failed) {
           return;
         }
-        
+
         let result = {
           isApartment: houseData.bbrInfo.propType === "Etageboliger",
           text: houseData.bbrInfo.address,
@@ -109,7 +107,7 @@ export default class AdressSelect extends React.Component {
           }
         };
         result.dangers.rain_threat = computeRainRisk(result.dangers);
-    
+
         trackEvent({
           description: "Adresse indtastet",
           // Gets 2300 københavn part of adrress
@@ -120,17 +118,16 @@ export default class AdressSelect extends React.Component {
           cloudbirstDimension: result.dangers.rain_threat,
           floodDimension: result.dangers.flood.risk
         });
-        
+
         that.props.setData(result);
-      } 
-      else {                
-        console.log('error', xhrQl); 
+      } else {
+        console.log("error", xhrQl);
         return { failed: true };
       }
     };
 
     // Create and send a GET request
-    xhr.open('GET', dawa_res.data.href);
+    xhr.open("GET", dawa_res.data.href);
     xhr.send();
 
     /*
@@ -161,7 +158,7 @@ export default class AdressSelect extends React.Component {
         console.log(Sentry.captureException(err));
         return { failed: true };
       });
-    */      
+    */
   }
 
   handleChange(event) {

@@ -1,71 +1,63 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Row, Col } from "reactstrap";
-import trackEvent from "../action_logger.js";
 
-export default class Risk extends Component {
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = { showDescription: false };
-  }
+export default function Risk(props) {
+  const [showDescription, setShowDescription] = useState(false);
+  const toggleDescription = () => {
+    props.logClick();
+    setShowDescription(!showDescription);
+  };
+  const header = (
+    <header onClick={toggleDescription}>
+      {threatImage(props.threatLevel)}
+      <h4>{props.title}</h4>
+      {showDescription ? (
+        <i className="icon-remove-24">remove</i>
+      ) : (
+        <i className="icon-add-24">add</i>
+      )}
+    </header>
+  );
 
-  toggle() {
-    this.setState(state => ({ showDescription: !state.showDescription }));
-    trackEvent({
-      description: `Faneblad: ${this.props.tab}`,
-      eventLabel: `Faktorer: ${this.props.title}`,
-      cloudbirstDimension: this.props.dangers.rain_threat,
-      floodDimension: this.props.dangers.flood.risk
-    });
-  }
+  const description = (
+    <Row>
+      <Col>
+        {renderText(props.description)}
+        {renderMap(props.map)}
+      </Col>
+    </Row>
+  );
+  return (
+    <div className="water-comes-app-risk">
+      {header}
+      <div className="description">{showDescription ? description : ""}</div>
+    </div>
+  );
+}
 
-  threatImage(group) {
-    switch (group) {
-      case "high":
-        return <span className="danger icon-high-risc">high risc</span>;
-      case "medium":
-        return (
-          <span className="danger icon-change_history-24">medium risc</span>
-        );
-      default:
-        return <span className="danger icon-low-risc">low risc</span>;
-    }
-  }
-  renderText(text) {
-    return text
-      .split("\n")
-      .map((t, i) => <p key={i} dangerouslySetInnerHTML={{ __html: t }} />);
-  }
-
-  render() {
+function renderMap(map) {
+  if (map !== undefined) {
     return (
-      <div className="water-comes-app-risk">
-        <header onClick={this.toggle}>
-          {this.threatImage(this.props.threat)}
-          <h4>{this.props.title}</h4>
-          {this.state.showDescription ? (
-            <i className="icon-remove-24">remove</i>
-          ) : (
-            <i className="icon-add-24">add</i>
-          )}
-        </header>
-        {this.state.showDescription ? (
-          <Row>
-            <Col>
-              {this.renderText(this.props.description)}
-              {this.props.image !== undefined ? (
-                <div className="map-wrapper">
-                  <img src={this.props.image} alt="map" />
-                </div>
-              ) : (
-                ""
-              )}
-            </Col>
-          </Row>
-        ) : (
-          ""
-        )}
+      <div className="map-wrapper">
+        <img src={map} alt="map" />
       </div>
     );
   }
+}
+
+function threatImage(threatLevel) {
+  switch (threatLevel) {
+    case "high":
+      return <span className="danger icon-high-risc">high risc</span>;
+    case "medium":
+      return <span className="danger icon-change_history-24">medium risc</span>;
+    default:
+      return <span className="danger icon-low-risc">low risc</span>;
+  }
+}
+
+function renderText(text) {
+  return text
+    .split("\n")
+    .map((t, i) => <p key={i} dangerouslySetInnerHTML={{ __html: t }} />);
 }

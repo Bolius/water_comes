@@ -13,8 +13,6 @@ export default class RiskDescriber extends React.Component {
       )
       .reduce((acc, val) => acc.concat(val), [])
       .map(key => ({ name: key, data: risks[key] }));
-    
-    //console.log(ordered_risks);
 
     return ordered_risks.map((threat, i) => (
       <Risk
