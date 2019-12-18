@@ -16,6 +16,8 @@ jobs:
         run: npm test
       - name: Checking coverage
         run: npm test -- --coverage --watchAll=false
+      - name: Starting server
+        run: npm start
       - name: Cypress.io
         uses: cypress-io/github-action@v1.16.1
       - name: Upload coverage
