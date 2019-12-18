@@ -1,149 +1,115 @@
 import React from "react";
 import RisksDB from "../risks.json";
-import trackEvent from "../action_logger.js";
+import trackEvent from "../data-handlers/action-logger.js";
 
-export default class Resume extends React.Component {
-  logCLick(factor) {
+export default function Resume(props) {
+  let factors =
+    props.floodType === "skybrud" ? rainFactors(props) : floodFactors(props);
+
+  const logClick = title => {
     trackEvent({
-      description: `Faneblad: ${this.props.active}`,
-      eventLabel: `Resume: ${factor.link.title}`,
-      cloudbirstDimension: this.props.dangers.rain_threat,
-      floodDimension: this.props.dangers.flood.risk
+      description: `Faneblad: ${props.floodType}`,
+      eventLabel: `Resume: ${title}`,
+      cloudbirstDimension: props.dangers.rain_threat,
+      floodDimension: props.dangers.flood.risk
     });
+  };
+  factors = factors.map((factor, i) => (
+    <div key={i}>
+      <p dangerouslySetInnerHTML={{ __html: factor.text }} />
+      {factor.link !== undefined ? (
+        <p className="inline-links-in-article">
+          <span className="category orange">Læs også: </span>
+          <a
+            href={factor.link.url}
+            onClick={() => logClick(factor.text)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {factor.link.title}
+          </a>
+        </p>
+      ) : (
+        ""
+      )}
+    </div>
+  ));
+  return (
+    <div className="water-comes-app-taken">
+      <h3>Det kan du gøre</h3>
+      {factors}
+      <div className="frame-layout-1">
+        <p>
+          Når først DMI har varslet skybrud eller stormflod, er det begrænset,
+          hvad du kan gøre. Men du kan hente vores overskuelige tjekliste med
+          gode råd for at se, hvad du kan gøre her og nu.
+        </p>
+        <p className="inline-links-in-article">
+          <span className="category orange">Anbefaling: </span>
+          <a
+            onClick={() => {
+              logClick("Tjekliste");
+            }}
+            href="https://www.bolius.dk/fileadmin/user_upload/Tjekliste_til_klimasikring_af_boligen_fra_Videncentret_Bolius.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Hent tjeklisten her
+          </a>
+        </p>
+        <p>
+          Beregnerens vurdering er vejledende og kan aldrig erstatte en faglig
+          gennemgang, der omfatter alle din boligs konkrete forhold.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function floodFactors(props) {
+  let factors = [];
+  factors.push({
+    text: RisksDB.results[props.floodType][props.threatLevel],
+    link:
+      props.threatLevel !== "low"
+        ? RisksDB.results[props.floodType].links[0]
+        : undefined
+  });
+  if (props.threatLevel !== "low") {
+    factors.push({ text: "", link: RisksDB.results[props.floodType].links[1] });
   }
-  floodResults() {
-    let factors = [];
+  return factors;
+}
+
+function rainFactors(props) {
+  let factors = [];
+  factors.push({
+    text: RisksDB.results[props.floodType][props.threatLevel],
+    link:
+      props.threatLevel === "low"
+        ? RisksDB.results[props.floodType].link
+        : undefined
+  });
+
+  if (props.dangers.basement.risk === "high") {
+    factors.push(RisksDB.results.basement);
+  }
+
+  if (props.dangers.hollowing.risk === "high") {
+    factors.push(RisksDB.results.hollwing);
+  }
+
+  if (props.dangers.conductivity.risk !== "low") {
     factors.push({
-      text: RisksDB.results[this.props.active][this.props.threatLevel],
-      link:
-        this.props.threatLevel !== "low"
-          ? RisksDB.results[this.props.active].links[0]
-          : undefined
+      text: RisksDB.results.conductivity[props.dangers.conductivity.risk],
+      link: RisksDB.results.conductivity.link
     });
-    if (this.props.threatLevel !== "low") {
-      factors.push({
-        text: "",
-        link: RisksDB.results[this.props.active].links[1]
-      });
-    }
-
-    return factors.map((factor, i) => (
-      <div key={i}>
-        <p dangerouslySetInnerHTML={{ __html: factor.text }} />
-        {factor.link !== undefined ? (
-          <p className="inline-links-in-article">
-            <span className="category orange">Læs også: </span>
-            <a
-              href={factor.link.url}
-              onClick={() => this.logCLick(factor)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {factor.link.title}
-            </a>
-          </p>
-        ) : (
-          ""
-        )}
-      </div>
-    ));
   }
-
-  rainResults() {
-    let factors = [];
+  if (props.dangers.fastningDegree.risk !== "low") {
     factors.push({
-      text: RisksDB.results[this.props.active][this.props.threatLevel],
-      link:
-        this.props.threatLevel === "low"
-          ? RisksDB.results[this.props.active].link
-          : undefined
+      text: RisksDB.results.fastningDegree[props.dangers.fastningDegree.risk],
+      link: RisksDB.results.fastningDegree.link
     });
-
-    if (this.props.dangers.basement.risk === "high") {
-      factors.push(RisksDB.results.basement);
-    }
-
-    if (this.props.dangers.hollowing.risk === "high") {
-      factors.push(RisksDB.results.hollwing);
-    }
-
-    if (this.props.dangers.conductivity.risk !== "low") {
-      factors.push({
-        text:
-          RisksDB.results.conductivity[this.props.dangers.conductivity.risk],
-        link: RisksDB.results.conductivity.link
-      });
-    }
-    if (this.props.dangers.fastningDegree.risk !== "low") {
-      factors.push({
-        text:
-          RisksDB.results.fastningDegree[
-            this.props.dangers.fastningDegree.risk
-          ],
-        link: RisksDB.results.fastningDegree.link
-      });
-    }
-
-    return factors.map((factor, i) => (
-      <div key={i}>
-        <p dangerouslySetInnerHTML={{ __html: factor.text }} />
-        {factor.link !== undefined ? (
-          <p className="inline-links-in-article">
-            <span className="category orange">Læs også: </span>
-            <a
-              onClick={() => this.logCLick(factor)}
-              href={factor.link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {factor.link.title}
-            </a>
-          </p>
-        ) : (
-          ""
-        )}
-      </div>
-    ));
   }
-
-  render() {
-    return (
-      <div className="water-comes-app-taken">
-        <h3>Det kan du gøre</h3>
-        {this.props.active === "skybrud"
-          ? this.rainResults()
-          : this.floodResults()}
-
-        <div className="frame-layout-1">
-          <p>
-            Når først DMI har varslet skybrud eller stormflod, er det begrænset,
-            hvad du kan gøre. Men du kan hente vores overskuelige tjekliste med
-            gode råd for at se, hvad du kan gøre her og nu.
-          </p>
-          <p className="inline-links-in-article">
-            <span className="category orange">Anbefaling: </span>
-            <a
-              onClick={() =>
-                trackEvent({
-                  description: `Faneblad: ${this.props.active}`,
-                  eventLabel: `Resume: Hent tjekliste`,
-                  cloudbirstDimension: this.props.dangers.rain_threat,
-                  floodDimension: this.props.dangers.flood.risk
-                })
-              }
-              href="https://www.bolius.dk/fileadmin/user_upload/Tjekliste_til_klimasikring_af_boligen_fra_Videncentret_Bolius.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Hent tjeklisten her
-            </a>
-          </p>
-          <p>
-            Beregnerens vurdering er vejledende og kan aldrig erstatte en faglig
-            gennemgang, der omfatter alle din boligs konkrete forhold.
-          </p>
-        </div>
-      </div>
-    );
-  }
+  return factors;
 }

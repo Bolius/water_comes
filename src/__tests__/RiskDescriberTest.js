@@ -40,7 +40,7 @@ const testData = [
     risks: {
       fastningDegree: { risk: "medium" },
       basement: { risk: "high" },
-      hollowing: { risk: "low" }
+      hollowing: { risk: "low", image: "base64" }
     },
     floodType: "stormflod"
   }
@@ -108,6 +108,8 @@ describe("Testing risk describer", () => {
     } else {
       expect(risk_list.textContent).toContain(RiskDB["flood_other"].title);
     }
+
+    // Tests order
     const risks = Array.from(risk_list.childNodes);
     expect(risks.length).toBe(Object.keys(testData.risks).length + 1);
     const order = ["high", "medium", "low"];
@@ -126,28 +128,4 @@ describe("Testing risk describer", () => {
       }
     }
   });
-  //   const title = container.getElementsByTagName("h4")[0];
-  //   const riskImage = container.getElementsByClassName("danger")[0];
-  //   const description = container.getElementsByClassName("description")[0];
-  //
-  //   expect(logger).not.toHaveBeenCalled();
-  //   expect(title.textContent).toBe(testData.title);
-  //   expect(riskImage.textContent).toContain(testData.threatLevel);
-  //   expect(description.textContent).toBe("");
-  //
-  //   act(() => {
-  //     header.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-  //   });
-  //
-  //   expect(description.textContent).toBe(testData.description);
-  //   expect(logger).toHaveBeenCalled();
-  //
-  //   const map = container.getElementsByClassName("map-wrapper");
-  //   if (testData.map === undefined) {
-  //     expect(map.length).toBe(0);
-  //   } else {
-  //     expect(map[0].getElementsByTagName("img")[0].src).toContain(
-  //       testData.map
-  //     );
-  //   }
 });

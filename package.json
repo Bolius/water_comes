@@ -5,17 +5,21 @@
   "homepage": "https://www.bolius.dk/fileadmin/apps/water_comes/yougov/",
   "dependencies": {
     "@sentry/browser": "^5.9.1",
+    "axios": "^0.19.0",
     "bootstrap": "^4.4.0",
+    "cypress": "^3.8.0",
     "dawa-autocomplete2": "^1.0.2",
-    "npm": "^6.13.1",
+    "jquery": "^3.4.1",
+    "npm": "^6.13.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-responsive-modal": "^4.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "^3.3.0",
     "react-select": "^2.4.3",
     "react-spinners": "^0.6.1",
     "react-test-renderer": "^16.12.0",
     "reactstrap": "^8.1.1",
+    "typescript": "^3.7.3",
     "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "scripts": {
@@ -24,7 +28,9 @@
     "test": "react-scripts test",
     "coverage": "react-scripts test --coverage --watchAll=false",
     "coveralls": "cat coverage/lcov.info | node_modules/.bin/coveralls",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -61,7 +67,6 @@
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@types/jest": "^24.0.23",
-    "babel-plugin-styled-components": "^1.10.6",
     "webpack-cli": "^3.3.10"
   },
   "description": "A widget made for the _when the water comes_ campaign.",
