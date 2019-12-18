@@ -1,6 +1,6 @@
 import React from "react";
 import RisksDB from "../risks.json";
-import trackEvent from "../action_logger.js";
+import trackEvent from "../data-handlers/action-logger.js";
 
 export default function Resume(props) {
   let factors =

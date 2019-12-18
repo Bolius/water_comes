@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Input, Form, Button } from "reactstrap";
 import { BeatLoader as Loader } from "react-spinners";
-import * as Sentry from "@sentry/browser";
 import * as dawaModule from "dawa-autocomplete2";
 
-import constructQuery from "../graphQL_query.js";
-import trackEvent from "../action_logger.js";
-import computeRainRisk from "../helpers/rain_risk.js";
-import backendLog from "../helpers/backendLog.js";
 import Modal from "react-responsive-modal";
-import getFloodData from "../helpers/get-flood-data.js";
+import getFloodData from "../data-handlers/get-flood-data.js";
 
 export default function AdressSelect(props) {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,14 +19,14 @@ export default function AdressSelect(props) {
         {
           select: dawa_res => {
             setIsLoading(true);
-            const resp = getFloodData(dawa_res, resp => {
+            getFloodData(dawa_res, resp => {
               if (resp.failed) {
                 setDataFailed(true);
                 setIsLoading(false);
                 setInputAddress("");
                 setDawa(dawaModule);
               } else {
-                props.setData(resp.data);
+                props.setData(resp);
               }
             });
           }

@@ -1,7 +1,7 @@
 import React from "react";
 import RiskDescriber from "../components/risk-describer.js";
 import Resume from "../components/resume.js";
-import trackEvent from "../action_logger.js";
+import trackEvent from "../data-handlers/action-logger.js";
 export default class ActionHandler extends React.Component {
   constructor(props) {
     super(props);

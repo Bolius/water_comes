@@ -3,7 +3,7 @@ import AdressSelect from "./components/address-select.js";
 import DataModal from "./components/data-modal.js";
 import ResultPage from "./views/result-page.js";
 import exampleHouseData from "./example_house_data.js";
-import computeRainRisk from "./helpers/rain_risk.js";
+import computeRainRisk from "./data-handlers/rain-risk.js";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -35,6 +35,8 @@ export default class Main extends React.Component {
   }
 
   setData(houseData) {
+    console.log("HERHE");
+    console.log(houseData);
     this.setState({
       hasData: true,
       houseData: houseData

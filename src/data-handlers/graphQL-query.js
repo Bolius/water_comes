@@ -10,25 +10,17 @@ const queryStr = `{
       }
       waterRisk {
         flood {
-          groundHeight
           risk
-          floodLowerLimit
-          floodMediumLimit
         }
         hollowing {
-          areaPercentage
-          housePercentage
           image
           risk
         }
         fastningDegree {
-          housePercentage
           image
-          areaPercentage
           risk
         }
         conductivity {
-          value
           risk
         }
       }
