@@ -19,7 +19,7 @@ jobs:
       - name: Starting server
         run: npm start &
       - name: Cypress
-        uses: npm run cypress:run
+        run: npm run cypress:run
       - name: Upload coverage
         uses: coverallsapp/github-action@v1.0.1
         with:
