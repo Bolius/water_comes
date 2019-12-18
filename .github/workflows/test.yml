@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI: true
+      REACT_APP_GRAPHQL_URL: https://bolius.rotendahl.dk/graphql/
+      REACT_APP_SKIP_INPUT: false
 
     steps:
       - uses: actions/checkout@v1
@@ -20,6 +22,12 @@ jobs:
         run: npm start &
       - name: Cypress
         run: npm run cypress:run
+      - name: Upload Cypress
+        if: failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: test-videos
+          path: cypress/videos
       - name: Upload coverage
         uses: coverallsapp/github-action@v1.0.1
         with:
