@@ -16,6 +16,8 @@ jobs:
         run: npm test
       - name: Checking coverage
         run: npm test -- --coverage --watchAll=false
+      - name: Get wait-on
+        run: npm install -g wait-on
       - name: Starting server
         run: npm start & wait-on http://localhost:3000
       - name: Cypress.io
