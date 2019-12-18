@@ -9,19 +9,14 @@ const exampleAddress = {
       risk: "high"
     },
     conductivity: {
-      risk: "high",
-      value: 1175
+      risk: "medium"
     },
     hollowing: {
-      risk: "high",
-      areaPercentage: 11,
-      image: hollowingImg,
-      housePercentage: 0
+      risk: "low",
+      image: hollowingImg
     },
     fastningDegree: {
-      housePercentage: 47,
       image: fastningImg,
-      areaPercentage: 49,
       risk: "high"
     },
     flood: {
