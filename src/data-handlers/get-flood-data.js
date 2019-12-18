@@ -32,8 +32,6 @@ export default function getFloodData(dawa_res, callback) {
         }
       };
       houseData.dangers.rain_threat = computeRainRisk(houseData.dangers);
-      console.log("houseData is");
-      console.log(houseData);
       trackEvent({
         description: "Adresse indtastet",
         // Gets 2300 københavn part of adrress

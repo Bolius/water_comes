@@ -35,8 +35,6 @@ export default class Main extends React.Component {
   }
 
   setData(houseData) {
-    console.log("HERHE");
-    console.log(houseData);
     this.setState({
       hasData: true,
       houseData: houseData

@@ -36,12 +36,14 @@ export default function AdressSelect(props) {
   });
 
   return isLoading ? (
-    <Loader
-      sizeUnit={"px"}
-      size={25}
-      color={"rgb(207, 227, 227)"}
-      loading={true}
-    />
+    <div className="loader">
+      <Loader
+        sizeUnit={"px"}
+        size={25}
+        color={"rgb(207, 227, 227)"}
+        loading={true}
+      />
+    </div>
   ) : (
     <div className="water-comes-app-address">
       <h2>Tjek risikoen for, at din bolig bliver oversvømmet</h2>
