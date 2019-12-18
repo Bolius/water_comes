@@ -18,7 +18,6 @@ jobs:
         run: npm test -- --coverage --watchAll=false
       - name: Cypress.io
         uses: cypress-io/github-action@v1.16.1
-        with:
       - name: Upload coverage
         uses: coverallsapp/github-action@v1.0.1
         with:
