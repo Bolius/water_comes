@@ -23,7 +23,7 @@
   },
   "rain_other": {
     "title": "Andre væsentlige faktorer ved skybrud",
-    "description": "Der kan være andre faktorer, der påvirker din boligs risiko for oversvømmelse, som denne beregner ikke tager højde for. Vi har desværre ikke data for kloakkernes stand i dit område.\nKloakkerne kan påvirke din boligs risiko for oversvømmelse i væsentlig grad. Er der for små og for hårdt belastede kloakker i området omkring din bolig, vil et skybrud kunne overbelaste kloaksystemet og skubbe vandet baglæns i rørene. Sker det, er risikoen for oversvømmelse høj, selvom din bolig ikke ligger i en lavning.\nHvis du har fald væk fra boligen, højvandslukke i dine kloakker, afledning af regnvand til faskine eller lignende forhold, som dæmmer op for oversvømmelser, vil din risiko omvendt være lavere, end vi kan se ud fra de tilgængelige data."
+    "description": "Der kan være andre faktorer, der påvirker din boligs risiko for oversvømmelse, som denne beregner ikke tager højde for.\nDer findes desværre ikke offentligt tilgængelige oplysninger om kloakkernes tilstand i Danmark. Kloakkerne kan påvirke din boligs risiko for oversvømmelse i væsentlig grad. Er der for små og for hårdt belastede kloakker i området omkring din bolig, vil et skybrud kunne overbelaste kloaksystemet og skubbe vandet baglæns i rørene. Sker det, er risikoen for oversvømmelse høj, selvom din bolig ikke ligger i en lavning.\nHvis du allerede har højvandslukke i dine kloakker, afledning af regnvand til en faskine på din grund, omfangsdræn, fald væk fra boligen eller andre tiltag, der kan forebygge oversvømmelse, vil din risiko være lavere end angivet i beregnerens resultat."
   },
   "flood_other": {
     "title": "Andre væsentlige faktorer ved stormflod",

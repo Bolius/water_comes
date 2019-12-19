@@ -6,18 +6,18 @@ const exampleAddress = {
   text: "Kjærmarken 103, 6771 Gredstedbro",
   dangers: {
     basement: {
-      risk: "high"
+      risk: "low"
     },
     conductivity: {
-      risk: "medium"
+      risk: "low"
     },
     hollowing: {
-      risk: "low",
+      risk: "high",
       image: hollowingImg
     },
     fastningDegree: {
       image: fastningImg,
-      risk: "high"
+      risk: "low"
     },
     flood: {
       risk: "high"

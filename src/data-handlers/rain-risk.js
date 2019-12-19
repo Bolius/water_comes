@@ -19,6 +19,8 @@ var computeRainRisk = function(dangers) {
     (isHigh(dangers.conductivity) || isHigh(dangers.fastningDegree))
   ) {
     return "medium";
+  } else if (isHigh(dangers.hollowing) && isHigh(dangers.basement)) {
+    return "high";
   } else if (isHigh(dangers.hollowing)) {
     if (isLow(dangers.conductivity) && isLow(dangers.fastningDegree)) {
       return "medium";
@@ -26,11 +28,7 @@ var computeRainRisk = function(dangers) {
       return "high";
     }
   } else if (isHigh(dangers.basement)) {
-    if (isHigh(dangers.conductivity) || isHigh(dangers.fastningDegree)) {
-      return "high";
-    } else {
-      return "medium";
-    }
+    return "medium";
   } else {
     // Default case with most common
     console.log("Reached non special case in risk computer");

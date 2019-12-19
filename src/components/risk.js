@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Row, Col } from "reactstrap";
 export default function Risk(props) {
   const [showDescription, setShowDescription] = useState(false);
   const toggleDescription = () => {
@@ -27,7 +27,13 @@ export default function Risk(props) {
   return (
     <div className="water-comes-app-risk">
       {header}
-      <div className="description">{showDescription ? description : ""}</div>
+      <Row>
+        <Col>
+          <div className="description">
+            {showDescription ? description : ""}
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 }
