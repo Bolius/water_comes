@@ -36,7 +36,7 @@ export default function getFloodData(dawa_res, callback) {
         description: "Adresse indtastet",
         // Gets 2300 københavn part of adrress
         eventLabel: houseData.text
-          .split(",")
+          .split(", ")
           .slice(-1)
           .pop(),
         cloudbirstDimension: houseData.dangers.rain_threat,
