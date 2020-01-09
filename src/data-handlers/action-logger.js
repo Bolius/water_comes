@@ -10,7 +10,6 @@ async function trackEvent(action) {
   };
 
   dataLayer.push(log);
-  console.log("logged");
   console.log(log);
 }
 
