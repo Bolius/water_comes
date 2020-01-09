@@ -22,7 +22,7 @@ export default function Resume(props) {
           <span className="category orange">Læs også: </span>
           <a
             href={factor.link.url}
-            onClick={() => logClick(factor.text)}
+            onClick={() => logClick(factor.link.title)}
             target="_blank"
             rel="noopener noreferrer"
           >
