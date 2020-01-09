@@ -3,7 +3,7 @@ async function trackEvent(action) {
   const log = {
     event: "klimaCheck",
     eventCategory: "Water comes APP",
-    eventAcFDtion: action.description,
+    eventAction: action.description,
     eventLabel: action.eventLabel,
     cloudbirstDimension: action.cloudbirstDimension,
     floodDimension: action.floodDimension
