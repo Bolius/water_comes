@@ -24,21 +24,23 @@ export default function RiskDescriber(props) {
       <div className="water-comes-app-explanation">
         <h3>Faktorer, der påvirker boligens risiko ved {props.floodType}</h3>
         <div className="risk-list">
-          {constructRisks(props.risks, props.logClick)}
+          {constructRisks(props.risks, props.logClick, props)}
 
           {props.floodType === "skybrud" ? (
             <Risk
               title={RiskDB["rain_other"].title}
               description={RiskDB["rain_other"].description}
               threatLevel={"medium"}
-              logClick={() => props.logClick(RiskDB["rain_other"].title)}
+              logClick={() => props.logClick(RiskDB["rain_other"].title)}              
+              toggleTracker={props.toggleTracker}
             />
           ) : (
             <Risk
               title={RiskDB["flood_other"].title}
               description={RiskDB["flood_other"].description}
               threatLevel={"medium"}
-              logClick={() => props.logClick(RiskDB["flood_other"].title)}
+              logClick={() => props.logClick(RiskDB["flood_other"].title)}              
+              toggleTracker={props.toggleTracker}
             />
           )}
         </div>
@@ -60,8 +62,10 @@ function getRiskText(threatLevel) {
   }
 }
 
-function constructRisks(risks, logClick) {
+function constructRisks(risks, logClick, props) {
   const risk_types = Object.keys(risks);
+  const uidAddCounter = 0;
+
   const ordered_risks = ["high", "medium", "low"]
     .map(level =>
       risk_types.filter(risk_type => risks[risk_type].risk === level)
@@ -69,14 +73,15 @@ function constructRisks(risks, logClick) {
     .reduce((acc, val) => acc.concat(val), [])
     .map(key => ({ name: key, data: risks[key] }));
 
-  return ordered_risks.map((threat, i) => (
+  return ordered_risks.map((threat, i) => (    
     <Risk
       key={i}
       logClick={() => logClick(RiskDB[threat.name][threat.data.risk])}
       threatLevel={threat.data.risk}
       title={RiskDB[threat.name][threat.data.risk]}
       description={RiskDB[threat.name].description}
-      map={formatImage(threat.data.image)}
+      map={formatImage(threat.data.image)}      
+      toggleTracker={props.toggleTracker}
     />
   ));
 }

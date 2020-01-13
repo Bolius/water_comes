@@ -1,11 +1,27 @@
 import React, { useState } from "react";
 import { Row, Col } from "reactstrap";
 export default function Risk(props) {
-  const [showDescription, setShowDescription] = useState(false);
+  // Keep track of toggle state of risk factors in prop toggleTracker
+  const currentlyShown = props.toggleTracker[props.title] === undefined ? false : props.toggleTracker[props.title];  
+  const [showDescription, setShowDescription] = useState(currentlyShown);
+  
+  // If toggle state for same index is different from tracked state because of toggle in 
+  // another tab set the toggle status to the one tracked
+  if (props.toggleTracker[props.title] === undefined) {    
+    props.toggleTracker[props.title] = currentlyShown;
+  }
+  if (showDescription !== props.toggleTracker[props.title]) {
+    setShowDescription(props.toggleTracker[props.title]);
+  }
+
   const toggleDescription = () => {
     props.logClick();
-    setShowDescription(!showDescription);
+    
+    // Use the toggleTracker state instead of using showDescription directly
+    props.toggleTracker[props.title] = !props.toggleTracker[props.title];    
+    setShowDescription(props.toggleTracker[props.title]);
   };
+  
   const header = (
     <header onClick={toggleDescription}>
       {threatImage(props.threatLevel)}
