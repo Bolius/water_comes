@@ -36,14 +36,38 @@ export default function AdressSelect(props) {
   });
 
   return isLoading ? (
-    <div className="loader">
-      <Loader
-        sizeUnit={"px"}
-        size={25}
-        color={"rgb(207, 227, 227)"}
-        loading={true}
-      />
-    </div>
+    <div className="water-comes-app-address">
+      <h2>Tjek risikoen for, at din bolig bliver oversvømmet</h2>
+      <p>
+        Tast din adresse og få indblik i, hvad der kan påvirke din boligs risiko
+        for oversvømmelse ved skybrud eller stormflod. Du får også konkrete råd
+        til, hvad du kan gøre for at sikre din bolig.
+      </p>
+      <p>
+        Vær opmærksom på, at resultatet er baseret på offentligt tilgængelige
+        data, som kan være behæftet med usikkerheder.{" "}
+        <button className="btn btn-link" onClick={props.toggleDataModal}>
+          Læs mere om datagrundlaget her.
+        </button>
+      </p>
+      <Modal open={dataFailed} closeOnEsc onClose={() => setDataFailed(false)}>
+        <Col className="water-comes-app-data">
+          <p>
+            Der opstod en fejl under beregningen. Prøv igen ved at genopfriske
+            siden. Virker det ikke, kan fejlen skyldes et teknisk problem hos en
+            af de leverandører, vi henter oplysninger fra.
+          </p>
+        </Col>
+      </Modal>
+      <div className="loader">
+        <Loader
+          sizeUnit={"px"}
+          size={25}
+          color={"rgb(70, 140, 140)"}
+          loading={true}
+        />
+      </div>
+    </div>    
   ) : (
     <div className="water-comes-app-address">
       <h2>Tjek risikoen for, at din bolig bliver oversvømmet</h2>

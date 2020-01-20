@@ -12,6 +12,7 @@ export default class ResultPage extends React.Component {
           address={this.props.houseData.text}
           isApartment={this.props.houseData.isApartment}
           reset={this.props.reset}
+          showModal={this.props.toggleDataModal}
         />
         <ActionHandler dangers={this.props.houseData.dangers} />
         <DataBasis showModal={this.props.toggleDataModal} />
