@@ -4,6 +4,7 @@ import DataModal from "./components/data-modal.js";
 import ResultPage from "./views/result-page.js";
 import exampleHouseData from "./example_house_data.js";
 import computeRainRisk from "./data-handlers/rain-risk.js";
+import trackEvent from "./data-handlers/action-logger.js";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -29,6 +30,24 @@ export default class Main extends React.Component {
   }
 
   toggleDataModal() {
+    if (!this.state.showModal) {
+      console.log(this);
+      if (!this.state.hasData) {
+        trackEvent({
+          description: `Datagrundlag`,
+          eventLabel: `Side: adresseindtastning`,
+          cloudbirstDimension: "Ikke regnet endnu",
+          floodDimension: "Ikke regnet endnu"
+        });
+      } else {
+        trackEvent({
+          description: `Datagrundlag`,
+          eventLabel: `Side: resultatside`,
+          cloudbirstDimension: this.state.houseData.dangers.rain_threat,
+          floodDimension: this.state.houseData.dangers.flood.risk
+        });
+      }
+    }
     this.setState({
       showModal: !this.state.showModal
     });

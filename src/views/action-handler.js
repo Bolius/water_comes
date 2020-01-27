@@ -2,8 +2,8 @@ import React from "react";
 import RiskDescriber from "../components/risk-describer.js";
 import Resume from "../components/resume.js";
 import trackEvent from "../data-handlers/action-logger.js";
-export default class ActionHandler extends React.Component {  
-  constructor(props) {    
+export default class ActionHandler extends React.Component {
+  constructor(props) {
     super(props);
     this.toggleTracker = {};
     this.toggleTab = this.toggleTab.bind(this);
@@ -19,14 +19,14 @@ export default class ActionHandler extends React.Component {
     for (var risk of rain_risks_names) {
       this.rain_risks[risk] = this.props.dangers[risk];
     }
-    
+
     this.state = {
       tab: "skybrud",
       threatLevel: this.props.dangers.rain_threat,
       risks: this.rain_risks,
-      updated: 'skybrud-' + Date.now(),
+      updated: "skybrud-" + Date.now(),
       toggleTracker: this.toggleTracker
-    };    
+    };
   }
   logClick = title =>
     trackEvent({
@@ -36,7 +36,13 @@ export default class ActionHandler extends React.Component {
       floodDimension: this.props.dangers.flood.risk
     });
 
-  toggleTab(state) {    
+  toggleTab(state) {
+    trackEvent({
+      description: `Faneblad skift`,
+      eventLabel: `skiftede til: ${state}`,
+      cloudbirstDimension: this.props.dangers.rain_threat,
+      floodDimension: this.props.dangers.flood.risk
+    });
     this.setState({
       tab: state,
       threatLevel:
@@ -47,8 +53,8 @@ export default class ActionHandler extends React.Component {
         state === "skybrud"
           ? this.rain_risks
           : { flood: this.props.dangers.flood },
-      updated: state + '-' + Date.now()
-    });        
+      updated: state + "-" + Date.now()
+    });
   }
 
   render() {
