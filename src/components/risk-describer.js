@@ -56,7 +56,7 @@ function getRiskText(threatLevel) {
     case "medium":
       return "Mellem risiko";
     case "low":
-      return "lav risiko";
+      return "Lav risiko";
     default:
       throw new `Invalid threatlevel: ${threatLevel}`();
   }
