@@ -1,46 +1,29 @@
 // A function that given a dawa response gets data from the backend
 import * as Sentry from "@sentry/browser";
-import constructQuery from "./graphQL-query.js";
 import trackEvent from "./action-logger.js";
-import computeRainRisk from "./rain-risk.js";
-
 import axios from "axios";
-export default function getFloodData(dawa_res, callback) {
+export default function getFloodData(bbr_id, callback) {
   let houseData = { failed: true };
+  console.log(bbr_id);
   axios
-    .get(dawa_res.data.href)
-    .then(resp =>
-      axios({
-        url: process.env.REACT_APP_GRAPHQL_URL,
-        method: "post",
-        headers: { "content-type": "application/json" },
-        data: constructQuery(resp.data.kvhx)
-      })
+    .get(
+      "https://exl9ly9iwa.execute-api.eu-central-1.amazonaws.com/Prod/flood-risk?unadr_bbrid=" +
+        bbr_id
     )
     .then(resp => {
-      const respData = resp.data.data.house;
-      houseData = {
-        failed: false,
-        isApartment: respData.bbrInfo.propType === "Etageboliger",
-        text: respData.bbrInfo.address,
-        dangers: {
-          basement: { risk: respData.bbrInfo.hasBasement ? "high" : "low" },
-          flood: respData.waterRisk.flood,
-          hollowing: respData.waterRisk.hollowing,
-          fastningDegree: respData.waterRisk.fastningDegree,
-          conductivity: respData.waterRisk.conductivity
-        }
-      };
-      houseData.dangers.rain_threat = computeRainRisk(houseData.dangers);
+      const data = resp.data;
+      console.log(data);
+      houseData = data;
+      houseData.text = data.navn;
       trackEvent({
         description: "Adresse indtastet",
         // Gets 2300 københavn part of adrress
-        eventLabel: houseData.text
+        eventLabel: houseData.navn
           .split(", ")
           .slice(-1)
           .pop(),
-        cloudbirstDimension: houseData.dangers.rain_threat,
-        floodDimension: houseData.dangers.flood.risk
+        cloudbirstDimension: houseData.rain_risk.risk,
+        floodDimension: houseData.storm_flood.risk
       });
     })
     .catch(err => console.log(Sentry.captureException(err)))

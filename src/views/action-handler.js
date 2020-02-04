@@ -14,15 +14,14 @@ export default class ActionHandler extends React.Component {
       "basement",
       "conductivity",
       "hollowing",
-      "fastningDegree"
+      "fastning"
     ];
     for (var risk of rain_risks_names) {
-      this.rain_risks[risk] = this.props.dangers[risk];
+      this.rain_risks[risk] = this.props.dangers.rain_risk.factors[risk];
     }
-
     this.state = {
       tab: "skybrud",
-      threatLevel: this.props.dangers.rain_threat,
+      threatLevel: this.props.dangers.rain_risk.risk,
       risks: this.rain_risks,
       updated: "skybrud-" + Date.now(),
       toggleTracker: this.toggleTracker
@@ -32,27 +31,27 @@ export default class ActionHandler extends React.Component {
     trackEvent({
       description: `Faneblad: ${this.state.tab}`,
       eventLabel: `Faktorer: ${title}`,
-      cloudbirstDimension: this.props.dangers.rain_threat,
-      floodDimension: this.props.dangers.flood.risk
+      cloudbirstDimension: this.props.dangers.rain_risk.risk,
+      floodDimension: this.props.dangers.storm_flood.risk
     });
 
   toggleTab(state) {
     trackEvent({
       description: `Faneblad skift`,
       eventLabel: `skiftede til: ${state}`,
-      cloudbirstDimension: this.props.dangers.rain_threat,
-      floodDimension: this.props.dangers.flood.risk
+      cloudbirstDimension: this.props.dangers.rain_risk.risk,
+      floodDimension: this.props.dangers.storm_flood.risk
     });
     this.setState({
       tab: state,
       threatLevel:
         state === "skybrud"
-          ? this.props.dangers.rain_threat
-          : this.props.dangers.flood.risk,
+          ? this.props.dangers.rain_risk.risk
+          : this.props.dangers.storm_flood.risk,
       risks:
         state === "skybrud"
           ? this.rain_risks
-          : { flood: this.props.dangers.flood },
+          : { storm_flood: { risk: this.props.dangers.storm_flood.risk } },
       updated: state + "-" + Date.now()
     });
   }
