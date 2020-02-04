@@ -67,7 +67,7 @@ export default function AdressSelect(props) {
           loading={true}
         />
       </div>
-    </div>    
+    </div>
   ) : (
     <div className="water-comes-app-address">
       <h2>Tjek risikoen for, at din bolig bliver oversvømmet</h2>
