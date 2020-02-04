@@ -5,13 +5,13 @@ import trackEvent from "../data-handlers/action-logger.js";
 export default function Resume(props) {
   let factors =
     props.floodType === "skybrud" ? rainFactors(props) : floodFactors(props);
-
+  console.log(props);
   const logClick = title => {
     trackEvent({
       description: `Faneblad: ${props.floodType}`,
       eventLabel: `Resume: ${title}`,
-      cloudbirstDimension: props.dangers.rain_threat,
-      floodDimension: props.dangers.flood.risk
+      cloudbirstDimension: props.dangers.rain_risk.risk,
+      floodDimension: props.dangers.storm_flood.risk
     });
   };
   factors = factors.map((factor, i) => (
@@ -91,24 +91,28 @@ function rainFactors(props) {
         : undefined
   });
 
-  if (props.dangers.basement.risk === "high") {
+  if (props.dangers.rain_risk.factors.basement.risk === "high") {
     factors.push(RisksDB.results.basement);
   }
 
-  if (props.dangers.hollowing.risk === "high") {
+  if (props.dangers.rain_risk.factors.hollowing.risk === "high") {
     factors.push(RisksDB.results.hollwing);
   }
 
-  if (props.dangers.conductivity.risk !== "low") {
+  if (props.dangers.rain_risk.factors.conductivity.risk !== "low") {
     factors.push({
-      text: RisksDB.results.conductivity[props.dangers.conductivity.risk],
+      text:
+        RisksDB.results.conductivity[
+          props.dangers.rain_risk.factors.conductivity.risk
+        ],
       link: RisksDB.results.conductivity.link
     });
   }
-  if (props.dangers.fastningDegree.risk !== "low") {
+  if (props.dangers.rain_risk.factors.fastning.risk !== "low") {
     factors.push({
-      text: RisksDB.results.fastningDegree[props.dangers.fastningDegree.risk],
-      link: RisksDB.results.fastningDegree.link
+      text:
+        RisksDB.results.fastning[props.dangers.rain_risk.factors.fastning.risk],
+      link: RisksDB.results.fastning.link
     });
   }
   return factors;
