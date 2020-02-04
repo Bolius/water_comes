@@ -13,6 +13,5 @@ Sentry.init({
   release: version,
   environment: process.env.NODE_ENV
 });
-
 serviceWorker.unregister();
 ReactDOM.render(<App />, document.getElementById("root"));

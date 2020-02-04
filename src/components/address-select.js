@@ -6,13 +6,13 @@ import axios from "axios";
 import Modal from "react-responsive-modal";
 import getFloodData from "../data-handlers/get-flood-data.js";
 import load_dynamic_data from "../data-handlers/dynamic-placement.js";
+import * as Sentry from "@sentry/browser";
 export default function AdressSelect(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [dataFailed, setDataFailed] = useState(false);
   const [inputAddress, setInputAddress] = useState("");
   const [dawa, setDawa] = useState(dawaModule);
   let handle_dawa_resp = dawa_resp => {
-    console.log("HEre");
     setIsLoading(true);
     getFloodData(dawa_resp, resp => {
       if (resp.failed) {
