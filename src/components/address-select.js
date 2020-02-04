@@ -5,7 +5,7 @@ import * as dawaModule from "dawa-autocomplete2";
 import axios from "axios";
 import Modal from "react-responsive-modal";
 import getFloodData from "../data-handlers/get-flood-data.js";
-import load_dynamic_data from "../data-handlers/dynamic-placement.js";
+
 export default function AdressSelect(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [dataFailed, setDataFailed] = useState(false);
@@ -13,7 +13,7 @@ export default function AdressSelect(props) {
   const [dawa, setDawa] = useState(dawaModule);
   let handle_dawa_resp = dawa_resp => {
     setIsLoading(true);
-    getFloodData(dawa_resp, resp => {
+    getFloodData(dawa_resp.data.id, resp => {
       if (resp.failed) {
         setDataFailed(true);
         setIsLoading(false);
@@ -35,18 +35,17 @@ export default function AdressSelect(props) {
       );
     }
   });
-  // Check if id is set in query param
-  const params = window.location.search.split("&");
-  for (var param of params) {
-    if (param.includes("unadr_bbrid=")) {
-      const unit_bbr = param.split("=")[1];
-      axios.get("https://dawa.aws.dk/adresser/" + unit_bbr).then(resp => {
-        handle_dawa_resp(resp);
-      });
-    }
-  }
+  // // Check if id is set in query param
+  // const params = window.location.search.split("&");
+  // for (var param of params) {
+  //   if (param.includes("unadr_bbrid=")) {
+  //     const unit_bbr = param.split("=")[1];
+  //     axios.get("https://dawa.aws.dk/adresser/" + unit_bbr).then(resp => {
+  //       handle_dawa_resp(resp);
+  //     });
+  //   }
+  // }
 
-  load_dynamic_data(handle_dawa_resp);
   return isLoading ? (
     <div className="water-comes-app-address">
       <h2>Tjek risikoen for, at din bolig bliver oversvømmet</h2>
@@ -71,7 +70,7 @@ export default function AdressSelect(props) {
           </p>
         </Col>
       </Modal>
-      <div className="loader">
+      <div className="loader" style={{ textAlign: "center" }}>
         <Loader
           sizeUnit={"px"}
           size={25}

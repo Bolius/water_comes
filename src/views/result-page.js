@@ -9,12 +9,12 @@ export default class ResultPage extends React.Component {
     return (
       <div>
         <MapBox
-          address={this.props.houseData.text}
-          isApartment={this.props.houseData.isApartment}
+          address={this.props.houseData.navn}
+          isApartment={this.props.houseData.isAppartment}
           reset={this.props.reset}
           showModal={this.props.toggleDataModal}
         />
-        <ActionHandler dangers={this.props.houseData.dangers} />
+        <ActionHandler dangers={this.props.houseData} />
         <DataBasis showModal={this.props.toggleDataModal} />
       </div>
     );

@@ -16,7 +16,6 @@ export default function RiskDescriber(props) {
       </p>
     </div>
   );
-
   return (
     <div className="water-comes-app-hightlighted">
       {riskImage}
@@ -64,14 +63,12 @@ function getRiskText(threatLevel) {
 
 function constructRisks(risks, logClick, props) {
   const risk_types = Object.keys(risks);
-
   const ordered_risks = ["high", "medium", "low"]
     .map(level =>
       risk_types.filter(risk_type => risks[risk_type].risk === level)
     )
     .reduce((acc, val) => acc.concat(val), [])
     .map(key => ({ name: key, data: risks[key] }));
-
   return ordered_risks.map((threat, i) => (
     <Risk
       key={i}
