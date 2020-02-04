@@ -2,39 +2,52 @@ import React, { useState, useEffect } from "react";
 import { Row, Col, Input, Form, Button } from "reactstrap";
 import { BeatLoader as Loader } from "react-spinners";
 import * as dawaModule from "dawa-autocomplete2";
-
+import axios from "axios";
 import Modal from "react-responsive-modal";
 import getFloodData from "../data-handlers/get-flood-data.js";
-
+import load_dynamic_data from "../data-handlers/dynamic-placement.js";
 export default function AdressSelect(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [dataFailed, setDataFailed] = useState(false);
   const [inputAddress, setInputAddress] = useState("");
   const [dawa, setDawa] = useState(dawaModule);
+  let handle_dawa_resp = dawa_resp => {
+    console.log("HEre");
+    setIsLoading(true);
+    getFloodData(dawa_resp, resp => {
+      if (resp.failed) {
+        setDataFailed(true);
+        setIsLoading(false);
+        setInputAddress("");
+        setDawa(dawaModule);
+      } else {
+        props.setData(resp);
+      }
+    });
+  };
 
   useEffect(() => {
     if (!isLoading) {
       dawa.dawaAutocomplete(
         document.getElementById("dawa-autocomplete-input"),
         {
-          select: dawa_res => {
-            setIsLoading(true);
-            getFloodData(dawa_res, resp => {
-              if (resp.failed) {
-                setDataFailed(true);
-                setIsLoading(false);
-                setInputAddress("");
-                setDawa(dawaModule);
-              } else {
-                props.setData(resp);
-              }
-            });
-          }
+          select: dawa_res => handle_dawa_resp(dawa_res)
         }
       );
     }
   });
+  // Check if id is set in query param
+  const params = window.location.search.split("&");
+  for (var param of params) {
+    if (param.includes("unadr_bbrid=")) {
+      const unit_bbr = param.split("=")[1];
+      axios.get("https://dawa.aws.dk/adresser/" + unit_bbr).then(resp => {
+        handle_dawa_resp(resp);
+      });
+    }
+  }
 
+  load_dynamic_data(handle_dawa_resp);
   return isLoading ? (
     <div className="water-comes-app-address">
       <h2>Tjek risikoen for, at din bolig bliver oversvømmet</h2>
