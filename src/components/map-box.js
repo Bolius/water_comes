@@ -40,7 +40,8 @@ export default class MapBox extends React.Component {
             </p>
             <p>
               Vær opmærksom på, at resultatet er vejledende og kan være behæftet
-              med usikkerheder.{" "}<button className="btn btn-link" onClick={this.props.showModal}>
+              med usikkerheder.{" "}
+              <button className="btn btn-link" onClick={this.props.showModal}>
                 Læs mere om datagrundlaget her.
               </button>
             </p>
