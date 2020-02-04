@@ -13,7 +13,7 @@ describe("Checks that address can be entered", () => {
     cy.get("@input").type("{enter}");
 
     // Sees loading screen
-    cy.get(".water-comes-app-explanation", { timeout: 20000 })
+    cy.get(".water-comes-app-explanation", { timeout: 40000 })
       .get("header")
       .first()
       .as("risk");

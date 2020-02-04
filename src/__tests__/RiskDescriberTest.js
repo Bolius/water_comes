@@ -59,6 +59,7 @@ describe("Testing risk describer", () => {
           floodType={testData.floodType}
           threatLevel={testData.threatLevel}
           risks={testData.risks}
+          toggleTracker={{}}
         />,
         container
       );
@@ -98,6 +99,7 @@ describe("Testing risk describer", () => {
           floodType={testData.floodType}
           threatLevel={testData.threatLevel}
           risks={testData.risks}
+          toggleTracker={{}}
         />,
         container
       );
