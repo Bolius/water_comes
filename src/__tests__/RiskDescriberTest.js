@@ -29,7 +29,7 @@ const testData = [
   {
     threatLevel: "low",
     risks: {
-      fastningDegree: { risk: "medium" },
+      fastning: { risk: "medium" },
       basement: { risk: "high" },
       hollowing: { risk: "low" }
     },
@@ -38,7 +38,7 @@ const testData = [
   {
     threatLevel: "high",
     risks: {
-      fastningDegree: { risk: "medium" },
+      fastning: { risk: "medium" },
       basement: { risk: "high" },
       hollowing: { risk: "low", image: "base64" }
     },

@@ -2,8 +2,7 @@ import React from "react";
 import AdressSelect from "./components/address-select.js";
 import DataModal from "./components/data-modal.js";
 import ResultPage from "./views/result-page.js";
-import exampleHouseData from "./example_house_data.js";
-import computeRainRisk from "./data-handlers/rain-risk.js";
+import exampleHouseData from "./example-house.json";
 import trackEvent from "./data-handlers/action-logger.js";
 
 export default class Main extends React.Component {
@@ -19,11 +18,9 @@ export default class Main extends React.Component {
       hasData: false
     };
     if (process.env.REACT_APP_SKIP_INPUT === "true") {
-      let data = exampleHouseData;
-      data.dangers.rain_threat = computeRainRisk(exampleHouseData.dangers);
       this.state = {
         showModal: false,
-        houseData: data,
+        houseData: exampleHouseData,
         hasData: true
       };
     }
@@ -31,7 +28,6 @@ export default class Main extends React.Component {
 
   toggleDataModal() {
     if (!this.state.showModal) {
-      console.log(this);
       if (!this.state.hasData) {
         trackEvent({
           description: `Datagrundlag`,
@@ -43,8 +39,8 @@ export default class Main extends React.Component {
         trackEvent({
           description: `Datagrundlag`,
           eventLabel: `Side: resultatside`,
-          cloudbirstDimension: this.state.houseData.dangers.rain_threat,
-          floodDimension: this.state.houseData.dangers.flood.risk
+          cloudbirstDimension: this.state.houseData.rain_risk.risk,
+          floodDimension: this.state.houseData.storm_flood.risk
         });
       }
     }

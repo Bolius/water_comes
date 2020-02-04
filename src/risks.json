@@ -10,7 +10,7 @@
     "medium": "Grundens jordbundsforhold gør det middelsvært for vandet at sive ned",
     "high": "Grundens jordbundsforhold gør det svært for vandet at sive ned"
   },
-  "fastningDegree": {
+  "fastning": {
     "description": "Hvis den såkaldte befæstelsesgrad er høj – altså hvis en stor del af overfladen er bebygget eller belagt med asfalt, fliser, brosten mv. - kan regnen have svært ved at sive ned i jorden. Særligt når det regner kraftigt. Hvis vandet ikke kan løbe væk hurtigt nok, stiger risikoen for oversvømmelse.\nKortet nedenfor viser, hvordan befæstelsesgraden ser ud i dit område. Hvor den røde farve er kraftigst, er befæstelsesgraden højest.",
     "low": "Dit område er i mindre grad belagt med materialer som fx asfalt, fliser og brosten",
     "medium": "Dit område er i nogen grad belagt med materialer som fx asfalt, fliser og brosten",
@@ -29,7 +29,7 @@
     "title": "Andre væsentlige faktorer ved stormflod",
     "description": "Der kan være andre faktorer, der påvirker din boligs risiko for oversvømmelse ved stormflod. Beregneren tager ikke nødvendigvis forbehold for diger, højvandsmure i dit område eller andre forebyggende tiltag, du selv har installeret."
   },
-  "flood": {
+  "storm_flood": {
     "low": "Din boligs placering viser, at der ikke umiddelbart er risiko for oversvømmelse ved stormflod",
     "medium": "Din boligs placering viser, at der er nogen risiko for oversvømmelse ved stormflod",
     "high": "Din boligs placering viser, at der er høj risiko for oversvømmelse ved stormflod.",
@@ -68,7 +68,7 @@
         "url": "https://www.bolius.dk/bliv-klogere-paa-hvad-en-faskine-er-19268"
       }
     },
-    "fastningDegree": {
+    "fastning": {
       "medium": "Mængden af asfalt, fliser og andre tætte materialer i dit boligområde er middelhøj. Det øger risikoen for, at kloakkerne overbelastes ved kraftig regn. Når kloaksystemet ikke kan fungere optimalt, øges risikoen for oversvømmelser i området. Du kan overveje at benytte fliser og belægninger, som gør det nemmere for vandet at sive ned i jorden eller lede det væk fra huset og mod faskiner eller regnbede.  ",
       "high": "Mængden af asfalt, fliser og andre tætte materialer i dit boligområde er høj. Det øger risikoen for, at kloakkerne overbelastes ved kraftig regn. Når kloaksystemet ikke kan fungere optimalt, øges risikoen for oversvømmelser i området. Du kan overveje at benytte fliser og belægninger, som gør det nemmere for vandet at sive ned i jorden eller lede det væk fra huset og mod faskiner eller regnbede.",
       "link": {
