@@ -54,6 +54,7 @@ describe("Testing risk box", () => {
             threatLevel={testData.threatLevel}
             map={testData.map}
             logClick={logger}
+            toggleTracker={{}}
           />,
           container
         );
