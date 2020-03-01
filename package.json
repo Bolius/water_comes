@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://www.bolius.dk/typo3conf/ext/bolius_embedded/Resources/Public/Apps/WaterComesApp/",
   "dependencies": {
-    "@sentry/browser": "^5.12.1",
+    "@sentry/browser": "^5.13.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.0",
     "cypress": "^4.0.0",
