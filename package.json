@@ -7,7 +7,7 @@
     "@sentry/browser": "^5.12.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.0",
-    "cypress": "^3.8.3",
+    "cypress": "^4.0.0",
     "dawa-autocomplete2": "^1.0.2",
     "jquery": "^3.4.1",
     "npm": "^6.13.7",
