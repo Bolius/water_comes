@@ -27,5 +27,5 @@ export default function getFloodData(bbr_id, callback) {
       });
     })
     .catch(err => console.log(Sentry.captureException(err)))
-    .finally(() => callback(houseData));
+    .then(() => callback(houseData));
 }
