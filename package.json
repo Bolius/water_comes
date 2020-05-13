@@ -6,7 +6,7 @@
   "dependencies": {
     "@sentry/browser": "^5.15.5",
     "axios": "^0.19.2",
-    "bootstrap": "^4.4.0",
+    "bootstrap": "^4.5.0",
     "cypress": "^4.5.0",
     "dawa-autocomplete2": "^1.0.2",
     "jquery": "^3.5.1",
