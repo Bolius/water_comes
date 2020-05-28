@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-16.04
     env:
       CI: true
-      REACT_APP_GRAPHQL_URL: https://bolius.rotendahl.dk/graphql/
       REACT_APP_SKIP_INPUT: false
 
     steps:
