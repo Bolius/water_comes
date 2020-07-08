@@ -4,13 +4,13 @@
   "private": true,
   "homepage": "https://www.bolius.dk/typo3conf/ext/bolius_embedded/Resources/Public/Apps/WaterComesApp/",
   "dependencies": {
-    "@sentry/browser": "^5.15.5",
+    "@sentry/browser": "^5.19.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
-    "cypress": "^4.7.0",
+    "cypress": "^4.10.0",
     "dawa-autocomplete2": "^1.0.2",
     "jquery": "^3.5.1",
-    "npm": "^6.14.5",
+    "npm": "^6.14.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-responsive-modal": "^5.0.2",
@@ -18,8 +18,8 @@
     "react-select": "^3.1.0",
     "react-spinners": "^0.8.3",
     "react-test-renderer": "^16.13.1",
-    "reactstrap": "^8.4.1",
-    "typescript": "^3.9.3",
+    "reactstrap": "^8.5.1",
+    "typescript": "^3.9.6",
     "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "scripts": {
@@ -63,12 +63,12 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.1",
-    "@babel/preset-env": "^7.10.1",
-    "@sentry/webpack-plugin": "^1.11.1",
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@sentry/webpack-plugin": "^1.12.0",
     "@types/jest": "^25.2.3",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   },
   "description": "A widget made for the _when the water comes_ campaign.",
   "main": "webpack.config.js",
