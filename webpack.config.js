@@ -1,5 +1,5 @@
 const path = require("path");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const glob = require("glob");
 const SentryWebpackPlugin = require("@sentry/webpack-plugin");
 
@@ -21,7 +21,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new UglifyJsPlugin(),
+    new TerserPlugin(),
     new SentryWebpackPlugin({
       include: ".",
       ignoreFile: ".sentrycliignore",
