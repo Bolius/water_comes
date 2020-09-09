@@ -67,7 +67,7 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "@sentry/webpack-plugin": "^1.12.1",
-    "@types/jest": "^26.0.9",
+    "@types/jest": "^26.0.13",
     "webpack-cli": "^3.3.12"
   },
   "description": "A widget made for the _when the water comes_ campaign.",
