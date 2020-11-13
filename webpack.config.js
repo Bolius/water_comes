@@ -7,18 +7,18 @@ module.exports = {
   entry: {
     "bundle.js": glob
       .sync("build/static/?(js|css)/main.*.?(js|css)")
-      .map(f => path.resolve(__dirname, f))
+      .map((f) => path.resolve(__dirname, f)),
   },
   output: {
-    filename: "out.js"
+    filename: "out.js",
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
   plugins: [
     new TerserPlugin(),
@@ -26,7 +26,7 @@ module.exports = {
       include: ".",
       ignoreFile: ".sentrycliignore",
       ignore: ["node_modules", "webpack.config.js"],
-      configFile: "sentry.properties"
-    })
-  ]
+      configFile: "sentry.properties",
+    }),
+  ],
 };
