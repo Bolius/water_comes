@@ -1,81 +1,40 @@
 [![Coverage Status](https://coveralls.io/repos/github/Bolius/water_comes/badge.svg?branch=master)](https://coveralls.io/github/Bolius/water_comes?branch=master)
 
-## Water widget
+# Water widget
 
-A widget made for the _when the water comes_ campaign.
+A react app made to function as a "widget" for the
+_when the water comes/Når vandet kommer_ campaign.
 
 The design for the app was made in Adobe XD the design can be seen in the
 _design_ folder.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Technical setup
+The repo conforms to the [12 factor principles](https://12factor.net), to
+configure the app copy `.env.example` to `.env.development.local` and fill in
+the values.
 
-In the project directory, you can run:
 
-### `npm start`
+The code is written using React, to get a local setup install node and run
+```bash
+$ npm install
+$ npm start
+```
 
-Runs the app in the development mode.<br>
-Open <http://localhost:3000> to view it in the browser.
+There are both some unit tests using [jest](https://jestjs.io) and end-2-end
+tests using [cypress](https://www.cypress.io). To run the tests execute
+```bash
+$ npm test # Unit/snapshot tests
+$ npx cypress run # E2E tests --- `npm cypress open` shows cypress output
+```
+Remember to run `npm start` before using cypress.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Code structure
+The `src/views` folder contains the general pages of the app which is built
+using the pieces in `src/components`. Non UI code is in the `data-handlers`
+folder.
 
-### `npm test`
+The recommended articles and text for the risks are in the `articles.json` and
+`risk.json` files.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: <https://facebook.github.io/create-react-app/docs/code-splitting>
-
-### Analyzing the Bundle Size
-
-This section has moved here: <https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size>
-
-### Making a Progressive Web App
-
-This section has moved here: <https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app>
-
-### Advanced Configuration
-
-This section has moved here: <https://facebook.github.io/create-react-app/docs/advanced-configuration>
-
-### Deployment
-
-This section has moved here: <https://facebook.github.io/create-react-app/docs/deployment>
-
-### `npm run build` fails to minify
-
-This section has moved here: <https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify>
-
-## Official logo of repo
-
-![Water is coming!](http://i.imgur.com/410ASxr.png)
