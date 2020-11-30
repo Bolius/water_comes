@@ -1,7 +1,7 @@
 import React from "react";
 import { Col } from "reactstrap";
 import Modal from "react-responsive-modal";
-
+import "react-responsive-modal/styles.css";
 export default class DataModal extends React.Component {
   render() {
     return (
