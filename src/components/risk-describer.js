@@ -8,9 +8,12 @@ export default function RiskDescriber(props) {
   const hacky_threat_nr = // Update Css to avoid this
     ["low", "medium", "high"].indexOf(props.threatLevel) + 2;
 
+  // If returning module with default param => use default param
+  const imageUse = ("object" === typeof(image) && "undefined" !== typeof(image.default)) ? image.default : image;  
+
   const riskImage = (
     <div className="water-comes-app-estimate">
-      <img src={image} className="img-fluid" alt="Risiko måler" />
+      <img src={imageUse} className="img-fluid" alt="Risiko måler" />
       <p className={`risc-${hacky_threat_nr}`}>
         {getRiskText(props.threatLevel)}
       </p>
