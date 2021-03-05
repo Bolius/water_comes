@@ -139,3 +139,8 @@ export default function AdressSelect(props) {
     </div>
   );
 }
+
+// Normalt indhol af "water-comes-app-data":
+// Der opstod en fejl under beregningen. Prøv igen ved at genopfriske
+// siden. Virker det ikke, kan fejlen skyldes et teknisk problem hos en
+// af de leverandører, vi henter oplysninger fra.
