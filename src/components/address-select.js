@@ -131,12 +131,16 @@ export default function AdressSelect(props) {
       <Modal open={dataFailed} closeOnEsc onClose={() => setDataFailed(false)}>
         <Col className="water-comes-app-data">
           <p>
-            Der opstod en fejl under beregningen. Prøv igen ved at genopfriske
-            siden. Virker det ikke, kan fejlen skyldes et teknisk problem hos en
-            af de leverandører, vi henter oplysninger fra.
+            Fredag d. 5. marts:<br />
+            Det er desværre ikke muligt at bruge beregneren i øjeblikket, da vi ikke kan få de nødvendige data fra leverandøren.
           </p>
         </Col>
       </Modal>
     </div>
   );
 }
+
+// Normalt indhol af "water-comes-app-data":
+// Der opstod en fejl under beregningen. Prøv igen ved at genopfriske
+// siden. Virker det ikke, kan fejlen skyldes et teknisk problem hos en
+// af de leverandører, vi henter oplysninger fra.
