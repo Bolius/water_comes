@@ -2,24 +2,40 @@
   "hollowing": {
     "description": "Regnvandet søger altid mod det laveste punkt i landskabet. Derfor kan det være et problem, hvis din bolig fx ligger i en lavning, hvor vandet kan samle sig. Bor du omvendt på en bakketop, vil vandet typisk søge nedad og væk fra din bolig.\nKortet nedenfor viser lavninger markeret med blåt i området nær din bolig.",
     "low": "Din bolig ligger ikke i en lavning",
-    "high": "Din bolig ligger i en lavning"
+    "high": "Din bolig ligger i en lavning",
+    "link": {
+      "title": "Tærrenregulering af grunden – bliv klogere her",
+      "url": "https://www.bolius.dk/terraenregulering-af-grunden-18184"
+    }
   },
   "conductivity": {
     "description": "Jordbundsforholdene på grunden er afgørende for den såkaldte hydrauliske ledeevne i dit område. Hvis ledeevnen er dårlig, kan vandet have svært ved at sive ned gennem det øverste jordlag. Det øger risikoen for oversvømmelser af boligen, fordi vandet kan samle sig i store mængder på overfladen. Hvis den hydrauliske ledeevne derimod er god, har regnvandet lettere ved at sive ned i undergrunden og væk fra boligen.",
     "low": "Grundens jordbundsforhold gør det let for vandet at sive ned",
     "medium": "Grundens jordbundsforhold gør det middelsvært for vandet at sive ned",
-    "high": "Grundens jordbundsforhold gør det svært for vandet at sive ned"
+    "high": "Grundens jordbundsforhold gør det svært for vandet at sive ned",
+    "link": {
+      "title": "Sådan undgår du en oversvømmet græsplæne",
+      "url": "https://www.bolius.dk/saadan-undgaar-du-en-oversvoemmet-graesplaene-46740"
+    }
   },
   "fastning": {
     "description": "Hvis den såkaldte befæstelsesgrad er høj – altså hvis en stor del af overfladen er bebygget eller belagt med asfalt, fliser, brosten mv. - kan regnen have svært ved at sive ned i jorden. Særligt når det regner kraftigt. Hvis vandet ikke kan løbe væk hurtigt nok, stiger risikoen for oversvømmelse.\nKortet nedenfor viser, hvordan befæstelsesgraden ser ud i dit område. Hvor den røde farve er kraftigst, er befæstelsesgraden højest.",
     "low": "Dit område er i mindre grad belagt med materialer som fx asfalt, fliser og brosten",
     "medium": "Dit område er i nogen grad belagt med materialer som fx asfalt, fliser og brosten",
-    "high": "Dit område er i høj grad belagt med materialer som fx asfalt, fliser og brosten"
+    "high": "Dit område er i høj grad belagt med materialer som fx asfalt, fliser og brosten",
+    "link": {
+      "title": "Fliser og belægninger som nedsætter risikoen for oversvømmelse",
+      "url": "https://www.bolius.dk/fliser-og-belaegninger-som-nedsaetter-risikoen-for-oversvoemmelse-19743"
+    }
   },
   "basement": {
     "low": "Din bolig har ikke en kælder",
     "high": "Din bolig har en kælder",
-    "description": "En kælder gør boligen meget sårbar for oversvømmelse, når der er skybrud, fordi den ligger under jordoverfladen. Har du omvendt ikke en kælder, falder risikoen for oversvømmelse."
+    "description": "En kælder gør boligen meget sårbar for oversvømmelse, når der er skybrud, fordi den ligger under jordoverfladen. Har du omvendt ikke en kælder, falder risikoen for oversvømmelse.",
+    "link": {
+      "title": "Sådan forebygger du vandskade i kælderen",
+      "url": "https://www.bolius.dk/saadan-forebygger-du-vandskade-i-kaelderen-17887"
+    }
   },
   "rain_other": {
     "title": "Andre væsentlige faktorer ved skybrud",

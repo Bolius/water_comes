@@ -75,10 +75,11 @@ function constructRisks(risks, logClick, props) {
   return ordered_risks.map((threat, i) => (
     <Risk
       key={i}
-      logClick={() => logClick(RiskDB[threat.name][threat.data.risk])}
+      logClick={(title) => logClick(title)}
       threatLevel={threat.data.risk}
       title={RiskDB[threat.name][threat.data.risk]}
       description={RiskDB[threat.name].description}
+      readMore={RiskDB[threat.name].link}
       map={formatImage(threat.data.image)}
       toggleTracker={props.toggleTracker}
     />

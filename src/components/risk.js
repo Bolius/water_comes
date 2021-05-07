@@ -18,7 +18,7 @@ export default function Risk(props) {
   }
 
   const toggleDescription = () => {
-    props.logClick();
+    props.logClick(props.title);
 
     // Use the toggleTracker state instead of using showDescription directly
     props.toggleTracker[props.title] = !props.toggleTracker[props.title];
@@ -37,12 +37,30 @@ export default function Risk(props) {
     </header>
   );
 
+  if(props.readMore && props.threatLevel === "high"){
+    var readMore = (
+      <p className="inline-links-in-article" onClick={() => props.logClick(props.readMore.title)}>
+        <span className="category orange">Læs mere: </span>
+        <a 
+          href={props.readMore.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {props.readMore.title}
+        </a>
+      </p>
+    );
+  }
+  
   const description = (
     <div>
       {renderText(props.description)}
       {renderMap(props.map)}
+      {props.readMore ? readMore : ""}
     </div>
   );
+
+
   return (
     <div className="water-comes-app-risk">
       {header}
