@@ -39,13 +39,14 @@ export default function Risk(props) {
 
   if(props.readMore && props.threatLevel === "high"){
     var readMore = (
+      
       <p className="inline-links-in-article" onClick={() => props.logClick(props.readMore.title)}>
-        <span className="category orange">Læs mere: </span>
         <a 
           href={props.readMore.url}
           target="_blank"
           rel="noopener noreferrer"
         >
+          <span className="category orange">Læs mere: </span>
           {props.readMore.title}
         </a>
       </p>
