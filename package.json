@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "homepage": "https://www.bolius.dk/typo3conf/ext/bolius_embedded/Resources/Public/Apps/WaterComesApp/",
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "@sentry/browser": "^5.27.3",
     "axios": "^0.21.0",
@@ -22,6 +25,7 @@
     "terser-webpack-plugin": "^4.1.0",
     "typescript": "^3.9.7"
   },
+
   "scripts": {
     "build": "react-scripts build",
     "start": "react-scripts start",
