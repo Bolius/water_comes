@@ -10,7 +10,7 @@ jobs:
       REACT_APP_SKIP_INPUT: false
 
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
       - name: Fetch Cypress deps
         run: sudo apt-get install libgtk2.0-0 libgtk-3-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
       - name: Build enviroment
