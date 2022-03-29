@@ -5,7 +5,7 @@
   "homepage": "https://www.bolius.dk/typo3conf/ext/bolius_embedded/Resources/Public/Apps/WaterComesApp/",
   "dependencies": {
     "@sentry/browser": "^5.27.3",
-    "axios": "^0.21.0",
+    "axios": "^0.21.2",
     "bootstrap": "^4.5.2",
     "cypress": "^4.12.1",
     "dawa-autocomplete2": "^1.0.2",
