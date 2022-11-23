@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "start": "react-scripts start",
+    "start": "react-scripts start -openssl-legacy-provider",
     "test": "react-scripts test",
     "coverage": "react-scripts test --coverage --watchAll=false",
     "coveralls": "cat coverage/lcov.info | node_modules/.bin/coveralls",

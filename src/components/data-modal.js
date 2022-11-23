@@ -28,9 +28,9 @@ export default class DataModal extends React.Component {
               <a
                 rel="noopener noreferrer"
                 target="_blank"
-                href="https://bbr.dk/forside"
+                href="https://dawadocs.dataforsyningen.dk/dok/bbr"
               >
-                Bygnings- og Boligregistret (BBR): Oplysninger om kælder
+                 Danmarks Adressers Web API - BBR: Oplysninger om kælder
               </a>
             </li>
             <li>
@@ -55,18 +55,18 @@ export default class DataModal extends React.Component {
               <a
                 rel="noopener noreferrer"
                 target="_blank"
-                href="http://miljoegis.mim.dk/spatialmap?mapheight=741&mapwidth=1020&label=&ignorefavorite=true&profile=miljoegis-klimatilpasningsplaner&selectorgroups=nedboer+gst_dhym_bluespot&layers=theme-gst-dtkskaerm_daempet+theme-gst-bluespot_ekstremregn_0_015+theme-gst-bluespot_ekstremregn_0_030+userpoint+userline+userpolygon+bufferzone+smalluserpointsearch+smalluserlinesearch+smalluserpolygonsearch+smalluserpointfound+smalluserlinefound+smalluserpolygonfound+selectorpoint+selectorline+selectorpolygon+selectorbufferzone+redline-line+redline-point+redline-polygon+redline-circle+spatialanalyze-line+spatialanalyze-point+spatialanalyze-polygon+fr-dl-line+fr-dl-point+fn-dl-line+fn-dl-point&opacities=1+1+0+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1&mapext=190649.22484513494+6001811.908164438+886619.5968245736+6506476.138486475&maprotation="
+                href="https://dataforsyningen.dk/data/2698"
               >
-                MiljøGIS: Lavning
+                Dataforsyningen - DHM/Bluespot: Lavninger
               </a>
             </li>
             <li>
               <a
                 rel="noopener noreferrer"
                 target="_blank"
-                href="http://miljoegis.mim.dk/spatialmap?mapheight=741&mapwidth=1032&label=&ignorefavorite=true&profile=miljoegis-klimatilpasningsplaner&selectorgroups=nedboer+gst_dhym_havvandpaaland&layers=theme-gst-dtkskaerm_daempet+theme-gst-havvandpaaland_2+theme-gst-havvandpaaland_2_1+theme-gst-bluespot_ekstremregn_0_015+theme-gst-bluespot_ekstremregn_0_030+userpoint+userline+userpolygon+bufferzone+smalluserpointsearch+smalluserlinesearch+smalluserpolygonsearch+smalluserpointfound+smalluserlinefound+smalluserpolygonfound+selectorpoint+selectorline+selectorpolygon+selectorbufferzone+redline-line+redline-point+redline-polygon+redline-circle+spatialanalyze-line+spatialanalyze-point+spatialanalyze-polygon+fr-dl-line+fr-dl-point+fn-dl-line+fn-dl-point&opacities=1+1+0+0+0+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1&mapext=186535.11427185748+6001811.908164438+890733.7073978509+6506476.138486475&maprotation="
+                href="https://dataforsyningen.dk/data/2695"
               >
-                MiljøGIS: Stormflod
+                Dataforsyningen - Hydrologisk Højdemodel/Havvand på land: Stormflod
               </a>
             </li>
           </ul>
