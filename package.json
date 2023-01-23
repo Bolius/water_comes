@@ -10,7 +10,7 @@
     "cypress": "^9.5.3",
     "dawa-autocomplete2": "^1.0.2",
     "jquery": "^3.5.1",
-    "npm": "^8.5.5",
+    "npm": "^9.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-responsive-modal": "^6.0.0",
