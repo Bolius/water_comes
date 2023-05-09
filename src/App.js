@@ -1,4 +1,4 @@
-import React from "react";
+import { React } from "react";
 import Main from "./main.js";
 
 function App() {

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import { Row, Col, Input, Form, Button } from "reactstrap";
-import { BeatLoader as Loader } from "react-spinners";
+// import { BeatLoader } from "react-spinners";
 import * as dawaModule from "dawa-autocomplete2";
 import Modal from "react-responsive-modal";
 import getFloodData from "../data-handlers/get-flood-data.js";
@@ -68,12 +68,7 @@ export default function AdressSelect(props) {
         </Col>
       </Modal>
       <div className="loader" style={{ textAlign: "center" }}>
-        <Loader
-          sizeUnit={"px"}
-          size={25}
-          color={"rgb(70, 140, 140)"}
-          loading={true}
-        />
+        
       </div>
     </div>
   ) : (
