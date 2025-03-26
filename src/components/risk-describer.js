@@ -88,7 +88,7 @@ function constructRisks(risks, logClick, props) {
 
 function formatImage(image) {
   if (image !== undefined) {
-    image = image.substring(2, image.length - 1);
+    image = image.substring(2, image.length);
     image = `data:image/png;base64,${image}`;
   }
   return image;
