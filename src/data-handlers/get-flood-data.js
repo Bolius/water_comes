@@ -4,15 +4,13 @@ import trackEvent from "./action-logger.js";
 import axios from "axios";
 export default function getFloodData(bbr_id, callback) {
   let houseData = { failed: true };
-  console.log(bbr_id);
   axios
     .get(
-      "https://exl9ly9iwa.execute-api.eu-central-1.amazonaws.com/Prod/flood-risk?unadr_bbrid=" +
+        "https://api.bolius.dk/users/v3/floodrisk?address_id=" +
         bbr_id
     )
     .then(resp => {
       const data = resp.data;
-      console.log(data);
       houseData = data;
       houseData.text = data.navn;
       trackEvent({
